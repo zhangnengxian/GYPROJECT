@@ -1,0 +1,22 @@
+{
+    "data": [
+        {
+        	"buriedPileNo":"2017001",
+            "soilResistance":"100",
+            "buriedDepth":"1",
+            "wallSpacing":"0.5",
+            "anodeSpacing":"0.3",
+            "workUnit":"",
+            "reocrdDate":"2014-6-26"     
+        },
+         {
+         	"buriedPileNo":"2017002",
+            "soilResistance":"100",
+            "buriedDepth":"2",
+            "wallSpacing":"0.5",
+            "anodeSpacing":"0.3",
+            "workUnit":"",
+            "reocrdDate":"2014-6-26"  
+        }
+    ]
+}

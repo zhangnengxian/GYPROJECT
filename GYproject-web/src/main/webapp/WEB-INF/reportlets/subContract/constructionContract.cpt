@@ -1,0 +1,869 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from sub_contract where SC_ID = '${201710231632325390107103104878}']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,1600200,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,1676400,723900,1257300,723900,1104900,1181100,1219200,1181100,1257300,990600,1143000,1154880,1154880,152400,1154880,1219200,1181100,1154880,1154880,1333500,1257300,1104900,1104900,1143000,1028700,1154880,1154880,1154880,1154880,152400,1154880,1154880,1066800,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1181100,1104900,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1219200,1154880,1676400,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,1154880,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1728000,1728000,1728000,1728000,1728000,1752600,1714500,1524000,1600200,1440000,1333500,1828800,914400,1676400,2324100,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" cs="9" rs="2" s="0">
+<O>
+<![CDATA[安顺市燃气管道施工]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" cs="4" rs="2" s="0">
+<O>
+<![CDATA[合  同]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="34" cs="4" rs="2" s="1">
+<O>
+<![CDATA[燃气用户：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="34" cs="9" rs="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="38" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="38" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="38" cs="4" rs="2" s="4">
+<O>
+<![CDATA[合同编号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="38" cs="9" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="39" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="39" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="51" cs="12" rs="2" s="6">
+<O>
+<![CDATA[贵州燃气集团安顺市燃气有限责任公司]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="56" cs="10" rs="2" s="0">
+<O>
+<![CDATA[燃气管道施工合同]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="60" cs="3" s="7">
+<O>
+<![CDATA[燃气用户：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="60" cs="8" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="60" cs="4" s="7">
+<O>
+<![CDATA[（以下简称：甲方）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="61">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="61">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="61">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="62" cs="3" s="7">
+<O>
+<![CDATA[燃气经营企业：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="62" cs="8" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="62" cs="4" s="7">
+<O>
+<![CDATA[（以下简称：乙方）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="64" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="64" s="10">
+<O>
+<![CDATA[甲方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="64" cs="2" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="64" s="10">
+<O>
+<![CDATA[年在]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="64" cs="9" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="64" s="12">
+<O>
+<![CDATA[进行工]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="65" cs="15" s="10">
+<O>
+<![CDATA[程建设，由于工程建设的需要，需对此范围内燃气管道进行施工。依据《贵州]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="66" cs="15" s="10">
+<O>
+<![CDATA[省燃气管理条例》及《安顺市城市管道燃气特许经营协议》等相关法规的规定]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="67" cs="15" s="10">
+<O>
+<![CDATA[，并遵循安全第一、诚信为本、文明规范、用户至上的原则，将此工程委托给]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="68" cs="15" s="10">
+<O>
+<![CDATA[乙方施工，为保证工程顺利进行，经甲、乙双方共同协商，达成如下条款：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="69" cs="15" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="70" cs="14" s="10">
+<O>
+<![CDATA[一、甲方施工工程范围内的燃气管道进行施工。施工工作由乙方进行，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="71" cs="15" s="10">
+<O>
+<![CDATA[其费用由甲方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="72" cs="3" s="7">
+<O>
+<![CDATA[二、乙方出]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="72" cs="8" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="72" cs="3" s="10">
+<O>
+<![CDATA[，甲方认可。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="74" cs="4" s="7">
+<O>
+<![CDATA[三、施工范围：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="74" cs="10" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="75" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="75" cs="8" s="10">
+<O>
+<![CDATA[四、施工内容：本工程按照甲供工程（]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="75" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="75" cs="4" s="7">
+<O>
+<![CDATA[）、清包工（]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="75" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="76" cs="2" s="7">
+<O>
+<![CDATA[）包干（]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="76" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="76" s="10">
+<O>
+<![CDATA[）以]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="76" s="10">
+<O>
+<![CDATA[及（]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="76" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="76" cs="9" s="10">
+<O>
+<![CDATA[）方式提供建筑服务，乙方负责第三项所述]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="77" cs="3" s="7">
+<O>
+<![CDATA[施工范围内所有]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="77" cs="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="78" cs="14" s="10">
+<O>
+<![CDATA[五、工程造价：安装工程执行的是《贵州省市政工程计价定额》（2004]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="79" cs="15" s="10">
+<O>
+<![CDATA[版）以及《建筑业营业税改征增值税建筑工程计价依据调整实施意见（试行）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="80" cs="14" s="7">
+<O>
+<![CDATA[》，缺项部分执行相应的定额项目。本工程按照甲供工程(]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="80" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="81" cs="2" s="10">
+<O>
+<![CDATA[)清包工(]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="81">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="81" cs="3" s="7">
+<O>
+<![CDATA[)、包干（]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="81" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="81" cs="2" s="10">
+<O>
+<![CDATA[）以及(]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="81" cs="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="81" cs="3" s="10">
+<O>
+<![CDATA[)方式提供建筑]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="82" cs="3" s="10">
+<O>
+<![CDATA[服务，价税合计]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="82" cs="2" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="82" cs="3" s="10">
+<O>
+<![CDATA[元人民币(价]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="82" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="82" cs="3" s="10">
+<O>
+<![CDATA[元，增值税]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="82" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="82" cs="2" s="10">
+<O>
+<![CDATA[元)，本合]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="83" cs="15" s="10">
+<O>
+<![CDATA[同后附价税清单。如遇特殊情况必须进行设计变更，所造成工程造价增加，乙]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="84" cs="15" s="10">
+<O>
+<![CDATA[方根据实际情况，经甲方认可，增加工程款。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="85" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="85" cs="7" s="7">
+<O>
+<![CDATA[六、施工工期和开、竣工日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="85" cs="7" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="86" cs="14" s="10">
+<O>
+<![CDATA[七、在施工过程中的安全问题由事故责任方负责。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="87" cs="14" s="10">
+<O>
+<![CDATA[八、甲方在工程施工合同生效后，根据乙方提供的增值税专用发票、]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="88" s="10">
+<O>
+<![CDATA[收据]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="88" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="88" cs="13" s="10">
+<O>
+<![CDATA[日内一次性付清工程款； 超时应支付滞纳金，每天按欠费金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="90" cs="15" s="10">
+<O>
+<![CDATA[的0.5%计算；如提供的是收据，根据甲方的要求开具发票。 ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="91" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="91" cs="14" s="10">
+<O>
+<![CDATA[九、甲方应提供符合施工要求的现场条件，在施工过程中，甲方配合对]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="92" cs="15" s="10">
+<O>
+<![CDATA[燃气设施采取有效的保护措施，杜绝违章施工，防止安全事故的发生，如有发]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="93" cs="15" s="10">
+<O>
+<![CDATA[生，由甲方承担其责任和费用。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="94" cs="14" s="10">
+<O>
+<![CDATA[十、为保证工程质量，乙方提供的材料、设备必须符合专业标准。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="95" cs="14" s="10">
+<O>
+<![CDATA[十一、工程结算单需注明乙方提供的设备、材料、动力的品种、规格、]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="96" cs="15" s="10">
+<O>
+<![CDATA[数量。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="97" cs="14" s="10">
+<O>
+<![CDATA[十二、该工程在施工期间和建成后的使用中，因乙方原因造成的工程质]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="98" cs="15" s="10">
+<O>
+<![CDATA[量问题、返工等情况的，由乙方承担相应的责任及费用。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="99" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="99" cs="13" s="10">
+<O>
+<![CDATA[十三、违约责任：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="99" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="100" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="100" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="100" cs="13" s="10">
+<O>
+<![CDATA[（1）甲方如违反上述约定，对其所产生的安全事故责任及损失的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="101" cs="14" s="10">
+<O>
+<![CDATA[，应由甲方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="102" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="102" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="102" cs="13" s="10">
+<O>
+<![CDATA[（2）乙方如违反上述约定，对其所产生的安全事故责任及损失的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="103" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="103" cs="14" s="10">
+<O>
+<![CDATA[，应由乙方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="104" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="104" cs="14" s="10">
+<O>
+<![CDATA[十四、争议解决]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="105" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="105" cs="14" s="10">
+<O>
+<![CDATA[ 因签订、履行本合同发生的一切争议，按下列规定的方式解决：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="106" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="106" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="106" cs="13" s="10">
+<O>
+<![CDATA[（1）由争议双方协商解决；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="107" cs="13" s="10">
+<O>
+<![CDATA[（2）调解解决；　]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="108" cs="13" s="10">
+<O>
+<![CDATA[（3）依法向争议地的人民法院诉讼解决。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="109" cs="14" s="14">
+<O>
+<![CDATA[十五、本合同经双方共同签字盖章之日起生效。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="110" cs="13" s="10">
+<O>
+<![CDATA[十六、本合同未尽事宜由双方共同协商解决。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="111" cs="14" s="10">
+<O>
+<![CDATA[十七、本合同一式七份，甲方三份，乙方四份。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="114" cs="2" s="7">
+<O>
+<![CDATA[甲  方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="114" cs="5" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="114" cs="2" s="7">
+<O>
+<![CDATA[乙方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="114" cs="6" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="116" cs="2" s="15">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="116" cs="5" s="16">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="116" cs="2" s="15">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="116" cs="6" s="16">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="118" cs="3" s="7">
+<O>
+<![CDATA[签订日期： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="118" s="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="118" s="12">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="118" s="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="118" s="12">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="118" s="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="118" s="12">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="118" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="6" imageLayout="1">
+<FRFont name="SimSun" style="1" size="160"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="144"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="144"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID TemplateID="524a1972-aece-44bc-9dbb-a1ae1c8636c0"/>
+</WorkBook>

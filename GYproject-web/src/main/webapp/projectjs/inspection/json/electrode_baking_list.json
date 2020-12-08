@@ -1,0 +1,45 @@
+{
+    "data": [
+        {
+            "electrodeNo": "121228",
+            "bakingEquipment": "烘烤01号设备",
+            "holdingEquipment": "保温箱01号设备",
+            "bakingTemperature": "300",
+            "bakingTime": "15",
+            "holdingTemperature": "100",
+            "holdingTime": "6",
+            "bakingRecordor": "张晨",
+            "recordorSign": "张晨",
+            "recordorSignDate": "2017-01-05",
+            "checkerSign": "李哲",
+            "checkerSignDate": "2017-01-27"
+        },
+        {
+            "electrodeNo": "121228",
+            "bakingEquipment": "烘烤01号设备",
+            "holdingEquipment": "保温箱01号设备",
+            "bakingTemperature": "300",
+            "bakingTime": "15",
+            "holdingTemperature": "100",
+            "holdingTime": "6",
+            "bakingRecordor": "张晨",
+            "recordorSign": "张晨",
+            "recordorSignDate": "2017-01-05",
+            "checkerSign": "李哲",
+            "checkerSignDate": "2017-01-27"
+        },{
+            "electrodeNo": "121228",
+            "bakingEquipment": "烘烤01号设备",
+            "holdingEquipment": "保温箱01号设备",
+            "bakingTemperature": "300",
+            "bakingTime": "15",
+            "holdingTemperature": "100",
+            "holdingTime": "6",
+            "bakingRecordor": "张晨",
+            "recordorSign": "张晨",
+            "recordorSignDate": "2017-01-05",
+            "checkerSign": "李哲",
+            "checkerSignDate": "2017-01-27"
+        }
+    ]
+}

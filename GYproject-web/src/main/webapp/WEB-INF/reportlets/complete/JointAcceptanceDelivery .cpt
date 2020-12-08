@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1600200,1143000,1028700,723900,723900,1371600,800100,1371600,800100,1371600,800100,1371600,800100,1333500,800100,1181100,800100,1371600,800100,1371600,800100,1219200,800100,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,1728000,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+</C>
+<C c="2" r="0" cs="10" s="0">
+<O>
+<![CDATA[贵安公司公建民用工程联合验收交付意见书]]></O>
+<PrivilegeControl/>
+</C>
+<C c="0" r="1" cs="2" rs="2" s="1">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" cs="5" rs="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="1" cs="2" s="1">
+<O>
+<![CDATA[地点]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="1" cs="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" cs="2" s="1">
+<O>
+<![CDATA[合同号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" cs="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" cs="2" rs="2" s="1">
+<O>
+<![CDATA[施工单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="3" cs="5" rs="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" cs="2" rs="2" s="1">
+<O>
+<![CDATA[验收日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="3" cs="5" rs="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="5" cs="2" rs="2" s="1">
+<O>
+<![CDATA[设计公司]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="6" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="6" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="6" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="6" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="7" cs="2" rs="2" s="1">
+<O>
+<![CDATA[监理公司]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="8" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="8" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="8" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="8" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" cs="2" rs="2" s="1">
+<O>
+<![CDATA[施工单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="9" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="9" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="10" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="10" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="10" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="10" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="11" cs="2" rs="2" s="1">
+<O>
+<![CDATA[质安部]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="11" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="12" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="12" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="12" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="12" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="12" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="13" rs="4" s="8">
+<O>
+<![CDATA[输配中心]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" cs="2" rs="2" s="1">
+<O>
+<![CDATA[巡线调压班]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="13" cs="2" s="9">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="13" cs="9" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="14" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="14" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="14" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="14" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="14" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="15" cs="2" rs="2" s="12">
+<O>
+<![CDATA[  输配中心  综合意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="15" cs="2" s="13">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="15" cs="9" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="16" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="16" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="16" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="16" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="16" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="16" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="16" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="17" cs="2" rs="2" s="1">
+<O>
+<![CDATA[客服服务部]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="17" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="17" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="18" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="18" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="18" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="18" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="19" cs="2" rs="2" s="1">
+<O>
+<![CDATA[工程技术部]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="19" cs="2" s="3">
+<O>
+<![CDATA[验收意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="19" cs="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="20" cs="2" s="6">
+<O>
+<![CDATA[验收人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="20" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="20" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="20" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="21" cs="2" rs="2" s="1">
+<O>
+<![CDATA[验收情况]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="21" cs="12" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="22" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="22" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="22" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="22" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="22" cs="2" s="6">
+<O>
+<![CDATA[总工程师：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="22" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="22" s="5">
+<O>
+<![CDATA[年]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="22" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="22" s="5">
+<O>
+<![CDATA[月]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="22" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="22" s="7">
+<O>
+<![CDATA[日]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="23" cs="2" rs="2" s="1">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="23" cs="12" rs="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="25" cs="14" rs="2" s="14">
+<O>
+<![CDATA[本验收单由各验收人签署合格意见后方为本工程验收合格，如果有整改项，验收人可以不签字，说明理由，由工程技术部向施工单位下达书面整改要求，整改合格后由该验收人确认后再到工程技术部签字确认。]]></O>
+<PrivilegeControl/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" isVerticalText="1" textDirection="1" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="1" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top color="-16777216"/>
+<Bottom color="-16777216"/>
+<Left color="-16777216"/>
+<Right color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID TemplateID="c5b6282c-c2dc-455a-a46d-1d34b7b999e7"/>
+</WorkBook>

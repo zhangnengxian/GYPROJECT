@@ -1,0 +1,9 @@
+{"data":[
+{"sdrId":"201701010101","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"0","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序1"},
+{"sdrId":"201701010102","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"0","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序2"},
+{"sdrId":"201701010103","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"0","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序3"},
+{"sdrId":"201701010104","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"1","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序4"},
+{"sdrId":"201701010105","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"1","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序5"},
+{"sdrId":"201701010106","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"1","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序6"},
+{"sdrId":"201701010107","sdrNo":"R-2017010101","sdrDate":"2017-01-01","sdrType":"1","projNo":"T-2017010101","projName":"贵燃工程1","sdrStep":"工序7"}
+]}

@@ -1,0 +1,1081 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.PROJ_LTYPE_ID 大类,
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+	SCALE_DETAIL s
+LEFT JOIN CONSTRUCTION_PLAN c ON c.PROJ_ID = s.PROJ_ID
+LEFT JOIN PROJECT p ON p.PROJ_ID = c.PROJ_ID
+WHERE
+TO_CHAR (p.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY') 
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 本月项数,
+s.PROJ_STYPE_DES 细类
+	FROM
+CONSTRUCTION_PLAN c
+	LEFT JOIN SCALE_DETAIL s ON c.proj_id = s.proj_id
+	LEFT JOIN PROJECT P ON P.PROJ_ID = s.PROJ_ID
+WHERE
+	TO_CHAR (c.CP_ARRIVE_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')
+	and 
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+s.PROJ_STYPE_DES 细类
+	FROM
+CONSTRUCTION_PLAN c
+	LEFT JOIN SCALE_DETAIL s ON c.proj_id = s.proj_id
+	LEFT JOIN project p ON s.proj_id = p.proj_id
+WHERE
+	TO_CHAR (p.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.PROJ_LTYPE_ID 大类,
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+	SCALE_DETAIL s
+LEFT JOIN CONSTRUCTION_PLAN c ON c.PROJ_ID = s.PROJ_ID
+LEFT JOIN PROJECT P ON P.PROJ_ID = c.PROJ_ID
+WHERE
+	TO_CHAR (c.CP_ARRIVE_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')
+and
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="joint_acceptance1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 本月项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN PROJECT P ON P .PROJ_ID = j.PROJ_ID
+LEFT JOIN SCALE_DETAIL s ON j.proj_id = s.proj_id
+WHERE
+	TO_CHAR (j.JA_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')	
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="joint_acceptance2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN PROJECT P ON P .PROJ_ID = j.PROJ_ID
+LEFT JOIN SCALE_DETAIL s ON j.proj_id = s.proj_id
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="joint_acceptance3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.PROJ_LTYPE_ID 大类,
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 本月累计
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = j.PROJ_ID
+LEFT JOIN PROJECT P ON P.PROJ_ID = s.PROJ_ID
+WHERE
+	TO_CHAR (j.JA_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="joint_acceptance4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.PROJ_LTYPE_ID 大类,
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = j.PROJ_ID
+LEFT JOIN PROJECT P ON P.PROJ_ID = s.PROJ_ID
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="zjgc1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	PROJECT P
+LEFT JOIN SCALE_DETAIL s ON P .proj_id = s.proj_id
+WHERE
+	P .PROJ_STATUS_ID = '1019'
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="zjgc2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.PROJ_LTYPE_ID 大类,
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+PROJECT p 
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = p.PROJ_ID
+WHERE
+	P .PROJ_STATUS_ID = '1019'
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE, 'YYYY')
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="zjnf" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select to_char(sysdate,'YYYY')||'年新建工程' from dual]]></Query>
+</TableData>
+<TableData name="去年年份" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select to_char(SYSDATE - INTERVAL '1' YEAR,'YYYY')||'年度遗留工程' from dual]]></Query>
+</TableData>
+<TableData name="类别" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.proj_ltype_id 大类,
+	s.proj_stype_des 细类
+
+FROM
+	SCALE_DETAIL s
+GROUP BY
+	s.proj_stype_des,
+	s.proj_ltype_id
+order by
+	s.proj_ltype_id]]></Query>
+</TableData>
+<TableData name="去年结转1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	PROJECT P
+LEFT JOIN SCALE_DETAIL s ON P .proj_id = s.proj_id
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="去年结转2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+PROJECT p 
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = p.PROJ_ID
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.proj_stype_des,
+	s.PROJ_LTYPE_ID
+ORDER BY
+	s.PROJ_LTYPE_ID]]></Query>
+</TableData>
+<TableData name="去年项目验收1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 本月项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN PROJECT P ON P .PROJ_ID = j.PROJ_ID
+LEFT JOIN SCALE_DETAIL s ON j.proj_id = s.proj_id
+WHERE
+	TO_CHAR (j.JA_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')	
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="去年项目验收2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN PROJECT P ON P .PROJ_ID = j.PROJ_ID
+LEFT JOIN SCALE_DETAIL s ON j.proj_id = s.proj_id
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="去年项目验收3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 本月累计
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = j.PROJ_ID
+LEFT JOIN PROJECT P ON P.PROJ_ID = s.PROJ_ID
+WHERE
+	TO_CHAR (j.JA_DATE, 'yyyy-mm') = TO_CHAR (SYSDATE, 'yyyy-mm')
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.proj_stype_des]]></Query>
+</TableData>
+<TableData name="去年项目验收4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+	JOINT_ACCEPTANCE j
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = j.PROJ_ID
+LEFT JOIN PROJECT P ON P.PROJ_ID = s.PROJ_ID
+WHERE
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.proj_stype_des]]></Query>
+</TableData>
+<TableData name="去年项目在建工程1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	COUNT (*) 累计项数,
+	s.PROJ_STYPE_DES 细类
+FROM
+	PROJECT P
+LEFT JOIN SCALE_DETAIL s ON P .proj_id = s.proj_id
+WHERE
+	P .PROJ_STATUS_ID = '1019'
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.PROJ_STYPE_DES]]></Query>
+</TableData>
+<TableData name="去年项目在建工程2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	s.proj_stype_des 细类,
+	SUM (
+		NVL (s.house_num, 0) + NVL (s.sear_num, 0) + NVL (s.num, 0) + NVL (s.TONNAGE, 0)
+	) AS 累计
+FROM
+PROJECT p 
+LEFT JOIN SCALE_DETAIL s ON s.PROJ_ID = p.PROJ_ID
+WHERE
+	P .PROJ_STATUS_ID = '1019'
+AND
+	TO_CHAR (P.ACCEPT_DATE, 'YYYY') = TO_CHAR (SYSDATE - INTERVAL '1' YEAR,'YYYY')
+GROUP BY
+	s.proj_stype_des]]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings orientation="1" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.8661417322834646" left="0.7086614173228347" bottom="0.8661417322834646" right="0.7086614173228347" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36,24,36,24,24,24,24,24,24,19,19,19,19,19,36,24,24,24,24,24,4,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[2,48,40,77,73,56,101,94,58,54,96,105,60,101,5,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="13" s="0"><O><![CDATA[安全生产处月报]]></O>
+</C>
+<C c="14" r="0"></C>
+<C c="1" r="1" cs="2" s="1"><O><![CDATA[填报单位：]]></O>
+</C>
+<C c="3" r="1" cs="2" s="1"><O><![CDATA[工程公司]]></O>
+</C>
+<C c="5" r="1" s="1"></C>
+<C c="6" r="1" s="1"></C>
+<C c="7" r="1" s="1"></C>
+<C c="8" r="1" s="1"></C>
+<C c="9" r="1" s="1"></C>
+<C c="10" r="1" s="1"></C>
+<C c="11" r="1" s="1"></C>
+<C c="12" r="1" cs="2" s="2"><O><![CDATA[表号：GC-701]]></O>
+</C>
+<C c="14" r="1"></C>
+<C c="0" r="2" s="3"></C>
+<C c="1" r="2" cs="3" s="4"><O t="DSColumn"><Attributes dsName="去年年份" columnName="TO_CHAR(SYSDATE-INTERVAL&apos;1&apos;YEAR,&apos;YYYY&apos;)||&apos;年度遗留工程&apos;" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="2" cs="4" s="5"><O><![CDATA[上年结转工程]]></O>
+</C>
+<C c="8" r="2" cs="4" s="5"><O><![CDATA[联合验收工程]]></O>
+</C>
+<C c="12" r="2" cs="2" s="6"><O><![CDATA[在建工程]]></O>
+</C>
+<C c="0" r="3" s="3"></C>
+<C c="1" r="3" cs="3" rs="2" s="7"><O><![CDATA[工程类别]]></O>
+</C>
+<C c="4" r="3" cs="2" s="8"><O><![CDATA[累计]]></O>
+</C>
+<C c="6" r="3" cs="2" s="8"><O><![CDATA[累计规模]]></O>
+</C>
+<C c="8" r="3" s="8"><O><![CDATA[本月]]></O>
+</C>
+<C c="9" r="3" s="8"><O><![CDATA[累计]]></O>
+</C>
+<C c="10" r="3" s="8"><O><![CDATA[本月规模]]></O>
+</C>
+<C c="11" r="3" s="8"><O><![CDATA[累计规模]]></O>
+</C>
+<C c="12" r="3" rs="2" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="13" r="3" s="9"><O><![CDATA[规模]]></O>
+</C>
+<C c="0" r="4" s="3"></C>
+<C c="4" r="4" cs="2" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="6" r="4" cs="2" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="8" r="4" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="9" r="4" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="10" r="4" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="11" r="4" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="13" r="4" s="9"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="0" r="5" s="3"></C>
+<C c="1" r="5" rs="2" s="10"><O t="DSColumn"><Attributes dsName="类别" columnName="大类" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<HighlightList><Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[12]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[公用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[车用]]></O>
+</HighlightAction>
+</Highlight>
+</HighlightList><Expand dir="0" />
+</C>
+<C c="2" r="5" cs="2" s="11"><O t="DSColumn"><Attributes dsName="类别" columnName="细类" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="5" cs="2" s="12"><O t="DSColumn"><Attributes dsName="去年结转1" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="5" cs="2" s="12"><O t="DSColumn"><Attributes dsName="去年结转2" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="5" s="12"><O t="DSColumn"><Attributes dsName="去年项目验收1" columnName="本月项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="5" s="12"><O t="DSColumn"><Attributes dsName="去年项目验收2" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="10" r="5" s="12"><O t="DSColumn"><Attributes dsName="去年项目验收3" columnName="本月累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="5" s="12"><O t="DSColumn"><Attributes dsName="去年项目验收4" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="12" r="5" s="12"><O t="DSColumn"><Attributes dsName="去年项目在建工程1" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="13" r="5" s="13"><O t="DSColumn"><Attributes dsName="去年项目在建工程2" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="6" s="3"></C>
+<C c="2" r="6" cs="2" s="11"><O><![CDATA[合计]]></O>
+</C>
+<C c="4" r="6" cs="2" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(E6)]]></Attributes></O>
+</C>
+<C c="6" r="6" cs="2" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(G6)]]></Attributes></O>
+</C>
+<C c="8" r="6" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=SUM(I6)]]></Attributes></O>
+</C>
+<C c="9" r="6" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(J6)]]></Attributes></O>
+</C>
+<C c="10" r="6" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(K6)]]></Attributes></O>
+</C>
+<C c="11" r="6" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(L6)]]></Attributes></O>
+</C>
+<C c="12" r="6" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(M6)]]></Attributes></O>
+</C>
+<C c="13" r="6" s="13"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(N6)]]></Attributes></O>
+</C>
+<C c="0" r="7" s="3"></C>
+<C c="1" r="7" cs="3" s="14"><O><![CDATA[合计]]></O>
+</C>
+<C c="4" r="7" cs="2" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(E6)]]></Attributes></O>
+</C>
+<C c="6" r="7" cs="2" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(G6)]]></Attributes></O>
+</C>
+<C c="8" r="7" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=SUM(I6)]]></Attributes></O>
+</C>
+<C c="9" r="7" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(J6)]]></Attributes></O>
+</C>
+<C c="10" r="7" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(K6)]]></Attributes></O>
+</C>
+<C c="11" r="7" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(L6)]]></Attributes></O>
+</C>
+<C c="12" r="7" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(M6)]]></Attributes></O>
+</C>
+<C c="13" r="7" s="16"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(N6)]]></Attributes></O>
+</C>
+<C c="1" r="8" s="1"></C>
+<C c="2" r="8" s="1"></C>
+<C c="3" r="8" s="1"></C>
+<C c="4" r="8" s="1"></C>
+<C c="5" r="8" s="1"></C>
+<C c="6" r="8" s="1"></C>
+<C c="7" r="8" s="1"></C>
+<C c="8" r="8" s="1"></C>
+<C c="9" r="8" s="1"></C>
+<C c="10" r="8" s="1"></C>
+<C c="11" r="8" s="1"></C>
+<C c="12" r="8" s="1"></C>
+<C c="13" r="8" s="1"></C>
+<C c="1" r="14" cs="3" s="4"><O t="DSColumn"><Attributes dsName="zjnf" columnName="TO_CHAR(SYSDATE,&apos;YYYY&apos;)||&apos;年新建工程&apos;" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="14" cs="4" s="5"><O><![CDATA[施工计划下达]]></O>
+</C>
+<C c="8" r="14" cs="4" s="5"><O><![CDATA[联合验收工程]]></O>
+</C>
+<C c="12" r="14" cs="2" s="6"><O><![CDATA[在建工程]]></O>
+</C>
+<C c="14" r="14" s="17"></C>
+<C c="1" r="15" cs="3" rs="2" s="7"><O><![CDATA[工程类别]]></O>
+</C>
+<C c="4" r="15" s="8"><O><![CDATA[本月下达]]></O>
+</C>
+<C c="5" r="15" s="8"><O><![CDATA[累计]]></O>
+</C>
+<C c="6" r="15" s="8"><O><![CDATA[本月规模]]></O>
+</C>
+<C c="7" r="15" s="8"><O><![CDATA[累计规模]]></O>
+</C>
+<C c="8" r="15" s="8"><O><![CDATA[本月]]></O>
+</C>
+<C c="9" r="15" s="8"><O><![CDATA[累计]]></O>
+</C>
+<C c="10" r="15" s="8"><O><![CDATA[本月规模]]></O>
+</C>
+<C c="11" r="15" s="8"><O><![CDATA[累计规模]]></O>
+</C>
+<C c="12" r="15" rs="2" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="13" r="15" s="9"><O><![CDATA[规模]]></O>
+</C>
+<C c="14" r="15" s="17"></C>
+<C c="4" r="16" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="5" r="16" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="6" r="16" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="7" r="16" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="8" r="16" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="9" r="16" s="8"><O><![CDATA[项数]]></O>
+</C>
+<C c="10" r="16" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="11" r="16" s="8"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="13" r="16" s="9"><O><![CDATA[户/座/台]]></O>
+</C>
+<C c="14" r="16" s="17"></C>
+<C c="1" r="17" rs="2" s="10"><O t="DSColumn"><Attributes dsName="类别" columnName="大类" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<HighlightList><Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[车用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[12]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[公用]]></O>
+</HighlightAction>
+</Highlight>
+</HighlightList><Expand dir="0" />
+</C>
+<C c="2" r="17" cs="2" s="11"><O t="DSColumn"><Attributes dsName="类别" columnName="细类" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="17" s="12"><O t="DSColumn"><Attributes dsName="ds2" columnName="本月项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="17" s="12"><O t="DSColumn"><Attributes dsName="ds3" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="17" s="12"><O t="DSColumn"><Attributes dsName="ds4" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="7" r="17" s="12"><O t="DSColumn"><Attributes dsName="ds1" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="8" r="17" s="12"><O t="DSColumn"><Attributes dsName="joint_acceptance1" columnName="本月项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="9" r="17" s="12"><O t="DSColumn"><Attributes dsName="joint_acceptance2" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="10" r="17" s="12"><O t="DSColumn"><Attributes dsName="joint_acceptance3" columnName="本月累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="11" r="17" s="12"><O t="DSColumn"><Attributes dsName="joint_acceptance4" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="12" r="17" s="12"><O t="DSColumn"><Attributes dsName="zjgc1" columnName="累计项数" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="13" r="17" s="13"><O t="DSColumn"><Attributes dsName="zjgc2" columnName="累计" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[细类]]></CNAME><Compare op="0">
+<AnDSColumn dsName="类别" columnName="细类" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="14" r="17" s="17"></C>
+<C c="2" r="18" cs="2" s="11"><O><![CDATA[合计]]></O>
+</C>
+<C c="4" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(E18)]]></Attributes></O>
+</C>
+<C c="5" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(F18)]]></Attributes></O>
+</C>
+<C c="6" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(G18)]]></Attributes></O>
+</C>
+<C c="7" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(H18)]]></Attributes></O>
+</C>
+<C c="8" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(I18)]]></Attributes></O>
+</C>
+<C c="9" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(J18)]]></Attributes></O>
+</C>
+<C c="10" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(K18)]]></Attributes></O>
+</C>
+<C c="11" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(L18)]]></Attributes></O>
+</C>
+<C c="12" r="18" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(M18)]]></Attributes></O>
+</C>
+<C c="13" r="18" s="13"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(N18)]]></Attributes></O>
+</C>
+<C c="14" r="18" s="17"></C>
+<C c="1" r="19" cs="3" s="14"><O><![CDATA[合计]]></O>
+</C>
+<C c="4" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(E18)]]></Attributes></O>
+</C>
+<C c="5" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(F18)]]></Attributes></O>
+</C>
+<C c="6" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(G18)]]></Attributes></O>
+</C>
+<C c="7" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(H18)]]></Attributes></O>
+</C>
+<C c="8" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(I18)]]></Attributes></O>
+</C>
+<C c="9" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(J18)]]></Attributes></O>
+</C>
+<C c="10" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(K18)]]></Attributes></O>
+</C>
+<C c="11" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(L18)]]></Attributes></O>
+</C>
+<C c="12" r="19" s="15"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(M18)]]></Attributes></O>
+</C>
+<C c="13" r="19" s="16"><O t="Formula" class="Formula"><Attributes><![CDATA[=sum(N18)]]></Attributes></O>
+</C>
+<C c="14" r="19" s="17"></C>
+<C c="2" r="20" s="18"></C>
+<C c="3" r="20" s="18"></C>
+<C c="4" r="20" s="18"></C>
+<C c="5" r="20" s="18"></C>
+<C c="6" r="20" s="18"></C>
+<C c="7" r="20" s="18"></C>
+<C c="8" r="20" s="18"></C>
+<C c="9" r="20" s="18"></C>
+<C c="10" r="20" s="18"></C>
+<C c="11" r="20" s="18"></C>
+<C c="12" r="20" s="18"></C>
+<C c="13" r="20" s="18"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="15" paddingRight="15">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,17 @@
+{
+    "data": [
+        {
+            "weldingJointNo": "F1-F4",
+            "crackle": "有",
+            "stoma": "无",
+            "slag": "无",
+            "fusionSplash": "无",
+            "undercut": "无",
+            "wrongSide": "无",
+            "surfaceDepression": "无",
+            "conclusion": "不合格",
+            "weldingStaffAuditDate": "2017-01-01",
+            "weldingStaff": "admin"
+        }
+    ]
+}

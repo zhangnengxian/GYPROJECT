@@ -1,0 +1,15 @@
+{
+    "data": [
+        {
+            "pipeNo": "2017010101",
+            "pileNo": "1",
+            "topElevation": "1",
+            "soilThick": "1",
+            "isDamage": "1",
+            "damageNum": "20",
+            "damageArea": "10",
+            "repairNum": "10",
+            "repairArea": "2"
+        }
+    ]
+}

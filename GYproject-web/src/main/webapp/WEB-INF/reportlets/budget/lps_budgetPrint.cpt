@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170715" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	s.PROJ_NO 工程编号,
+	s.PROJ_NAME 工程名称,
+	s.TOTAL_QUOTA 审核定额总造价,
+	s.TOTAL_COST 审核清单总造价,
+	s.MAIN_MATERIAL_AMOUNT 审核定额主材费,
+	s.MAIN_MATERIAL_AMOUNT_LIST 审核清单主材费,
+	s.MAIN_MATERIAL_AMOUNT_LIST_AUDIT 清单主材费,
+	s.TOTAL_COST_AUDIT 清单总造价,
+	s.TOTAL_QUOTA_AUDIT 定额总造价,
+	s.MAIN_MATERIAL_AMOUNT_AUDIT 定额主材费,
+	c.SC_NO 施工合同编号,
+	p.CORP_NAME 分公司,
+	p.proj_scale_des 工程规模,
+	s.CU_NAME 施工单位,
+	d.DESIGN_DRAWING_NO 施工图号,
+	s.COST_TYPE 计价类型,
+	DATE_FORMAT(s.SB_DATE,'%Y-%m-%d') 编制日期
+FROM
+	sub_budget s
+LEFT JOIN project p ON s.proj_id = p.proj_id
+LEFT JOIN sub_contract c ON s.PROJ_ID = c.PROJ_ID
+LEFT JOIN design_info d ON s.PROJ_ID = d.PROJ_ID
+
+where s.sb_id = '${sbId}']]></Query>
+</TableData>
+<TableData name="初审一级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement1' and  mr.MR_AUDIT_LEVEL='1' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}' limit 1]]></Query>
+</TableData>
+<TableData name="施工预算审核一级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='suPrincipal1' and  mr.MR_AUDIT_LEVEL='1' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}']]></Query>
+</TableData>
+<TableData name="施工预算审核二级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='suPrincipal2' and  mr.MR_AUDIT_LEVEL='2' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}']]></Query>
+</TableData>
+<TableData name="施工预算审核三级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='suPrincipal3' and  mr.MR_AUDIT_LEVEL='3' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}']]></Query>
+</TableData>
+<TableData name="施工单位预算" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT IMG_URL, FIELD_NAME FROM signature WHERE BUSINESS_ORDER_ID='${sbId}']]></Query>
+</TableData>
+<TableData name="初审二级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement2' and  mr.MR_AUDIT_LEVEL='2' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}' limit 1]]></Query>
+</TableData>
+<TableData name="初审三级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement2' and  mr.MR_AUDIT_LEVEL='2' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}' limit 1]]></Query>
+</TableData>
+<TableData name="初审四级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="sbId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement4' and  mr.MR_AUDIT_LEVEL='4' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${sbId}']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1524000,2247900,1728000,1728000,1728000,723900,1728000,2160000,2160000,2160000,2160000,2160000,1638300,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[5219700,2743200,2743200,2209800,5295900,5257800,4838700,3352800,1562100,838200,3886200,1676400,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="11" s="0">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="施工单位"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="11" s="1">
+<O>
+<![CDATA[工程(预)算书]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="2">
+<O>
+<![CDATA[工程名称:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" cs="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="2" s="2">
+<O>
+<![CDATA[工程施工费:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="计价类型"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[if(计价类型==1,清单总造价,定额总造价)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="2" s="5">
+<O>
+<![CDATA[元 ]]></O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="2">
+<O>
+<![CDATA[工程量：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="3" cs="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程规模"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="2">
+<O>
+<![CDATA[审定施工费:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="3" cs="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="计价类型"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[if(计价类型==1,审核清单总造价,审核定额总造价)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3" s="5">
+<O>
+<![CDATA[元 ]]></O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" s="2">
+<O>
+<![CDATA[任务单号:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" cs="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程编号"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="4" cs="5" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="4" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" s="2">
+<O>
+<![CDATA[建设单位:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="6" cs="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="分公司"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="6" s="2">
+<O>
+<![CDATA[施工单位:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="6" cs="5" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="施工单位"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="6" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="7" s="2">
+<O>
+<![CDATA[现场代表:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" cs="4" s="9">
+<O t="DSColumn">
+<Attributes dsName="初审一级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="7" s="2">
+<O>
+<![CDATA[编制人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" cs="5" s="9">
+<O t="DSColumn">
+<Attributes dsName="施工单位预算" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[FIELD_NAME]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[compilerSign]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="11" r="7" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="8" s="2">
+<O>
+<![CDATA[部门负责人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="8" cs="4" s="9">
+<O t="DSColumn">
+<Attributes dsName="初审三级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="8" s="2">
+<O>
+<![CDATA[审核人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="8" cs="5" s="9">
+<O t="DSColumn">
+<Attributes dsName="施工单位预算" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[FIELD_NAME]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[cuPrincipal]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="11" r="8" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" cs="2" s="2">
+<O>
+<![CDATA[预算员:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="9" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="施工预算审核一级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="9">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="10" cs="2" s="2">
+<O>
+<![CDATA[审核人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="10" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="施工预算审核二级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="10" s="8">
+<PrivilegeControl/>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="6" r="10" s="8">
+<PrivilegeControl/>
+<Expand leftParentDefault="false"/>
+</C>
+<C c="7" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="10" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="11" cs="2" s="2">
+<O>
+<![CDATA[负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" cs="3" s="10">
+<O t="DSColumn">
+<Attributes dsName="施工预算审核三级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="12" s="8">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="12" s="11">
+<O>
+<![CDATA[编制日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="12" cs="5" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="编制日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="12" s="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<Margin top="987552" left="1439999" bottom="987552" right="1439999"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="204"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="宋体" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="4">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="4">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

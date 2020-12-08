@@ -1,0 +1,8450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	c.*, pt.PAY_TYPE_MODE 付款次数,
+	pt.PAY_TYPE_DES 付款方式
+FROM
+	contract c
+LEFT JOIN pay_type pt ON c.PAY_TYPE = pt.PT_ID
+WHERE
+	c.CON_ID = '${conId}']]></Query>
+</TableData>
+<TableData name="一级审核" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement1' and  mr.MR_AUDIT_LEVEL='1' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${conId}' limit 1]]></Query>
+</TableData>
+<TableData name="二级审核" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement2' and  mr.MR_AUDIT_LEVEL='2' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${conId}' limit 1]]></Query>
+</TableData>
+<TableData name="审核三级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement3' and  mr.MR_AUDIT_LEVEL='3' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${conId}' limit 1]]></Query>
+</TableData>
+<TableData name="四级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement4' and  mr.MR_AUDIT_LEVEL='4' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${conId}' limit 1]]></Query>
+</TableData>
+<TableData name="五级" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement5' and  mr.MR_AUDIT_LEVEL='5' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${conId}' limit 1]]></Query>
+</TableData>
+<TableData name="一级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from manage_record where proj_id='${projId}' and step_id='1403' and FLAG is null and MR_AUDIT_LEVEL='1']]></Query>
+</TableData>
+<TableData name="二级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from manage_record where proj_id='${projId}' and step_id='1403' and FLAG is null and MR_AUDIT_LEVEL='2']]></Query>
+</TableData>
+<TableData name="三级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from manage_record where proj_id='${projId}' and step_id='1403' and FLAG is null and MR_AUDIT_LEVEL='3']]></Query>
+</TableData>
+<TableData name="四级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from manage_record where proj_id='${projId}' and step_id='1403' and FLAG is null and MR_AUDIT_LEVEL='4']]></Query>
+</TableData>
+<TableData name="五级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from manage_record where proj_id='${projId}' and step_id='1403' and FLAG is null and MR_AUDIT_LEVEL='5']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[723900,723900,723900,1066800,792480,1296000,1296000,1296000,1296000,1158240,1127760,944880,1584000,1066800,1127760,944880,1066800,1158240,2225040,723900,2225040,723900,2225040,723900,2225040,723900,2225040,723900,2225040,723900,723900,1036320,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,1143000,723900,1066800,723900,1066800,723900,723900,723900,647700,1143000,1409700,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,1714500,723900,952500,1028700,723900,723900,9410700,1219200,3505200,1485900,952500,1066800,1158240,1066800,1524000,1066800,1219200,1219200,1333500,1219200,1066800,228600,0,1066800,1066800,342900,1409700,1143000,952500,1104900,1104900,952500,1028700,990600,952500,1028700,952500,990600,990600,838200,952500,1028700,1028700,990600,1409700,1104900,2628900,1295400,3886200,1371600,1066800,990600,1066800,1028700,1104900,914400,914400,952500,1028700,2590800,838200,1371600,990600,1028700,419100,838200,838200,3733800,990600,1104900,1143000,1219200,1181100,1143000,1181100,1143000,1143000,1104900,1104900,1143000,1066800,1181100,1295400,952500,952500,1257300,1181100,1181100,1066800,1066800,1295400,1257300,1219200,990600,1181100,1028700,304800,914400,1104900,1104900,2590800,1219200,1219200,1181100,3581400,1676400,1181100,1181100,1104900,1066800,1181100,1219200,1066800,1257300,1181100,1066800,1143000,1257300,952500,1104900,304800,723900,838200,1028700,990600,1143000,1143000,1943100,914400,1104900,1219200,1028700,990600,952500,1028700,266700,1158240,1028700,723900,723900,914400,1028700,1257300,1447800,1295400,1409700,1257300,1447800,2019300,723900,723900,723900,838200,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1524000,1371600,1676400,1371600,2377440,1562100,1600200,1562100,1600200,1562100,1600200,1676400,1562100,1676400,2324100,228600,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" cs="15" s="0">
+<O>
+<![CDATA[合 同 评 审 表 2019]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" cs="15" s="1">
+<O>
+<![CDATA[（ASRQ/JL-050B）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="5" cs="3" s="2">
+<O>
+<![CDATA[合同名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="5" cs="12" s="3">
+<O>
+<![CDATA[安顺市居民用户管道燃气设施安装合同]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" cs="3" s="2">
+<O>
+<![CDATA[合同拟稿部门]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="6" cs="7" s="3">
+<O>
+<![CDATA[市场发展部]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="6" cs="2" s="2">
+<O>
+<![CDATA[承办人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="6" cs="3" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_AGENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" cs="3" s="2">
+<O>
+<![CDATA[欲签合同方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" cs="7" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="7" cs="2" s="2">
+<O>
+<![CDATA[合同份数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="7" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONTRACT_COPIES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="8" cs="3" s="2">
+<O>
+<![CDATA[合同类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="8" cs="7" s="3">
+<O>
+<![CDATA[居民用户]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="8" cs="2" s="2">
+<O>
+<![CDATA[合同编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="8" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="9" cs="3" rs="9" s="2">
+<O>
+<![CDATA[合同概要]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="9" cs="3" s="5">
+<O>
+<![CDATA[1、有效期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="9" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" cs="12" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="11" cs="3" s="5">
+<O>
+<![CDATA[2、基本要点：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="11" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="11" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" cs="12" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_SCALE_DES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="14" cs="3" s="5">
+<O>
+<![CDATA[3、合同金额：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="14" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="14" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="15" cs="12" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONTRACT_AMOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="16" cs="2" s="5">
+<O>
+<![CDATA[4、其他：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="16" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="17" cs="12" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="18" cs="3" rs="2" s="3">
+<O>
+<![CDATA[承办部门意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="18" cs="9" s="5">
+<O t="DSColumn">
+<Attributes dsName="一级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="18" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="一级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<Expand dir="1"/>
+</C>
+<C c="14" r="18" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="19" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="19" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="一级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="20" cs="3" rs="2" s="3">
+<O>
+<![CDATA[法律顾问意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="20" cs="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="20" cs="2">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="20" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="21" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="21" cs="2" s="11">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="21" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="22" cs="3" rs="2" s="3">
+<O>
+<![CDATA[相关部门意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="22" cs="9" s="5">
+<O t="DSColumn">
+<Attributes dsName="二级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="22" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="二级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="22" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="23" cs="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="二级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="24" cs="3" rs="2" s="3">
+<O>
+<![CDATA[财务部意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="24" cs="9" s="12">
+<O t="DSColumn">
+<Attributes dsName="三级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="24" cs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="审核三级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="24" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="25" cs="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="三级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="26" cs="3" rs="2" s="3">
+<O>
+<![CDATA[分管领导意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="26" cs="9" s="12">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="26" cs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="四级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="26" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="27" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="28" cs="3" rs="2" s="3">
+<O>
+<![CDATA[总经理意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="28" cs="9" s="12">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="28" cs="2" s="13">
+<O t="DSColumn">
+<Attributes dsName="四级" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="28" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="29" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="29" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="30" cs="3" rs="2" s="15">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="30" cs="3" rs="2" s="16">
+<O>
+<![CDATA[存档时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="30" cs="3" rs="2" s="11">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="30" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="31" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="31" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="31" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="31" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="31" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="31" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="35">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="36">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="37" cs="9" rs="2" s="17">
+<O>
+<![CDATA[安顺市居民用户管道燃气设施]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="37">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="38">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="39">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="40">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="41">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="42">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="43" cs="4" rs="2" s="17">
+<O>
+<![CDATA[安装合同]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="43">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="44">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="45">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="46">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="47">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="48">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="49">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="50">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="51">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="52">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="53">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="54">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="55">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="56">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="57">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="58">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="59">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="60">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="61">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="62">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="63">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="63" cs="3" s="18">
+<O>
+<![CDATA[  用 户：]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="63" cs="9" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="63">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="63">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="64">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="65">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="65" cs="3" s="20">
+<O>
+<![CDATA[工程编号：]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="65" cs="9" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="65">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="65">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="66">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="67">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="67" cs="3" s="20">
+<O>
+<![CDATA[合同编号：]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="67" cs="9" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="67">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="67">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="68">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="69">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="70">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="71">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="72" cs="3" rs="2" s="10">
+<O t="Image">
+<IM>
+<![CDATA[79O1u*8M7`>o$Pt,ri^a3.W3'`LYrTmK@`9gdA=(md>Ya'&;:d_(E1_j88N3a4.5[R\%7LVu
+-+s';;?IM2"]AW$ig:SUnu"o!<=8;D4L\nGe9lrb^B]Arpb\hdKN11$s61]AlWbU<;\FD*je#(k
+lf+#F_/>`8FPr1J>N_-STE"KkB?a]A*G9&is!]A8i%Ah_'V:!g5h`L6bT4itas(?8&diT6f1"!
+`F;?^J:<1qe[\NS?C\>\:;%2rtQK.8LY9'&3oY'P7'a(N2<b\F[u-$:G*e?,m[G]A"hZRWs-N
+M+^ID*d:$j_`gj:c+Lb-7e_MoYT<PK@p;;GRh]Ae:D#(r;1GDbiic]AQ_jDcD1_1o.J#jVOgD]A
+a73Ib)?sXP+j@m7I&#!+"+L0b'Bi/t9jKC<oHI\###e$VYoJ[!"_U77Mb'jT&&h.Q8SiXf&?
+'01;q&0_bRtCB(9Q^pcIjh:716Q1%VkWc`mi_BbuDiJDFcI&ZH(c."7qTnZc18Cq)d[pZ/2R
+&m:l99`<\Ljn$\l;gAVU7_Z^.GJL1j_l:7/!^GHc='EE^AG8]AXGZ+"-A?e73a9U)f>ldY\j)
+5>-#N6J]AW3>[a-SJ2'4WVWEg<kPJe>e1s.=Vq_MC?mQ';+6]ABFgU_lfZS:.h6Q&MXY]A51'I5
+*hF@G/=:TV!Nc\uPV^9(i-drYN1SGI0a.%;7ibkHYC?R#aSJ;jQeZ>1H9OAp>K]A[u8^kYL#>
+@k:JN(e&+uk6PS.'HZma-!UTidl"h1E+M^V`8HGu,4d!n\.A;j(GbhFVj[(Jd!hbc.E17SVY
+gU$NFH'BS)u[`%Fc'lQuYmdRhnd:!-EA:7qV&3Sto.o6fi6Qi7^H;#)%f.eYhV%QGNlBoIj!
+IoIfKKjA-1&*7_/\0o@&0r:dW(6Fq_/$7(qNl#3i\qUO'Qbf.GWQ!7FHY=`0IIh%PSDSEnh=
+$dAGkJ*Cn9\9#B?fE7hSA0UZchIoB!O8rf`(MZ#6HtpSi=kl31=\F#oT-/K[E1?"U**oq]ANO
+_QBW-^t[C_hoL=B@!RFqnKV(+RKoMH_u0oZ^73\Q$66I6!5&%JGI1Yb[%ADO8[RHn5mrQ6Wm
+PDX0Ro"^tG,++eEf)RU@UY6+"U:*db-+Xmp:J]AFRlu`(k8_=Ur055i1>ZE@O7MubnGlY&9D(
+j+[0=aQA513tE08h<p81_/GfdrE!Ro.6_YVK^]A=PfnRO<lEm^tt[BccZ41ileT'fkoA!,hr3
+-$@P2R!K+_Joa.m:k*;*gI54!EZbGXhQ?SJl7A+1$H%bK\PQ'HB36ad8.5%"m72[[>"_:5'0
+g6i(4k@=I2r7"2Ts>h&#E.6DAF$5olB'^]A$d$;%:g/EVfk,<BWN`qL>$7hO%Jdj3>5TNc_*(
+<X@2[;Xe.Otc:`?N+qbrU8M?FFB2-^!rk)rU3Ic$AYaW-Z._hIuS[$kXIIkE>$an\^(=TPNl
+9(3E5eKE)o&hI:(Gd3egiFGZWT6lO2*Krec`"jRR!S=:[Q#urQ^Eu/N:.<;Z=q0Y(54h16]A:
+nH0UWC3U2!K]Aha5!Pp)FWKk=WW_TeZZLY-NohaAhrp+>olD<C"R5I>XIpgPK#G$S^D:RFdAF
+BW6[=sTP(=f`q>#NR"u]AJHYn-R_9je';4#lH6`-N,!"p+><^fqsi%+&1e5<ijK2eW*.t3e16
+[`D_=fNhI66$&CLAcQ_ZL\#FjSo-I:5LnU;+6/@%=?1)Q+SjK8;7i`2U.Y:e>f,qp#Sou6!-
+f7Wp`CJEk>fe$3Id`0(SkJO%(#-QSZO3\HkaQGH-KYn%Q#95-i%ZS]AFQ"4nV]Aj^PeFbK"i&\
+r<W`^+p7^573%,qbYi$JBt:/,6PKE,J*HYg,r1AM`d(2JlF_F*&;k(3bie"p!I8SZ:>_/.:.
+CU<!n*]A<&\^^Y-Pue]AV'DuVJfX`gGiTON29E45(`Hho=#,*1ClZ4]AhXb%\kLEo5O*LKZ:(AU
+<IV8XgVD=4$$.]A@L`loHc=BSUV3V+%4U>!.g-fd%3()i+lade`YX5=Vs6[kr`DnTXS)Vqd8C
+Ol@^-HG3SdW?Z5XATQ=hqNoj1sK]A9a^3:UUgGW#;>Y&XX`B%RiqlN<S)%H'=dl?p$6)Uu'ou
+.JYt"j:XK4*>m/DNKnoU(7ga&]A%/^1"5Tnj+Iop#X'p"!DKV.Ebe.`Zg,/d:#PlER#/WJR^K
+4A\>F\2(3%;F=GB7<$<d$]Ae"HFa`cMW1_D:ZU^IM$lmULpI9An222TA1-$JQh\@H`*cH?<kO
+6rZ$_>mk3)oF?MN77CV-ftW,FK*'(lN[0DL+Z:PF*'7oV&19F.4;;.Q6n$VGeo1h_7YgZmV9
+Vae)_^#Xm+!ki1t<m.2-+k]A__Fjo*[J\\A>p9'/6>-.72M5$[2SXa4>Z^7htXFt_%AiA0?)q
+38i2YKRPf>cSK':YgKWq9Kmj"k8-hEL4P8'?:KtYW&.=L`7BF_]AAUSWjgG:@(!u6^*sEt,Be
+cOij[,Wq>q>RC+f!8PDoc\L"m@`I_YnZnrJIEbG`92i>1HUJ;t>ofNt_B"BQ_-oAD?8IFbS-
+jYI*u3Qs2X=?=Pk[lhR<6N9]AKk)K+]A5Cgs&/Ts&CBmqUt>cUKZ"+boJWCCt7IF:&ZDC]AsZj%
+l0%RfsKWe6,?-Y%0HNgjT.$a&"?3AXW.Qe/,7jkFHrMLD3?RA[KDGeqQE9G4(PF+6&.b<OP2
+#ah0tGKZSIf_"W#;4^rp"gIdP8l$I?h!6ECl,_EFb@bC4P/X?7t>#EDG>`W:Q,EEqpn@+<Od
+hAuB5BQX0r?`Y%++%K%./oF%6u^uP%HCaGp=bbh6&i=5^0D]AplC%W5':W.uPK%*`HO80EMVt
+tZ\[EXCg4"E(0@b$tak89]A7<u]A,S=<+kUg\VfUo`mf.:1!VMZ#15_XdZWbY@!'$f7e=d1T,s
+dOcOeURNU_Nt"CrHn&^R<fl0p2n[k-pbo9E]As(nP.eBeFr<@n,\rW>TqC2bY3Vq+j[;DfEm/
+pZeQZ(if[=<IM?;jn-mELLaU#l<aMF5-$muI1P5(MEW5BX5>#&Xd@B>bM\mq_0XPO\7g;U%f
+`7dkTK,U#.;'j=!-qPC(EZ;)-tHg<i=`PMYlg,R-u2d`C:#K"F*\j$aF#l/'Z^N,5A1QbBIX
+9Ei[%_VKg.G;kR7W8YZ9_n?=m$YUE;N`l*D%Q)`Lauj1Up*<PqaVaFhK1Lj]A_6C-!9U%B(D@
+eQZ5Ci<b)G9c&)^q_+<J'd;T,3XFnG7V=QO>,<^X<VNAFX%0ss<JfFO&?U$b6ROn(39POl=a
+5`n+Uc;gSZ=ecXO_:d;AUnAf^mjEb5,0!\^$X''8U5gOaeHi&"@D_G4#5o/Q)Rc*T):q&JjG
+8YHU\2+%SN[QPC`%RBrBeDn]A,*b)B6A1q(ai_grG?d\*R!d??*B`8DP6('[&t!Iqj+rqm*`?
+&o8=9JRQqeR+0;o&aWKo7/_a/P0=MO]AZ)#Z%?6:fkkR_986/J$RW:S+\@`6MU&0REq@mBFX+
+(,,eX(Jbq]A^Q)kRoH+[DLV$m1]AL2LE=Qg(`_SM6<292Sap6&VA,Pt@JpJsUAtok^?#j&"=Vd
+;KAdlPd<jVa1lep!C-seV6aLV<'h6:60)[g&_\E+!oB1KndoY=CE3D0l;jM'9N9$?`#=bl$s
+$'E;2NOJAE[LKFh(!`:)?LRBF\4#`O_)4hdjnSFaO*!aI1>>P<D2g`r$?m,J1!F3RAp%H^C/
+dlT"c!L&@Zsjf3PrEY>:?S'9/BNS;lB3pSiKsS&Pd^I;i``RT#'_-:>PjQpU]Ac!;QI5L8Wis
+mKH$)&LD+8Cp%e<cX"'TDAAYN^pq<H[Z/b`>I&WY0hpmJd@!_>m/<a:em3F\&Be6,BJ4Fo"H
+nq_<PNTn)h3*-FJ5eo+BLBT`%GO?j>t3u[d\`mg)It)H?at]AR`Y.Xg-C1%;N\*6[)l$U>_R)
+dmQDIo(*X*4)\<B"LLN?SF@gBH^>dJIKD3LBW1Qg0P.IR_:%"Xm0^qjc@\>4pU7H($onF''u
+a$]A,F,\<=C;Y55djUM$G2Ye+gC_H4/F[?31DnfpQ.kUAc)DY4bZLrr3OdFs;bsu?H4^.&]AWn
+I&:FD)c>$g2PDRg:B!EUm8=^k5-SPj&_*K6S+aWHdB^g=nN;EWQFm.lF9K`BDX5ZUK;@)PXf
+CNY).]AoQ_Hbrgo0`#Zb!t"AFMFSD8.=!O$acI/)\8]A2]AL-CY-&"#2njq8uXupB1aU7q((&eH
++&$b#6%r!5,jZ\HXg@t9g&/GrKGoCg<pct'PtOeIX`>0G7sD4rRCW5KIH/>;PKF:_9VY-r7e
+o#+:pKpHu8'F0R`33&'E0QV(9\%#Ve,X.P48lf8`C+dnqEPBi4E80Nc*[M7uY@]Ag6A3)5o<P
+j5OWM_:?S/6D`q_2+u82;_dNq&N]Aq_o([c;&hiKZd>>be+(%9`^^n?D0C$t-M9?\-AaC.;r2
+6loq'i@;pH)GL+H3#EYR(C"1H2qTLuaq@-RlZ7h'O!4H,Kr0VgJ[qW`Wm"&r09'Y)k)UcC9k
+Ae[DBh5NVP4>TNWLRr6"KL&&:2L<D9:a+EYH@M-E2[2U<tEBd`TZ`p_;bSUDUm_I:=l@55H-
+c4-e+mHF\e0sd(1lmD%gAA,U4U%8*jTbV"[.Y\MEN@f-=LuWbCbS/UA4apN+*"kM2jqe+.OT
+\e/J22FjH-Gu%DZ5]A4>XKrr/EJ:)s#u,!/RR]Ag[a,&P-pJ,`2(q%8^OWH+'s/Z5qDL/nOFHu
+N\2/1p7E282VMr"@=XE@g)lcnTZ7Rg=m#Hi1CGr'rdU@g!_lN[/DQhbF.m_[!0I%N+9(/B2Q
+Tu2D<fS2>MCWVZ4<)ZGSfcjK2b4[J67olV\uLUZ`=LA^E?qP8%=6>4N%Wk5O9U6,+`m6,[6;
+4HsXHQq`#.pgl9H7$@0)0?g-fF95gM`FIb8b;,7'O?gnm\42Pg#Ggq>7,l]AnCpN+mI=0`?M^
+!]A9j">5QK'k)-DoO:@qPd^/0M<7O]Apdu5^$]AAb4LK@$Zj30,!H'ltFeVUZ71]AI3/N(=;/d!j
+@>e^V0:+=(GfqD:!sG3ktt1o;0CgFeu+H_;G;G&d9HrYBipG^\lQRm%78]A:Cp\*$57#SrP@=
+s!FmTU+A68:P($Ek&<,Qk[j\jY?okurGKfJbApdD\ap;j:"8=F`UG5f;2I1N!H_jCo;+[_Vg
+.90g:Nqeo_V67.%m+ORUT<G+72L8kOsqkC/\;OG$Rf5+'&Y83"GG>5gdh@f>q^I]AUDH+0d'Z
+h\,/ME+9/J2iNDN#\?g7Ud,BAH/M(?QOu>Ne6:$ut9hE4M;bURACc\k.P?2($9Ud'p7@D#r3
+q]AeqO6B@5Ts6"3L/*W/#'%uu$,)e`1!#;W5D<\d5/o,qC04U9?-OVbq`S<'&Hq;@*f%e\cnV
+46j2W_GC`tVQ5?_3\rnFu,i?a^,2JHNQZSCtsRj*Tp7ulS1moZ)]AkrVO=WN4\/f7&3hR!i&h
+8o:iH^dYS_Bgi<@@rg]AJW4/I-G.t67'6c2#))l]A%D]A/C:bCC[;*3,uSl4i_G\gD-:K4odC'9
+7QtW#:1.;NGU_#JA9G)_;3TPiJ5$#0iga(P*\9eA\..ALmbB,`mkH4KX?h>A'`qR2qRb/d')
+;ci;5-&c9uVK0:N-9B9Q%ELO-`)iRCNS=0cdGKGu+QkCKYbZAV?\$N8tb[7YmY;$lD]A!2rs?
+^]A(DYMK4=/c3lQe`Q.f'=-D"['1t>B(c=*od4eN&*sC'0Li=sN7@7Y%PA;j`7S5?69c`6i':
+,<Ys;(`;]AC/@.:b9aA<?%Sd'U.G2$2cWm\dg,+gLM"ZVPL`$$NUc)638-p.k>/+MKDm8J^c@
+9MkFS5A$3!]A^be[J]A!$lH$;ui9UdGV#=HD+*4>\WWE:_SRR:B=U21LHICoQ".u=Qp77nFI7j
+mtkr9KelkJ\@;E9S+r%0q`dYeNWS$PUh#P1s^6s,L*(&W2h6S1&<FN_oN+APQk&Aekl$$WDA
+oEW.\kk))nuUi:S#`6N7?*k/:'Z'uM53)[cP656C0@8r8=>kRCjYWrCs=b<`>09Y_T<h&=P%
+u(,'m9KU`%Z>mipiaXS.Z7e#m=;qX#LcpM]A\?R'J8SAn;0*mpqhKphm`(k#2Y7]ALehJhK[6J
+<kC?]A3YaJJC4OF2$:o]A/_`6gM$B-Vi%7g'dB[7cN`eWq>C;"<:2^EX`fa[I#2O_,EC/5;^Kq
+m4H_4q5@>%gQT+f`%?H8JGti(l+N9\dhWj!o3/5'g5ZTBV30.K$KUNbp%3*YU&)N2C#f;GV8
+IFTJ)aV6%+IG$jtse+;-607T/S<X%pKRL;cb4XFM@=ZBa3ClV"b?U&ZV_?WVYJW<hdU@IAe6
+nR\r+dL=PX\nUooc%j@LO'Ao7DjdJZ?]A+-_<5Br_Lc-3^7o1uXHI]ADJl10X(u\emJj5p#(,Q
+hZO.0q!I"j=+pGKgP6CNNd7S##;7g#<>\^85,BXEFG&kTdW!<bWKDMoDrpd_S.pj<7e^2`@o
+V+^/O8A@Fms9hdg&,=,gg0,1iAYk>k"XGR+KMmB3MTC3+,YSHr(',U,I3'o2*:Z/f"<"oF2p
+)'D&\f_17D\"BOt)5c_[h`?uikc>P$-[VD.rInMbi[4P:kjO;&86KZSQk?F^TBV$=/:Pm=AX
+D6.&jNql4EnDP+FE2,7tGb([jhas<#`ug7CU#(/iEMMJr`*bF1%QEQ,fBm5d5V\hItQBD&%'
+7)M+.IWq!pa[4W[kH/]AWGfi+Hp=SZMAqfD)t[phJ@AV2-,^$Eo_g/u(o5K)0^r**qQC06+Yk
+Q+l>cK.ql"$TNBUDEo(b.Fl4PAtiR8VC,jU?8;VAU.qV]A>h<Z[aMgdokb[BpeT7'g!mSN?d;
+M+V!VOU_pW8X+cVok5p,N%_CB8dAo:*cAr)J-[di@Q.=!O/\uMd]A@`S_\s#(AclZ#8ZLn!W-
+K?F!N2-i6%j6l#1JbHWuoNVYRd@Q-5(B>-j2jj?(m1G*PSS^;mNVPF7#I5FinEl5P8G$37h;
+i]AX!J;>ZB1'!4hW10KKGoDQJ#soeVdMpKU@l!kN[f+=AiVQQlj+9BiB6Aq.>dEBc.ur3i%(e
+KItq0-ZSka<R#:+2o;[tem`+&T74QCh9$TZFV_G\"W&%e\p1Oi9FY)0,QfnR0LB)loaIgdR_
+e^t5TCpN9(^-QST/i\pg*OdH8fPbRe,4;.j'JGk)R6?7Pi4kB6._l'pJG=^%EArfRNd?m.(K
+P0\V8KM6X0H]A(^nB#[@'ZBSn:n*;_1_[db2aNTHM>*:12JW_3:HUj/6$(_s^)$%ZZ!ffJ\#P
+QVo?J[]AG(7?t/[RV_p[Ei:*'+9k(cCM.9>5XBbh%DKsM4frA@@9LSlEj;JR\ml#<BLpWVBgn
+0^5@88"ZlNZZI[>HFnR!9X07(HW:>S[/NP==]A2$kO!kM7.)cCi"RQH#taXSM:s[ON!O7[<IS
+W%cf,&5#s&85<nC4(;%0Vom=E#b5*BIK?oZ8U>NCbL:ejl\/hVnC;^5b9Ms5INdo#JJ+C;O/
+ir[1r[)IPhF:.<(B\`k;b-Vn8ZGkHf-(SnS;%"]AC2"]Aek/0Xf'-#`)Di@P2n[4^Q9frYlFut
+6t_=I)#nZ[!kl6U1k[Jt&3*fQLUBId@[a/A]Ai-J1#t*N<7KFKUrsoH"WP<RXu:J0gC%BONOn
+.'SQZdG>?5;b;VtcF*Y17ld4p]A-^T#P>A^9A;?AUQf4PUio+Z$b1IqaL6t\<QU;8KG<sd/5/
+?!S=c+X6%"NB*_p1F2=2fj$^+IK'C9O_;.u8`f"KJ!]AGgG/gAGb=A<ChD%9@#YLpKeUXJqKC
+R1*f-*)K@u$qYD/=pZ+Ao$l1So.PC<M?Nnu2k]A,:.hl<_]A'?2pJ^\l&.YEo4a@.N17,'J3D/
+i2!@B@H0VdYjMRo?bN9_=;F`7&BCD!&.[-r=J$u"Oejhl#b.+P5GN]A+e97uoD;Uh:\$G_lH-
+Z2J6Ao_ITF4=r/R!0@+Z?kq+Ko6Tn%oU(2/q!E*RtsA,=YL]A\=56V-WU,R[7Lbf8o?$q&6hu
+*)p^SBj2]AkB1X3t).\s2K^cfKGl4E:@!qiI[Q3a[p+M2cK`q^o$fmoGd<=M#D,(Fq-h#`4C!
+IF/j5Qq.]A$#DYVC)#apspag\jl.A?b[,o"*fmpIY">bl3Uj^OSBEu=n\+1)2X[VJMWRGq&S0
+f!^jM%%&q!i)DPoeJ*,"5VJV@hVpb%P\\(t+&F>X]AD*0J:-A(c'@ni]AU^`@-GlI-55D)C+R)
+SJ4VRs#!nLUSu=$(`Fs_4RteqkTm+V4^Z@k[3U=^=Bh"67ApCpW%B#VT-FTFrtT<ZfRS#IX]A
+jn>@6Z3\Z@=fXD7M/&)Xc=j>3i7)rLbXm-jX^Pq?!E"b]AJG,MlY,@9?>mS*q=Hqqt@Fa(lf)
+pk[aeYDl5\]Aq%8shkXubEElq`_6P'FAt(>?5suZU!]Ap/%2ZH\S@F%;2qH_Gu(VdVEh*kb:Od
+<FN$kdXp!/<FJ]A4Yr2IfB+H7QJsT3TS-?5[1pn<>umC,Q*=e0?d[Hi0OTVh6qi1:Kj^a-.PJ
+pD9tZ/(`m:K`Fd&"`7:A5X1b(2QTlW:lLM[U\Wo6=Ee>gJj@6T5)bXUl\4a`-JR!_bp/U%.g
+6[.2kaNBZP.!]AqHF]A1p#cqaLOFV0?msok8<W#\Q_r.G9p:3/l?[YZ@#^HF>)c\2PH;[56B:P
+>9q>gesHj2e\/;8rICE$3d5)6_:=s(T]A-PA[(e(>X>U7ZkUlRCRo4HW3A:YDTQ0E4"6O^f_q
++-V#h1#KDPcQQeDnH/C32n$iA.E\J;jl)0Wi>5G_Yk;de.*1FWFtGQ2rXa9S#bGq)amas.15
+Z!4dD/]A)2eCi<aOoKi+E.P%4N+uY]Ao!ZOeN[g+GpFOa4H,Pd,T'W_Cnf$dGYk4HTi!1^[Ua-
+[B8"+@[,O*?p5MeWj]A@87rgEdI>K\AR;,<p5bTn$-T!!SW:)qf$*$.T)'IJ>Z$3B/s_BfAUW
+A98;"mughAIdG*124jmheR=Sl0iI7!e>+g"jt>;LLabDgi[\KB/91]A@j^FP=T5PmY.LcZ!VL
+sSB%=%tr_5/i9RO#^`0PK3>Y9nNKB%9\>>+gh3uSi#B@^u*;Huahb7VNs+%:RjLuI._]AhPPE
+Hiu\9.<2-Td0="hqPm2g5S.S#kQa@s9d#CBe@dt:>(H&&Wi"Z+!l<7,21r7jm<J3f6PU.Ld,
+\uIGJR.r(:.2?pC#'02K5GO*HBe23J$W$_@5;ILo\(JhBdn>3L1fDaOlr2`cG]Ag0o*'&),S*
+V/o/R^"2O_')^@4WnPsZ6dlf[?B-">,9g9;A.4ikdhiCQ[n%eP*E.<eLQN^kcTPS;i'?l.:l
+dAk$APj=pXp+ss6'qgR`98N@]Af/*HFOGUFKt$_oK]Ap'CM@DBa>8(p1@LE(^I1KeKDEsSf/ld
+'1T4T!n]A!q\b]AU.1W`rn`g#Dd--^\<FY+*J-JX_2G[HD8g<F2fH@JMsm:\#l_l=$k,,0oG7;
+h^,/ao\=':^'E_6%9AK-Y:l@BEWofcmLM1c]A]AH;=E*p]A)Y4V?_[UF^O7pBp1X:soLIgsp1ER
+!sE)-_KH1B]At5Q;b2YLQ.&jm6#G%9u`\k87bmg@&`d`d4sBJdXut+SBVjAjg-ZBI8^pa9cs^
+?]A8j`r8_#8ZL[I38\4BR@M9Ag"i0q)%_&D-sC[k0BYa@$KOYI%?aY=+]A4=@*=eX!E9D`!sKT
+e\ALpb!drgVc?U*^%XP#!eiKGrU]A9CSa$b=M-8A54:"-_t,&`6)=seHNui;j)a^Y&"5JO#[k
+-Mf5J&Y[_pd.XAd/!\IBe8Zl#I_!IR=3nYG<q\""'\)_.43dCEZZI/B'G!H5Q90#R_8@<1)?
+BXFpF7]A<%]A/G"X`io:YE`ojsF0`S`$'9.:/OFt*V5Ik!oKBpeUA--Y=1)r[t4_uT0L$"!ML/
+0ari8#KBkM>VT*UAbb=mKdW;WM?cZ?kdRq$&tX79\Pe<fL_LNMC3f:C2<q-]A6+IP]Ar7RPa&6
+VpB@Jr_Vkng8N4D.)h3%<I=Uf+K2eCo[Om.sUre9#hY9C4\;FHY=B^0:-,Xph^3t3Io\R.U5
+bQ'og'^&sA)kO$KX.cu:W[;8)1Ub'/g(^h;?TYo_0Rd.L.t:&[j5Fs(R)]A:JR-hici+1T2-*
+[EZP_I3D%1kCRtCb>gV71lhOOh/0.?/P.hia71.GTq;W#ISjgD+'.d#gJ<H1[TbL9!+HLohC
+<TX`Jg!:]A'ruN#Eg5R8a55<6icL@5^VOcX<)#A6W*rjQKlcB,d(YOA!B&?,HbYN-(DRM(&$g
+k(a#>`'3qWi<P:3VS\cJM9Y6K$JLSL$e0MU3N2h80V5QP.INNh7+sM!(ZX)L&Sp1[hG+%-f'
+u,0`/]AG^R3%djt*Vauc5eJtD6T)gBIAg#jpjDF.WQ)m"A]AmdHhdU]ANP4NSE4BPCluNqis;?.
+T;RNLl118?=bKokr]A3Q%US7h?i-Se-el=Q\R(/N_t\X%cGQ_FD/>`#oP]A_u*aBQfmd>CNW[]A
+NWi7!*QBt`=N^",Em>!#i([,E7k(\eQdkI4PNJ%O.iRCkT;&jNWWim`1ta>?E&,Hcr&luq)h
+H)'bVG=1^t;8;LJ/X(*%,D0f_$)Z?fO@1J@ES#)srfeodm-QU*<c$5:b$O*]Ae2T_gfa5=Bl/
+/HC"Cb>p8"imsFsR(FU^3sJr0]AP$d\<\;L)34uVn#/CMX]A&$R:XskRQFmT>!;>fiO9SFr6KO
+XlpeZNKt[bVU:Bbem:iKldGnkX+5osqI493o8VsIml_>&(.T^*fmnhn?[DmoUobE6R8^oX^2
+bOOFkD$)m+&mIl.9),Z\s7Z?i4W+#hg@"\U[KXQ9Z"!Z3cg((#S!Mh[q]AH3%j96_@>E3Nc4-
+HSh3ZgWMg$s$Ybh$K[J<9X*nrsf^QWK+=oB@-)th>TY2(1un#gcd!ub^.^C3k2,eorCgcNi1
+)j4fr2&DhdaJZXgj;%S.CKtOm)m`;dASZ:4M:R:@p6^7U_PC0SS=g8L*ZH1SZ;RC(C"(L8HL
+p-riEFt$207V8p3\K<c)'OBrk;qP%P^]Ah/q?i]Aj]AbR'k2+eW)g5gs*SU1IY2+4]A("V!#;r3W
+e(q:QaSjlt$\Sn^G:qh31+llRLn^>hQ:!_CU/biLX;RsTeXAI>/mq<nBr_*[/8$q#)KA?grn
+)$.f1OT2'#7-iRZ'el3n9+TrNK^70qPNq@3R("\nA3!C+i?9b*AG_*V[^JiC3=aMM?^L$@U`
+$T/s<5O,!ut"^']Ab3,bjCD*J2A2(`N.GH<]A.sP&(#]AgPqqpUP0)goo%^fBl*Lj_l".cge"cp
+TX*PJ0_]A]AoET##5@b6Bgg`XNCbn.E?NG<%nb)P_>_Ag5(eg-0Ua]A0Km4H[!-1fe"&+9V]Ab4I
+&.bbYTq\.,#b9RZE054-?-79PE242QGW))h_TJd#YGO20GQ4(_fs?8>%n7B!O,in#?a(!'5O
+V(!KYOW;eBj&6.mMo&HS36GI5$aM^oa?))VGec"*Jod7+P)H6_XrHR#/,k\Y&_4Q6j!<gI18
+`AcWRpt2,,XN,E<`Y4?^RCWjQCBu_K4Gcb!WtaJLH/!0R-SfMTkCou?Re\I*C`u=jIlNW.B3
+(Xfj3`TZ`ro8XAQ+sf<;o"92d?VP0eo8S)X0-hZZn,)Cc]AZ@)([tS'qP#*FCKh<+KMq/N#E?
+84hI<Kq[PaF[OZheGI_?93QfIX]AGIC?M@4\!'A0gb?If`BBQtUc2!kYf,Z5'$q&@M8RY[N1m
+UtCb@f$<Q_@TK`S9,o,D3,k@mho1P*Im_o`2-\s"Wlt3YfC>Z/At4bJu/N'VgDZY>p3aQ;1.
+BH(E:))DkDZ2P)GWC`K[`d9d/O2\ab5m-0j7M`-j2dSu+$a\Xg;kU_gHnmqY]Ao=KKpX@MEL.
+F*M58+llRm4IKI;ZQ=KjMf_tru]AS-05MBP?N\;2]AsoZcI+DKcoSi9PGe%OD*Uu;nSB]A+RFGl
+#d^KX,X@)UaR;B>KO.>g.Z1#V,H_NI%Y-GBH]AEsokRZV)/Q'&tcK.:OK*Wn8Ci1O1P,Jmp6'
+30]A[j4?boPGf3$cBCcQm:E=K6I?f9Pn[1L5Q!`?HS/k8cT"I6jBEX/_8O:_E3Pp\]AE:L`&:Z
+eD1dN-@lJ%U-I2"k%Ck>*[a-RLD<g9g"T%.S\j."eU]AkrGe8KiI.k`m`RMi4_a1AO@a,]A>[I
+gB")::ggt>Fqf0!S`-LfJL(ZV?-E(OSh98Bo*28'%PKR)STA.g>!ec6HkD*J*Fo_-RdF@6LJ
+0ub901,'`d%1V5]Am75(WMoHVF\^B:%H@4.9WTW"bGD#1fOBc]A0C+U\/E)2'Unt2AYK..-$CO
+acM*MW5n9.jG!Y\.I'tQ^a;qDdDp5-lSG?.-KlY!c&gGhpT>-.*t5.OqHY6,L]A:rkU:S_h.P
+hOnEOaaU'TI&G6hjd\Oj8u3,jm3W9O5Uc9<1,tdXE6>#hNVDEf`$&m1'cC+3`c#]A*k-n=3ko
+R`cT*U*#^RXX#qK2?5LVcjj2HB[N#F;Dj2X.QCGNGZ6;m`Sc),6[lEOpEUPYK$dS-cmSBSW,
+8hX4MQR/p.3Oge'C;5BLCmfZoMiPFGD!^2!e6=-A!DGd`rkidV5mqYA\(l6uEIi>nu^Ng^ne
+UO'aBg\d*J<]A\BYk`%Zi]A#G(A/r#1^-F2#f6FLS-<FNMeJS(>7]ACB,6hB=l#4G2B"*5k3ej-
+`jR9\(qCCkd/:4a/i78DH2hbY<PK=1WeHF;417F?l=(0HRfJ6SfEVo?I@#l<i2RU&@PboPDS
+7u'Z0G6J`Ke,C"1/JL#r`1/Sp):2n#T3ZB(EX55jb$OrrK$?eA#I^`'g>fU;W/'Q6r$g7V!i
+3a@W%]A>J!;r<OXPRhDd^1R2LL^W^YKj,f*)5;[S7]AFpqHes5ms*__Mln[FF,ZK!dICZ=W3lf
+U;hEQ#f!00S@_]AK(<9(dJrd'cWrNjFi/7mU)1]Ag\-b?p5n-bP@hOe!+t+@ZfrdS)LA<#(Y>D
+"57+Oa474<]AQJ)[nWi2+R=*,P.GoN!%^019,6U*%.Y!2;:EI?N)*7$WK()]A5)o5TqBIQPEs@
+haCuC%7'qMtkQAFt6d=>WKaB>VU'^l*RO^0t!d7Afl?ZEf0;uQF>X1d.r_1RP*)4slrI(T.Z
+!K3u04/rV$%.B-W-Ugp]A"4kF-I@?&^Me`5.GUI5-!,^.9Bkb6i^<3CkW@uY-U^T#%_=Z`_!b
+XX]A9i).E&bO?Y(r]A#f;u5>Q+Rlg9(,]A8)Y$g0,fku>qNX0\,"2SY_mh)g6=Z!ab)hXeD96=8
+dZ-Z./?5[K"9;YOU8olPO@)^+.iY3-rXY;h/#]A=(5NL1J?-j0Ffc/iXo:-8"Pk3]Am2-CfA#k
+)GEfVC4+sKh+`tUdYdt1F;*FTGmrb&]A&t5^kdh8,i`(\)W3Z6fGYSFRo;Ch>[8ABY"5*D;T$
+<@IHL-%/ES5PUg?ll$FN>d$"uuQe8(-3EgOQIl\9a+\L-5uT-V]AjJO4uCYA?(Gq3:0a_-9*p
+kb*KYfD+0;CAmg=BYoPZCF0c,(NY"m60K'PQWsR$Ft*?CE`+*nU@VH`a88K[FDZ%uGP>ZcYF
+hA\E)g@mD<oQ)-4P-gCZHOS++LE9)nKF`al).;jk5'p1;\\^MEr$tXFca6]A<9L80_1!<#,]A+
+NpkoKE.CHi/YmR%_$`$3\i^WFF]A%^:"]AN$CL,e=>N=8FR$33Il4+uuANnAlHZ:nX(Ml?eNUd
+\/'h2!(o]Ai89C^N[a:$*K9U\4l,%;:m6Z\a"#Wc:cBYD713I]A(,6!EeSO@0Zp`@4:)IYKSYA
+CaM>:uDMI&#q8?4MjoH(1<V]AEASlEe%-Xq#-0Y!<QGesgiWL3CDL&DLdj^,2^Hcl\'j<p&4B
+8O4)HNX0UMS.$=peX\:.lpBh@8J@&BNFuUAl0F=6pAan>:\6.O).L9t/06[Z]A2$XPlf^0Ok4
+AMG`g[k)A8M>(:O=9MEO)Ia6'=l4GqkHQ"-e[6+5!S2'*A@p!rnPd^aa<]AMS[fle->e)lh+,
+[RI(Q?q_au=_:M&^)!6q^!4X4g(o'YtUKY"fUW+2qm-EOVc_OK36/YNGVjEV^NkW2Hp&u<[9
+H5A#)8SJ<BAU*!3+X!\h80Pd"A$.n1<Vml'$3%^H8H$EmAo(h0V!s%mYAuR0ItY:5t2hFb"g
+8UM>$IE(?jaR=6Id.k\b9$&IT.X*JL^o>RLNeI9;FIIM_cjdIBpPP_joYFFg"YoMnoOekt8#
+jZ@TA;/3.O=JM:Ad=X`c@">Q@q!pqE1e\7KU!s$:)1`t?QVDXH$K^i`F"@@<0Ej&1W>K(cbP
+UP@j4ohAEa*hM*`P<G-$g%6-C^.T^W1_=^<4$i7($Q,=DTfq"p5F4*-k)>G',L*\[o4-$Q&#
+D#M#oEU]AQi3\u:JhPANb<hT;+Q4qs3)m.f#fb'!gI&8/2j]A7-TrP6cH5R\U;mHL0K*%>X7J5
+W-PbVZWte>/8q@=a/6$lNp.ZIUf%DqVch4JCTn8rFX-Idfsu@ir*<6m(lAs.T$c;6Q$'D^Vu
+5#f(UI"^"\A"khUl089Q'CW[n_)oU2VkiH>+\<:OB>QAh@8$Aam:AHS.eGZ!dLOq#6J\LCdT
+9%jH3k]A+B`;`I6*UBbZ*I!k!BGAo\<^F-3%&pV_Sc[4U)qVbOC>9)D=h@4VF=.Ye*)/aQC_E
+i4tNjQo1!Q#]A0eF,APjiZ-!DMY?k1:0#(5N^K6(4s8^gJ'Pg_Bfa?"blQJWinLSh$4/ITA1;
+:k&/_^`N>0aYbKE<Vs.Zh!X'ZP:2!?t?QG[k2YWQ"5X8;G=!)g9'"EEK@mhaoo>X>?f0k0<0
+Qtm0-a;S"p&jrc.'B0$(H<Sbmo!tA[G#Sk+)<O^,3#I%56fInE!oSX'*m[DC93q$3dMc^MPH
+0cjJ-IleTN$lp16#[HZ&1lk5<:oWQ&=QIiq?W0nEGYNJX2_Jbp_/'+>o=p^lQ"D"$pq>C;/`
+iA2H]Ah@TE7kFZBEhCA%K%#0S:W\(.;3b?c!'Qlk<n8aa?%N%<4O"uj%Z9o*YH!S.\dr3=:/#
+I:qN6"(P8YOFm_0Y<8#X11E71pnP9Z`XFo7C-Un>LMWdd,NtEY8pc3:6ERS21%IR7p.BS0X5
+!aohkjQ&YoPb8JWIrIgcS.\bp:JWT$Me=!%&O^4)A_l>@MSXj]As"M'mY]AOKgSZVGu9(it-k)
+g_]A"IeZArA*l@Vl1l[0rhQ:QRCu0fU0Ce,$6&e'BUAD)Rf!YL/lQjC2cNCU?AX6nU!0"HDcE
+V`hIA)nZIS&u)Y)4k]A,\F$SXaV;V@dG`[^$L$E_*l)OnFhNqT2>#BV#&G`BqXriL:sd1c)c:
+8?LrJd-%Q3+;$*@R?C1?aG16!H9.NGH)'?/e0UY,Xaf3"Q'Q::o1:dnHFT8tiEuW&s'Y'[]A>
+_fm*""jLlp,*eS-lq'ELiTVD!cb$>p"n9oMCg/Yn7r7VXLh?$]AQQ)a2FL%IjXSaRa]A;tp8e5
+oHdRl9kNf^n4rpTK?(Qt3ipJr"f=Y.J"@IkS(RYgYj*k$.-d=<]Af_eN#BP5&]AR0"hjf`Q[aX
+Q_JL=&eP0_X]A*CO_G[SSf%f_dkds^H]AV!P@nX4kbO/d?$_,`;g5WL<+2m>78VQUr+b?Khg"G
+3;]A"e]A2*@Od>X#gB-EBut%"%r>iY<$M!//-[E((%<5^rX1&O:4>7JB16U]A^(iM'MBfT\#Sa!
+^<;RS-c/)YjQ*-9,S5llKV9K+q%?J:lDOsr"#7a$ccI@qRWonii&1==9)\b-e.G_)iTM++/W
+g#*r_:=k1i:JO*N$6YTauGXF5AlS<$;7Ff'ktd]AK>O`2C[%\oLuaX*ppnr(2ici"j!eT^Q`R
+8+*7;q)DcM8Q;85sSc`Y*OsA^QBb6C!<+ko0IgrBV-,hc1VUb^o2SpC/=ik2Oe6KDSS'<"K$
+KlEb4RX=NH^eTaO%r>Too=_l(ZT4'Vj.JsArQtHKlQ_TVA;,hWR'[H+8EsZNMgCA49`"8ChW
+V#q9@)a:X5k(0dr+S]A:>V*kLWf6Wqk$D21i!gE+-=2$r!r[XbnR@MpnVe>r5Vjeo&;F?O'l,
+[-jHgcEW"i$PTpP]ATSV)cJhGtjQMBr]A>;dpj6a!qcGOWQ;bBVLn)^0R3:7R\dG.qps(3-fIf
+7-&-51!TDcN*f&=^mIj1eA51U\)5-EY8cNEjr(DQA,k/<@0)&g'?\`#t!n^QW6W9.Z^'M?S0
+EFPC>oL_iSOHid:V8<9ocoD14CNsiH7$H7bu?>h@5f0.Tk4dO\q!:h8f@bmbK0=NbD$<mQTg
+=2X_627N!'0;.Qc/<<c5eVTk5ogd98);<M2?Y]A7(od,7W2P,!&oZk#8cJLBWk/)8V<R6ufDB
+/6b%jn:"H^gDp<2ilEP30ma09MehO(:SYrc_**bt+&-c2gl<aB7Q`i(r4m5VXWbM8"9dVCRs
+HfBhP58mX,A-.Ij_P+9O@tc</$Os7e.eD4n^Hf%:bTO>0Wk"W=r$sfbf;E1LNf<jQ.*sp-G;
+Wb.EYsYSE8rH&9H-c#0fV5hVk'lX/oJooHH@Ac-&8m:ohroEf>^\clNdIAE\=s30t2=(cVOl
+Y8j\'.?6H?Q#C#C;0V3[n@]A>Jh6::QW-7,M0$jCF8<.#EYZB&EXl84noPc6]AAXtbR,fOo`[@
+3MPh"qCj:''JZDk#)P:@ZdZ*KF.L1%5"92a$2'#1!e9"^BZ)WU`1*kjs?JkT2mT1oE$bV)o8
+/[pVDq^?O4O!X#N-c>a0p1.obIGiU2bGhs]AHkGnWFRi#bl)\,^f,%BlmpSn3.$3qc72?OK/-
+2VEXp,"`6rbq'P'gP`-"*s@]A^>\hV=i=M,s"SM9J!<>fP*&S(Yc9kRo*O0Y"@taC>nQWA4\"
+]AmmT]A2"r"`<@kqIX!$\aN@ZCMWD?qLeuV,u[5a(WKhi9?aSFFRg[j%]AD<n]A#LC!Et=D@5iH6
+fn#&7D%[ffZ_<UqI7*VYd)`0C-7nRW_>.Wcu_W29hRNu_bR+bOXB/^WaKUd`u#>tbX.[[T%n
+4k#F3aY;-D(iDu.1crpMJ@l0E7[m>gdJUoMiWM\.:*-:(+p12Ep=G6`j9?;+oSoU.uB5j+B&
+-(lj<uJdn5DRqPs+1L.rA/$QIk]AB+Fk?"oq2M^jO;/0qm!:5Vs75a7Y%1I9H:\CZ'Ps*!<.0
+>_@?p9Qfr#*@g3I-#QRk`kU9OfLB-lq7ts?"-qm!pQS-=5EITIJ^OhXQJ>"-Ijble-7>'Xni
+S8Yr)DGE(*-s31aG0[3fqD3\g%30LNt4kKZT-Z7,;0hH%Oq2KH9g04OK1%i0!>R;:c%0gqR#
+Mllp;^oBN%SRPnkVcQ&.@P71A]A`Vu1CQH\f=Uset=J&q`r%`g>+&eaV!FiUb1<70a[6G!Jq?
+F<ig/eU(!R03Yp!rB4:S]A.2O%9:N-Of;n]AmN"NWgk[(?]ADQ+_jWkb-PEBAk5.Y@Ga6rK)oA0
+cuHR+rSiK9j;GBqGj.j:02%_(o@SB`e*,hkD89sEH`\NuTaEVoY*]AHcW)5jBajaN->oM$B>J
+\9Pd1[7i:8@5ZI,4g%/\+UT5#!0E`"?'31#.<Fr"g90'/;aa5LSL/)k."KhY4ah;&"[Qc0Y=
+V$V!>BYW!;rc4F4>_sN8hsU5:,m6O\H!!r'fi.4&3n%"jXqO9&dh8^?\$ZJ*qVE%=STV^6N,
+O^StN7pht(hUu/IF)`kK!lUN"jI+dSC5bP#Y48%u("U4bsX=OP5bDXQ[-@Ej$\]Ang;i>8Xr2
+&GtAf*fm"=X@95J8c2k%/_DK2f"-,Zi>FV&+c$rQec\g5$;ti&-ObHoY$kh7H@<Q',/P5.K+
+,As.]A-eianDW$<84Pr66j1etDnn;@ZOo:AO.c1Q@,:$4@/VaKu+V5#\L`(O2!I:FGGFV3(70
+M(s[h8Wnos[?Y[OkiYPh'I>p%8PrkqMpr$NJ'+;)!RSCt1-UCunL<7g&pqr"%;#s)akQN\h2
+aOKoHjZqHlqUjB,]Ar`,/3&s%S-YW/R1)6YT30t)YkJE2T[0./]ARgt?5pJ!foI]ABiX3$+1XJX
+BUhh\*b/Z6UIeugr.di8p'q@'Na/[<`4V-rsNS+2K%1cM3WP,BV_V6I[D:#J1K)`=:.%3pYf
+PD-!!=j)$eaZeXRME!X_!`GLH8``RBW.mJK6;hlR[]A\->dcmq(e8(?0;hFPef4KslqOYN"4D
+8UfL&D7CL`6?E@ZYUZMd8a0+Y$H1WQ#s;D=LC*O/c?Hl>fJ@Tfuf@VjjCHqbOLf>)nVPL5#/
+nj6/Xcm@P0jJ$-&P);h%=>#7oOASiup'tZmr#Zm@6NuNYEL.%q+bSPbS-EKa*>kcZTnr23BK
+$Hr$CXR;[:.3B>B5a5UG$-?N0b3S=-J94OV9Dd"9nKZqA@,5E*bL'9&KdaAC"u]A7bB]AWjL>1
+,6ArG_iZ6)`HXO@r2@HVA2XAj8-OW'!B+t?8^\]AOOfrb8*?;GNU/,TpW/gl1F$>F;G"q)ZB1
+VL>Pj7CZ1T(.[--H5^`]ABh'j6jo/uYG]A><U_qC+i`#k-@@b<VRG69!a_aMB\Ui'GmETfmh']A
+6="-/CEjL*k./:j:_Wu4=<PMfiIQiR*$e\Q^po:?LW7/qgO'$=:]Al"U]A:7-<Cq)]A0CqYV$IL
+$ZS6#J(mcqTr[@2;\D]AnI0X;glEq&7$^?TM4`(\OF>(gUq\[1bfGG_NMRV%XEfrOM\p+M7-2
+(3pkI-ghE4Znj5>'!cbG6;R"(\18F@hhmltn:`6NhXq;nC2rX7K`IZtF,cSRI"AoKY3[C_Y5
+4;VePm>5#PkY_7D(%2<2"de4ZH;Dsl(5c%e8jC?fpdRZa"L1jj5LZ^0c7WoAjT?!8dpH4eMk
+(8m%2h[/40;Ab%)1<*bnWO7T5LZmDi;+M0aj"EiFt7?c=Y*Dt`kZZR[V/#VY_G3o?WMYjhi]A
+Wm[,<QFr$M22ij*?:S_hH\9,iF;'Ltf@k#jHf(n`AAL>o:F6NI`.a.riH#",WOs*nb,EUh0W
+0:$WQaI!*T]A;3C\`2Z36"9/T~
+]]></IM>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="72">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="73">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="73" cs="11" s="21">
+<O>
+<![CDATA[贵州燃气集团安顺市燃气有限责任公司]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="74">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="75">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="76">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="77">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="78">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="79">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="80">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="81">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="82">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="83">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="84">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="85">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="86">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="87">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="87">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="87" cs="10" s="17">
+<O>
+<![CDATA[安顺市居民用户管道燃气设施安装合同]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="87">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="87">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="87">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="88">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="89" cs="2" s="22">
+<O>
+<![CDATA[甲方：]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="89" cs="9" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="89" cs="4" s="23">
+<O>
+<![CDATA[（以下简称甲方）]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="90" cs="2" s="22">
+<O>
+<![CDATA[乙方：]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="90" cs="9" s="24">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="90" cs="4" s="23">
+<O>
+<![CDATA[（以下简称乙方）]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="91">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="2" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="3" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="4" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="6" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="7" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="8" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="92">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="93" cs="15" s="25">
+<O>
+<![CDATA[   城市管道燃气设施是现代化城市发展的必然趋势，是改善城市能源结构，减少环境污染，提高人民生活质量，促进经济社会全面发展的重要措施，为加快安顺市城市管道燃气设施的建设，提高城市气化率，依据《合同法》和国家相关法律法规及《安顺市人民政府办公室关于转发<安顺市区管道燃气设施建设与房屋建设同步实施意见>的通知》(安府办发〔2008〕22号) 和《安顺市城市管道燃气特许经营权授权书》的规定，结合本工程的具体情况，经甲乙双方商定达成如下合同条款，供双方共同遵守执行。]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="94" cs="5" s="23">
+<O>
+<![CDATA[   第一条：甲方因]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="5" r="94" cs="8" s="26">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="94" cs="2" s="23">
+<O>
+<![CDATA[项目，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="95" cs="15" s="25">
+<O>
+<![CDATA[向乙方提出了使用管道燃气和委托乙方就甲方所需管道燃气设施进行设计、施工、安装的要约，经乙方现场踏勘，同意为项目供应燃气，并为该项目所需管道燃气设施进行设计、施工和安装。]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="0" r="96" cs="9" s="23">
+<O>
+<![CDATA[   第二条：工程概况]]></O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="9" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="10" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="11" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="12" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="13" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="14" r="96">
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="0"/>
+<CellPageAttr/>
+<Expand/>
+</C>
+<C c="1" r="97" cs="4" s="27">
+<O>
+<![CDATA[1、工程名称：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="97" cs="5" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="97" cs="5" s="5">
+<O>
+<![CDATA[项目管道燃气建设项目；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="98" cs="4" s="27">
+<O>
+<![CDATA[2、工程地点：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="98" cs="10" s="19">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_ADDR"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="99" cs="4" s="27">
+<O>
+<![CDATA[3、工程内容：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="99" cs="3" s="28">
+<O>
+<![CDATA[庭院及户内]]></O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="99" cs="8" s="29">
+<O>
+<![CDATA[等管道燃气设施的设计、施工和安装。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="100" cs="15" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_SCOPE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="101" cs="11" s="23">
+<O>
+<![CDATA[   第三条：工程收费标准及付款方式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="102" cs="14" s="23">
+<O>
+<![CDATA[1、乙方按安顺市物价局《关于管道燃气初装费的批复》（安市价字]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="103" cs="15" s="23">
+<O>
+<![CDATA[〔2008〕52号）文规定标准收取初装（燃气设施建设费）。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="104" cs="10" s="27">
+<O>
+<![CDATA[2、本工程管道燃气建设安装工程的总户数为]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="104" cs="2" s="28">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="HOUSEHOLD"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="104" cs="2" s="29">
+<O>
+<![CDATA[户，每户按]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="105" cs="3" s="26">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="HOSE_AMOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="105" cs="12" s="5">
+<O>
+<![CDATA[元的标准收取，甲方应向乙方缴纳初装（燃气设施建设费），]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="106" cs="3" s="29">
+<O>
+<![CDATA[总金额为：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="106" cs="5" s="28">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONTRACT_AMOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="106" cs="7" s="29">
+<O>
+<![CDATA[元（人民币），大写：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="107" cs="11" s="26">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="107" cs="4" s="23">
+<O>
+<![CDATA[元整 （人民币）。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="109">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="付款次数"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="110">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 > 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="110" cs="14" s="23">
+<O>
+<![CDATA[ 3、付款方式：初装费（燃气设施建设费）甲方一次性向乙方缴清。]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 > 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="110">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 > 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="111">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="111" cs="6" s="23">
+<O>
+<![CDATA[ 3、付款方式：与用户约定分]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="7" r="111" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="付款方式"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="11" r="111" s="29">
+<O>
+<![CDATA[。]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="12" r="111">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="13" r="111">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="14" r="111">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="111">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A110 <= 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="113" cs="14" s="23">
+<O>
+<![CDATA[   第四条：工期和质量]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="114" cs="14" s="23">
+<O>
+<![CDATA[1、开工条件：甲方应具备水、电路通、场地平整、新建房屋完工，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="115" cs="15" s="23">
+<O>
+<![CDATA[并能提供坐标控制点等开工条件时。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="116" cs="14" s="23">
+<O>
+<![CDATA[2、工期：本合同签订且甲方按约定缴纳相关款项、甲方相关资料递]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="117" cs="15" s="23">
+<O>
+<![CDATA[交全后，乙方在设计完成并经甲方确认后7个工作日内进场开始施工。工]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="118" cs="2" s="27">
+<O>
+<![CDATA[期为：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="118" s="31">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="TIME_LIMIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="118" cs="12" s="23">
+<O>
+<![CDATA[个工作日（工程达到国家规定的燃气行业竣工验收条件）。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="119" cs="14" s="23">
+<O>
+<![CDATA[3、甲方必须确保向业主正式交房前，为乙方预留出足够的合理工期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="120" cs="15" s="23">
+<O>
+<![CDATA[如遇下列情况，乙方可顺延工期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="121" cs="13" s="23">
+<O>
+<![CDATA[（1）甲方不能按上述约定，提供开工条件的；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="122" cs="13" s="29">
+<O>
+<![CDATA[（2）甲方变更设计和工程量增加的；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="123" cs="13" s="23">
+<O>
+<![CDATA[（3）甲方不能按约定支付有关款项的；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="124" cs="13" s="23">
+<O>
+<![CDATA[（4）甲方其他行为致使乙方无法施工的；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="125" cs="13" s="23">
+<O>
+<![CDATA[（5）一周内非乙方原因停水、停电等，造成停工累计超过8小]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="126" cs="3" s="23">
+<O>
+<![CDATA[时的； ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="126" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="127" cs="13" s="23">
+<O>
+<![CDATA[（6）政府及相关部门所需手续未完成或延误的；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="128" cs="13" s="23">
+<O>
+<![CDATA[（7）洪水、风暴、暴雨等不可抗力自然灾害或政府干预的。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="129" cs="14" s="32">
+<O>
+<![CDATA[4、质量：执行CJJ94-2009《城镇燃气室内工程施工及验收规范》]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="130" cs="15" s="23">
+<O>
+<![CDATA[和CJJ33-2005《城镇燃气输配工程施工及验收规范》标准。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="131" cs="12" s="23">
+<O>
+<![CDATA[   第五条：甲、乙方的职责与义务]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="132" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="132" cs="14" s="23">
+<O>
+<![CDATA[1、为使乙方顺利完成庭院、户内燃气管道的施工，甲方有义务指定]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="133" cs="15" s="33">
+<O>
+<![CDATA[专人协助乙方施工，根据乙方的施工计划安排通知用户后，提前作好施工前的现场准备工作，积极配合施工。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="134" cs="14" s="23">
+<O>
+<![CDATA[2、甲方应为乙方在燃气管道施工安装中所需水、电、库房等动力及]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="135" cs="15" s="33">
+<O>
+<![CDATA[部分材料提供支持，施工中遇到障碍物（庭院和户内自搭自建的建筑物、构筑物等），甲方负责清理、拆除。甲方违反上述约定的，造成乙方停工或再次进场而使费用增加的，由甲方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="136" s="33">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="136" cs="14" s="33">
+<O>
+<![CDATA[3、乙方在燃气施工中，被损坏的管道、水沟、穿墙洞、楼板洞由乙]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="137" cs="15" s="23">
+<O>
+<![CDATA[方负责修复，不再另行收费（不含特殊施工费用）。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="138" cs="14" s="23">
+<O>
+<![CDATA[4、燃气工程交付后，甲方不得违反规定，私自改变与燃气管道有关]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="139" cs="15" s="23">
+<O>
+<![CDATA[房屋的设计用途；不得私自拆、迁、移、改燃气管道及相关设施。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="140" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="140" cs="14" s="23">
+<O>
+<![CDATA[5、甲方在燃气工程交付使用后，发现问题及时报告乙方处理。房屋]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="141" cs="15" s="23">
+<O>
+<![CDATA[未售出期间，户内燃气管道安全责任由甲方负责。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="142" cs="14" s="23">
+<O>
+<![CDATA[6、甲方有义务并积极配合乙方,提供详实的用户资料。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="143" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="143" cs="14" s="23">
+<O>
+<![CDATA[7、乙方负责本燃气工程交付使用后的燃气供应、抄表、收费等服务]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="144" cs="15" s="23">
+<O>
+<![CDATA[，并按规定收取燃气费和服务费。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="145" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="145" cs="14" s="23">
+<O>
+<![CDATA[8、燃气工程交付后，甲方用户室外燃气管道及附属设施（埋地管道]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="146" cs="15" s="34">
+<O>
+<![CDATA[分）由乙方负责维护、运行管理，所发生的费用由乙方承担。户内管道、计量表及其附属设施的维护更新，由乙方代为维护，其费用由甲方用户承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="147" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="147" cs="14" s="23">
+<O>
+<![CDATA[9、乙方因施工、检测等情况需要暂停供气或者降低燃气压力，乙方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="148" cs="15" s="32">
+<O>
+<![CDATA[在3日前通过电话或公告等方式告知用户；若上游公司限供、应急和不可]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="149" cs="7" s="27">
+<O>
+<![CDATA[抗力等原因中断供气，乙方需在]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="149" s="28">
+<O t="I">
+<![CDATA[5]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="149" cs="7" s="23">
+<O>
+<![CDATA[日内通知用户；由此影响用户用气]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="150" cs="15" s="23">
+<O>
+<![CDATA[，乙方不承担任何责任。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="152" cs="11" s="23">
+<O>
+<![CDATA[   第六条：甲方须告知用户应承担的义务和责任：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="152" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="152" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="152" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="152" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="153" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="153" cs="14" s="23">
+<O>
+<![CDATA[1、用户在对房屋进行装修时，不得违反国家相关规定，私自改变与]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="154" cs="15" s="33">
+<O>
+<![CDATA[燃气管道有关房屋的设计用途；不得私自拆、迁、移、改燃气管道以及相关设施；严禁将燃气表、燃气管道和设施封包在墙、箱、柜内。否则，按照规定，由用户承担相应的法律、经济责任。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="155" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="155" cs="14" s="23">
+<O>
+<![CDATA[2、用户应依据法律、法规和规章的规定，对已投入使用的燃气室内]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="156" cs="15" s="23">
+<O>
+<![CDATA[计量表、设施及安全运行状况配合乙方每年不定期入户的安全检查。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="157" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="157" cs="14" s="23">
+<O>
+<![CDATA[3、用户在燃气管道、设施室内，严禁存放易燃易爆物品。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="158" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="158" cs="14" s="23">
+<O>
+<![CDATA[4、用户燃气设施存在安全隐患时，乙方有权停止供气，待相关隐患]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="159" cs="15" s="23">
+<O>
+<![CDATA[排除后，方可恢复供气。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="160" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="160" cs="14" s="23">
+<O>
+<![CDATA[5、用户应自觉遵守《燃气安全使用手册》的规定，承担户内燃气使]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="161" cs="15" s="23">
+<O>
+<![CDATA[用安全管理责任，并负有燃气安全隐患报警、报修义务。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="162" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="162" cs="14" s="23">
+<O>
+<![CDATA[6、用户有义务配合乙方对燃气管道及相关设施进行抢险和检修。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="163" cs="14" s="23">
+<O>
+<![CDATA[7、用户室内的管道、计量表及其附属设施的维修、更新、拆迁移改]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="164" cs="15" s="23">
+<O>
+<![CDATA[由乙方负责，所发生的费用由用户承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="165" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="165" cs="14" s="23">
+<O>
+<![CDATA[8、用户有配合乙方入户抄表的责任或接受估抄（若用户未申请安装]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="166" cs="15" s="23">
+<O>
+<![CDATA[气表户外抄表装置[智能表]A，就必须接受乙方入户抄表或估抄）的义务，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="167" cs="15" s="23">
+<O>
+<![CDATA[不得拒绝抄表员入户登记抄表。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="168" s="32">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="168" cs="14" s="23">
+<O>
+<![CDATA[9、用户必须配合乙方按国家规定对燃气表进行定期检查和有偿复置]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="169" cs="15" s="23">
+<O>
+<![CDATA[用户燃气表复置金于复置时一次性收取。报废的燃气表由乙方负责收回处]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="170" cs="15" s="23">
+<O>
+<![CDATA[理。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="171" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="171" cs="14" s="23">
+<O>
+<![CDATA[10、用户应当按规定在抄表3日后15日之内缴纳燃气费，逾期未缴纳]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="172" cs="15" s="23">
+<O>
+<![CDATA[的，乙方可从逾期之日起，对用户每日按照所欠燃气费的5‰收取滞纳金]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="173" cs="15" s="23">
+<O>
+<![CDATA[。自催缴之日起30日内仍不缴纳燃气费的，乙方可以对其终止供气。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="174" cs="14" s="23">
+<O>
+<![CDATA[11、用户发现燃气泄漏，不使用明火和启用电器开关，做到关阀后开]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="175" cs="15" s="23">
+<O>
+<![CDATA[窗通气。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="176" s="35">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="176" cs="14" s="35">
+<O>
+<![CDATA[12、用户应按《贵州省燃气管理条例》的规定购买经过贵州省质量技术监督局检]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="177" cs="15" s="23">
+<O>
+<![CDATA[测合格的适合安顺市燃气气质条件的燃气器具，产品及安装质量由具有相]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="178" cs="15" s="23">
+<O>
+<![CDATA[应资质的单位检验合格后，方可使用。否则，造成的一切责任由用户自行]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="179" cs="6" s="23">
+<O>
+<![CDATA[承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="179" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="180" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="180" cs="14" s="23">
+<O>
+<![CDATA[13、用户非正常使用燃气（指欠费、存在安全隐患，违反公司管理规]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="181" cs="15" s="23">
+<O>
+<![CDATA[定和条例规定的）重新开通，须整改完交清相关费用清单，乙方再实施开]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="182" cs="14" s="23">
+<O>
+<![CDATA[通。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="183" cs="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="184" cs="15" s="23">
+<O>
+<![CDATA[   第七条：其他]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="185" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="185" cs="14" s="23">
+<O>
+<![CDATA[1、如因工程需要产生市政破路，破路手续由乙方负责；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="186" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="186" cs="14" s="23">
+<O>
+<![CDATA[2、乙方已完成施工的燃气设施（含庭院管道及户内设施），甲方有]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="187" cs="15" s="34">
+<O>
+<![CDATA[义务做好监护责任，若因甲方其他工程施工造成燃气设施被破坏，需再次重新施工修复的，由此产生的一切费用须由甲方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="188" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="188" cs="14" s="23">
+<O>
+<![CDATA[3、乙方提供的燃气供应仅为用户作为日常生活清洁能源使用，燃气]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="189" cs="15" s="23">
+<O>
+<![CDATA[计量器具为2.5方表。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="190" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="190" cs="14" s="23">
+<O>
+<![CDATA[4、甲方用户若需使用燃气作为家庭采暖，须变更加大燃气计量器具]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="191" cs="15" s="34">
+<O>
+<![CDATA[燃气设施，并在燃气合同签订前书面向燃气公司提出申请。未经申请，擅自改动变更燃气管道及设施，影响燃气正常供应，所导致的后果由甲方全权承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="192" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="192" cs="14" s="23">
+<O>
+<![CDATA[5、甲方需要使用天然气作为其他能源的，必须单独提出书面申请，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="193" cs="15" s="23">
+<O>
+<![CDATA[经乙方现场踏勘，合乎条件方可办理。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="194" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="194" cs="14" s="23">
+<O>
+<![CDATA[6、合同未尽事宜，经双方协商一致，签订补充协议作为本合同的附]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="195" cs="15" s="23">
+<O>
+<![CDATA[件，补充协议具有同等的法律效率。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="196" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="196" cs="14" s="23">
+<O>
+<![CDATA[7、乙方办理该项目相关的询证函件，甲方必须配合。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="197" cs="14" s="23">
+<O>
+<![CDATA[8、为缓解甲方资金压力，经双方协商该项目按下列方式支付燃气设]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="198" cs="15" s="23">
+<O>
+<![CDATA[施建设费：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="199" s="36">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="199" cs="6" s="36">
+<O>
+<![CDATA[首次交纳金额为：项目总额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="199" cs="2" s="37">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PAYMENT_RATIO1"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="199" cs="3" s="36">
+<O>
+<![CDATA[%元整，大写：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="199" cs="3" s="37">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalFirstPayment]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="200" cs="15" s="36">
+<O>
+<![CDATA[元整。合同签订后甲方在三日内向乙方支付。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="201" s="36">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="201" cs="6" s="38">
+<O>
+<![CDATA[第二次交纳金额为：项目总额]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="7" r="201" cs="2" s="37">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PAYMENT_RATIO2"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="9" r="201" cs="3" s="38">
+<O>
+<![CDATA[%元整，大写：]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="12" r="201" cs="3" s="37">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalSecondPaymentAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="201">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="202" cs="15" s="36">
+<O>
+<![CDATA[ 元整。于燃气工程安装施工进场前甲方向乙方付清款项。 ]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="202">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H202]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H202)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="203" s="36">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="203" cs="6" s="38">
+<O>
+<![CDATA[第三次交纳金额为：项目总额]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="7" r="203" cs="2" s="37">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PAYMENT_RATIO3"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="9" r="203" cs="3" s="39">
+<O>
+<![CDATA[%元整，大写：]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="12" r="203" cs="3" s="37">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalThirdPaymentAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="203">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="204" cs="15" s="36">
+<O>
+<![CDATA[元整。于燃气工程施工进度完成户内安装甲方向乙方付清款项。]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="204">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H204]A<= 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H204)== 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="205" s="36">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="205" cs="6" s="38">
+<O>
+<![CDATA[第四次交纳金额为：项目总额]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="7" r="205" cs="2" s="37">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="AGENT_CUST_PHONE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="9" r="205" cs="3" s="38">
+<O>
+<![CDATA[%元整，大写：]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="12" r="205" cs="3" s="37">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalFourPaymentAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="15" r="205">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="0" r="206" cs="15" s="36">
+<O>
+<![CDATA[元整。于燃气工程安装竣工验收合格后，甲方在七日内向乙方尾款支付。]]></O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="15" r="206">
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[len(H206) == 0]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[[H206]A <=0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="207" cs="14" rs="2" s="32">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SUPPLEMENT_CLAUSE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="209" cs="15" s="23">
+<O>
+<![CDATA[   第八条：违约责任：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="210" s="40">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="210" cs="14" s="23">
+<O>
+<![CDATA[1、本合同从签订之日起，甲方应按规定时间交付清本合同约定的金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="211" cs="15" s="23">
+<O>
+<![CDATA[。逾期不付款的，乙方有权停止对该工程的继续施工。如已经施工完毕的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="212" cs="15" s="23">
+<O>
+<![CDATA[程，乙方有权不予通气和提供服务，并加收所欠款额每天0.5%的违约金。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="213" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="213" cs="14" s="23">
+<O>
+<![CDATA[2、甲方未履行本合同第五条第1、2款约定，造成乙方停工或再次进场]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="214" cs="15" s="23">
+<O>
+<![CDATA[，如造成费用增加的，由甲方承担，给乙方造成损失的，甲方应负责赔偿。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="215" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="215" cs="14" s="23">
+<O>
+<![CDATA[3、乙方未履行本合同所应尽的义务，给甲方（用户）造成损失的，由]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="216" cs="15" s="23">
+<O>
+<![CDATA[乙方负责。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="217" cs="15" s="23">
+<O>
+<![CDATA[   第九条：争议解决]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="218" cs="14" s="23">
+<O>
+<![CDATA[因签订、履行本合同发生的一切争议，按下列规定的方式解决：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="219" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="219" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="219" cs="13" s="23">
+<O>
+<![CDATA[（1）由争议双方协商解决；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="220" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="220" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="220" cs="13" s="23">
+<O>
+<![CDATA[（2）调解解决；　　]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="221" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="221" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="221" cs="13" s="23">
+<O>
+<![CDATA[（3）依法向合同签订地的人民法院诉讼解决。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="223" cs="5" s="29">
+<O>
+<![CDATA[   第十条：本协议一式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="223" s="28">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONTRACT_COPIES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="223" cs="2" s="29">
+<O>
+<![CDATA[份，甲方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="223" s="28">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="FISRT_PARTY_COPIES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="223" cs="2" s="29">
+<O>
+<![CDATA[份、乙方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="223" s="28">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SECOND_PARTY_COPIES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="223" cs="3" s="29">
+<O>
+<![CDATA[份，自双方签字]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="224" cs="15" s="23">
+<O>
+<![CDATA[盖章之日起生效。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="227" cs="2" s="27">
+<O>
+<![CDATA[甲方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="227" cs="6" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="227" cs="2" s="27">
+<O>
+<![CDATA[乙方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="227" cs="5" s="32">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="228">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="228">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="228" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="228" cs="7" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="229" cs="3" s="27">
+<O>
+<![CDATA[单位负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="229" cs="5" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="229" cs="3" s="27">
+<O>
+<![CDATA[单位负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="229" cs="4" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="230" cs="3" s="27">
+<O>
+<![CDATA[部门负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="230" cs="5" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="230" cs="3" s="27">
+<O>
+<![CDATA[部门负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="230" cs="4" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="231" cs="3" s="27">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="231" cs="5" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_ENTRUST_REPRESENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="231" cs="3" s="27">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="231" cs="4" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_AGENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="232" cs="3" s="27">
+<O>
+<![CDATA[开户行：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="232" cs="5" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="232" cs="3" s="27">
+<O>
+<![CDATA[开户行：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="232" cs="4" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="OPEN_BANK"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="233" cs="3" s="27">
+<O>
+<![CDATA[帐    号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="233" cs="5" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="233" cs="3" s="27">
+<O>
+<![CDATA[帐  号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="233" cs="4" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="ACCOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="234" cs="3" s="27">
+<O>
+<![CDATA[电      话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="234" cs="5" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_PHONE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="234" cs="3" s="27">
+<O>
+<![CDATA[电   话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="234" cs="4" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP_PHONE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="235" cs="3" s="27">
+<O>
+<![CDATA[地    址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="235" cs="5" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="UNIT_ADDRESS"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="235" cs="3" s="27">
+<O>
+<![CDATA[地    址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="235" cs="4" s="23">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_CORP_ADDR"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="236">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="236">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="236">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="236">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="239" cs="3" s="5">
+<O>
+<![CDATA[签订日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="239" cs="5" s="32">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SIGN_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="986400" left="2448000" bottom="986400" right="2160000"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="136"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="4">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Right style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+<Left style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1" lineSpacing="6">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="1" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="宋体" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="宋体" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="宋体" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="宋体" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

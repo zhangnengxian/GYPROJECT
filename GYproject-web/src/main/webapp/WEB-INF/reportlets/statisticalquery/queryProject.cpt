@@ -1,0 +1,1039 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	p.proj_id 工程id,
+	p.proj_no 工程编号,
+	p.proj_name 工程名称,
+	p.proj_addr 工程地址,
+	p.project_type_des 工程类型,
+	p.contribution_mode_des 出资方式,
+	p.cust_name 申报单位,
+	p.cust_contact 联系人,
+	p.cust_phone 联系电话,
+	ps.des 工程状态,
+	p.proj_scale_des 规模明细,
+	p.ACCEPT_DATE 立项日期,
+	cp.CP_ARRIVE_DATE 计划下达日期,
+	wr.PLANNED_END_DATE 计划竣工日期,
+	wr.PLANNED_START_DATE 实际开工日期,
+	sil.REAl_END_DATE 实际竣工日期,
+	sc.SC_NO 分包合同号,
+	p.SURVEYER 踏勘员,
+	p.SURVEY_DATE 踏勘日期,
+	si.SURVEY_DES_DATE 踏勘结果登记日期,
+	si.TECH_SUG_DATE 技术建议填写日期,
+	p.DESIGNER 设计人员,
+	cp.CU_NAME 施工单位,
+	cp.CU_PM 项目经理,
+	cp.CU_PM_TEL 项目经理电话,
+	cp.MANAGEMENT_QAE 施工员,
+	cp.QAE_TEL 施工员电话,
+	cp.SU_NAME 监理单位,
+	cp.SU_JGJ 现场监理,
+	cp.SU_JGJ_PHONE 监理电话,
+	cp.BUILDER 现场代表,
+	cp.BUILDER_PHONE 现场代表电话,
+	ja.MARKET_DEV_SIGN_DATE 联合验收日期,
+  con.TIME_LIMIT 用户合同约定工期
+FROM
+	project p
+LEFT JOIN proj_status ps ON ps.ID = p.PROJ_STATUS_ID
+LEFT JOIN survey_info si ON si.PROJ_ID = p.PROJ_ID
+LEFT JOIN contract con ON con.PROJ_ID = p.PROJ_ID 
+LEFT JOIN construction_plan cp ON cp.PROJ_ID = p.PROJ_ID
+LEFT JOIN sub_contract sc ON sc.PROJ_ID = p.PROJ_ID
+LEFT JOIN work_report wr ON wr.PROJ_ID = p.PROJ_ID
+LEFT JOIN complete_report sil ON (sil.PROJ_ID = p.PROJ_ID and sil.cr_flag='1')
+LEFT JOIN joint_acceptance ja ON 
+	ja.PROJ_ID = p.PROJ_ID
+	WHERE 1=1  ${condition} order by p.ACCEPT_DATE asc]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select concat('制表时间：',CONVERT(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s'),char)) as 制表时间]]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select PROJ_ID,PROJ_NO,group_concat(DATE_FORMAT(CW_DATE,'%Y-%m-%d') separator ' ; ') 交底日期  from construction_work GROUP BY PROJ_NO]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select ps.proj_id,GROUP_CONCAT(ps.status ORDER BY ps.status desc SEPARATOR ', ' ),GROUP_CONCAT(pst.DES ORDER BY ps.status desc SEPARATOR ', ' ) 标记描述 from project_sign ps LEFT JOIN  project_sign_type pst on ps.SIGN_TYPE = pst.SIGN_STATUS
+ where ps.status='1' 
+GROUP BY ps.PROJ_ID ]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="3"/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1371600,914400,1143000,914400,1728000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,2247900,6477000,13182600,9563100,9410700,3600000,3600000,2743200,2743200,10439400,4191000,3962400,5715000,2743200,3390900,3390900,3581400,3390900,7086600,3124200,3200400,4724400,3695700,3657600,3390900,3733800,3733800,3657600,3276600,4038600,3848100,3848100,2819400,4495800,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="0" cs="16" s="0">
+<O>
+<![CDATA[工程建设情况一览表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" cs="2" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="制表人：" + $staffName]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="1" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="制表时间"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" rs="2" s="3">
+<O>
+<![CDATA[序号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程地点]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程规模]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" rs="2" s="3">
+<O>
+<![CDATA[出资方式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" rs="2" s="3">
+<O>
+<![CDATA[立项日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" rs="2" s="3">
+<O>
+<![CDATA[协议编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" rs="2" s="3">
+<O>
+<![CDATA[申报单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" rs="2" s="3">
+<O>
+<![CDATA[联系人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" rs="2" s="3">
+<O>
+<![CDATA[联系电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="2" rs="2" s="3">
+<O>
+<![CDATA[工程状态]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="2" rs="2" s="3">
+<O>
+<![CDATA[踏勘员]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="2" rs="2" s="3">
+<O>
+<![CDATA[踏勘日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="2" rs="2" s="3">
+<O>
+<![CDATA[踏勘结果\\n登记日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="2" rs="2" s="3">
+<O>
+<![CDATA[设计人员]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="2" rs="2" s="3">
+<O>
+<![CDATA[技术建议\\n填写日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="2" rs="2" s="3">
+<O>
+<![CDATA[监理单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="2" rs="2" s="3">
+<O>
+<![CDATA[现场监理]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="2" rs="2" s="3">
+<O>
+<![CDATA[监理电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="2" rs="2" s="3">
+<O>
+<![CDATA[施工单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="2" rs="2" s="3">
+<O>
+<![CDATA[施工员]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="2" rs="2" s="3">
+<O>
+<![CDATA[施工员电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="25" r="2" rs="2" s="3">
+<O>
+<![CDATA[现场代表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="26" r="2" rs="2" s="3">
+<O>
+<![CDATA[现场代表电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="27" r="2" rs="2" s="3">
+<O>
+<![CDATA[施工任务下达时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="28" r="2" rs="2" s="3">
+<O>
+<![CDATA[任务计划完工时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="29" r="2" rs="2" s="3">
+<O>
+<![CDATA[交底时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="30" r="2" rs="2" s="3">
+<O>
+<![CDATA[实际开工时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="31" r="2" rs="2" s="3">
+<O>
+<![CDATA[实际竣工时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="32" r="2" rs="2" s="3">
+<O>
+<![CDATA[联合验收时间]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="33" r="2" rs="2" s="3">
+<O>
+<![CDATA[用户合同约定工期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="34" r="2" rs="2" s="3">
+<O>
+<![CDATA[标红标记]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=&C5]]></Attributes>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A5 % 15 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.PageHighlightAction">
+<P i="1"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="1" r="4" s="4">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(len(C5) = 0, "", seq())]]></Attributes>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="2" r="4" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程编号"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0" multiNumber="15"/>
+</C>
+<C c="3" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程名称"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程地址"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="规模明细"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程类型"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="7" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="出资方式"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="8" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="立项日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="分包合同号"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="申报单位"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="11" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="联系人"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="12" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="联系电话"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="13" r="4" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程状态"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="14" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="踏勘员"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="15" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="踏勘日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="踏勘结果登记日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="17" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="设计人员"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="18" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="技术建议填写日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="19" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="监理单位"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellPageAttr/>
+<CellInsertPolicy>
+<InsertPolicy>
+<![CDATA[copy]]></InsertPolicy>
+</CellInsertPolicy>
+<Expand dir="0"/>
+</C>
+<C c="20" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="现场监理"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="21" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="监理电话"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="22" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="施工单位"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="23" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="施工员"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="24" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="施工员电话"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="25" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="现场代表"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="26" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="现场代表电话"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="27" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="计划下达日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="28" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="计划竣工日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="29" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="交底日期"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[PROJ_ID]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds1" columnName="工程id"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="30" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="实际开工日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="31" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="实际竣工日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="32" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="联合验收日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="33" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="用户合同约定工期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="34" r="4" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="标记描述"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[proj_id]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds1" columnName="工程id"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="36000000" height="165600000"/>
+<Margin top="1438560" left="1438560" bottom="1438560" right="1438560"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="124"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="5" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

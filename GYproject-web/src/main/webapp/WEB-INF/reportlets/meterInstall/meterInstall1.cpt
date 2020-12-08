@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608031034274930302271305938]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from  Altimetric_Survey r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0 order by pc_station  asc]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}' AND s.field_name='suJgj']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.2755905511811024" left="0.7480314960629921" bottom="0.27" right="0.7480314960629921" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[59,50,28,27,32,186,25,214,21,84,22,13,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[57,78,81,64,46,70,82,99,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0"><O><![CDATA[乌市管道天然气工程]]></O>
+</C>
+<C c="6" r="0"><CellGUIAttr previewContent="false" ></CellGUIAttr><CellInsertPolicy></CellInsertPolicy></C>
+<C c="7" r="0"><O><![CDATA[     ]]></O>
+</C>
+<C c="0" r="1" cs="8" s="1"><O><![CDATA[ 室内燃气表安装质量检查记录]]></O>
+</C>
+<C c="0" r="2" cs="4" s="2"><O><![CDATA[工程名称：乌鲁木齐恒大绿洲小区]]></O>
+</C>
+<C c="4" r="2" cs="2" s="2"><O><![CDATA[楼号：38#]]></O>
+</C>
+<C c="6" r="2" cs="2" s="2"><O><![CDATA[安装数量：30]]></O>
+</C>
+<C c="0" r="3" cs="4" s="2"><O><![CDATA[燃气表型号：丹热]]></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" cs="4" s="2"><O><![CDATA[生产厂家：丹东热工仪表有限公司]]></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="4" cs="4" s="3"><O><![CDATA[ 检测日期： 2016-11-20]]></O>
+</C>
+<C c="4" r="4" cs="4" s="3"><O><![CDATA[ 施工单位：施工一处]]></O>
+</C>
+<C c="0" r="5" s="4"><O><![CDATA[保证项目]]></O>
+</C>
+<C c="1" r="5" cs="3" s="5"><O><![CDATA[1、燃气表安装在非封闭空间 2、燃气表保持直立安装，严禁倾斜 3、燃气表与灶具保持安全距离 燃气表前安装闭气阀门]]></O>
+</C>
+<C c="4" r="5" s="4"><O><![CDATA[允许偏差]]></O>
+</C>
+<C c="5" r="5" cs="3" s="5"><O><![CDATA[1、高位挂表距成品地面高度1800mm±(50mm). 2、燃气表距墙面与燃气灶水平距离≦30mm 地位挂表距成品地面不低于100mm]]></O>
+</C>
+<C c="0" r="6" cs="8" s="6"><O><![CDATA[安装质量检查：]]></O>
+</C>
+<C c="0" r="7" cs="8" s="7"><O><![CDATA[检验合格]]></O>
+</C>
+<C c="0" r="8" cs="3" s="8"><O><![CDATA[建设单位：]]></O>
+</C>
+<C c="3" r="8" cs="3" s="9"><O><![CDATA[监理单位：]]></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="8" cs="2" s="8"><O><![CDATA[施工单位：]]></O>
+</C>
+<C c="0" r="9" cs="3" s="7"></C>
+<C c="3" r="9" cs="3" s="7"></C>
+<C c="6" r="9" cs="2" s="7"></C>
+<C c="0" r="10" cs="3" s="7"><O><![CDATA[            2106-11-22]]></O>
+</C>
+<C c="3" r="10" cs="3" s="7"><O><![CDATA[          2106-11-22]]></O>
+</C>
+<C c="6" r="10" cs="2" s="7"><O><![CDATA[          2106-11-21]]></O>
+</C>
+<C c="8" r="10"></C>
+<C c="0" r="11" s="10"></C>
+<C c="3" r="11" s="10"></C>
+<C c="4" r="11" s="10"></C>
+<C c="6" r="11" s="10"></C>
+<C c="7" r="11" s="10"></C>
+<C c="0" r="12" cs="2"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="宋体" style="1" size="21" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" isVerticalText="1" textDirection="1" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Left style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

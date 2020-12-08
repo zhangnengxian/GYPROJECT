@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT FIELD_NAME,IMG_URL FROM signature WHERE BUSINESS_ORDER_ID='${pcId}']]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	COMPLETE_UNIT_NO,
+	COMPLETE_UNIT_NAME,
+	INSTALL_START_DATE,
+	INSTALL_COMPLETE_DATE,
+	PIPING_LEVEL,
+	PIPING_LEN,
+	DU_APTITUDE_NO,
+	SU_APTITUDE_NO,
+  NDT_UNIT,
+  NDT_APTITUDE_NO,
+  INSTALL_MONITOR_UNIT,
+  USE_UNIT,
+INSTALL_UNIT,
+IU_SEAL_DATE,
+LICENS_NO,
+CUQAE_SIGN_DATE,
+CUQC_SIGN_DATE,
+INSPECTION_DATE,
+DESIGN_UNIT
+FROM
+	project_checklist
+WHERE
+	PC_ID = '${pcId}']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[2057400,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,1143000,4533900,2476500,2476500,1143000,1143000,1143000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2743200,1524000,2743200,2743200,2476500,4381500,2743200,2743200,2362200,190500,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="9" s="0">
+<O>
+<![CDATA[压力管道安装质量证明书]]></O>
+<PrivilegeControl/>
+</C>
+<C c="0" r="1" cs="2" s="1">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="1" cs="3" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$projName]]></Attributes>
+</O>
+<PrivilegeControl/>
+</C>
+<C c="5" r="1" s="1">
+<O>
+<![CDATA[工程编号]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="1" cs="3" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$projNo]]></Attributes>
+</O>
+<PrivilegeControl/>
+</C>
+<C c="0" r="2" cs="2" s="1">
+<O>
+<![CDATA[交工单元名称]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="2" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="COMPLETE_UNIT_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="2" s="1">
+<O>
+<![CDATA[交工单元编号]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="2" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="COMPLETE_UNIT_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="2" rs="2">
+<PrivilegeControl/>
+</C>
+<C c="0" r="3" cs="2" s="1">
+<O>
+<![CDATA[安装开工日期]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="3" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="INSTALL_START_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="1">
+<O>
+<![CDATA[安装竣工日期]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="3" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="INSTALL_COMPLETE_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" cs="2" s="1">
+<O>
+<![CDATA[管道级别]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="4" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="PIPING_LEVEL"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="1">
+<O>
+<![CDATA[管道长度]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="4" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="PIPING_LEN"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" cs="2" s="1">
+<O>
+<![CDATA[设计单位]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="5" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="DESIGN_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="5" s="1">
+<O>
+<![CDATA[资质编号]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="5" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="DU_APTITUDE_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="6" cs="2" s="1">
+<O>
+<![CDATA[监理单位]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="6" cs="3" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$suName]]></Attributes>
+</O>
+<PrivilegeControl/>
+</C>
+<C c="5" r="6" s="1">
+<O>
+<![CDATA[资质编号]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="6" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="SU_APTITUDE_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" cs="2" s="1">
+<O>
+<![CDATA[无损检测单位]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="7" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="NDT_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="7" s="1">
+<O>
+<![CDATA[资质编号]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="7" cs="3" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="NDT_APTITUDE_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="8" cs="2" s="1">
+<O>
+<![CDATA[安装监检单位]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="8" cs="7" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="INSTALL_MONITOR_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="9" cs="2" s="1">
+<O>
+<![CDATA[使用单位]]></O>
+<PrivilegeControl/>
+</C>
+<C c="2" r="9" cs="7" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="USE_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="10" cs="9" rs="11" s="3">
+<O>
+<![CDATA[　　本压力管道的安装经质量检验，符合《压力管道安全技术监察规程》、设计文件和（相关技术标准）标准要求。]]></O>
+<PrivilegeControl/>
+</C>
+<C c="0" r="21" s="4">
+<PrivilegeControl/>
+</C>
+<C c="1" r="21" cs="8" s="5">
+<O>
+<![CDATA[ 附：《压力管道安装汇总表》]]></O>
+<PrivilegeControl/>
+</C>
+<C c="0" r="22" cs="4" s="6">
+<O>
+<![CDATA[质检员：]]></O>
+<PrivilegeControl/>
+</C>
+<C c="4" r="22" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[FIELD_NAME]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[constructionQc]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="22" s="8">
+<O>
+<![CDATA[日期：]]></O>
+<PrivilegeControl/>
+</C>
+<C c="7" r="22" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="CUQC_SIGN_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="23" cs="4" s="6">
+<O>
+<![CDATA[质量保证工程师：]]></O>
+<PrivilegeControl/>
+</C>
+<C c="4" r="23" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[FIELD_NAME]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[constructionQae]]></O>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="23" s="8">
+<O>
+<![CDATA[日期：]]></O>
+<PrivilegeControl/>
+</C>
+<C c="7" r="23" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="CUQAE_SIGN_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="24" cs="6" s="6">
+<O>
+<![CDATA[安装单位（公章）]]></O>
+<PrivilegeControl/>
+</C>
+<C c="6" r="24" cs="3" s="9">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="INSTALL_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="25" cs="7" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="INSPECTION_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="25" s="10">
+<PrivilegeControl/>
+</C>
+<C c="8" r="25" s="5">
+<PrivilegeControl/>
+</C>
+<C c="0" r="26" cs="7" s="11">
+<O>
+<![CDATA[特种设备安装许可证编号：]]></O>
+<PrivilegeControl/>
+</C>
+<C c="7" r="26" cs="2" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="LICENS_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="27" cs="2">
+<PrivilegeControl/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="864000" left="2735999" bottom="864000" right="2735999"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style vertical_alignment="1" imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="4" paddingLeft="0" paddingRight="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

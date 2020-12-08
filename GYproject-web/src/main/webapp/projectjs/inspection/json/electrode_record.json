@@ -1,0 +1,12 @@
+{"data":[
+{"pcId":"201702071332354340302780267159","pcDesId":"19","projId":"201610191123047300101261251904","projNo":"T-2016101910","projName":"红山新世纪商务酒店","projAddr":null,
+"suName":"昆仑工程监理有限责任公司",
+"suJgj":"","suOpinion":"合格","constructionUnit":"宇润天成建筑劳务有限公司","constructionPrincipal":"",
+"grStartStop":null,"grCaliber":null,"grDigging":null,"grDiggingDes":"","grSoil":null,"grSoilDes":"","grUpWide":null,"grDownWide":null,"grDepth":null,"dpPipeSize":null,
+"dpNum":null,"dpReplayNum":null,"dpKv":null,"dpPrincipal":null,"pPrincipal":null,"pipeItemName":null,"pipeLine":null,"pipeNdtMethod":null,"pipeNdtScale":null,"peItem":null,
+"safetyOfficer":null,"meterial":null,"process":"焊条领用","inspectionDate":"2017-03-03","inspectionResult":"合格","inspectionClum":null,"inspectionClumDes":"","checkDate":"2017-03-03",
+"liningDate":null,"targetCheck":null,"otherPerson":null,"otherCheckDate":null,"selfCheckDate":"2017-03-03","length":null,"tester":null,"testDate":null,"testUnit":null,"sign":null,"systemCategory":null,
+"drawingNo":null,"checkoutDate":null,"model":null,"weatherCondition":null,"roomTemperature":null,"voltage":null,"qualityStandard":null,"unitMeasurement":null,"testResult":null,"testControler":null,"groundingType":null,
+"underLinearType":null,"layoutDiagram":null,"menuDes":null,"drawUrl":null,"debugger":null,"debugDate":null,"debugUnit":null,"designUnit":null,"debugDes":null,"remainingProblems":null,
+"technician":null,"standardItem":null,"notMeet":null,"basicItem":null,"excellentItem":null,"excellentRate":null,"actualMeasurementPoint":null,"qualifiedPoint":null,"qualifiedRate":null,"qrCodePath":null}
+]}

@@ -1,0 +1,349 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.2362204724409449" left="0.6299212598425197" bottom="0.1968503937007874" right="0.6299212598425197" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[25,30,26,26,108,20,26,26,26,26,23,25,20,26,27,26,26,25,26,26,26,23,28,23,62,20,287,79,26,237,26,107,26,26,26,26,26,26,26,26,58,26,26,26,26,26,26,26,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[40,13,33,30,50,36,76,69,83,27,43,50,117,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0"></C>
+<C c="2" r="0" s="0"></C>
+<C c="5" r="0" s="0"></C>
+<C c="6" r="0" s="0"></C>
+<C c="7" r="0" s="0"></C>
+<C c="8" r="0" cs="5" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[="合同编号：" + ($sscNo)]]></Attributes></O>
+</C>
+<C c="0" r="1" s="0"></C>
+<C c="2" r="1" s="0"></C>
+<C c="5" r="1" cs="4" s="1"><O><![CDATA[单位工程劳务分包协议]]></O>
+</C>
+<C c="9" r="1" cs="4" s="2"><O><![CDATA[（庭院工程）]]></O>
+</C>
+<C c="0" r="2" cs="7" s="3"><O><![CDATA[工程承包人（以下简称本协议甲方）：]]></O>
+</C>
+<C c="7" r="2" cs="6" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[="新疆燃气（集团）有限公司"]]></Attributes></O>
+</C>
+<C c="0" r="3" cs="7" s="3"><O><![CDATA[劳务分包人（以下简称本协议乙方）：]]></O>
+</C>
+<C c="7" r="3" cs="6" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbName]]></Attributes></O>
+</C>
+<C c="0" r="4" cs="13" s="5"><O><![CDATA[    为全面履行双方签订的《建设工程施工劳务分包合同GF-2003-0214》,进一步明确单位工程的具体要求，为保证该工程的质量、安全和进度，依照《中华人民共和国合同法》、《建筑法》及其他有关法律、行政法规和新疆燃气（集团）工程公司的《劳务分包管理办法》，遵循平等、自愿、公平和诚实信用的原则，双方就本工程劳务分包事项协商一致，订立本协议：]]></O>
+</C>
+<C c="0" r="5" cs="13" s="3"><O><![CDATA[一、工程概况]]></O>
+</C>
+<C c="0" r="6" cs="3" s="3"><O><![CDATA[工程名称：]]></O>
+</C>
+<C c="3" r="6" cs="7" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projName]]></Attributes></O>
+</C>
+<C c="11" r="6" s="3"></C>
+<C c="12" r="6" s="3"></C>
+<C c="0" r="7" cs="3" s="3"><O><![CDATA[工程地点：]]></O>
+</C>
+<C c="3" r="7" cs="7" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projAddr]]></Attributes></O>
+</C>
+<C c="11" r="7" s="3"></C>
+<C c="12" r="7" s="3"></C>
+<C c="0" r="8" cs="3" s="3"><O><![CDATA[工程内容：]]></O>
+</C>
+<C c="3" r="8" cs="10" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projScaleDes]]></Attributes></O>
+</C>
+<C c="0" r="9" cs="3" s="3"><O><![CDATA[承包范围：]]></O>
+</C>
+<C c="3" r="9" cs="10" rs="2" s="6"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscScope]]></Attributes></O>
+</C>
+<C c="0" r="10" cs="3"></C>
+<C c="0" r="11" cs="3" s="3"><O><![CDATA[承包方式：]]></O>
+</C>
+<C c="3" r="11" cs="10" rs="2" s="6"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscType]]></Attributes></O>
+</C>
+<C c="0" r="13" cs="13" s="3"><O><![CDATA[二、合同工期:]]></O>
+</C>
+<C c="0" r="14" cs="13" s="3"><O t="Formula" class="Formula"><Attributes><![CDATA[="开工日期：" + ($sscPlannedStartDate) + "，竣工日期：" + ($sscPlannedEndDate) + "。"]]></Attributes></O>
+</C>
+<C c="0" r="15" cs="5" s="3"><O><![CDATA[合同工期总日历天数：]]></O>
+</C>
+<C c="5" r="15" cs="2" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscPlannedTotalDays]]></Attributes></O>
+</C>
+<C c="7" r="15" s="8"></C>
+<C c="8" r="15" s="8"></C>
+<C c="9" r="15" s="8"></C>
+<C c="11" r="15" s="8"></C>
+<C c="12" r="15" s="8"></C>
+<C c="0" r="16" cs="13" s="3"><O><![CDATA[三、质量标准]]></O>
+</C>
+<C c="0" r="17" cs="4" s="3"><O><![CDATA[工程质量标准：]]></O>
+</C>
+<C c="4" r="17" cs="2" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscQualityStandar]]></Attributes></O>
+</C>
+<C c="6" r="17" s="3"></C>
+<C c="7" r="17" s="3"></C>
+<C c="8" r="17" s="3"></C>
+<C c="9" r="17" s="3"></C>
+<C c="11" r="17" s="3"></C>
+<C c="12" r="17" s="3"></C>
+<C c="0" r="18" cs="13" s="3"><O><![CDATA[四、合同价款]]></O>
+</C>
+<C c="0" r="19" cs="4" s="3"><O><![CDATA[金额（大写）：]]></O>
+</C>
+<C c="4" r="19" cs="6" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$legalAmount]]></Attributes></O>
+</C>
+<C c="11" r="19" cs="2" s="3"><O><![CDATA[元（暂定价）]]></O>
+</C>
+<C c="0" r="20" cs="4" s="3"><O><![CDATA[    （小写）：]]></O>
+</C>
+<C c="4" r="20" cs="6" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscAmount]]></Attributes></O>
+</C>
+<C c="11" r="20" cs="2" s="3"><O><![CDATA[元（暂定价）]]></O>
+</C>
+<C c="0" r="21" cs="13" s="3"><O><![CDATA[五、付款方式：]]></O>
+</C>
+<C c="0" r="22" cs="13" s="5"><O><![CDATA[扣除前期所支付的费用和质保金后，余款一次付清。]]></O>
+</C>
+<C c="0" r="23" cs="13" s="3"><O><![CDATA[六、财务管理]]></O>
+</C>
+<C c="0" r="24" cs="13" s="5"><O><![CDATA[  1、乙方服从甲方相关财务管理制度，乙方必须做到劳务资金专款专用，满足工程进度的需要，按时支付人工工资。 ]]></O>
+</C>
+<C c="0" r="25" cs="13" s="3"><O><![CDATA[七、施工管理]]></O>
+</C>
+<C c="0" r="26" cs="13" s="5"><O><![CDATA[  1、乙方必须严格服从甲方管理，无条件遵守甲方关于施工现场、质量、安全等的各项规章制度。对不服从管理多次违规不改的视为蓄意损害甲方企业信誉，甲方有权终止协议，乙方不得有异议。\\n  2、乙方严格按照国家现行的施工技术规范和验收标准以及施工图纸进行施工，确保工程质量，安全施工，文明施工和按期完工。\\n  3、乙方对所属施工队的管理必须严格执行有关综合治理的管理条例；严格按照规定用工，依法办理所用工手续，所有用工均须持证上岗。\\n  4、乙方不得在未经甲方许可的情况下，以甲方名义进行任何活动，乙方由此做出的任何承诺及签订的协议等，甲方均不予认可，并由此引起的一切经济纠纷和民事诉讼、刑事责任，概由乙方负责。\\n  5、甲方负责提供施工图纸，组织图纸会审，负责办理工程相关前期手续。]]></O>
+</C>
+<C c="0" r="27" cs="13" s="5"><O><![CDATA[  6、甲、乙双方严格执行《单位工程劳务分包施工安全协议书》的规定。\\n  7、协议签订后，乙方必须按照《劳务分包管理办法》将所有管理、施工人员到甲方相关部门备案。]]></O>
+</C>
+<C c="0" r="28" cs="13" s="3"><O><![CDATA[八、违约责任]]></O>
+</C>
+<C c="0" r="29" cs="13" s="5"><O><![CDATA[  1、严禁乙方将工程劳务肢解、转包，一经发现甲方有权单方面终止协议，由此引起的经济赔偿、民事诉讼和刑事责任，概由乙方全部承担。\\n  2、如因乙方原因发生的质量、安全事故，或造成逾期交工，一切经济损失以及业主方对上述问题追究甲方的责任均由乙方承担，需追究刑事责任的，也由乙方承担。\\n  3、乙方拖欠人工工资所引起的一切经济纠纷和民事诉讼、刑事责任，概由乙方负责。否则，甲方有权扣留乙方施工风险金用于解决和处理上述问题，同时用于赔偿由此给甲方和其他方造成的经济与社会损失，并追究乙方法律责任。\\n  4、甲方应按约定向乙方拨付劳务进度款，给乙方造成相关损失由甲方承担，并承担相关法律责任。]]></O>
+</C>
+<C c="0" r="30" cs="13" s="3"><O><![CDATA[九、质量缺陷责任]]></O>
+</C>
+<C c="0" r="31" cs="13" s="5"><O><![CDATA[  1、工程质量缺陷责任期为自竣工验收合格之日起两年，工程质量缺陷责任范围为图纸范围内的所有内容。\\n  2、乙方接到修理通知后，必须在48h内及时派人修理，否则甲方可自行修理。因乙方原因发生的修理费用甲方在施工风险金内扣除，不足部分，由乙方向甲方交付。]]></O>
+</C>
+<C c="0" r="32" cs="13" s="3"><O><![CDATA[十、项目负责人]]></O>
+</C>
+<C c="0" r="33" cs="13" s="3"><O><![CDATA[  1、工程承包人派驻项目经理]]></O>
+</C>
+<C c="0" r="34" cs="2" s="3"><O><![CDATA[姓名：]]></O>
+</C>
+<C c="2" r="34" cs="4" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaCompPm]]></Attributes></O>
+</C>
+<C c="6" r="34"></C>
+<C c="7" r="34" s="9"><O><![CDATA[职务：]]></O>
+</C>
+<C c="8" r="34" cs="4" s="4"><O><![CDATA[项目经理]]></O>
+</C>
+<C c="12" r="34"></C>
+<C c="0" r="35" cs="12" s="3"><O><![CDATA[  2 、劳务分包人驻工地代表]]></O>
+</C>
+<C c="12" r="35" s="3"></C>
+<C c="0" r="36" cs="2" s="3"><O><![CDATA[姓名：]]></O>
+</C>
+<C c="2" r="36" cs="4" s="4"><O t="Formula" class="Formula"><Attributes><![CDATA[=sscbCompPm]]></Attributes></O>
+</C>
+<C c="6" r="36"></C>
+<C c="7" r="36" s="9"><O><![CDATA[职务：]]></O>
+</C>
+<C c="8" r="36" cs="4" s="4"><O><![CDATA[现场负责人]]></O>
+</C>
+<C c="12" r="36"></C>
+<C c="0" r="37" cs="6" s="3"><O><![CDATA[十一、协议份数：本协议共]]></O>
+</C>
+<C c="6" r="37" s="7"><O><![CDATA[陆]]></O>
+</C>
+<C c="7" r="37" s="3"><O><![CDATA[份，甲方]]></O>
+</C>
+<C c="8" r="37" s="7"><O><![CDATA[肆 ]]></O>
+</C>
+<C c="9" r="37" cs="2" s="3"><O><![CDATA[份，乙方]]></O>
+</C>
+<C c="11" r="37" s="7"><O><![CDATA[贰 ]]></O>
+</C>
+<C c="12" r="37" s="3"><O><![CDATA[份。]]></O>
+</C>
+<C c="0" r="38" cs="13" s="3"><O><![CDATA[十二、本协议未尽事宜，执行双方签订的《建设工程施工劳务分包合同GF-2003-0214》。]]></O>
+</C>
+<C c="0" r="39" cs="13" s="3"><O><![CDATA[十三、合同生效与终止]]></O>
+</C>
+<C c="0" r="40" cs="13" s="5"><O><![CDATA[     本协议自甲、乙双方法人或其授权的委托代理人签字盖章之日起生效。本协议所涉及的所有债权、债务履行完毕即告终止。]]></O>
+</C>
+<C c="0" r="41" cs="8" s="3"><O><![CDATA[甲方：（公章）]]></O>
+</C>
+<C c="8" r="41" cs="5" s="3"><O><![CDATA[乙方：（公章）]]></O>
+</C>
+<C c="0" r="42" cs="4" s="3"><O><![CDATA[住      所：]]></O>
+</C>
+<C c="4" r="42" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaAddr]]></Attributes></O>
+</C>
+<C c="8" r="42" cs="2" s="3"><O><![CDATA[住      所：]]></O>
+</C>
+<C c="10" r="42" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbAddr]]></Attributes></O>
+</C>
+<C c="0" r="43" cs="4" s="3"><O><![CDATA[法定代表人：]]></O>
+</C>
+<C c="4" r="43" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaLegalRepresent]]></Attributes></O>
+</C>
+<C c="8" r="43" cs="2" s="3"><O><![CDATA[法定代表人：]]></O>
+</C>
+<C c="10" r="43" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbLegalRepresent]]></Attributes></O>
+</C>
+<C c="0" r="44" cs="4" s="3"><O><![CDATA[委托代理人：]]></O>
+</C>
+<C c="4" r="44" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaDirector]]></Attributes></O>
+</C>
+<C c="8" r="44" cs="2" s="3"><O><![CDATA[委托代理人：]]></O>
+</C>
+<C c="10" r="44" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbDirector]]></Attributes></O>
+</C>
+<C c="0" r="45" cs="4" s="3"><O><![CDATA[现场负责人：]]></O>
+</C>
+<C c="4" r="45" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaSoptLeader]]></Attributes></O>
+</C>
+<C c="8" r="45" cs="2" s="3"><O><![CDATA[现场负责人：]]></O>
+</C>
+<C c="10" r="45" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbSoptLeader]]></Attributes></O>
+</C>
+<C c="0" r="46" cs="4" s="3"><O><![CDATA[电   话：  ]]></O>
+</C>
+<C c="4" r="46" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscaPhone]]></Attributes></O>
+</C>
+<C c="8" r="46" cs="2" s="3"><O><![CDATA[电  话：]]></O>
+</C>
+<C c="10" r="46" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscbPhone]]></Attributes></O>
+</C>
+<C c="0" r="47" cs="4" s="3"><O><![CDATA[日      期：]]></O>
+</C>
+<C c="4" r="47" cs="4" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscSignDate]]></Attributes></O>
+</C>
+<C c="8" r="47" cs="2" s="3"><O><![CDATA[日      期：]]></O>
+</C>
+<C c="10" r="47" cs="3" s="0"><O t="Formula" class="Formula"><Attributes><![CDATA[=$sscSignDate]]></Attributes></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="1" size="24" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="1" size="19" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style lineSpacing="7">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="1" lineSpacing="10">
+<FRFont name="SimSun" style="0" size="16" underline="1" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

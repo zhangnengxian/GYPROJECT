@@ -1,0 +1,2157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	a.CON_NO '合同编号',
+	a.PROJ_NAME '项目名称',
+	a.PROJ_ADDR '项目地址',
+  a.PROJ_SCALE_DES 工程规模,
+	a.CUST_NAME '客户名称',
+	a.GAS_COMP '燃气公司',
+	a.CONTRACT_AMOUNT '合同价',
+	a.CUST_ENTRUST_REPRESENT '客户法定代表',
+	a.CON_AGENT '燃气公司方经办人',
+	a.INCREMENT '税率',
+	a.CONTRACT_COPIES '合同份数',
+	a.FISRT_PARTY_COPIES '燃气公司方份数',
+	a.SECOND_PARTY_COPIES '客户方份数',
+	a.SIGN_DATE '签订日期',
+	a.CONTRACT_CONTENT '用气设备',
+	a.HOSE_AMOUNT '每户金额',
+	a.HOUSEHOLD '户数',
+	a.OPEN_BANK '开户行',
+	a.ACCOUNT '账号',
+	a.GAS_CORP_ADDR '燃气公司地址',
+	a.HOUSE_DATE '交房日期',
+	a.SUPPLEMENT_CLAUSE '补充条款',
+	a.CUST_PHONE '客户联系电话',
+	a.GAS_COMP_PHONE '燃气公司联系电话',
+	a.UNIT_ADDRESS '建设单位地址',
+	a.CONTRACT_AMOUNT '共计金额',
+	a.PAYMENT_RATIO1 '首付比例',
+	a.FIRST_PAYMENT '首付款',
+	a.SECOND_PAYMENT '第二阶段款',
+  a.PAYMENT_RATIO2 '第二阶段款比例',
+  a.THIRD_PAYMENT '第三阶段款',
+  a.PAYMENT_RATIO3 '第三阶段款比例',
+	a.BUDGET_COST '预算总造价',
+case when a.CONTRACT_TYPE='11' then '居民户工程'
+when a.CONTRACT_TYPE='21' then '公建户工程'
+when a.CONTRACT_TYPE='31' then '改管工程'
+else '干线工程' end as '合同类型',
+	p.PROJECT_TYPE_DES '工程类型',
+	a.TIME_LIMIT '工期',
+  p.DEPT_NAME 合同经办部门,
+  b.BUDGET_TOTAL_COST 预算金额,
+  py.PAY_TYPE_MODE 付款次数,
+  CASE WHEN a.INVOICE_TYPE = 1 THEN '专用' ELSE '普通' END '发票类型'
+FROM
+	contract a 
+LEFT JOIN pay_type py on py.PT_ID = a.PAY_TYPE
+LEFT JOIN project p on p.PROJ_ID = a.PROJ_ID
+LEFT JOIN budget b on b.PROJ_ID = a.PROJ_ID
+WHERE
+	a.CON_ID = '${conId}']]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	CASE
+		WHEN a.PAY_TYPE =3 THEN'一次付清' 
+		WHEN a.PAY_TYPE =4 THEN' 两次付清' 
+		WHEN a.PAY_TYPE =5 THEN'三次付清' 
+		ELSE '其他' 
+	END '付款方式' 
+FROM
+	contract a 
+WHERE
+	a.proj_id = '${projId}']]></Query>
+</TableData>
+</TableDataMap>
+<ElementCaseMobileAttr>
+<ElementCaseMobileAttrProvider horizontal="1" vertical="1" zoom="true" refresh="false" isUseHTML="false"/>
+</ElementCaseMobileAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1104900,1371600,1905000,2057400,1866900,1066800,3124200,723900,723900,723900,723900,723900,876300,1181100,1181100,1219200,723900,723900,723900,723900,723900,1219200,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,723900,1143000,723900,723900,723900,723900,723900,723900,723900,723900,723900,1676400,1828800,5029200,1143000,1440000,457200,1600200,1440000,1485900,228600,1714500,266700,1440000,228600,1440000,266700,1440000,304800,1440000,190500,1440000,1440000,1440000,1440000,2736000,1440000,4032000,1440000,2736000,1440000,1440000,1440000,1440000,1440000,1440000,8686800,1440000,2552700,1440000,1447800,1440000,1440000,1440000,1440000,1440000,1440000,2667000,1440000,2592000,2592000,8305800,342900,723900,12960000,3352800,3657600,2628900,723900,723900,723900,647700,1130300,2260600,2552700,1790700,2362200,2362200,1828800,1905000,2260600,2400300,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[381000,1524000,1409700,1371600,1371600,1485900,1333500,1371600,1485900,1600200,1562100,1562100,1562100,1371600,1485900,1752600,1905000,342900,2743200]]></ColumnWidth>
+<FloatElementList>
+<com.fr.report.cell.FloatElement>
+<FloatElementName name="Float2"/>
+<PrivilegeControl/>
+<Location leftDistance="8305800" topDistance="1524000" width="7048500" height="6248400"/>
+<O t="Image">
+<IM>
+<![CDATA[!(K5a^PPc^7h#eD$31&+%7s)Y;?-[s\GuU0U^./)!!(4(Nu7ot;aX,E5u`*_m9Op`'L`tdp\
+EJM?0k)q]A*M"^GCUmi"gKReTh#n",(`>j"f-tt#U5'1LaX$bEhOg'KMI'E+[?AX&6dHVk';/
+`Dg$&3pX0?*r@u'fgLd%&kBZBHrVcIn(2BOd.CZNX-\PY/jIrGekK]AW,N1Ju\/(>XaOC*;C^
+cl]AsKDi&a5PmP./:mblImX)H!r4.l1dG]AY04o$/0D/ViI.;tY;EY0R92h:O3I@(*1gh'!csd
+"p1O$G@oQ-`*$%`"P!r=pc1[,bJG)]Au*[9UrP9\i+PBE*W1H3iSu(sp%oFZZYVH3nqK"+BsG
+KFi84Jc*puH"t>jp?\\-=H-&fm#h!7fsj6ZF_*B4oFT(s+eVX+@je>P_%KeHMiV0heg;jA3P
+Z`"oHB<'F<F@O3PcV^ZAd?%'$7.s>frN.?,]AR14C\c]AJ'OTrVb`inoj%ja(E_!gR]ArA`DRYi
+Ed>-I-@:OfA&Ko?gH0LcMbdSoJA;LVDr8IhScb;QDEndG7_a.TVgrHF;LgV_l+#1P>RWA8K=
+k7t>%/Xc/mL[H,+M[\:IO'nOQ6+4PXj3%SbotWlO'ZUH6qN9>4im&;HNF"hl(/I-6Qj/=S3p
+tl^Ke[VFS&5t)P&'THt',7.-`s,,J3iDKl#o"O<b?fr$&S;5MUDgJQtb;0&tR2DkJS`%U.-F
+IW$C!]AO4eHj<9UlUo)'p2,g5N#C2jmOfU1%kXha$=R+9IXE!uGm%H=qg#/9&M5,h-]A0[XTkW
+o-l+,R'3J_[04-rNP7ME/c+1JY61+%<Fam?_jM*mO[r+a\J?j;/u\iU%>BgnTM7>/pp"CA8^
+UC[Y-o7/&*1rPM2"`5g'RroE)_aq=dO`=6hskSi+4#ou#^JN`tRE`,HuT,A4a$VLcd(Epl7r
+Cc23*Za/?m,6t7]A(oIADVF9R*L=#*\9-'>3ZErr$%`"`1*N6!S\JLO*pp2]A!4gkbFH7^+_:=
+ml*=PO2&BHLG.A"%6?+6d-$r64Fd2)8Cet@Q%)R2a>fEt4A&BHLma,^tr@t30L93"(]AOJ>+1
+cWds;<gjC$P))mE=^j]A?cPQFdf<V^-Y`l!`&Vg)Km+F2]AN?Q]ANHH-;F"HNnOmV%DBJ!)=W.7
+Z/rJA,_n)Y:'q`"&U`B:5[CYg[71../Ok&qiO<P*BbfS9*l=Z=CpNZAgqD=A2$gq^HP=)`V=
+8)t_T[p?i_Om'5tU/0[:"q#>PCiI$;@SN^7AmT"h//#!PqC#8gCogYYZ5^VMOBb(,Rm"(I\a
+<L4BT2k6CJZIIs+1JI-B.$MX5kNW<[dR#s9sDE))0.S4CI,+Sg'idr';sLV^$,[RnadCHi#,
+a%o-#jTq9N*I3ZghS-012398SOV?BC#J9-d`N6]A4M:fH?;lGP2me=uIJFT=kTI_gsY&:F$Or
+"gJ$8EZ\R+kH;qq"*$$)55tFm]A-XO.kOc!f^H,a[lSKr[NW!u)qq8HFmFZWI@b(W.D[>G(*p
+S;eisgjEm/$sufOn,@YpOm"&nh<EauYWbG?i:A'gX`p:Un^N.tCl_""nn@17`4Li=#c+BSmP
+[roX7I[8fVi-uuRNDjtpJRA(HEr@(F'p(I`+"7X4&"7TCOX%>I'^TS0*Aj%M[j:c)hd@R`;9
+N*&2>GQZ!^P.8).df98N(onYPI2GL7f]AL,!F4lAV%c/u.9S%R(Ed"sQM3'651jU)S$l-$Xua
+N^nsc8l:gU&">2'/5s1K0._DD$6T.iA%WoBor=fffun_39U/]AqZL=m;%1GcJc[5Fr>YLA0$d
+>/C&1gWUG98RdJ'1'=IL#ilea),IVMY/nkK3QO\hZAg^`)GAKqg_US6K+>\sUoK\\(j9a+RU
+NP3E[C/o'c01C$JE%*#BIFtfp`\`mf?%^/A%'#N+[^iq8'!h>%%DQO+I_lEIPR[=YZ%Yr1j0
+-)KUr=_5ObXgq4XYIX<P+Fo'<.$i$r!NJaMR5K/(YZ&a#H^Q&L2TYqHQ#mokYE<KI0Jo58Z!
+R)_g!Y(j/OQtD<H6o$>Fca&oh^'c#9lgq)mCSN%brBEBDu\eVXC:j7PX"Fj!SM,Es$#0D,_I
+2g#W@"1A2X19#H&[DHQl,8F4A^3QNEui]A/2Kj(0cua_ERpI':"9%K`aqVXj4W\@+ip=1I.]A:
+4p,ngXtTER_%%faTPONEI=M;A<WfDEct`_;X/*/8Q??(3Mi2i:PoC6tmJs6Q<?/'NNlm$3B>
+DZE<N[tC1XJ-YR^D*&0+$kaFtqI.pr#!=jO8-;*%?:Q,Ue<e"Z<Lh[CsKnXZlapb%MFun3&g
+\fQ/Hnb_O_5N3Gk@5al0Dhd.7CU/a5H9)KbE<g96*9T/)dM@G?_We.5N?CM\MCJfCX'A@>Ej
+-l)!G\0nrpi,"L[O=%*2c3nO-1Jc(2T_MXH(+]ABq>a*V)BC%Z;]A=X`_OXDF?A4%gK0A^R=Oo
+cZ@^d['[e'!,el1^lf9ZFtIJ2?Gd\E1;!d(Bbp$JB.-D4.?[#:pbGf"k]AfD!rjEk=n[lF1a"
+fh$2FcO**hdU,)Xe9\BN4mZX?gu*pFp_!r%=S[Tg,]A2h$q\3H3.24Ko26`i-aQRo*F7*2F]Au
+GI;i3M=Q?H!'<fPkK,')[=QJgMCcem1kf9L/XM]A8c0ner+BG![la89&_pf+(1p52Ub=t<j?#
+Bc?&=r!diRR%do;";s`[YqcJcMYoMCh8Ehm^<ZY5jZ5pU>_\h/]Ag9Nk12\hK=SC82riI\>WG
+e4/m"nC;A$o?G,XT("jBdI3!7hf>Qpu<,QT@=ZBKrfC?WfVNAP:r$WpcjDC_[[2))&1W=7o*
+I\?k9kGBaL(o=>/UT"sp8&+i7*&#$<9iGc<J9rSM*-+*`8IS+ujj6g6XSjt,if<P2`N\!p&t
+)t8)gmR>+@]Ab[N.oc>47.gUYO!2[A@Z&W>RftHi-,hc9Hgh-Ytr<-%n6B@o@ir:#?fSY&FD:
+i>9)`;7i9/Z)(=Wrm=3H*373C>M=0D8O?K8RrrUEUbu!3/2Ck49INPP/1b:.V@&;#0DF/7!"
+^,L>TPXVNo*^@Oam9;O']A9Hgq&+;@c'J,$9F39(WL9L+Amqo:"0=<"E@^cDOj+<4W-Qds!K:
+mBMFS'M+(+''^JRO8'FdiUgj!kCHOM:up9]Aeq')ZYOdU>:ot+8RT'.-]A$CdNsXIU:952o,T$
+6o%;Z@6r<S@Fc$&Rd2Z@q]A\bM^84":^k*&2@AN$`=7NQr+C:T0I+;L=IOIWsE_$;1r`7'\gq
+;dq5G_A1#8?r$+&OsU?d.-UDC#@t#+p"Z'@G$\Q5S0,>bCBIYEAK).e:_Y8C6D,[`Fe?uRci
+T4g6j.?E$)Abg5VWc\Ua[Q"^t.c9GiIL_p)KpU=_f.D=C$[-go>]AYm@?2]A-HdgsYet'h@9FS
+;b@0SbQ,u9Q]A"R.D8u]A&3$!kBsTDt;=F.aMUhL'tcS"2g)-%NZYAM!WkVH'7`"Et2#n4JlU_
+Os-F'iNI5$jmYKOO>(?'Z*opEA2?S_gN#XfZe_Nc`b=V(gMTnBtr27demAtQanRsPqmatU_?
+IQ9fau\b'l\!mm.mrO''<*cM7M9h1D2.(A'*?P?22k&.P[,_sUB^RJtdiS`?-9aXY_J==aK8
+pq&ntR(E<g_]AJ;@kUS(!Llhq%'%)g@)N]Am&hfniTC\d'15;h]AfVAM=9\6?-]ACB2,hgL%n)?W
+QNk(m&-1f&Alum#,U\*X>Nq8OB`"KL`;#]Agkfh#DpXk\IqPT-k9M8lOXC'Tn(ZH=RaC_C/Gq
+2:u>dEPTqPU3eg8;\!qp=Z'^J(EFQm\4*IpF\9_7CckCZNTVthQ^uMLUWq^@o;Q<&,!YA0QH
+qr0t!`jK1:,3\.d7f:`'N]Aiic!=c(T,F?UfX&(EgQm;G*BS]A'=<YV2Wo@X'MN@rt!!n`Cfd<
+1:W,N$F<%j%kaBfp\=g)RC_?=EJa/cRRW@!:dJmgN(\A_(2X.Sj*R'?1a>b\eD4D6!+\iDi'
+K!Ciu7GD7ti-,.spI'2kpo/*$66X>F:#E%!2V%Q$ii!\r=?FSj_p>`$s)HU?3gkE(0o[4$(#
+,,gHZ[;+PcKf"cE%:7@J$bXF$p07fMD('m<d.I@1'rq;E*B6\>U[eP:>+aLINCM+04Z%k36=
+;$fJ8P%cGJG]AOq/1$YQ'um.0iR"Ap>j&5-uGaW&p)_oHi"iKH\V23To]AVBnd3'-2J/hTX\Z1
+hY7&4^.EoNqANOi7\l'FBo7>[jIM;gQo"m5Wkt!hV0V^:^6gD"7\MW"ft&$8T6R3*0X/p^S1
+[<Z`V8KkkLB'M,V%q<XVV#M=Yq^=.k>>%tMQ[dWNEQp/('$VAO3_Nc]A;g/,ueGDo?$:N_@O&
+q$P1AZ>;/tI+^T,m%#Q1dq6fWRY3iupGk,l+^G=u.^]A:s.;VqO`_gq#3_&8Ug0K*7:*V-)-q
+p8S!"ted036dQCCd[>+"oEM*,o(M")\#eYGtq04NmubYb/Cq2`"rGIKLS%U:'(*2C,f$e#?h
+NeCc]AVL2mC\ds5al'u8/_Nba_/i9sKAYtKc%_:EK?LQ8t,i46_U*g`D=qQEJ!_f^L)IDGqK@
+XT_!4fKmH?d;5N'tJosh_p9@E5f$s-Q4[e$a#Z(*\Z=P\T@d*b!^j>W80J^;+L2gL*d$E#=/
+SWoUN4DS^#<,b=brd!ZW.J]AeX7Yfqk8",^bWL.bhlA:*j9P6eSkMH9K*WkUa$oV]AMb+c.\^5
+?#A/!McUSIF7g;cqijGq:(t-%O&%(%!e:Z_pPhmU&I4=8+UeW='?Le,-!djdi*^2UF?T=Z0D
+24b(@B\cX<!X"eh?c"r4j&mhC]A>^9:'YaN%j+H$KT&V/%h5JF=j*o`s^+c;$T>]ArrXb@;ZBa
+5gV3;Bj``]A9_DMQmV'Wd78J(lJLQ_MU`!loArn<jX3HtlMAcfL9*l*ODH<_QMQ!9:dOd06SH
+6?KtT3+r0%co-9KOPk+221&4Z!*UFm\5:CL3!^*JE#C7g?*eEk[F8fE7gls0kZKV2KsgMl-u
+uI[.sZ.M(:7#G8.#bH$8ZQrV-2<PHfb0)[@1o_opZAkAhe5p^C4Ra)3qQ89#O*6hU3Pj-&*4
+rI1YD=$Ao\gURY6f'dR]A=ShX,4K%EQ)4Z;\VFd_,^3M:BTrPmbYN7RA3T0q4AgcZok.Y:"iT
+TMjFYi,Cg;f9,3tRpG$2al50%X]A'S@3oq*\VNmr]A?f]AB=fJ46j#M$$O1@O'UH@=?NqG`QYMZ
+@1<;=e%W7l;5Kid!l(j]Ag\Z!dcJpQg*0$2ugNd?TY@tUXpW2'j%,!]A"mh4.dJp/W&RgcV1[W
+Dq^X"`iB@&e$8C.[`IHR-clCD5KGaLfVE'=`R\X^3#+^]AoBH2mi8;8f<p2=]A_M#XUC>-9!9`
+?/eoCpMh@Jm[(4Zd,4t&%;c/7\CGP;&FMnVi<F4gkF,m6a[s!Wcl5'SX9\1LFl]AgjM4e-pH,
+,qKVgC8I0sa>iiZC11F56WdZ<_Ti8(a9gm&ZLunj@g",@6of4,T4t>k@C=1[JOK3+*D)]AG'h
+(1Fhk2'MS[UuGilB081<bj:IXhrq?A29<N(`aeRAZ%E\GfSJFf9p$+q_i,EHc03.W?)^_*Rj
+4mhMW'3&uWhJG1LV<32]AHGn=inI4d0e93>LL.>S(UI;lQX<+)?+mQ>/@NZR#6o"o#ifMOfn.
+R+/X2]AkFrKD$_RWb&e\,cet^-oSa_%jInm@lC0GREu:Y6!K(J^^e!Pe87_/3ScdNHg2rAVq!
+5S8.Ob;UcY4>gFO>Xq$<82dk[_H!>[GoD8M*m[.i1*7*PWiI2D4^U0_8Rp#*/$pIMiU:7:?A
+Y%t@F9iR@/R1L#!Hjh,_0%Un`b8UV=qW(kq7:kH7%'EF(=MPpOhZ'TIo?eN+86Nnl[W5OOd+
+/[#g$/Q<J=KDsMgkM>`BL#mG0W86Qm855Xt<L8/i4(#iEf,bH0+O@*^$l0KM/&Bg2^Z3lp47
+\'te)%_=J;Ujp/H1nn/+Dd0)W>U\2DI8F`r(;fsO\.QN%W+<PKalMfBYr0XT1?]Am(mSIO[^S
+X8TGA0'bj?1BH/g57\P93bm7niHE,='7i)*Z%qt#'&HEYG?GG?C9N0$i,l5d)aGQS.Z7s6TR
+(rNg4&&ghl4+(7Fe%Y.Poa7?^P37I6!,)a'k`Ii2l=]A.#V$W5iib4cuT7cujmd7D']A^Qc^Xm
+3Qb+]A*l+^sLB9a/[>c!M-kktnGNd\)m43E3?\/rl_bsPhV`LG,&0%F+FGXIRnjnlQbH2^#2X
+tC-=-=hKMAgSpO1*IV.SS`8\S_f$3_ojE`DV_-;AN!/:6E]AOC,napg>^om<EYW0Jc`02S#!R
+f?<0CJgF/c5i_tZAV!*[nT)6(E<pD,X5%UB&)K_:*A(I7G0NKdV-&M7J+V_SLl%_HXJu@bg?
+t&n8kN2pUEde)rM"5ltm;/I[LP/e,83V,4,4$N)-CrbI&n*.XeL80gaBfK&W6-=g7q%#IYW^
+fu2B6W)E6;Rtg<ITd@8:("iib8pHh'Y;&,T`dT?4Z#Fn,:b_Hc`b!)>*eYpm-B%!6V/Z)I8G
+:kqutDB@s]AjPg2;s14@J&F/I>O)("^s)3umm<-Nm5.:e0oEt[q89f*2SO(9CgOl8(QCaWW#s
+;sNRUI/%q=mc*DJl=*.0dkkmms?a/"@9"Hs/\+G5[=9OP.hN(.a<#Y.9NB]AX9"Rg#JOKV=KL
+9(^\gX@*Fqt>X):lDB;OeT/T9?3I0q<Nn+tkUT!'Nln>S/_sS+u,^%#l4L75HK_*6J2Af>>?
+cFMrWR]Ar@kg#MZVjK^Z#L^-,Yd.f-MMaG@AlEM0Dd#$PK'4kiaAM8cCQ'NQqf2A@(*U'm5R>
+]AmhegTF]A0B@>?Pmk2nBS!?kG[qq<E\RJ#Z(1u_:"?T(>,9'ADm,(d:BsjKd?`[rI<I9:lC^Y
+RaPp5n1f!(Zi/\E#mJ\"AXkOBd:..s<MD;GJ(VuI"e$iuCJS<ERs+"71DMqe?o8$,d>nQYcL
+(=d\H4e"o96_#n0QN4p0Rq'FW)8r7ICOu2`">&&2_1<)gA'.I'aqoK_EG-bs$$c_p.,JQf>o
+ZKSkHT;auVVVgGU$b0jFh+sm:jdc@/N$68-Z4:Hq'l@f$SCVG-9l9\[(_^b=]A*eZ%sjbAh?*
+35?!o-fUumV-Ifj&#46pJhG*FO2-jO;n&EJ5rBefIa3*3AUC6aQN#W6(T!&+rk@8d0&du=tC
+'0jf!(>8O(;`Q?>kfC_'Ik7=<$#?:^)2RhO<Y-YfQA[).T6V*nc*P0ZA6Bh*r;P8)@1YL0JT
+Y2iQj_">6V<=p0;'m*HZQu+:Z$U_&AJHbMY(OPCod4`V*/IH,_JA_rYjCYtIK020m"GQ<eP$
+EZ$J>T^QEXd_$r):E.G7(%qJIB.@L=#N@-+Cq'.Y,4L$=P^SO2QVNq5sh?=M8Z0?Z[nSmrPW
+/9($C'.dY<Ddt]A\[Oikg(d#lHLOBr1I)GJY'r&WkAWt(]AI3I+5INSJ8c).oq*C>U2=96`Y*h
+'1"SH/oFH\nM8-Ebrk<EZS#[g:NU2i`o$BP<nVZN5J_D]A&a5"n)r&##mCG%7*_"Cq3q1bXo3
+St61n"3QGht]Aq%@]ArajJe?b(ZB'2Y2b<;#2c5TGNoHDVqO*&%#YZ$:KK0#!lb>oX(rW-VeC7
+[Hl7W@`VJa@of[Y*TkBqi`#)HPYAc"^QEbm<j/!iZ_2\6G*A7]A\S'CJV4@-eH^M@ep9N#YgI
+-B?+n7Uk+TGuhH;i@$Da7pL;iPnrpiDgCLX+UW0HeDZJJ=7cXtFt&.bUKcN7,8HZEZ!:jtPN
+\nrFgX_3U#$2;a"$k1E2fS)4lnLU2L0$/A#*bsNnZ%DZ4NZ1S`n=V89E7Dp4rZgtHTG7!MMn
+Cg,kY2\VFY_/skTu<`NqjK<3[l/2SqTPiffZkad78/rF0U7MWFdf.Il2Sr4I5Gr9rH'?4*/P
+5S,,(0OLXW!rLU/'>AHfVC;N+ORVk%H?[-W^="U+Au7ujo'\hCD.4f`cgo=>XYn`1;'HZLm8
+105Kehr?k9c$5:$=Kp9Fk[1bqiCspKjsKK7DaX<*$0i`"``2(&g3phaj7a9[a4Y)[.CNhU]AC
+\&X'iH%A.m%k\K"-)Z92sMQo9'!(eK[OZP'3^:g2eCFADN8&2IcA<ilf[@?:g=`'1XS?*+:+
+.P9ltCi^GWn!9C/^>F[W!ZV.TS+ITKJ<rmiAG:7,*2Pd?fZ9J&JPf55H;[.O,^@WCtI)+7VL
+@g\u6Y+VHdW\p8Ii@oi+8^#;rae0L>^)"47q@+A%0-d"&pqChCF;\;S.#.LebPl@g8"a&PCm
+UNi\?<tq-mW;lC6>p+s]A,JhBt48c/!Nd\BZ1sp="/_+rGfXifdq)>-CS:[r&]AIpk[giasQV)
+7$5l/rE%B]AMa05J*;CXkg2%`UlCf?=Fl1%-*.o4l$ERa_`M.a?#q..:#HoKk:2@;9'VGd&lZ
+c'cK[6K6UiRPrO'YRtIL]A).P_;/1P7d9BB!95jLgluP4NDMk<mpEY?ZLuD&XUFZEN/[+hgl+
+Q>g70sNi'Ha89VW^jll^Ck8]Arr9++fDTnrQg;$9L4r.b5Z6GPX'>5*-56j".HqcYVHHc&6F4
++>=o&(!7sM$8[iLtN*9/RP=cG>HtjlQr"!k^U*&a]AK;<Y=WbAN["ME&sRQk4oabeI1c]Ab1L=
+@a`*\?$U!+I!VA1)l!@W*7ZZGq$<LIECbsooPa>(d583Bq`Z^E#)*s2Yf5p0m&)Wjnu3=#M5
+Bj95s-+bU44'gRpo&ls",V@1rT?hsl^<_VC6%^$d;LR'71udbPenUj"*3Xo4T1<ciA[?S%@n
+6/86\9>d969;3h'R#I)g<;[gtEV3WJbr+*aD9)H+81-*T7WZ]A:#L!'s@$S94iR9@l\Aq?Vud
+jKh-7dEo^hY]A#`/>T0r0nP[ds[\9I#e521.hOZQbi*mZjipJV<D>c]ACrKo*mrA0dZrfsUbcR
+aHQCH=Ps6Ft*-rK&8f^E%MH3O%FjIkO+l7cfLgS?@j_OJ21#`Qip7ak.*%/ETR\aJ,D,rjIh
+PsP"A6jB`!gJ$FaUNnK_0Ga7;h$)cmMX8tF"([D&/_]Atu'W3-7T;X-=OB%b!UQAQec@7*Ujd
+i9/kg+3bD=IIW*"?*=?X-,+oB??K*hF!N7a(>(rk"8-[<npPnI@Fe?<6TQY:emnc1eoi=h1_
+b;MBD8"%K5p!r97tG^M@)ZfP(!ej>j8&okp=iJoNfF^o+c,^P!,%K&]Ag6D/3qLd[<t6e9]A?\
+#60plqE;C@Dg>Efg!eF-7q*NT+2''t&9Yrg&e[h4#%bF%&GN;S`J&s(8>\1^O'POM2a?VPV*
+3W^7TsgE`Nr<apY$<>9\S<8b.:l]A"`/78ZEn&cj%8Q?"^S]A>"l1?I3QMcWGfV9K[,&/"()&:
+2<I(Ot.inI+rh>ji,M1hZ0Ya98f9VBE)R.W\lb_2&BRp&th.<P]AL2sAu`p2NIXj:/Z8g7+=h
+m<[rgE:=ad>G4-D*:^UVX<9D%6f2e'K=o`>-V^8j3+e]A4L%j;dUJP*#!7LB,la*/HK)Z@MWp
+'iX;34QG[FI^"<$dDjnhV_DqC]Acijk>+tcXq1bIPr_"TO<"5XEYu82t;AWHn_f/VcJL<GTGd
+oS@9g:.4T:*R=_+N_Rab9]A-'=.RiH*AE:*6o<Rlnr0ERFer#@-!RbP'#>_=#Q^Q:_OD@F@M%
+$asS3^:ikHTt?s<9KTo>iKNuHhVbj8o8f)Q(_$$r;QF,Z+j`X)H%T4hiDtgAu(E3*:t!/C:Z
+SF#p&,8hDJ5&:%=/fMbUF(:943D1[LD+X,0U)GqRWoWqm]AZmJou!-H-.[r['a`+&,jMb1cR#
+em#C0nnEPd@62Sl1`*US8sZ4F*_29m:[*[3m0f`HWnV0%7`@tYn^!a1aH9!HW/%=?l^mmPeh
+<P:;@]Ak<Un=gb.'GL1O:+L,mde$l%NqrA_$t"'G#=8=JSD*jHX'UfJm?TsWM\E\SVkI7K@o3
+iG2@c8qUQb2f&fa6W4M0JKk(q'VIOmWG&)0i`k#"NFVOt[:85CL3C)HrPN>8'Q!6u!?s\Jf;
+C)F78m-8e'PZ("r-74Ig8-D=TgI(FoE719j?5icm,Dp%L;Yu)h_3]A+iRD-fBEFO3r[]A4XS)6
+eO$<6T3=5Oo1bq_)-.h.9!"^*ue(@5S8%?.0?7W]AI[I0"YpKu0rKZ<Np#a+`EoK/VBang>]AE
+HQ>IPIBL3=WQ]AtFI7FI6AIn"R]Ap;T1_P/nZg2>&!n6]ATAqK1-iP9nE<ErTIdNQ&:)_$l/-]A%
+Scb=Vhjp&*W/o^t<FpA+G<%Nc%=:cL`\SgIfEbS2l"PXkT..gP$k8$s'$&q1JdQ.dA'M3>oY
+)Dt(9$<,c'<lp-T"hmG&f\$na.;E=DVTB6H=kGoqT5bI;OJp\-^0^R+c#:M5^j_/87U,7R8#
+[>2^)eo,"/9,O9U'Eje"Ob0>K6`n]AOJ`7H-iTNICn%0QA&mnK_$F;[d#"um9[c9?XJR"GYL\
+sa.'jb$<2]Ak0W2ac!%M7.Si`':>/tpsri:#gkF->VL6ka^BB%?k1d48oSecc[%4&DT#k.#\n
+/:)*;"jk(U@Tpft61b0bGk:CB@2Ef%N$'h+]AS)QLdoZ(N6S7Uj"F1c"Q\XBC[!3@Y@pO,YKD
+'6NPhLH^l@gqtF.#^1#!Uh]AfTpm&0AG.V_dchTI4&H.$PLf>Bmn9\.U>`.Fs(^>!P,TVJGX4
+';,mDrAK(Va#Qj'h^=[?M)_ugte\aD',,COg`7u%K_XXj7_hRP3$0\7BWso("D`,&QMqFL^8
+Jc@1Atr>ZY#O92Of#KFBB^,lk\uYITqFcR[jL90V5SpgR(ot@q48>+RgnNP#SE@n:3]A19H.S
+4D6uS/K.*Ea*Z>c]ASj=2k9'k[$b[Yp8)&HT=@r&tAcPX)jhD;:OoG`))B4%eqA9tSj+;a$H\
+Dg!W]AikCtpjDEHG$eRT9JhOtoJA*l.+OP_n7VQ6,ipgn,@*NK*&rD0FWc)C7QV3cIb2YSMG.
+`neACrmE@C`cI$M1<AL,OZa-->Op8*r<]AP_j$_-g#+NG>k?qIr+,co5m+fo<6egQo4Y0"!]A]A
+A<r3N(K(+6ds&Xu]AJ!R=<$[1W9;:do8\X<%S/D<OF>;t?8YX8+)",Ttj!>6Cdkf5g@nLYU)_
+b=g*e+"kRN!#V-Pn]ACo<WFM.;Nt&Ms,I3n@:%.G%:@(3OG3u@U[=fC<pn;UPSb7oEF6o.XO"
+7Jq6jX,^?tnHU^OK]AjWn5p6Qo9k<4D0=J-3G+jaGVNc*?iGcm=3qoX8B1=6hbQT5/8!eP7_i
+E[2b8l\a;&26`9t!;X:Xq-.,u#ccpQVc_8:)_%</=tr9J8BU+i2#I<2]Ah:G7[?bB7T"b!.30
+]AVW@6]AOd74pX]AFf;e:;3WF<0MR7:Sb0ppBGS'/2;b5knfsXr?#:hjG[1ZDH<j4#IST;NB5b2
+9@qhRAHscm>R3YAm`LPu'3bYq0YsPtHec+qMQtQAi[TVu1$B%)rjs&Z`<aP?*_Lb?PhS$`cG
+/WP\pY_=Fhgc=BSqnS]ALJfr""mfb[iX/u?I]AElKY&aHm.A'?XpUW?0]AJbV[F'%eQLM&_^`$,
+50E#*0c43Gs;i,tFBG4@<f30`PuB%q;Ckc"+VW?Bri]Ag;!`mraGGQ>PkG2j/9f+[Do2j#c]Af
+YVh'gX"6DN5PULKh"o=oepIpsldo/6npL2neF\sc1dcEt"B+&pT4;;XO6^+AJKT^_"lTOcVe
+nV9!'`+ZQ[q>8p,8qG!Va0%@+<qKpjroPd_;ogVlsMHI!oBZqfTkA@k#X(erKXJ\R%*PH'C)
+H`,7oQ=]A[_gHReip"&Ai"/g\&E4,3uRipV_'A/4f]APk%Z$/bCM>[E$jFBq?:]AF(@)CL9K.F3
+Ib&D_Tpbe"OODJaRd*2lg`"FbCn1cl.n:tOuj@t.MskXY986Ej2@p%3C@c@iKWA5,HfQWdP:
+7K:7lKKlh_Z#nZ:o-PT;b7V`Cu1E5SP:SqHnX%W8A"El*GBIInqdQ'38?eYdDJj[N7&o*OpX
+$?B:$+>Eg_AGWc@@]A=54^:URIfVqjp!poCZ@ahJ'5Ajm9Hdd%HHD<67)iq3A*R$O&Wqqe-qb
+hKU\!WaP2a=fmpt5A7-`kGSolh/X)7[ts73T1G!4Nlf_6#D7/"9)e6Zh@>,:Ce6FtX"#E[qZ
+jr'qr"_EHU]AWIoEE4j1nq/AS%8ee.ZZI/lmib)M0*"MsC$EOt%m)\04>*L8b+J#e*<#P'6,=
+_=`B:A%,Y?j"K^NcPE8e]A*ZlrPPAcm%'hcZrFa4JUpg-7@?'3,-G6@oHRZad;(^jpLiK2jkg
+j_aQ7u'P6GP`bkP@"Tr1Z%4eA;ZOQGl?[89dmG\j"38m3qU.7V.']A6m;e,hG:fa!!o>[<t=P
+R4`?L7@RWVZE$&.jcXnbJZ"jKDl<Y]A5_oKVJ(.(15;/.^8DkcuAIt=<W2g@h='T\oZRdId<9
+2C&mcQ;=##Gm'jFREC4?/b!1QVQY4)J+1`QG:8]A5q:?"kI1I[-Y3eHV&`X;5)hs.@D#*r'P1
+dAkAq"//080hpo@[\2k>?C`ri#Vb/)@Z`Z:TCFMJ((&um$"3N2Eq)F:-8>[EVhANbVSl(.Tf
+BEq40Ti(DWHHLkrmp808mRs9,+SD*aM#T"8d1'T$NfAi2VNd$XOlNmIN,BkcrJh)]A*3Z:;4s
+@=56ZS1>Tu<'labbm8Ygob;dq6HfK.tTjTJIe$XfI2E4;m=ghk)@O1ogO]A2<Qqof5SYC$3MX
+UlrjPEC,o+_b+M58Z3gY]Ag8Ljq&Hk4J_gKq5P1OX,Fg^YJcPQL"*,pE;3r6T+cu!>3^l"DU%
+'P>rH!m7<2I<[63sdq-j[Z.i&1NY`Y+r@U+1_&ZVDi8O(1AOI;'+#pcR/T"`*b8Q4/aDa]Ab5
+[D<[%,_MZZZ,uJr^4aMDuKELKlY2#OPi8"4(!4cosJR/,m`I$6qrDo$qk0\?I1rcMFNR'=K7
+U6NmWu:u[8JS:JgV38OiNrLL%!#_%*aj7K@eK7=/Z@Lk:1^e4KfHaU3O,u7]Aa"H*!FJ\>`?p
+_tVP#If(F@/)MCAo%@(X</j45*I>]AmWV4b`=WlKZ5U?<?lD@-nf71B5eU\g#1t30gc?./#]AE
+^1X&G7IrOhYI'YoQrI2Di"8Dj^"Do<6DGkD(!*KkL:7$7P"_Adog'"%6+B^)=`LL)mWI=*.'
+N]A7>qC_7Ke<sUU2gIka6,DsX7nW+g?W5HE8$H!HN-<H5LO^0.?rkB9;L2UPnbbOniX4rcjmk
+gdb1!JgY!Nu@gM;ZNp[OZf]Aq8&)O8o_qf@h!lTWHK[+$#t-WamW]A9QH=.a[7`XeaS-)271/U
+c,,`fO<gdeH\Xmc&3:I&BM0aG/QY=<qrRk2Gn=..&sQck*-&<E=E%l8cV[(-*g0NX5jnIW(O
+Yj3g`R2lG;60l[;AQO&=aD78,d3ZBr*CKIpk\-"R5H0FNFoT6\&IO,Yn$4XY-??mD&HTWm"3
+C99JG9QA5A;:>]A@ZIFJR%Vp&-3GBZse"MuYe9ReB'f\X3^hO%r9P(5hj.i-q8Up,<CU^.Ge#
+,rJZr6da"1_^A^Q=]A,qYO"AbaS627A0e`4D7HSNk2"s=+f,(lDdcHUPf$R@pSUc`bG;aX,/V
+9'<e]AE'HA&H1T5MXU8kPIHh@gCXG]AQ1r)\L*$1P1EJA\.fm#[jJZ5,gZ:_l5G2$bMDi7IfZ1
+?a=^cK,i.Q,[4ujA&=@f:fR(*K@m\+-iE.FVj#p)EDFLmJM^0qp(]Aqm23tW!r57lGTipW-_I
+'9:P>1F*OD%pgNt4OK;NIAS`8`,i9J0DWa-?e-KQj^`A@8jT)Ld*:_M`O_)4&FE<K.4p0Xqu
+,"eg*IN[a*D*M84<9.BsEa-oFm,a(S.F`DV4)Y?C5&2ZqB4riCrj.mN#cam@fS=nS;15c",Y
+hI"jP)b:m%$H#j:+g`D9]A*e^gC$tW=9H(<V.bJ@coct(>%[BJ4q@Nb>8WV;L3f95o-pSPpN9
+\JGKnEe00odCR]A@Z'`j.,ESFBihT3&-]A/]AR!=GP:>Bd9_BqlXJUnOW^R6rcBloatmn5al.+J
+1=OWX2<]A]A/S#Njd`n.Y.,f?!X2RQEIc8hrq+t,rgU&g!f6NX6(lg<:+UYe<JPS\`SO([+b.a
+RbWU9E<s'ef[5b=0#M@sl)TaLUea7pp9:Iq?S&@M$6MqW-;I5Q41("@'G-NhS3D+:[:mgY2O
+b.Q(/jIIX%=mg5=g,Y:BfiMDc,75*</eRCZ8W7FmPH;QW=Fmh("R$E<o,.C.l:E*oL6L?2\(
+K23b@s):o]A.L<.p<4s+cp'`P9K7T1Wb>9*blLZ#<D,-$1`TFaU2K;4f>6$SJBZE\[b1Q2p9A
+3nS\)ef>hIc^@U>&q:2AZ<BPPE^aIis5>G^\%iN;THo]AF#"qKk;<j,\hlgt,ie?0HF+,oUA'
+A00V)qa;t)i]ATu-VbX[*cpJf8[`cb-FR&<DC]AWE2QUCYN[-&$L:-!sQ7\#*K*M$.qX'3e#I>
+MLIEsqQ))cd"2f/7*6g4E0_hYN0_nKNR7gs%Pr#0JOJof8,3J.bY16@LRa0^*g/_6]Ao7r7^i
+"[VelcB%MmI*_l\g="U`)*F#*T(Q$Ri$U13?^P+Hr:.fiet@ITpAB!XZ6m5tn@ZLndD($7Db
+[&-i3hh@cV_=7p=n4/f3Z@P(:leMf<`?lot%3-@[/!\OT&a6DYY4An)@Ns54^UHo"oHas8K]A
+l5fI[-j5\cj:GcTVSpc>NQ-T?H@h%(J(!CESVpa$e(9s?$hFPshqMs=`SY^Skmr,qF"H/:HV
+*#7^FBA:Dm.OY$2NG]A@p"*J>J-oKUjM0Zf0E:KjWUC01.`ALdhdrlam@%k[XrXV1D7?h:Gs<
+(ZiHf7j?#_lOTL*pI4?_40"FKk/@\rkif3Ne^NCV+M7G31j'?6KUo`j0\5+]Aa4`NgLG&sW>f
+Kj6kALkUP:Z(h0Mo(ZP5n$emt0&*caOmUr7K-_j^5AtDZ[]ASoS_>V3&r7c-;YU_@'0>"2OEC
+DCTGjfQ^9&7>+QRU2%Q+k_snD3KEPK!PoEo;aTn_W!th\TcKMA@A>6.3>qg_[Mc($8o6\QD^
+P9CZJ5Sf@KNY.im&p=jM,Q%K?V<9/f"kSZc=FiS>=pa%rA=$)$3mdfJl*Ojlla3`o*m=sp/6
+&t\4(B2;0DuM*Le><uXY\e1,r:O.DG?daYfbi%-iuEGuLjlsqhtsJ!R^1h#rIs(MTAcq79,S
+22T7+""4-[+E#'pYa:"FC$*]AUBb!&ob,1H%_7DbSU6DSCsmji?>mA]Ark#pIGtoc9#]A;hT@4F
+f2J$,3d!RCSfu55IdIm8e%>6na:7=M)!@c]A/"=6@n)E`3U4q9uT6tH:2RXb.rql.dZ,232*r
+m<YU.>ks]ALZJE'k5.>b+H(rc;K35SS\8>oc*rhY%PF3"pF,)lu`F+nmsud7sRcfr>]AB@QX[r
+0!<)`V4=++mrphk;9SH3m`cL1S@q*q15HoVJ]A=5X_,k^8/+mDIWr%\7+?h!1U1+j/Wim3X._
+c9dD-;QkJqXj&=T>`tR[3Y54^ARkbj2SADq/6>mpl4-s/]A7"eq_#HDhW)-Cm]AO>Tgf9B1DP,
+6=V/(Z8(+nSh>HBlH25j;$,_QCs:4E6,s6/[3!V[!p<k!B4<f6X*($$2R9HK/+BVhO!g?73a
+T1'Cp6!aSon*SC$5u<m)D[G:@F+9dH4cgK=+9s%MLVO'8\G%&q[WO+Ore!,1X[@HFi^7fDio
+.j:+QYj)S;qO>[LITNeX,MD![cS@3<Qf/&3SF$3<2&D0<[YO:0WZMGl^n"kPZBf&)DF_%A!Q
+?3SmC!M*GY(%-k<br;OYi'lXW]A?`\383.2?'-%P3$Wt>;[5l\Q?:%2cA'QJ'#E*DsEdhgXir
+0ah4TmoHP9qO=$i1:JGhp!Y,IikdL!?fF2o&DD174VfZ0.adiUA.Lrl?DQ<Jc@B>]ALT_e2Vl
+CA*P,(o+J5Z,E\#4L]Ar<:Keu9[S!W`3-Bjd4ekjU=%7^sMSH/j4"]Ac0OpRNuWk5e]AA'"EI0K
+5KJ=u!I5:+o*6ef+\f66b7bg;+)(gthpTIh&]AO^6f)]A*E+(%<)B\iaa]AD47dil^KV:Gu[kF'
+on"JH'f]A?00aDDnaNRJ#<IN?)n0LDY_"45M!bBdl!W-n3#qS`k?AR5f(EX%m>/%NNo?N>g#1
+8D\mB=9=]AXh'cb`,r%hB5(:]AD@c-L0@rq`\^j/u\?RF@S4MKcMm9(kOL*(^?;$KJN"QX"%@N
+,h'&]A[@.-J.;[3F(HHSG=n%28.Zoi*F09'McZ/h5F%YQlIDtR!\Jt,^S^dbM9s%:LW-HRB(p
+;j02$R]AZ<$G-C\6AeW(='b(,I9c<aXY"r:tgT2^a#FH7hnd:ODbFX&^iciE\LN&)+C&*SPtX
+>/("h)pG8j35,A&=_;8>B/ajI(m@YW$s^)&>3XuI[B*o^\g$?q'qcDVM@\Lg53q$_p$;Jmle
+A=]A5f<>0<?A8YOsie4n,\/q6Zp%$#AB$<fb]Aekhe/RFQc^'kLQ5b5.86mP5^m)o8b-9QMD,e
+=iQ;d`.YCtfcMnd[]AMlEQfYYCP2b?k'E7&*d%lOW;i]A#n3K&WB`e`:<pTKl5o8GsZQUcZ)^L
+[p</oDkMZp[a[/5u*nAn5]A5;$0+bRq+nN=Pjd4sTfP(U,F5PkCLTi^7>nF`k#IVk)ngPD>9C
+U<GWWH.P)E)QZ6W+5Ie-EE_a"UK;jJD"MQe:,c[eY6*tJZf<BS+\YJ'3Np>3D5f\*U/*,WR<
+SD7D5$]AkTcnl=?IH!qZ',*%L^]ARTu/"'8DZr?-mVK[jZ3fJ-nlPUAkuRr;ml^XS2OrF-$i:Y
+e'RT4K9:+2S4eSTLC-V2^>t(Ha!X25/%iLKF-&24+9.9sT<Ih<&Y(Um([S('^F$\A#_C[![%
+83/;24s(UZ0K4Cl?n"6VF/()KV1aenL@@Up7FTA\S=[=Mjfju_c'gKcl4m2J@q?OPtf"0E/m
++AS<`ktnAXg1=5$?DiA@?CK:6#Ln:MQYmO@7O?MPt;5T"jdtbo$If++$"_qUrZ[XmN%s)(9s
+77C\]A$>6;@L=rHY^p1a!&(j>+;H#/G]AKiJO^6_oKk`+Y3.p7caStnqi+fq59kU[qD:E:H*TO
+eU7!$l3ei[.cVpmaD$i-YO47De#Ieq)OW"!PM__Xhu!GK2=#V\3Mc+gs4kQijFsKMZbNhA#7
+#8X1i08_Y^JBTUoB@)S+ZY5UIUD$3I:<GinJ-(X&[^:`>7PM"7k_-0@>9nk8m&d>R0F*%Gir
+2CImmorcLsVMRnuB9IO%TFer#-7qh"B3(Hsh#917F,R8Q1r:L;7j7V`hZJE-:;M-QIn"-(\V
+hXm/NZdNm[=>RLFnhUe8L'Ej:e5>?>n5;RgU;'-?C0KNS*kr@"V\(Ai>\_HN^/EAS0"^2GVh
+OZ%D6i:/c9i,+?;smm$D'qb$Ju^!c-BJ"kN=6Vq;pDHmnUVI=$/MV1H`@?o%<=65RGDJd"D)
+("6A!j7<`Z<_.P%S*E)qQpR\MiHeREJc$8'8C3kH%u#T3Fm^7Cf,sSc)Rq>eh/Ce&Du>Lq!Q
+ugU)d/W)5oGAsKE%mq@D)lD"b6i%oFF/[AJ6GOBC"-OTnaQ(_=O&G_qoe.<VF#\RPoG_64+n
+]AQdVZZCS:a48G)*#s7OuM0ohsfp`MpGpi6-e=ui\8'hH#P;^Sin]A&]AtiXt2F=0NOUH?]AA[lh
+fC_R\tD<kK4c@"E/!5W]A!8d-i/iI!W<nW&I-bTK6+=5B$7Ve=-U#%>KCD-u$em_X=H9k->;r
+n+LC]AIq&rNX#WnpsR!kX_)itcAUW*OWCs2Z7""aTJ"'s%i9/En3DK15#&pYK=A5Q6Ieno8m.
+eq="RZ[91:29S"+I+4E4.slGW=41.R>o?F[V3j(Y[FlhOcGGn)rVsd:/U`DHPP]Ap6/W\ggG/
+pQ,B9`n82t0Vu/%@(ag7TRmdA"H]A#u//@#J1gpfieE,NoR/Em*W&BMW<W_XB)_99p"*TM'o)
+?4LLP]AnG&9u*F;pu]AS5h_!8oV4;-?t2TotP#c5&#,Mg`Pl$(Ng5mPOP*62gYAl0]An?$%u@?g
+2$I<IS3]A(%m,p<;`sB:r*2*#WD(q>SI7##lXfN9A_=l)m!%dd+XrjH3QH-trM+3l[$/3AB<n
+V[PR8'-EB=u*AOQprM&\L2B7L`V7\^]AlcfX]A_=qSIDO3q9l"e<d(GlRf$kb!c*k9rq4%fgh.
+2Q]AGmif7mB*^5ua91p\/(]A]A?kq3Bi8`ZTlb!`X*NnhP3.g"m+@eu;q*d+bQ^K6HbMIEh#@:]A
+UIodCH+83),QCDl\+d@p!-(\/Am[#s`I%0AnA6d(oh/VE7nJ0^1L6)ojm`r%V)'j^U"gn_9s
+HdMJ7/$(.7WE,\;uRa:9jkJ`*.b`_n6%]ArrMP+;JfguIQ"qZeO`k\G\gWsWsALo$$_4ML+[n
+b[7Ip:JT8ml%pBrC=5?o7!Od54a#Fn<+c@>fL]AjjnnMO%m+ou=pN5`\!GkM#C"JEX]AglC,W[
+!:r$==oF=F+>ok&oEgs'Eu1n!D98N1DZ:`?_3df2!=DS,RB---[$\3"]A"7Kml[c>$dll61j%
+,e;.D]ACVl.6kMXB0<70gG&H3[>/'U:&MG?(-S/9bgU/@)2XK/m>kUq-Q0(Pbh9U46cdRq6TF
+#I[3r-*Er`FT7Fljss4]Aj/OEVSF4NLpK<P]A+:k/5Ylen"i/8$ODcM%m@]A8?$ECtUl#rX$acW
+s$iqb?j0aR.h(2F1Le3u!d/Pc6MVh&tk=+9;@deCm.GKFo&d8bs_1VUU2LsL(\ICBFYPkZ>n
+[nR5a?]A@[_5?)ls$'W]A?[m]Afro[E?9kLNH]AQ8!??IWM?.pk=kGXtAGJ:%N%A0[El,4f)Ch;K
+XF%sB)9aq2Vj#1n78SsR6#-b6@V=-X*>'GGLJP<E709?Y%o"oo0/TNsVl=B2MOaqgB8qE6"I
+#HJdJ^9"-?QIAp:,n&nB[+$=jP*D`l:-;n2,":/)h88F1c!PnP"CBjcT'tIlk1K?]Ap$2c@Xp
+"^(<iI8lj4121d4@DWIOJdkA6(e*s4(r:1qsRf;phgYQS2EpmG=+q4_N-N(/>@kYEb;5nRqk
+Vk23;uiNm2ms,fPGmm$gq$\3'mbK;k?b*a6?=5F.#A<G4b*9*lW*DKu:E9UHX-H7CJ$)QCu7
+5Q)3,c%SCC0Nn1:-N^Z#Y0tdO?an\fZ=d!Q"E`nbc9c0U6d&M;?dr%lJ$DGM0g&RBraKJZM;
+Z@obVd-\@Nu8B>tH\D.s8@qs_;nd#)Cfk]A4Z1@BRLM9qCK\oK+T\0^W>D?$FhaH5Q)Cg8eF6
+Hm\.YaOF/>nNa^Zr+?u0RPX.3gCVL_>W]AFKZOuXW*':u2L-k`VG4oqC4=-XGfmjQ*eD&7*%+
++pgf3k9P0Q+X&F)7)IfPkE61F+snKH"pqM<,JL3!)grOsGmcf=#uff>Y_5_YcA5/++EU[B+I
+E6'I2;ckUp=*fEkSntl6a!q9h$p]ALC&G'aRr&sKd=`Th[9)G\V`2D1:Yo&'V?U\b(:)h40ol
+IMYMLO[s=NYa_Z/1dGP3teokO[fiYSH"%dJ8KbsMC8SfjE#jJ8rr2#mIUBeG_^HQiZ7dd=7"
+*`L):43GZ?V:6B18[U\Jbe)a-JsA/.QJbJY_&Y+1&*0QmVC@Kc3DU2BC-NOHoFfW`]AD`bjKj
+f?d$Ji&Athkoo9^E!l=rNZ/[W*mg(1*ST8Zoi3,A]A64Xa<P9=@bK'Fa>2N7[kGW!c",J&hAQ
+hp$TgK$hW`:*OO7D>B6%(C4Mq"\/`FK0(@fu;oN2'p;6!qu%oD[tL8Ipt6Fs]AU9\h\BK5f6V
+TJ-Jgn(?LP-?_[`2N!TUhJu@IQj#)#FPZC1c6i7ipU_)ZWJ.RmUmJC'\$c7++/Q'Aeh(Y69E
+K1NdK\oj!7?HLW9S7r^+F-A*I#1VcA>L,na5fPU(]As!ndrMa=nH(I1>D5U#,l-L$8KLQU(4c
+#H8);h0n$HIEE!<KUf?da2em@+<DT1>:I#g.3YmL;i9;c/"[&bC`d0AZTc]AFT9Qp&Zig[.o:
+9Gq+B"?9tRBs7VA[n%XNCIjEu;2E&uoju=hCG3Fj-9_IY4*:'91ArrCM!9JCY$\q-CrVFu7+
+&rXhi&Qh@+rLJ0QI$Bm.dhBp0`Td$lXfrJYNU]AAT9g`<1l.T%3Bi=fMPuos$<a[<WE".SJT)
+]Aoe8+h4Or(TB?\\]A(h04@dGt^p9"dq$q<l2V"_c#o<HW*-A>aPV+:f)sIJnI5>"7KH_Q:YUG
+VAja4"]A<$8(3W,j%^/-F,Q:!,"qLhDZtaJRc&OWo5/1;[p+I&+B>\0M#4YS%/uN5=@dgT14X
+0,MB6MZB<WFQrAZ3[2>Cp,a"95a-94ajIc"-T5")Y"mFnpZ>roDAcR9bUethFdn$Xq'cllg`
+gVDn_c3p\3&\isk/j:V'J"CAE-S>-*X2V8L9(Jh\`'(\d)qRA*iJ3qdF:[h6oOf^^Z/bJjaR
+A2$nm8M%Aod7[+>9?#OAD-,0(U0Hs4S+,7>'p>R%BUUbm"fc.N%sL^ABhP*KU;BMJ]Ad&GqbC
+D`C?$FJQrq_-%e>D!%gjlKEu=6PN58V/nOPu!ou4!D1Vfq^]ADAEYeY0+*0d0>O(Y8n\i$OX9
+Ro+2,$,a[*`".ROt>^7Dg,82Dj]A=u7!\0r(JQ>q:oZUcD%e&9$6hRh$07q'.`nUB.%Wbgf="
+6@<\<2Vi5niOZHX6%7gLFUQXIL-Z6Zn3:Uo!AYIpAM\fsC'+:+(``NEU3k9Mj^Y_sd!qV<Dt
+Z<.]Akmm?<V3V2jd)6?#'*eg?nQAs&"0C`k5""AP-!$A,/cR0b]A`Oa_'2A=4!F3fr#a`-nAnT
+_'26]A,H;6&oK2S+UDHUBc31/b/OdhDYca^SU"NC63(pP>@T%R9\Ougc>GDArUQZk,k+2Y\).
+KC)KF9b_Zc/48r#!TDZ1lm62Zip7$!5cBZ,HX;b7=\olP,GKpZfg7`q!igsWK<cO]AY31+qE!
+;<ECYFoC\5b=9^,QQnmG]A<KQk4b#Z8M3-!3D#ZYioC/KM!6=b><aNV&9d5l/$dD=i^oT*d`l
+t1^(PoB)<;W^.&cWaici&Mk'r_[UC.\VhV^0c,bXY[.kYK5oR'G5.c.B_W$6bbQk0Ip4c#96
+:dFFsa`D3&&LK1d@#1jK`m7Q.o,bF9DH!]AG3E,kH/_!Y%2C'PaTeZnH(pL]A;%FrIQ?Ket9aE
+33I);GIKMQXW^PYKN1oMP%M8!!*)jN/(<S/soq-b#t)TqbSTqSC.7Y7?GRS($8t=2pHa'qqe
+9'*qu6p3h75)FYc0JK2LJi1q3;K^@9hqC(\0=YEZHkOI`FSdP]Au*I(?FeZ(pg5+.fV!PBISS
+>Vrp7'Yuin3t"_ef1DL>t?*I3f.mqajHcg!M##$\$6t.';uBG3*]AA0IL:c4(r;R+pbsT*'[<
+%%IghtoP9s!Hi'Buh3DBJ`Gjh5LqFP]A>s8)%$3p*?4IUk6[6]A$M)3P>DQ,e9&jUh>?BQ*[[s
+GtoW10T)ca6%?rg:C[ljpX>]A:e41U,cieA>?,;"YSJ*u318NVS>;r\E<9RP\4W(qt-St+k@d
+NPg'lb]Ao\t[m"ZRO"ePRN5<_E<"R'LF</`,7rA!St#4;1(QLBKp:ap&fJ$QdW?9?7acT!e>j
+aI.PV73NekU\mi(M!8pu92CYrC9dW9!Y)%GIN[,E@$A+E$$Q&^YhuobkE8A`1:*,7U6^"A2+
+GVDq;nEf\g-gi$7ffKR?Z*lTCtsj<mO)\uD>%F;erJ3Jr#YtI3Yd+!Es9:/pYL=Rpc86g0Fp
+O>UZ&l'L44S;P^QJ]A>e'Gm=!3l1b&CIeV:H35!a6`]A9N`!d(^dnlji6*$p\!/nm/HnMZ#r+d
+r4!57h,#^I2>'MKUl&08)kE]A>$$$.D001JI"0]A"#=)JI>nJ'j"i_n&I'boZ2Hhd.>B+I6;8M
+7M65`Y<bY)T9o"ndLeJ\D9Ym1c_A,$Yu91%G3BQX<LmpoCq\O31U%5&]A![/R\]A)PCME"[3Pl
+?$ZR/d.TEVB.,"SQ<5k'\=7ea89_aJ%N2$qm`$EH,$$.u@o0J)ILkce7ha339$Kc34*(,#,[
+r5&=*?ph$qk-Y6l;.Ju8q1e#=Au5!Y!d@X=Hf!WjQI]Ap+>TQo,rm7R>F\"W=9-=>JsL4#(]AE
+EZaS\g)\&cB3#A)Gg?B'1cilioWkR'RM`W6Q]A!#C!;lQ?QW"bMg;#%%N0bueEMD^_`Cj#V>L
+?rF"%*"$k-:dO`7E+Fg*=oeSVb/n44Nn#61"omP-hfukEanP.(eTMblH'Km[A;.5%cBpo'F9
+C>a-Oo7-Gtp==EQYVcaDR"/(6`L(LfoU$K[^#^Ol)S(.mh'#T!EJB^r*1'#pZsnRrsFN6[h.
+,gaShLhd:d/)FolnmGrl%fTi64J$*(P)QaPPj@-8aQ?D;^,Kdut'd/k-$7%^M@puK+g^NV3C
+)_1B5'c]Aec'e7J*3pb3GRM8`>$STn[%p(C6/odAJD[#,@AQ9XlBbifV<>jBkVl=1'E]Aq#DJk
+d$G>RX$3>q1pP7(]A+37(Lse.q'&B]A.e3r+iILMPQ[h$!1Am)ME]Au/>%K``oP,g?ka:.]ATGM]A
+0EA?)6b8tdL%PVU(pao!Klt<_>G%EOabOPmgi2Z2"A[GpK_Z:lU2G&[Ws6_U+_DTa+U[rdOT
+`',U$108QZ=5CmABc6:ln?,_5\c9&r?Sf3:2'9`FYAJ#=kXgE<m4A5rS!A#nn&+=,?SWr_nK
+&mVYcsi.a`Q3:n<2&g?A>>.#j"j@.t=eEfW<N0bk5"o\UmL*/0H0hf<=&)=)]AG5qMg*6V1Yj
+7muh.S%gDh_;bt2Jl@M-(/c?-sm+F5=J+o?+]AYl@7HE9,@/-HE;%MIr=_2FI\&]Adg2(Lg)==
+=>e%&Mo,>Vp^lrln]AkYFE;B637]AU#ZYbC%*#54HNt^BnZj!Y,Joa^'AS1FU#n3R59cgh7Lj$
+KQasDcmY,ML3rs)DC9U3WUN(=C$qMECt>[*;Lcr%dsm`W+L6_F^se/+TRUt:S68(=.pcKD%"
+AKR#P^-)_^dq2fjJ,[:/7P*N3^gNO/JJ;BqRPlET?eX'^\-3D6S?ER8T4Zdr3?S4+$ZHooJm
+LrK]Ak"s$G?d!;?oGTc!)89+r-G/iN8a[>n+u']AIB_N6UU0nfg:pp"W<gPhXFcSD<2Y4a1f?,
+:Cg"gTeu+ILUTb(&9&R@e"WdkomCf.:fdJ]AG)uI=9&p"L=-UK(:2=^;k59Q.HC,Oq3dns+n9
+#YltR:P)oH-[=&WDo1K$>sh0F$e?h3lBl2."CR0o</q8sJra"<TA/&i*ZSpfuEWfHC'6"0Z1
+R#>J1)ZC,$T.N,b"p?*Bp$1+::Gf"Gkte=6FK%;YWZ-X<nM"o(M]AE+3.<&JUiPnB5@8pN$-N
+9]A+#E3[4a@_6<!Eo5A25nX8ad#r;^`,GfJ2M4@O.(<S=8@4=G7VIO:@6dSiLG%+et?YE<8\U
+k]AM/:8j2[.U,!7h,X<QS_et=@/>u2B&O$KK_!hk^H<2*24C8JJXKK_e?H<a^6XcEL?B!#fJl
+$a3RkVO/FVuYiC]Aq.:'cTsir\cfa>2fC>3q$e_UY@2kBZ*%0+2J`$'o)TOs,Zc,&*[O.G5>e
+6\Xor*[eWoKi/$GaMkZbH>59lU2MK#$F<Q2YegPtF?qmdaOmk7\HV>bLQd+Q.pkB"%p;e-i^
+q:>#L7uAC+kQ\3Z5jLok0k)]Ap=4%R&GNEE92$30[*]A&Zf/nF8JTI:fEAC25Xr!W?c1k!#'+/
+!$;L%@kb6\HM<L%b>LV_-!IIcE:Hmb7\H`id#QIt=f9Td)r31c2_j$h6t^U'65Y04)^,o4P`
+?0cp6P&Td=Bo"H)k=7bUpq/3_5$MK5r1>o?130$/;'ffBV80R)IrW$"6+VZ!$=-!Id$3n=EK
+&:"i5WD/8g(>!K?u!?G:NC8$nB@)U>s\JT.kd+6J2T#.?Art-]A7,CYT]A+o?aEA%D'#H7pj(]A
+HE1d!/&"J?QeqZ'G)o+&DUW<9U)Hgdq!!qJcD+Xfj)n,V%?k9i+V@)kcb'V;p+or>CdN9E'N
+'dIlBeg-29qFKp*F)-R7)<iqL`VlZ8r)/,OF;fb0Y2KmXk-H7cfGh$/aqf$%\J8P+%9YeQp9
+d2A+E6P\Hg`[7ZO/6na,VK&*EBg*>aQ3\!HL`FEdAop?^ot'gc#oX,j+*1CE(Xp1YQ?:l#Y0
+i&8?8h.d5.mJ@\tJ:0Lr?V2HcIL17=]A[<hT6i<o-A>l'?U8Ap>.s'qWT=Kl?=BE0YM<4V!Uj
+:-iQ/!g+Wb[W1R.[#;dJ<V8,h)28t+#NmkS-oWNR-_=I3QG,'El8;^F=;MUGMYVo)HOQ_7C3
+(#$DmdmeH@4-9JFi2=IiXJ(>In#*pV&W739q\?;_Bb#7D3\%.CVF'nu<u$l=Nigg,I^@'G)[
+HMAXn$^Zm$V1JkHPi`W`f]A7]AP"b<,Y`\3@-`WbkYTD&+,8)unH+GU2$"FOX7S$"-l"p=F('V
+3@0-Er7U5,`%:,6a#=$#XBc7u]A4.Cp46QOMdSIOA?@qo>:/Pik/iaUF$9?j2(Cb)%1d:$.#_
+Z4*U*LK`I$)GOtq0#SJcfm"2mh>AB7XrueERJd$G3n=F69;_)i/=F7&3;OJj=9Vu+53sTmjn
+dBF8nn%57e+'5P-YS[U;[3EcQnY8EI\%sZ`9"R[UcB(_&rKGM*sbLm3r#8ThD!Z1/`(*AhJG
+Q$5u7tq\BK!qEZrQpJCt+:$M:POUC(lNrEc`+($Enu"D0'3Ep(Ld7niV\YJ!8GjZ,QOdb5\S
+l(@M#]A5KVeauROs6sk6$-"ET5qr6YrJl;Rj_/Ik^j<HEYG^9\W*;I?Co!c]AcYCX?N$0:)LO4
+Ei`K*;nqe[OV403$LhgqGo%(h8L^hKS+H6:<U2j>Aro!+nJ`TNbemLRgZ&nVN9-QmRsf>ZCI
+3@dN'3_"k4`Lra5Eb(,_upYU=aib[s"b1!cVj+-]AQ#7p0DVCPV[M+d7\]A(6(s]AeTjI_m$d`R
+0R-H!!WQ^_&*^>M^:Ts+O>li[f[&'epAp3Vt5ak,.QOe>^8K3a(37,#T;\oc:-#)S2Jmk5L.
+*mn/f[]Aphp/R\[$u%@7YF'RW*S%q4?]Ar)W9gXVG&atSFbm0F9ddE>nJ24D3<o=>)aIb:*<'A
+6W"TUK8+m]AUQQD4>)YD'.S<<..7$Z3aJnkZ^Me@F&Uo7d8\8'OY]AYmQ`X9q<X%W#_;nf#df`
+6,%lY;H\bPr6QCk_Ok7L4'cP&8J"[/kPKc!@CeD%XFBCA+L%;E-&J1hb7g0r)"4,+Ac(GO.P
+."aS)amkpiX<!,7#gfGhaB8;[TJV"NP8A`1@#a[P2G'0sTbi^fLA[W3oa0T/]A1!l#<brK1ge
+f-.ABV5J&c!.fG&LK#\**$GkV'maNpVD0B(_C[_Lb2-E9b[X1B]A(SMdM40N.ZfS[[,_ip6us
+OVAW'lm;#V!t!5u91TKO`(beeipP7I2@.E37/aARU%!FZ222(;.2b9.Vok@&=KCQr_7DrQJU
+(EeL?LGp'qT33d`2IG^?Hho0C_$6B@n\2F9i.]AkG)rbIDB*&R)k&7nM"=;_Y=?EJ2)Xg@%,n
+PGW5Ru$YoDmGE\AXq_'T-07FG7K`8TL?INK\u&UMMcsTo`_[1-b3\R:8@Mm_Qi`q(n`8XXbe
+!I'>1MLN3TfJj';bLO38s5#m72'_*NHFX`>^>=`@.]A)Zl]ArP>0rG_05U]A6?2\k/eubP%2l-j
+!uRmZ^N0f:RXhB<al._Qmp#Sll&R#YTa,/<@V3=?Hl;Q_#V3=r%4c<IEu8oJ6Ue&>QI?Hp+8
+<_6[qn_kt6,'37e0ZP6ka7-Z*\dC,O($LVeHJ.5#'_DSP9[d^l,lK3Q3[Ns7[,FZq6oV)ZPS
+)^'nB&S<-c$n5>`ftoV]A?9]ALb3R.d^I+#\IX8'I4`_8cOL59LOf"(ph-N]AcF;oN8\=mq1)X2
+@5aqC5im,n\]A>\b4qR$j5L">u>>,DUoOn,(Nqb6OLF[^4W3na!97<R9&79OM#ge]AV=tJ*$^G
+kJRAs>9C_p=;.9G&rVB?0S(tSsrfGsZqbIns_IPqm&A.33VpClBrVH1Ep.!".NjohVr\716U
+iFC)HjHtJ4%XJV5!t)8#n!3d$]A9M@J/m`@WBu.l<<I\NY?o$dH`TF"kF8H3Z0U>1?im\lE%R
+_*TNh)>,79G[;OE'DkZ)OlOp-Xr_nh=c`5YM6o40)J`7I^BC?=CG8A5`52K^55Mdi37(F:c.
+C^#]AUMN0sLHe@S$dr!^MH??Wo)N,D00m8*>%^@ksG#cP>`4nYXQu"Pp%CUCTXdXtiLX#qgNo
+,0H[0#1NjL?jJ$i=lM41P@]AJd$X$nKL(CScc#*W!FA<i5GA0refU9L(0[I1Bn2?9k?g&c34L
+^C'aY>;]ASa<EUVH_LBpS8U-9cQZ'OUf$e=Nt#g#THA4Cr,`WEb8P68f[hW/&%rJC:$Cd84#I
+J;SmAnTm$-uUec'D*u`UBt8Aei-9,bf>lo*kX_@'91n5s8CL?HMuAqZ>97nnQK%mf\p(D[aN
+PWVjmJET<gAL7LUB]A??kUHR`Q$(e0/]AV)Kn>iS2\*tits9]Ahgkh2N>^L=Tq[g==rhpCPJDG3
+X\4s"/Et5P3M:0/<8EBabO?q>r5a(%UI[S!/JZkRpELSVe<4.?^VR80^.g,Q63'40**'MEJu
+@0/j;9<#(X@eF5Z)p:ZI/eV+_LZI")IH'X/(,OdXgDN6",NML5K)p`%j3W"(VO!IrA'oD6&^
+hTDNT-"d>V6p?Z6D@b"SfBE>5AE3-jU.??9RkVFm4!B)kM'+s7eB$<g"^]A9+I-'k>1eTI"TJ
+-gf(`HAGcj*RkFTY]A2Z=4N&piur6il<E'I*P5cnH\Q5@L4#n2GJ"4=F_\?hV+@;pWbXTm00:
+btf?2D=XnrI-?F?<3'L]A#+gu/)(m1(Vk-`97'_57X0Y+<J8c;%KE;b<.b/B/ctf+EU0)LkM"
+cu*7_,8r6tf5c0qa2g;sK]A*:^QSQ25FeRTo>78&FDD]Aj0/HkW@$agPe6g`dbrX[AV/sDqCQG
+NV%!!#SZ:.26O@"J~
+]]></IM>
+</O>
+<Style index="0"/>
+</com.fr.report.cell.FloatElement>
+</FloatElementList>
+<CellElementList>
+<C c="0" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="0" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="5" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="6" cs="16" s="2">
+<O>
+<![CDATA[毕节市公建用户管道燃气\\n建设合同书]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="15" cs="3" s="3">
+<O>
+<![CDATA[用气单位：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="15" cs="8" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="客户名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="16" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="16" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="17" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="17" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="18" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="18" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="19" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="19" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="20" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="20" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="21" cs="3" s="3">
+<O>
+<![CDATA[合同编号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="21" cs="8" s="4">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="合同编号"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="34" cs="16" s="6">
+<O>
+<![CDATA[贵州燃气集团毕节市燃气有限责任公司]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="35" cs="16" rs="2" s="6">
+<O>
+<![CDATA[毕节市天然气公建用户管道燃气安装、供气协议书]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="44" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="44" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="44" cs="3" s="8">
+<O>
+<![CDATA[甲方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="44" cs="12" s="9">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="客户名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="45" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="45" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="45" cs="3" s="8">
+<O>
+<![CDATA[乙方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="45" cs="12" s="9">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="46" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="46" cs="16" s="10">
+<O>
+<![CDATA[  为推广使用城市管道燃气，节约能源，减少环境污染，方便人民生活，促进生产发展，依照毕节市人民政府毕发《城市燃气安全管理规定》、《毕节市城市管道燃气特许经营协议》等文件的规定，现经甲、乙双方商定达成如下条款，以致双方共同遵守执行。等文件的规定，现经甲、乙双方商定达成如下条款，以致双方共同遵守执行。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="47" cs="3" s="11">
+<O>
+<![CDATA[  第一条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="47" cs="13" s="12">
+<O>
+<![CDATA[乙方申请使用 天然气，经甲方（燃气公司）研究审批同意乙方（公建）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="48" cs="2" s="12">
+<O>
+<![CDATA[ 用气]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="48" cs="2" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="48" cs="12" s="12">
+<O>
+<![CDATA[标m3/日，列入供气计划。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="50" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="50" cs="3" s="15">
+<O>
+<![CDATA[工程名称：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="50" cs="11" s="16">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="项目名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="50" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="51" cs="3" s="15">
+<O>
+<![CDATA[用气内容：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="51" cs="11" s="16">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="工程规模"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="52" cs="3" s="15">
+<O>
+<![CDATA[用气地点：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="52" cs="11" s="17">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="项目地址"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="54" cs="3" s="18">
+<O>
+<![CDATA[  第二条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="54" cs="7" s="19">
+<O>
+<![CDATA[ 乙方缴纳初装费，收费标准为]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="54" cs="3" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="54" cs="3" s="21">
+<O>
+<![CDATA[元/标m3 ，初装]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="56" cs="5" s="19">
+<O>
+<![CDATA[（含管件）费总金额为]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="56" cs="3" s="22">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="合同价"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="56" cs="2" s="19">
+<O>
+<![CDATA[元,大写：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="56" cs="5" s="22">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="56" s="19">
+<O>
+<![CDATA[。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="57" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="58" cs="5" s="19">
+<O>
+<![CDATA[工程建设费金额为¥:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="58" cs="3" s="22">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="58" cs="2" s="19">
+<O>
+<![CDATA[元,大写：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="58" cs="5" s="22">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="58" s="19">
+<O>
+<![CDATA[。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="59" s="23">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="60" cs="3" s="18">
+<O>
+<![CDATA[  第三条 ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="60" cs="13" s="7">
+<O>
+<![CDATA[按规定，从燃气输配干线至用户的管道设施和燃气用具，应由甲方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="62" cs="16" s="7">
+<O>
+<![CDATA[负责设计和组织施工安装，费用由乙方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="64" cs="3" s="18">
+<O>
+<![CDATA[  第四条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="64" cs="13" s="7">
+<O>
+<![CDATA[为顺利完成燃气管道设施的安装，乙方应向甲方提供有关设计及施工的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="65" cs="16" s="24">
+<O>
+<![CDATA[基础资料，并及时办理有关工程的设计施工手续；签订相关合同。以便甲方按燃气建设]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="66" cs="16" s="24">
+<O>
+<![CDATA[规划，统一计划安排组织实施。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="67" cs="3" s="18">
+<O>
+<![CDATA[  第五条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="67" cs="13" s="24">
+<O>
+<![CDATA[乙方应指定专人负责，配合甲方设计及现场施工，办理相关手续，]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="68" cs="16" s="14">
+<O>
+<![CDATA[并为甲方的施工提供水、电、库房等相关支持。同时提供现场及建筑设施的地下管线、水沟等地质资料及其它相关技术资料。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="69" cs="3" s="18">
+<O>
+<![CDATA[  第六条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="69" cs="13" s="14">
+<O>
+<![CDATA[燃气工程施工完成后，经检验符合燃气工程验收标准，由甲方交付乙方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="70" cs="16" s="14">
+<O>
+<![CDATA[使用。乙方应严格按照燃气公司有关规定，正确使用燃气设施，妥善管理，确保燃气安全，并按规定时间交纳燃气费，超时应支付滞纳金。在使用期内，遇燃气价格调整，须按调价文件执行。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="71" cs="3" s="18">
+<O>
+<![CDATA[  第七条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="71" cs="13" s="14">
+<O>
+<![CDATA[乙方在没有向甲方办理拆、迁、移、改申请手续的情况下，不得违反规定]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="72" cs="16" s="14">
+<O>
+<![CDATA[私自改变与燃气管道有关的房间用途。不得私自拆、迁、移、改燃气管道及相关设施，不得将管道及燃气表密闭。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="73" cs="3" s="18">
+<O>
+<![CDATA[  第八条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="73" cs="13" s="7">
+<O>
+<![CDATA[乙方有义务配合甲方检修、抢险、抄表。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="74" cs="3" s="18">
+<O>
+<![CDATA[  第九条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="74" cs="13" s="7">
+<O>
+<![CDATA[用户承担户内燃气设施维护保管责任。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="75" cs="3" s="18">
+<O>
+<![CDATA[  第十条 ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="75" cs="13" s="7">
+<O>
+<![CDATA[用户燃气设施设备保修期一年。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="76" cs="3" s="18">
+<O>
+<![CDATA[  第十一条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="76" cs="13" s="7">
+<O>
+<![CDATA[燃气开通后，乙方实际用气量超过第一条规定的用气指标，须向甲方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="77" cs="16" s="25">
+<O>
+<![CDATA[补交初装费。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="78" cs="3" s="18">
+<O>
+<![CDATA[  第十二条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="78" cs="13" s="7">
+<O>
+<![CDATA[根据《中华人民共和国计量法》、《贵州省燃气管理条例》、《贵州省]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="79" cs="16" s="14">
+<O>
+<![CDATA[计量监督管理条例》、《城镇燃气设施执行、维护和检修安全技术规程》和《JJG577-2005膜式燃气表计量检定规程》等相关法律、法规的规定为维护乙方用气的安全和社会公共安全，对乙方所使用的膜式燃气表已超过六年规定的使用期限或正在使用的燃气表已经严重锈蚀存在较大安全隐患的情况下，乙方必须主动到甲方客户部办理换表手续，并交纳相应的换表费用。逾期未按规定办理上述手续的，由乙方自行承担由此而产生的一切责任。甲方从维护乙方安全用气和社会公共安全利益的角度出发，有权采取停气措施及相应的其他处罚手段。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="80" cs="7" s="18">
+<O>
+<![CDATA[  第十三条  违约责任]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="81" cs="16" s="14">
+<O>
+<![CDATA[    1、甲方如违反上述约定，不能正常供气给乙方所造成的损失应由甲方负责（火灾、自然灾害等不可抗拒因素除外），并对其所产生的安全事故承担责任。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="82" cs="16" s="25">
+<O>
+<![CDATA[    2、乙方如违反上述约定，对其所产生的安全事故责任及损失的，由乙方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="83" cs="6" s="18">
+<O>
+<![CDATA[  第十四条  争议解决]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="84" cs="16" s="25">
+<O>
+<![CDATA[    因签订、履行本合同发生的一切争议，按下列规定的方式解决：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="85" cs="16" s="25">
+<O>
+<![CDATA[    1、由争议双方协商解决；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="86" cs="16" s="25">
+<O>
+<![CDATA[    2、调解解决；]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="87" cs="16" s="25">
+<O>
+<![CDATA[    3、依法向争议地的人民法院诉讼解决。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="88" cs="4" s="18">
+<O>
+<![CDATA[  第十五条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="88" cs="12" s="25">
+<O>
+<![CDATA[本合同一式三份，甲方二份、乙方一份，自双方签字盖章之日起]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="89" cs="16" s="25">
+<O>
+<![CDATA[生效。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="91" cs="4" s="18">
+<O>
+<![CDATA[  第十六条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="91" cs="12" s="25">
+<O>
+<![CDATA[合同未尽事宜，须经双方协商一致，签订补充条款。补充条款：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="92" s="26">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="92" cs="16" s="24">
+<O>
+<![CDATA[    1、乙方如果没有按上述约定的时间交纳所使用的燃气费用，甲方除依法加收每日0.5%滞纳金外，有权采取停止供气等相应措施，以避免其损失扩大。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="93" cs="16" s="24">
+<O>
+<![CDATA[    2、甲方经验收合格交付给乙方使用后，如不能正常供气，乙方损失由甲方负责。（火灾、自然灾害等不可抗拒因素除外）。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="95" s="27">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="104" cs="16" s="28">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="105" cs="2" s="15">
+<O>
+<![CDATA[甲 方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="105" cs="7" s="29">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="客户名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="105" cs="2" s="15">
+<O>
+<![CDATA[乙 方：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="105" cs="5" s="29">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="106" cs="3" s="15">
+<O>
+<![CDATA[甲方负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="106" cs="5" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="客户委托代表"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="106">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="106" cs="3" s="15">
+<O>
+<![CDATA[甲方负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="106" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司方经办人"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="107" cs="3" s="15">
+<O>
+<![CDATA[部门负责人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="107" cs="5" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="107" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="107" cs="3" s="15">
+<O>
+<![CDATA[部门负责人:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="107" cs="4" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="108" cs="3" s="31">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="108" cs="5" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="108" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="108" cs="3" s="31">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="108" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司方经办人"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="109" cs="3" s="31">
+<O>
+<![CDATA[开户行：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="109" cs="5" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="109">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="109" cs="3" s="31">
+<O>
+<![CDATA[开户行：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="109" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="开户行"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="110" cs="3" s="31">
+<O>
+<![CDATA[开户行帐号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="110" cs="5" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="110">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="110" cs="3" s="31">
+<O>
+<![CDATA[开户行帐号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="110" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="账号"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="111" cs="3" s="31">
+<O>
+<![CDATA[电  话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="111" cs="5" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="客户联系电话"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="111" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="111" cs="3" s="31">
+<O>
+<![CDATA[电  话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="111" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司联系电话"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="112" cs="3" s="31">
+<O>
+<![CDATA[地  址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="112" cs="5" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="建设单位地址"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="112" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="112" cs="3" s="31">
+<O>
+<![CDATA[地  址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="112" cs="4" s="30">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="燃气公司地址"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr adjustmode="1"/>
+<CellPageAttr/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="113" cs="3" s="15">
+<O>
+<![CDATA[单位公章： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="113" cs="5" s="30">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="113" s="7">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="113" cs="3" s="15">
+<O>
+<![CDATA[单位公章： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="113" cs="4" s="30">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="114" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="114" s="12">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="114" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="114" cs="2" s="15">
+<O>
+<![CDATA[签订日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="114" cs="5" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="签订日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="30528000" height="42768000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="ColorBackground" color="-1"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" lineSpacing="5">
+<FRFont name="SimSun" style="1" size="144"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="120"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" lineSpacing="5">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style vertical_alignment="3" imageLayout="1" lineSpacing="5">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1" lineSpacing="8">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="6" vertical_alignment="3" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

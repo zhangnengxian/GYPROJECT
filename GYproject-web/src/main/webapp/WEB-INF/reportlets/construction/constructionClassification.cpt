@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select concat('制表时间：',STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s'))]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select c.MANAGEMENT_OFFICE,s.proj_stype_des,
+sum(ifnull(s.house_num,0)+ifnull(s.sear_num,0)+ifnull(s.num,0)+ifnull(s.tonnage,0)) as ceshi from CONSTRUCTION_PLAN c 
+left join SCALE_DETAIL s on c.proj_id=s.proj_id ${condition}
+group by s.proj_stype_des,c.MANAGEMENT_OFFICE order by 
+s.proj_stype_des]]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select c.MANAGEMENT_OFFICE,sum(b.YARD_INSTALL_COST)
+from CONSTRUCTION_PLAN c left join BUDGET b on c.proj_id = b.proj_id
+${condition}
+group by c.MANAGEMENT_OFFICE order by c.management_office
+]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select k.proj_stype_des,sum(k.ceshi) from (select c.MANAGEMENT_OFFICE,s.proj_stype_des,
+sum(ifnull(s.house_num,0)+ifnull(s.sear_num,0)+ifnull(s.num,0)+ifnull(s.tonnage,0)) as ceshi from CONSTRUCTION_PLAN c 
+left join SCALE_DETAIL s on c.proj_id=s.proj_id ${condition}
+group by s.proj_stype_des,c.MANAGEMENT_OFFICE order by c.MANAGEMENT_OFFICE) k group by k.proj_stype_des order by k.proj_stype_des]]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings orientation="1" isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="11.693" height="24.41" />
+<Margin top="0.3937007874015748" left="0.3937007874015748" bottom="0.8661417322834646" right="0.3937007874015748" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.CustomParameterUI">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,19,19,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,72,72,72,72,72,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0"><O><![CDATA[查询]]></O>
+<Widget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<WidgetAttr/>
+</Widget>
+</C>
+</CellElementList>
+</ParameterUI>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36,24,36,24,24,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[2,70,100,150,150,2,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="2" r="0" cs="3" s="0"><O><![CDATA[施工处施工计划分解表]]></O>
+</C>
+<C c="1" r="1" cs="2" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="制表人：" + $staffName]]></Attributes></O>
+</C>
+<C c="3" r="1" cs="2" s="1"><O t="DSColumn"><Attributes dsName="ds1" columnName="&apos;制表时间：&apos;||TO_CHAR(SYSDATE,&apos;YYYY-MM-DDHH24:MI:SS&apos;)" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1" /></RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="2"></C>
+<C c="1" r="2" s="3"><O><![CDATA[序号]]></O>
+</C>
+<C c="2" r="2" s="4"><O><![CDATA[施工管理处]]></O>
+</C>
+<C c="3" r="2" s="4"><O t="DSColumn"><Attributes dsName="ds2" columnName="PROJ_STYPE_DES" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="1" />
+</C>
+<C c="4" r="2" s="5"><O><![CDATA[庭院总价（元）]]></O>
+</C>
+<C c="5" r="2" s="6"></C>
+<C c="0" r="3" s="2"></C>
+<C c="1" r="3" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=IF(len(D4) == 0, "", seq())]]></Attributes></O>
+<Expand leftParentDefault="false" left="C4" />
+</C>
+<C c="2" r="3" s="8"><O t="DSColumn"><Attributes dsName="ds2" columnName="MANAGEMENT_OFFICE" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="9"><O t="DSColumn"><Attributes dsName="ds2" columnName="CESHI" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="1" />
+</C>
+<C c="4" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds3" columnName="SUM(B.YARD_INSTALL_COST)" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[MANAGEMENT_OFFICE]]></CNAME><Compare op="0">
+<AnDSColumn dsName="ds2" columnName="MANAGEMENT_OFFICE" /></Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="3" s="6"></C>
+<C c="0" r="4" s="2"></C>
+<C c="1" r="4" cs="2" s="11"><O><![CDATA[合计]]></O>
+<Expand upParentDefault="false" />
+</C>
+<C c="3" r="4" s="12"><O t="DSColumn"><Attributes dsName="ds4" columnName="SUM(K.CESHI)" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="1" upParentDefault="false" />
+</C>
+<C c="4" r="4" s="13"><O t="Formula" class="Formula"><Attributes><![CDATA[=SUM(E4)]]></Attributes></O>
+<Expand upParentDefault="false" />
+</C>
+<C c="5" r="4" s="6"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Left style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="5" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+</StyleList>
+</WorkBook>

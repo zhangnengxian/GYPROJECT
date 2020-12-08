@@ -1,0 +1,65 @@
+CACHE MANIFEST
+# 缓存图标
+favicon.ico
+# 缓存图片
+images/common/logo.png
+images/layout/project-login-bg.png
+images/layout/audit-login-bg.png
+images/layout/construction-login-bg.png
+images/layout/mobile-login-audit.png
+images/layout/mobile-login-const.png
+images/layout/project-login-bg.png
+images/layout/ucenter-login-bg.jpg
+images/layout/ucenter-login-bg.png
+images/weather/cloudy.png
+images/weather/cloudy-on.png
+images/weather/rain.png
+images/weather/rain-on.png
+images/weather/snow.png
+images/weather/snow-on.png
+images/weather/sunshine.png
+images/weather/sunshine-on.png
+
+# 缓存样式表
+assets/plugins/jquery-ui/jquery-ui.min.css
+assets/plugins/bootstrap/css/bootstrap.min.css
+assets/plugins/font-awesome/css/font-awesome.min.css
+assets/css/animate.min.css
+assets/css/style.min.css
+assets/css/style-responsive.min.css
+assets/plugins/ionicons/css/ionicons.min.css
+assets/plugins/DataTables/media/css/dataTables.bootstrap.min.css
+assets/plugins/DataTables/extensions/Select/css/select.bootstrap.min.css
+assets/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css
+assets/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css
+assets/plugins/bootstrap-datepicker/css/datepicker.css
+assets/plugins/bootstrap-datepicker/css/datepicker3.css
+assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css
+assets/plugins/parsley/src/parsley.css
+assets/plugins/gritter/css/jquery.gritter.css
+assets/plugins/select2/dist/css/select2.min.css
+# 缓存js脚本
+assets/plugins/pace/pace.min.js
+assets/plugins/jquery/jquery-1.9.1.min.js
+assets/plugins/jquery/jquery-migrate-1.1.0.min.js
+assets/plugins/jquery-ui/jquery-ui.min.js
+assets/plugins/bootstrap/js/bootstrap.min.js
+assets/plugins/jquery-hashchange/jquery.hashchange.min.js
+assets/plugins/slimscroll/jquery.slimscroll.min.js
+assets/plugins/jquery-cookie/jquery.cookie.js
+assets/plugins/DataTables/media/js/jquery.dataTables.min.js
+assets/plugins/DataTables/media/js/dataTables.bootstrap.min.js
+assets/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js
+assets/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js
+assets/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js
+assets/plugins/DataTables/extensions/Select/js/dataTables.select.min.js
+assets/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js
+assets/plugins/jquery-deserialize-master/src/jquery.deserialize.min.js
+assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js
+assets/plugins/parsley/dist/parsley.js
+assets/plugins/jSignature/jSignature.min.js
+assets/plugins/gritter/js/jquery.gritter.js
+assets/plugins/jquery-qrcode/jquery.qrcode.min.js
+                  
+NETWORK:
+*

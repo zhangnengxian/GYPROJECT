@@ -1,0 +1,18 @@
+{
+    "data": [
+        {
+            "peWeldLineNo": "F1",
+            "isComplete": "1",
+            "isHaveMelts": "1",
+            "isCoaxial": "1",
+            "isScratch": "1",
+            "isHoleCharging": "0",
+            "electricCuDate": "2017-01-01",
+            "weldFormat": "焊条规格",
+            "welder": "张某",
+            "pipeManufactor": "贵阳建材厂",
+            "meltConnectType": "1"
+            
+        }
+    ]
+}

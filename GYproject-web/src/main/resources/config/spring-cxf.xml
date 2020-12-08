@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<beans xmlns="http://www.springframework.org/schema/beans" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" 
+ xsi:schemaLocation="http://www.springframework.org/schema/beans 
+ http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
+ http://cxf.apache.org/jaxws 
+ http://cxf.apache.org/schemas/jaxws.xsd"> 
+ <import resource="classpath:META-INF/cxf/cxf.xml" /> 
+ <import resource="classpath:META-INF/cxf/cxf-servlet.xml" /> 
+
+ <jaxws:endpoint id="financeService1" implementor="cc.dfsoft.project.biz.ifs.finance.service.impl.FinanceServiceImpl"  address="/financeService" /> 
+ <jaxws:endpoint id="materialService1" implementor="cc.dfsoft.project.biz.ifs.material.service.impl.MaterialServiceImpl"  address="/materialService" />
+
+  <jaxws:endpoint id="projectQueryService1" implementor="cc.dfsoft.project.biz.ifs.projectQuery.service.impl.ProjectQueryServiceImpl"  address="/projectQueryService" />
+  <jaxws:endpoint id="projectAcceptService1" implementor="cc.dfsoft.project.biz.ifs.project.service.impl.ProjectAcceptServiceImpl"  address="/projectAcceptService" />
+</beans>

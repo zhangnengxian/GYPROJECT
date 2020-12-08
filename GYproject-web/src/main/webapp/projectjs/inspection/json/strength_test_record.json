@@ -1,0 +1,26 @@
+{
+    "data": [
+        {
+        	"testType":"0",
+            "testPressure":"100",
+            "testDate":"2017-01-02",
+            "regulatorStartTime":"2017-01-02 12:00:00",
+            "regulatorEndTime":"2017-01-02 14:00:00",
+            "inspectMethod":"0",
+            "testResult":"0",
+            "gasTightness":null,
+            "actualPressure":"100"
+        },
+         {
+         	"testType":"1",
+            "testPressure":"100",
+            "testDate":"2017-01-02",
+            "regulatorStartTime":"2017-01-02 12:00:00",
+            "regulatorEndTime":"2017-01-02 14:00:00",
+            "inspectMethod":"1",
+            "testResult":"0",
+            "gasTightness":"100",
+            "actualPressure":"100"
+        }
+    ]
+}

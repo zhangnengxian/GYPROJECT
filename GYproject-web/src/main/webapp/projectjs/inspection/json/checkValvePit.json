@@ -1,0 +1,9 @@
+{"data":[
+{"dpCheckItemDes":"基础尺寸及外观检查","dpMethodDes":"长X宽X高符合图纸","dpResultDes":"合格"},
+{"dpCheckItemDes":"支架尺寸、牢固性","dpMethodDes":"符合图纸及规范要求","dpResultDes":"合格"},
+{"dpCheckItemDes":"安装位置","dpMethodDes":"符合图纸规范","dpResultDes":"合格"},
+{"dpCheckItemDes":"进法兰平度及连接","dpMethodDes":"要求水平连接、牢靠","dpResultDes":"合格"},
+{"dpCheckItemDes":"安装水平、表面损伤","dpMethodDes":"用水平尺检查","dpResultDes":"合格"},
+{"dpCheckItemDes":"箱、柜内表等安装","dpMethodDes":"要求完整齐全","dpResultDes":"合格"},
+{"dpCheckItemDes":"气密性试验、防腐检查","dpMethodDes":"无渗漏，防腐合格","dpResultDes":"合格"}
+]}

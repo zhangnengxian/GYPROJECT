@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608031034274930302271305938]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from  Altimetric_Survey r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0 order by pc_station  asc]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}' AND s.field_name='suJgj']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.2755905511811024" left="0.7480314960629921" bottom="0.27" right="0.7480314960629921" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[50,30,24,24,19,38,13,11,12,9,40,24,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[34,32,34,35,36,36,37,32,36,36,33,32,35,35,39,42,41,35,7,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="17" s="0"><O><![CDATA[ 户内安装记录]]></O>
+</C>
+<C c="1" r="1" cs="17" s="1"></C>
+<C c="0" r="2" cs="5" rs="2" s="2"><O><![CDATA[工程名称]]></O>
+</C>
+<C c="5" r="2" cs="5" rs="2" s="3"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projName]]></Attributes></O>
+</C>
+<C c="10" r="2" cs="4" rs="2" s="4"><O><![CDATA[安装小区及楼栋号]]></O>
+</C>
+<C c="14" r="2" cs="4" rs="2" s="3"><O><![CDATA[百商小区1#楼]]></O>
+</C>
+<C c="0" r="4" cs="6" rs="2" s="2"><O><![CDATA[安装表（户）]]></O>
+</C>
+<C c="6" r="4" cs="6" rs="2" s="4"><O><![CDATA[空杠（户）]]></O>
+</C>
+<C c="12" r="4" cs="6" rs="2" s="4"><O><![CDATA[安装热水器或采暖炉（户）]]></O>
+</C>
+<C c="0" r="6" cs="6" rs="2" s="5"><O t="I">9</O>
+</C>
+<C c="6" r="6" cs="6" rs="2" s="2"><O><![CDATA[无]]></O>
+</C>
+<C c="12" r="6" cs="6" rs="2" s="2"><O><![CDATA[无]]></O>
+</C>
+<C c="0" r="8" cs="6" rs="2" s="5"><O><![CDATA[1#楼]]></O>
+</C>
+<C c="6" r="8" cs="6" rs="2" s="2"></C>
+<C c="12" r="8" cs="6" rs="2" s="2"></C>
+<C c="0" r="10" cs="6" s="2"><O><![CDATA[房间号]]></O>
+</C>
+<C c="6" r="10" cs="6" s="4"><O><![CDATA[表钢号]]></O>
+</C>
+<C c="12" r="10" cs="6" s="6"></C>
+<C c="18" r="10" rs="2"></C>
+<C c="0" r="11" cs="6" s="7"><O t="I">1001</O>
+</C>
+<C c="6" r="11" cs="6" s="7"><O><![CDATA[\tT-001]]></O>
+</C>
+<C c="12" r="11" cs="6" s="8"></C>
+<C c="0" r="12" cs="6" s="7"><O t="I">1002</O>
+</C>
+<C c="6" r="12" cs="6" s="7"><O><![CDATA[\tT-002]]></O>
+</C>
+<C c="12" r="12" cs="6" s="8"></C>
+<C c="0" r="13" cs="6" s="7"><O t="I">1003</O>
+</C>
+<C c="6" r="13" cs="6" s="7"><O><![CDATA[\tT-003]]></O>
+</C>
+<C c="12" r="13" cs="6" s="6"></C>
+<C c="0" r="14" cs="6" s="7"><O t="I">1004</O>
+</C>
+<C c="6" r="14" cs="6" s="7"><O><![CDATA[\tT-004]]></O>
+</C>
+<C c="12" r="14" cs="6" s="6"></C>
+<C c="0" r="15" cs="6" s="7"><O t="I">1005</O>
+</C>
+<C c="6" r="15" cs="6" s="7"><O><![CDATA[\tT-005]]></O>
+</C>
+<C c="12" r="15" cs="6" s="6"></C>
+<C c="0" r="16" cs="6" s="7"><O t="I">1006</O>
+</C>
+<C c="6" r="16" cs="6" s="7"><O><![CDATA[\tT-006]]></O>
+</C>
+<C c="12" r="16" cs="6" s="6"></C>
+<C c="0" r="17" cs="6" s="7"><O t="I">1007</O>
+</C>
+<C c="6" r="17" cs="6" s="7"><O><![CDATA[\tT-007]]></O>
+</C>
+<C c="12" r="17" cs="6" s="6"></C>
+<C c="0" r="18" cs="6" s="7"><O t="I">1008</O>
+</C>
+<C c="6" r="18" cs="6" s="7"><O><![CDATA[\tT-008]]></O>
+</C>
+<C c="12" r="18" cs="6" s="6"></C>
+<C c="0" r="19" cs="6" s="7"><O t="I">1009</O>
+</C>
+<C c="6" r="19" cs="6" s="7"><O><![CDATA[\tT-009]]></O>
+</C>
+<C c="12" r="19" cs="6" s="6"></C>
+<C c="0" r="20" cs="6" s="6"></C>
+<C c="6" r="20" cs="6" s="6"></C>
+<C c="12" r="20" cs="6" s="6"></C>
+<C c="0" r="21" cs="6" rs="2" s="9"><O><![CDATA[施工单位]]></O>
+</C>
+<C c="6" r="21" cs="6" rs="2" s="9"><O><![CDATA[房屋开发建设单位]]></O>
+</C>
+<C c="12" r="21" cs="6" rs="2" s="9"><O><![CDATA[建设单位]]></O>
+</C>
+<C c="0" r="23" cs="6" s="9"><O><![CDATA[工程负责人：]]></O>
+</C>
+<C c="6" r="23" cs="6" s="9"><O><![CDATA[负责人：]]></O>
+</C>
+<C c="12" r="23" cs="6" s="9"><O><![CDATA[工程负责人：]]></O>
+</C>
+<C c="0" r="24" cs="6" rs="3" s="10"></C>
+<C c="6" r="24" cs="6" rs="3" s="10"></C>
+<C c="12" r="24" cs="6" rs="3" s="10"></C>
+<C c="0" r="27" cs="6" s="10"><O><![CDATA[            2016年 12月 28 日]]></O>
+</C>
+<C c="6" r="27" cs="6" s="10"><O><![CDATA[         2016年 12月 28 日]]></O>
+</C>
+<C c="12" r="27" cs="6" s="10"><O><![CDATA[            2016年 12月 28 日]]></O>
+</C>
+<C c="1" r="28" cs="2"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="宋体" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

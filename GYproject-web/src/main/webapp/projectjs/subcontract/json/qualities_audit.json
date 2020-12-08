@@ -1,0 +1,14 @@
+{"data":[
+{"name":"回填土 夯填","unit":"100m³","price":"1038.03","qualities":"33.3","amount":"34566.40"},
+{"name":"地面挖土","unit":"100m³","price":"716.1","qualities":"42.9","amount":"30720.69"},
+{"name":"砌砖 砖砌内外墙","unit":"10m³","price":"1909.96","qualities":"4.2","amount":"8021.83"},
+{"name":"零星砌体","unit":"m³","price":"270.21","qualities":"7.4","amount":"1999.55"},
+{"name":"埋地PE管φ40","unit":"m","price":"12","qualities":"10","amount":"120.00"},
+{"name":"埋地PE管φ110","unit":"m","price":"20","qualities":"2","amount":"40.00"},
+{"name":"埋地钢套管DN80","unit":"m","price":"40","qualities":"34","amount":"1360.00"},
+{"name":"埋地钢套管DN100","unit":"m","price":"49","qualities":"50","amount":"2450.00"},
+{"name":"钢制作阀门井土建  单管单阀 DN150","unit":"座","price":"4600","qualities":"2","amount":"9200.00"},
+{"name":"架空管DN15","unit":"m","price":"40","qualities":"11.5","amount":"460.00"},
+{"name":"法兰球阀DN25","unit":"个","price":"75","qualities":"5","amount":"375.00"},
+{"name":"合计","unit":"","price":"","qualities":"","amount":"89313.47"}
+]}

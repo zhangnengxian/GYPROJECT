@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="通气表" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="gprojId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select * from gas_project  WHERE GPROJ_ID = '${gprojId}']]></Query>
+</TableData>
+<TableData name="一级审核" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="surveyId"/>
+<O>
+<![CDATA[11]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement1' and  mr.MR_AUDIT_LEVEL='1' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${gprojId}' limit 1]]></Query>
+</TableData>
+<TableData name="二级审核" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="surveyId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement2' and  mr.MR_AUDIT_LEVEL='2' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${gprojId}' limit 1]]></Query>
+</TableData>
+<TableData name="三级审核" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement3' and  mr.MR_AUDIT_LEVEL='3' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${gprojId}' limit 1]]></Query>
+</TableData>
+<TableData name="四级审核" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement4' and  mr.MR_AUDIT_LEVEL='4' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${gprojId}' limit 1]]></Query>
+</TableData>
+<TableData name="五级审核" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT s.IMG_URL FROM signature s , manage_record mr  WHERE s.FIELD_NAME='firstSettlement5' and  mr.MR_AUDIT_LEVEL='5' and mr.BUSINESS_ORDER_ID=s.BUSINESS_ORDER_ID and mr.FLAG is null and s.BUSINESS_ORDER_ID='${gprojId}' limit 1]]></Query>
+</TableData>
+<TableData name="现场代表" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select BUILDER from  construction_plan
+where proj_id='${projId}']]></Query>
+</TableData>
+<TableData name="一级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select MR_AOPINION,MR_TIME from manage_record mr
+where  mr.MR_AUDIT_LEVEL='1' and mr.FLAG is null and mr.BUSINESS_ORDER_ID='${gprojId}']]></Query>
+</TableData>
+<TableData name="二级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select MR_AOPINION,MR_TIME from manage_record mr
+where  mr.MR_AUDIT_LEVEL='2' and mr.FLAG is null and mr.BUSINESS_ORDER_ID='${gprojId}']]></Query>
+</TableData>
+<TableData name="三级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="gprojId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select MR_AOPINION,MR_TIME from manage_record mr
+where  mr.MR_AUDIT_LEVEL='3' and mr.FLAG is null and mr.BUSINESS_ORDER_ID='${gprojId}']]></Query>
+</TableData>
+<TableData name="四级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="gprojId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select MR_AOPINION,MR_TIME from manage_record mr
+where  mr.MR_AUDIT_LEVEL='4' and mr.FLAG is null and mr.BUSINESS_ORDER_ID='${gprojId}']]></Query>
+</TableData>
+<TableData name="五级审核意见" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="gprojId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select MR_AOPINION,MR_TIME from manage_record mr
+where  mr.MR_AUDIT_LEVEL='5' and mr.FLAG is null and mr.BUSINESS_ORDER_ID='${gprojId}']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1615440,1798320,723900,2160000,2160000,2160000,2160000,3600000,723900,3600000,723900,3600000,723900,3600000,723900,3600000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[1440000,3688080,2743200,2743200,4754880,2743200,1706880,2743200,2743200,426720,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="9" s="0">
+<O>
+<![CDATA[带气作业审批表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" cs="2" s="1">
+<O>
+<![CDATA[填表日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="PREPAR_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="3" cs="2" s="3">
+<O>
+<![CDATA[项目名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="3" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" cs="2" s="3">
+<O>
+<![CDATA[现场代表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="3" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="现场代表" columnName="BUILDER"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" cs="2" s="3">
+<O>
+<![CDATA[带气地点]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="PROJ_ADDR"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" cs="2" s="3">
+<O>
+<![CDATA[带气点数]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="GAS_POINT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" cs="2" s="3">
+<O>
+<![CDATA[带气类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" cs="3" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="PIPE_RATING"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="5" cs="2" s="3">
+<O>
+<![CDATA[管径材质]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" cs="2" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="PIPE_MATERIAL"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="6" cs="2" s="3">
+<O>
+<![CDATA[施工协议号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="6" cs="7" s="4">
+<O t="DSColumn">
+<Attributes dsName="通气表" columnName="SC_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" cs="2" rs="2" s="3">
+<O>
+<![CDATA[工程技术部意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" cs="5" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="一级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="7" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="一级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="8" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="一级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="9" cs="2" rs="2" s="3">
+<O>
+<![CDATA[客户服务中心意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="9" cs="5" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="二级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="9" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="二级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="10" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="二级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="11" cs="2" rs="2" s="3">
+<O>
+<![CDATA[输配中心意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="11" cs="5" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="三级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="11" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="三级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="12" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="三级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="13" cs="2" rs="2" s="3">
+<O>
+<![CDATA[市场发展部意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="13" cs="5" rs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="13" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="四级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="14" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="四级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="15" cs="2" rs="2" s="8">
+<O>
+<![CDATA[质量安全部意见]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="15" cs="5" rs="2" s="9">
+<O t="DSColumn">
+<Attributes dsName="五级审核意见" columnName="MR_AOPINION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="15" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="五级审核" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL)]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="16" cs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="五级审核意见" columnName="MR_TIME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="17" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="18" cs="7" s="11">
+<O>
+<![CDATA[本表须于一个工作日内收集意见并转至调度中心]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="18" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="986400" left="2160000" bottom="986400" right="2160000"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID TemplateID="4c77d39b-fac5-4c70-bd66-c2d880708dbc"/>
+</WorkBook>

@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="dlId"/>
+<O>
+<![CDATA[1]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select dl.*,p.proj_name,
+	p.proj_addr,
+	p.cu_name
+ from daily_log dl LEFT JOIN project p on dl.PROJ_ID = p.PROJ_ID where dl.dl_id='${dlId}']]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="dlId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select IMG_URL from signature s where s.business_order_id='${dlId}' 
+and s.field_name='fieldPrincipal']]></Query>
+</TableData>
+</TableDataMap>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager>
+<Location>
+<Embed position="1"/>
+</Location>
+<ToolBar>
+<Widget class="com.fr.report.web.button.page.First">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[首页]]></Text>
+<IconName>
+<![CDATA[first]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Previous">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[上一页]]></Text>
+<IconName>
+<![CDATA[previous]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.PageNavi">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Next">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[下一页]]></Text>
+<IconName>
+<![CDATA[next]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.page.Last">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[末页]]></Text>
+<IconName>
+<![CDATA[last]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.PageSetup">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[页面设置]]></Text>
+<IconName>
+<![CDATA[pagesetup]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.FlashPrint">
+<WidgetAttr disabled="true" description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[打印[客户端]A]]></Text>
+<IconName>
+<![CDATA[flashprint]]></IconName>
+</Widget>
+<Widget class="com.fr.report.web.button.Export">
+<WidgetAttr description="">
+<PrivilegeControl/>
+</WidgetAttr>
+<Text>
+<![CDATA[${i18n('Export')}]]></Text>
+<IconName>
+<![CDATA[export]]></IconName>
+<Buttons pdf="true" excelP="true" excelO="true" excelS="true" word="true" image="true" html="true"/>
+</Widget>
+</ToolBar>
+</ToolBarManager>
+</ToolBars>
+<WebPage isPage="true" isShowAsImage="false" isAutoScale="false" isTDHeavy="false"/>
+</WebPageContent>
+</ReportWebAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet2">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1905000,1143000,1143000,1143000,1143000,5715000,5715000,5715000,5715000,3810000,1143000,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[2438400,1638300,2933700,6858000,3771900,1257300,800100,3429000,1028700,1028700,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0">
+<O>
+<![CDATA[施工日志]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" cs="2" s="1">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="1" cs="8" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="proj_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="2" cs="2" s="1">
+<O>
+<![CDATA[施工地点]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" cs="8" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="proj_addr"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="3" cs="2" s="2">
+<O>
+<![CDATA[分包单位]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="cu_name"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="2">
+<O>
+<![CDATA[日期]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" cs="5" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DL_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="4" cs="2" s="2">
+<O>
+<![CDATA[天气情况]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="4" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DL_WEATHER"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" s="2">
+<O>
+<![CDATA[气温]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DL_TEMPERATURE"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4" s="4">
+<O>
+<![CDATA[℃]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" s="5">
+<O>
+<![CDATA[风力]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="DL_WIND"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="4" s="6">
+<O>
+<![CDATA[级]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" s="2">
+<O>
+<![CDATA[施工记录]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="5" cs="9" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONSTRUCT_ORGANIZATION"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="6" s="2">
+<O>
+<![CDATA[质量记录]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="6" cs="9" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="QUALITY"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" s="2">
+<O>
+<![CDATA[安全记录]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="7" cs="9" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SAFETY_RECORD"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="8" s="2">
+<O>
+<![CDATA[检查记录]]></O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="8" cs="9" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CHECK_RECORD"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<CellGUIAttr showAsHTML="true"/>
+<CellInsertPolicy/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="9" s="9">
+<O>
+<![CDATA[现场负责人签字]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="9" cs="2" s="10">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="IMG_URL"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[toimage($imgUrl + IMG_URL,false,"100%","100%")]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="9" cs="7" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0" footerHeight="0">
+<PaperSetting>
+<Margin top="2160000" left="1728000" bottom="3168000" right="1728000"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="仿宋" style="1" size="148"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" paddingLeft="6" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1" paddingLeft="6" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="6" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="8" spacingBefore="2" spacingAfter="2" lineSpacing="3">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="4" paddingLeft="0" paddingRight="0">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

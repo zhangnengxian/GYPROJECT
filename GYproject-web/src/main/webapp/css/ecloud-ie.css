@@ -1,0 +1,49 @@
+/* 
+    Created on : 2016-09-12, 09:29:50
+    Author     : ferrinweb
+*/
+
+.IE .form-group > div > .btn-sm{
+	padding-top: 2px;
+}
+.IE .form-control.input-sm{
+	padding-top: 2px;
+	padding-bottom: 8px;
+}
+.IE .login-content .form-control{
+	padding-top: 6px;
+	padding-bottom: 4px;
+}
+.IE select.form-control.input-sm{
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.IE .panel-heading-btn{
+	margin-top: -4px;
+}
+.IE .sidebar .nav > li.nav-profile small{
+	font-size: 1.3rem;
+}
+.IE .sidebar .sub-menu > li > a:before{
+	margin-left: -7px;
+	font-size: 10px;
+}
+
+.IE label.signature-tool + div > .img {
+    max-height: 24px;
+    display: inline-block;
+    height: 30px !important;
+    max-height: 30px !important;
+    width: 90px !important;
+    padding: 0;
+    vertical-align: middle;
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    background-size: auto 24px !important;
+}
+
+@media screen and (min-width: 768px){
+	.IE .form-horizontal .control-label{
+		padding-top: 3px;
+	}
+}

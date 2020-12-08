@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM  ANTISEPSIS_SPEC r where  r.pc_id = '${pcId}' ]]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<RowHeight defaultValue="19">
+<![CDATA[30,30,19,19,19,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[72,72,72,72,72,72,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="0"><O t="DSColumn"><Attributes dsName="ds1" columnName="DP_PIPE_SIZE" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="1" />
+</C>
+<C c="1" r="0" s="1"></C>
+<C c="2" r="0" s="1"></C>
+<C c="3" r="0" s="1"></C>
+<C c="4" r="0" s="1"></C>
+<C c="5" r="0" s="1"></C>
+<C c="6" r="0" s="1"></C>
+<C c="7" r="0" s="1"></C>
+<C c="8" r="0" s="1"></C>
+<C c="9" r="0" s="2"></C>
+<C c="0" r="1" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="DP_NUM" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="1" />
+</C>
+<C c="1" r="1" s="4"></C>
+<C c="2" r="1" s="4"></C>
+<C c="3" r="1" s="4"></C>
+<C c="4" r="1" s="4"></C>
+<C c="5" r="1" s="4"></C>
+<C c="6" r="1" s="4"></C>
+<C c="7" r="1" s="4"></C>
+<C c="8" r="1" s="4"></C>
+<C c="9" r="1" s="5"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

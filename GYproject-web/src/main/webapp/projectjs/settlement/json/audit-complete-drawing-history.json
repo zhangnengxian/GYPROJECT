@@ -1,0 +1,9 @@
+{"data":[
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-12","auditResult":"0","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-11","auditResult":"0","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-11","auditResult":"0","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-12","auditResult":"0","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-13","auditResult":"1","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-11","auditResult":"1","auditAopinion":"建议通过","auditUser":"admin"},
+{"projNo":"t-1234567","projId":"2017000000001","applyNo":"2107111111111","auditTime":"2017-06-11","auditResult":"1","auditAopinion":"建议通过","auditUser":"admin"}
+]}

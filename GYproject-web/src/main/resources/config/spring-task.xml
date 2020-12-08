@@ -1,0 +1,85 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd"
+
+default-autowire="byName" default-lazy-init="false">
+
+<description>定时任务配置</description>
+	<bean name="startQuertz" lazy-init="false" autowire="no" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+			    <!-- 调度工厂类，执行定时任务列表 -->
+				<ref bean="engineeringVisaGeneration"/>
+				<ref bean="initSysConfigAction"/>
+				<ref bean="jPushTask"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="engineeringVisaScheduler" class="cc.dfsoft.project.biz.base.task.EngineeringVisaJob" />
+
+	
+
+	 <bean id="engineeringVisaGeneration" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+	     <!--  定时器任务 -->
+		<property name="jobDetail" ref="engineeringVisaJob"></property>
+		<!-- 每天01点执行 -->
+	    <property name="cronExpression" value="0 0 1 * * ?" /> 
+		<!-- 每5分钟执行一次 -->
+		<!-- <property name="cronExpression" value="0 /5 * * * ?" /> -->
+	</bean>
+	<bean id="engineeringVisaJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 定时器 bean -->
+		 <property name="targetObject" ref="engineeringVisaScheduler"/>
+		<!-- 定时器 bean 的 method -->
+		<!-- <property name="targetMethod" value="engineeringVisaCrontab" /> -->
+		<!-- 定时器 签证审核一级超期自动追加签证调整预算员待办 -->
+		<property name="targetMethod" value="engineeringVisaOverdueTreatment" />
+		<!-- 作业不并发调度 -->
+		<property name="concurrent" value="false" />
+	</bean>
+	<!-- <bean id="engineeringVisaGeneration" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+	      定时器任务
+		<property name="jobDetail" ref="engineeringVisaJob"></property>
+		每天00点执行
+		<property name="cronExpression" value="00 00 00 /1 * ?" />
+	</bean>
+	<bean id="engineeringVisaJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		定时器 bean
+		<property name="targetObject" ref="engineeringVisaScheduler"/>
+		定时器 bean 的 method
+		<property name="targetMethod" value="updateEngineeringVisaState" />
+		作业不并发调度
+		<property name="concurrent" value="false" />
+	</bean> -->
+	
+	<bean id="initSysConfigAction" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<!-- 定时器任务 -->
+		<property name="jobDetail" ref="initSysConfigJob"></property>
+		<property name="cronExpression" value="0 /5 * * * ?" />
+	</bean>
+	<bean id="initSysConfigJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 定时器 bean -->
+		<property name="targetObject" ref="engineeringVisaScheduler"/>
+		<!-- 定时器 bean 的 method-->
+		<property name="targetMethod" value="initSys" />
+		<!-- 作业不并发调度 -->
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="jPushTask" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+		<!-- 定时器任务 -->
+		<property name="jobDetail" ref="jPushTaskConfigJob"></property>
+		<property name="cronExpression" value="0 /3 * * * ? " />
+	</bean>
+	<bean id="jPushTaskConfigJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<!-- 定时器 bean -->
+		<property name="targetObject" ref="engineeringVisaScheduler"/>
+		<!-- 定时器 bean 的 method-->
+		<property name="targetMethod" value="jPushTask" />
+		<!-- 作业不并发调度 -->
+		<property name="concurrent" value="false" />
+	</bean>
+
+</beans>

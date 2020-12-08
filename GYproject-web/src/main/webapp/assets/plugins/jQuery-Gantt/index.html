@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.jq22.com/demo/jquery-Gantt20151112/ -->
+<html lang="en-au"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>jQuery.Gantt</title>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
+        <link rel="stylesheet" href="./index_files/style.css">
+        <link rel="stylesheet" href="./index_files/bootstrap.css">
+        <link rel="stylesheet" href="./index_files/prettify.css">
+		<style type="text/css">
+			body {
+				font-family: Helvetica, Arial, sans-serif;
+				font-size: 13px;
+				padding: 0 0 50px 0;
+			}
+			.contain {
+				width: 800px;
+				margin: 0 auto;
+			}
+			h1 {
+				margin: 40px 0 20px 0;
+			}
+			h2 {
+				font-size: 1.5em;
+				padding-bottom: 3px;
+				border-bottom: 1px solid #DDD;
+				margin-top: 50px;
+				margin-bottom: 25px;
+			}
+			table th:first-child {
+				width: 150px;
+			}
+		</style>
+    </head>
+    <body>
+
+		<div class="contain">
+
+			<h1>
+				jQuery.Gantt
+				<small>— Draw Gantt charts with the famous jQuery ease of development</small>
+			</h1>
+
+			<h2>Contributors</h2>
+			<ul>
+				<li>
+					<strong>Marek Bielańczuk</strong> wrote the original jQuery.Gantt plugin that this version is based off of.
+				</li>
+				<li>
+					<strong>Tait Brown</strong> enforced stricter code guidelines by validating the code, updating it to support HTML5 and tweaking the design.
+				</li>
+				<li>
+					<strong>Leo Pfeifenberger</strong> made <em>major</em> performance updates as well as adding requested features such as click events, state persisting via cookies and scrollToToday on load functionality.
+				</li>
+			</ul>
+
+	    	<h2>
+	    		Example
+	    	</h2>
+				
+			<div class="gantt"><div class="fn-gantt"><div class="fn-content"><div class="leftPanel"><div class="row spacer" style="height: 72px; width: 100%;"></div><div class="row name row0" id="rowheader0" offset="0"><span class="fn-label">Sprint 0</span></div><div class="row desc row0 " id="RowdId_0" data-id="undefined"><span class="fn-label">Analysis</span></div><div class="row name row1" id="rowheader1" offset="24"><span class="fn-label"> </span></div><div class="row desc row1 " id="RowdId_1" data-id="undefined"><span class="fn-label">Scoping</span></div><div class="row name row2" id="rowheader2" offset="48"><span class="fn-label">Sprint 1</span></div><div class="row desc row2 " id="RowdId_2" data-id="undefined"><span class="fn-label">Development</span></div><div class="row name row3" id="rowheader3" offset="72"><span class="fn-label"> </span></div><div class="row desc row3 " id="RowdId_3" data-id="undefined"><span class="fn-label">Showcasing</span></div><div class="row name row4" id="rowheader4" offset="96"><span class="fn-label">Sprint 2</span></div><div class="row desc row4 " id="RowdId_4" data-id="undefined"><span class="fn-label">Development</span></div><div class="row name row5" id="rowheader5" offset="120"><span class="fn-label"> </span></div><div class="row desc row5 " id="RowdId_5" data-id="undefined"><span class="fn-label">Showcasing</span></div><div class="row name row6" id="rowheader6" offset="144"><span class="fn-label">Release Stage</span></div><div class="row desc row6 " id="RowdId_6" data-id="undefined"><span class="fn-label">Training</span></div><div class="row name row7" id="rowheader7" offset="168"><span class="fn-label"> </span></div><div class="row desc row7 " id="RowdId_7" data-id="undefined"><span class="fn-label">Deployment</span></div><div class="row name row8" id="rowheader8" offset="192"><span class="fn-label"> </span></div><div class="row desc row8 " id="RowdId_8" data-id="undefined"><span class="fn-label">Warranty Period</span></div></div><div class="rightPanel"><div class="dataPanel" style="width: 1320px; height: 288px; margin-left: 0px;"><div class="row"></div><div class="row header year" style="width: 288px;"><div class="fn-label">2011</div></div><div class="row header year" style="width: 1032px;"><div class="fn-label">2012</div></div><div class="row"></div><div class="row header month" style="width:72px;"><div class="fn-label">October</div></div><div class="row header month" style="width:120px;"><div class="fn-label">November</div></div><div class="row header month" style="width:96px;"><div class="fn-label">December</div></div><div class="row header month" style="width:96px;"><div class="fn-label">January</div></div><div class="row header month" style="width:120px;"><div class="fn-label">February</div></div><div class="row header month" style="width:96px;"><div class="fn-label">March</div></div><div class="row header month" style="width:96px;"><div class="fn-label">April</div></div><div class="row header month" style="width:120px;"><div class="fn-label">May</div></div><div class="row header month" style="width:96px;"><div class="fn-label">June</div></div><div class="row header month" style="width:96px;"><div class="fn-label">July</div></div><div class="row header month" style="width:120px;"><div class="fn-label">August</div></div><div class="row header month" style="width:96px;"><div class="fn-label">September</div></div><div class="row header month" style="width: 96px"><div class="fn-label">October</div></div><div class="row day wd" id="dh-2011-41" offset="0" repdate="1318348800000">  <div class="fn-label">41</div></div><div class="row day wd" id="dh-2011-42" offset="24" repdate="1318953600000">  <div class="fn-label">42</div></div><div class="row day wd" id="dh-2011-43" offset="48" repdate="1319558400000">  <div class="fn-label">43</div></div><div class="row day wd" id="dh-2011-44" offset="72" repdate="1320163200000">  <div class="fn-label">44</div></div><div class="row day wd" id="dh-2011-45" offset="96" repdate="1320768000000">  <div class="fn-label">45</div></div><div class="row day wd" id="dh-2011-46" offset="120" repdate="1321372800000">  <div class="fn-label">46</div></div><div class="row day wd" id="dh-2011-47" offset="144" repdate="1321977600000">  <div class="fn-label">47</div></div><div class="row day wd" id="dh-2011-48" offset="168" repdate="1322582400000">  <div class="fn-label">48</div></div><div class="row day wd" id="dh-2011-49" offset="192" repdate="1323187200000">  <div class="fn-label">49</div></div><div class="row day wd" id="dh-2011-50" offset="216" repdate="1323792000000">  <div class="fn-label">50</div></div><div class="row day wd" id="dh-2011-51" offset="240" repdate="1324396800000">  <div class="fn-label">51</div></div><div class="row day wd" id="dh-2011-52" offset="264" repdate="1325001600000">  <div class="fn-label">52</div></div><div class="row day wd" id="dh-2012-1" offset="288" repdate="1325606400000">  <div class="fn-label">1</div></div><div class="row day wd" id="dh-2012-2" offset="312" repdate="1326211200000">  <div class="fn-label">2</div></div><div class="row day wd" id="dh-2012-3" offset="336" repdate="1326816000000">  <div class="fn-label">3</div></div><div class="row day wd" id="dh-2012-4" offset="360" repdate="1327420800000">  <div class="fn-label">4</div></div><div class="row day wd" id="dh-2012-5" offset="384" repdate="1328025600000">  <div class="fn-label">5</div></div><div class="row day wd" id="dh-2012-6" offset="408" repdate="1328630400000">  <div class="fn-label">6</div></div><div class="row day wd" id="dh-2012-7" offset="432" repdate="1329235200000">  <div class="fn-label">7</div></div><div class="row day wd" id="dh-2012-8" offset="456" repdate="1329840000000">  <div class="fn-label">8</div></div><div class="row day wd" id="dh-2012-9" offset="480" repdate="1330444800000">  <div class="fn-label">9</div></div><div class="row day wd" id="dh-2012-10" offset="504" repdate="1331049600000">  <div class="fn-label">10</div></div><div class="row day wd" id="dh-2012-11" offset="528" repdate="1331654400000">  <div class="fn-label">11</div></div><div class="row day wd" id="dh-2012-12" offset="552" repdate="1332259200000">  <div class="fn-label">12</div></div><div class="row day wd" id="dh-2012-13" offset="576" repdate="1332864000000">  <div class="fn-label">13</div></div><div class="row day wd" id="dh-2012-14" offset="600" repdate="1333468800000">  <div class="fn-label">14</div></div><div class="row day wd" id="dh-2012-15" offset="624" repdate="1334073600000">  <div class="fn-label">15</div></div><div class="row day wd" id="dh-2012-16" offset="648" repdate="1334678400000">  <div class="fn-label">16</div></div><div class="row day wd" id="dh-2012-17" offset="672" repdate="1335283200000">  <div class="fn-label">17</div></div><div class="row day wd" id="dh-2012-18" offset="696" repdate="1335888000000">  <div class="fn-label">18</div></div><div class="row day wd" id="dh-2012-19" offset="720" repdate="1336492800000">  <div class="fn-label">19</div></div><div class="row day wd" id="dh-2012-20" offset="744" repdate="1337097600000">  <div class="fn-label">20</div></div><div class="row day wd" id="dh-2012-21" offset="768" repdate="1337702400000">  <div class="fn-label">21</div></div><div class="row day wd" id="dh-2012-22" offset="792" repdate="1338307200000">  <div class="fn-label">22</div></div><div class="row day wd" id="dh-2012-23" offset="816" repdate="1338912000000">  <div class="fn-label">23</div></div><div class="row day wd" id="dh-2012-24" offset="840" repdate="1339516800000">  <div class="fn-label">24</div></div><div class="row day wd" id="dh-2012-25" offset="864" repdate="1340121600000">  <div class="fn-label">25</div></div><div class="row day wd" id="dh-2012-26" offset="888" repdate="1340726400000">  <div class="fn-label">26</div></div><div class="row day wd" id="dh-2012-27" offset="912" repdate="1341331200000">  <div class="fn-label">27</div></div><div class="row day wd" id="dh-2012-28" offset="936" repdate="1341936000000">  <div class="fn-label">28</div></div><div class="row day wd" id="dh-2012-29" offset="960" repdate="1342540800000">  <div class="fn-label">29</div></div><div class="row day wd" id="dh-2012-30" offset="984" repdate="1343145600000">  <div class="fn-label">30</div></div><div class="row day wd" id="dh-2012-31" offset="1008" repdate="1343750400000">  <div class="fn-label">31</div></div><div class="row day wd" id="dh-2012-32" offset="1032" repdate="1344355200000">  <div class="fn-label">32</div></div><div class="row day wd" id="dh-2012-33" offset="1056" repdate="1344960000000">  <div class="fn-label">33</div></div><div class="row day wd" id="dh-2012-34" offset="1080" repdate="1345564800000">  <div class="fn-label">34</div></div><div class="row day wd" id="dh-2012-35" offset="1104" repdate="1346169600000">  <div class="fn-label">35</div></div><div class="row day wd" id="dh-2012-36" offset="1128" repdate="1346774400000">  <div class="fn-label">36</div></div><div class="row day wd" id="dh-2012-37" offset="1152" repdate="1347379200000">  <div class="fn-label">37</div></div><div class="row day wd" id="dh-2012-38" offset="1176" repdate="1347984000000">  <div class="fn-label">38</div></div><div class="row day wd" id="dh-2012-39" offset="1200" repdate="1348588800000">  <div class="fn-label">39</div></div><div class="row day wd" id="dh-2012-40" offset="1224" repdate="1349193600000">  <div class="fn-label">40</div></div><div class="row day wd" id="dh-2012-41" offset="1248" repdate="1349798400000">  <div class="fn-label">41</div></div><div class="row day wd" id="dh-2012-42" offset="1272" repdate="1350403200000">  <div class="fn-label">42</div></div><div class="row day wd" id="dh-2012-43" offset="1296" repdate="1351008000000">  <div class="fn-label">43</div></div><div class="bar ganttRed" style="width: 119px; margin-top: 74px; margin-left: 72px;"><div class="fn-label">Requirement Gathering</div></div><div class="bar ganttRed" style="width: 47px; margin-top: 98px; margin-left: 168px;"><div class="fn-label">Scoping</div></div><div class="bar ganttGreen" style="width: 95px; margin-top: 122px; margin-left: 216px;"><div class="fn-label">Development</div></div><div class="bar ganttBlue" style="width: 23px; margin-top: 146px; margin-left: 288px;"><div class="fn-label">Showcasing</div></div><div class="bar ganttGreen" style="margin-top: 170px; margin-left: 336px;"><div class="fn-label">Development</div></div><div class="bar ganttBlue" style="width: 23px; margin-top: 194px; margin-left: 408px;"><div class="fn-label">Showcasing</div></div><div class="bar ganttOrange" style="width: 287px; margin-top: 218px; margin-left: 456px;"><div class="fn-label">Training</div></div><div class="bar ganttOrange" style="width: 119px; margin-top: 242px; margin-left: 720px;"><div class="fn-label">Deployment</div></div><div class="bar ganttOrange" style="width: 551px; margin-top: 266px; margin-left: 720px;"><div class="fn-label">Warranty Period</div></div></div></div><div class="bottom"><div class="navigate"><div class="nav-slider"><div class="nav-slider-left"><span role="button" class="nav-link nav-page-back">&lt;</span><div class="page-number"><span>1 of 1</span></div><span role="button" class="nav-link nav-page-next">&gt;</span><span role="button" class="nav-link nav-now">●</span><span role="button" class="nav-link nav-prev-week">&lt;&lt;</span><span role="button" class="nav-link nav-prev-day">&lt;</span></div><div class="nav-slider-content"><div class="nav-slider-bar"><a class="nav-slider-button" style="left: 4.25px;"></a></div></div><div class="nav-slider-right"><span role="button" class="nav-link nav-next-day">&gt;</span><span role="button" class="nav-link nav-next-week">&gt;&gt;</span><span role="button" class="nav-link nav-zoomIn">+</span><span role="button" class="nav-link nav-zoomOut">-</span></div></div></div></div></div></div></div>
+
+
+
+			<h2>
+				Gantt Configuration
+			</h2>
+
+
+<pre class="prettyprint"><span class="pln">$</span><span class="pun">(</span><span class="str">".selector"</span><span class="pun">).</span><span class="pln">gantt</span><span class="pun">({</span><span class="pln">
+	source</span><span class="pun">:</span><span class="pln"> </span><span class="str">"ajax/data.json"</span><span class="pun">,</span><span class="pln">
+	scale</span><span class="pun">:</span><span class="pln"> </span><span class="str">"weeks"</span><span class="pun">,</span><span class="pln">
+	minScale</span><span class="pun">:</span><span class="pln"> </span><span class="str">"weeks"</span><span class="pun">,</span><span class="pln">
+	maxScale</span><span class="pun">:</span><span class="pln"> </span><span class="str">"months"</span><span class="pun">,</span><span class="pln">
+	onItemClick</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		alert</span><span class="pun">(</span><span class="str">"Item clicked - show some details"</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">},</span><span class="pln">
+	onAddClick</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">(</span><span class="pln">dt</span><span class="pun">,</span><span class="pln"> rowId</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		alert</span><span class="pun">(</span><span class="str">"Empty space clicked - add an item!"</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">},</span><span class="pln">
+	onRender</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">function</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+		console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"chart rendered"</span><span class="pun">);</span><span class="pln">
+	</span><span class="pun">}</span><span class="pln">
+</span><span class="pun">});</span></pre>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Parameter
+						</th>
+						<th>
+							Default
+						</th>
+						<th>
+							Accepts Type
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<code>source</code>
+						</td>
+						<td>
+							null
+						</td>
+						<td>
+							Array, String (url)
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>itemsPerPage</code>
+						</td>
+						<td>
+							7
+						</td>
+						<td>
+							Number
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>months</code>
+						</td>
+						<td>
+							["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+						</td>
+						<td>
+							Array
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>dow</code>
+						</td>
+						<td>
+							["S", "M", "T", "W", "T", "F", "S"]
+						</td>
+						<td>
+							Array
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>navigate</code>
+						</td>
+						<td>
+							"buttons"
+						</td>
+						<td>
+							String ("buttons","scroll")
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>scale</code>
+						</td>
+						<td>
+							"days"
+						</td>
+						<td>
+							String
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>maxScale</code>
+						</td>
+						<td>
+							"months"
+						</td>
+						<td>
+							String
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>minScale</code>
+						</td>
+						<td>
+							"hours"
+						</td>
+						<td>
+							String
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>waitText</code>
+						</td>
+						<td>
+							"Please Wait..."
+						</td>
+						<td>
+							String
+						</td>
+					</tr>
+					<tr>
+						<td>
+						    <code>onItemClick: </code>
+                            </td>
+						<td>
+							<code>function (data) { return; }</code></td>
+						<td>
+						    a JS Function that gets called when clicking on a Gantt-Item. <br>The parameter passed to the function is the dataObj of the item</td>
+					</tr>
+				    <tr>
+				        <td>
+				            <code>onAddClick</code></td>
+				        <td>
+				            <code>function (dt, rowId) { return; }</code></td>
+				        <td>
+				            a JS Function that gets called when clicking on a Gantt-Item. <br>The parameter passed to the function is the DateTime in ms for the clicked Cell, and the ID if the source object (row)</td>
+				    </tr>
+				    <tr>
+				        <td>
+				            <code>onRender</code></td>
+				        <td>
+				            <code>function () { return; }</code></td>
+				        <td>
+				            a JS Function called whenever the chart is (re)rendered</td>
+				    </tr>
+                    <tr>
+						<td>
+							<code>useCookie</code></td>
+						<td>
+							<code>false</code></td>
+						<td>
+						    indicates if cookies should be used to track the chart's state (scale, scrollposition) between postpacks<br>
+						    <code>jquery.cookie.js</code> needs to be referenced for this to work</td>
+					</tr>
+					<tr>
+						<td>
+							<code>scrollToToday</code></td>
+						<td>
+							<code>true</code></td>
+						<td>
+						    Boolean</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+
+
+			<h2>
+				Source Configuration
+			</h2>
+
+<pre class="prettyprint"><span class="pln">source</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+	name</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Example"</span><span class="pun">,</span><span class="pln">
+	desc</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Lorem ipsum dolor sit amet."</span><span class="pun">,</span><span class="pln">
+	values</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[</span><span class="pln"> </span><span class="pun">...</span><span class="pln"> </span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}]</span></pre>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Parameter
+						</th>
+						<th>
+							Default
+						</th>
+						<th>
+							Accepts Type
+						</th>
+						<th>
+							Meaning
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<code>name</code>
+						</td>
+						<td>
+							null
+						</td>
+						<td>
+							String
+						</td>
+						<td>
+							Bold value in the left-most column of the gantt row.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>desc</code>
+						</td>
+						<td>
+							null
+						</td>
+						<td>
+							String
+						</td>
+						<td>
+							Secondary value in the gantt row.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>values</code>
+						</td>
+						<td>
+							null
+						</td>
+						<td>
+							Array
+						</td>
+						<td>
+							Collection of date ranges for gantt items. See next table.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+
+			<h2>
+				Value Configuration
+			</h2>
+
+<pre class="prettyprint"><span class="pln">values</span><span class="pun">:</span><span class="pln"> </span><span class="pun">[{</span><span class="pln">
+	to</span><span class="pun">:</span><span class="pln"> </span><span class="str">"/Date(1328832000000)/"</span><span class="pun">,</span><span class="pln">
+	</span><span class="kwd">from</span><span class="pun">:</span><span class="pln"> </span><span class="str">"/Date(1333411200000)/"</span><span class="pun">,</span><span class="pln">
+	desc</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Something"</span><span class="pun">,</span><span class="pln">
+	label</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Example Value"</span><span class="pun">,</span><span class="pln">
+	customClass</span><span class="pun">:</span><span class="pln"> </span><span class="str">"ganttRed"</span><span class="pun">,</span><span class="pln">
+	dataObj</span><span class="pun">:</span><span class="pln"> foo</span><span class="pun">.</span><span class="pln">bar</span><span class="pun">[</span><span class="pln">i</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">}]</span></pre>
+
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>
+							Parameter
+						</th>
+						<th>
+							Accepts Type
+						</th>
+						<th>
+							Meaning
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<code>to</code>
+						</td>
+						<td>
+							String (Date)
+						</td>
+						<td>
+							-
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>from</code>
+						</td>
+						<td>
+							String (Date)
+						</td>
+						<td>
+							-
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>desc</code>
+						</td>
+						<td>
+							String
+						</td>
+						<td>
+							Text that appears on hover, I think?
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>label</code>
+						</td>
+						<td>
+							String
+						</td>
+						<td>
+							Appears on the gantt item.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>customClass</code>
+						</td>
+						<td>
+							String
+						</td>
+						<td>
+							Custom class to be applied to the gantt item.
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<code>dataObj</code>
+						</td>
+						<td>
+							All
+						</td>
+						<td>
+							A data object that is applied directly to the gantt item.
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+    
+	<script src="./index_files/jquery-1.7.2.min.js"></script>
+	<script src="./index_files/jquery.fn.gantt.js"></script>
+	<script src="./index_files/bootstrap-tooltip.js"></script>
+	<script src="./index_files/bootstrap-popover.js"></script>
+	<script src="./index_files/prettify.js"></script>
+    <script>
+
+		$(function() {
+
+			"use strict";
+
+			$(".gantt").gantt({
+				source: [{
+					name: "Sprint 0",
+					desc: "Analysis",
+					values: [{
+						from: "/Date(1320192000000)/",
+						to: "/Date(1322401600000)/",
+						label: "Requirement Gathering", 
+						customClass: "ganttRed"
+					}]
+				},{
+					name: " ",
+					desc: "Scoping",
+					values: [{
+						from: "/Date(1322611200000)/",
+						to: "/Date(1323302400000)/",
+						label: "Scoping", 
+						customClass: "ganttRed"
+					}]
+				},{
+					name: "Sprint 1",
+					desc: "Development",
+					values: [{
+						from: "/Date(1323802400000)/",
+						to: "/Date(1325685200000)/",
+						label: "Development", 
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Showcasing",
+					values: [{
+						from: "/Date(1325685200000)/",
+						to: "/Date(1325695200000)/",
+						label: "Showcasing", 
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Sprint 2",
+					desc: "Development",
+					values: [{
+						from: "/Date(1326785200000)/",
+						to: "/Date(1325785200000)/",
+						label: "Development", 
+						customClass: "ganttGreen"
+					}]
+				},{
+					name: " ",
+					desc: "Showcasing",
+					values: [{
+						from: "/Date(1328785200000)/",
+						to: "/Date(1328905200000)/",
+						label: "Showcasing", 
+						customClass: "ganttBlue"
+					}]
+				},{
+					name: "Release Stage",
+					desc: "Training",
+					values: [{
+						from: "/Date(1330011200000)/",
+						to: "/Date(1336611200000)/",
+						label: "Training", 
+						customClass: "ganttOrange"
+					}]
+				},{
+					name: " ",
+					desc: "Deployment",
+					values: [{
+						from: "/Date(1336611200000)/",
+						to: "/Date(1338711200000)/",
+						label: "Deployment", 
+						customClass: "ganttOrange"
+					}]
+				},{
+					name: " ",
+					desc: "Warranty Period",
+					values: [{
+						from: "/Date(1336611200000)/",
+						to: "/Date(1349711200000)/",
+						label: "Warranty Period", 
+						customClass: "ganttOrange"
+					}]
+				}],
+				navigate: "scroll",
+				scale: "weeks",
+				maxScale: "months",
+				minScale: "days",
+				itemsPerPage: 10,
+				onItemClick: function(data) {
+					alert("Item clicked - show some details");
+				},
+				onAddClick: function(dt, rowId) {
+					alert("Empty space clicked - add an item!");
+				},
+				onRender: function() {
+					if (window.console && typeof console.log === "function") {
+						console.log("chart rendered");
+					}
+				}
+			});
+
+			$(".gantt").popover({
+				selector: ".bar",
+				title: "I'm a popover",
+				content: "And I'm the content of said popover."
+			});
+
+			prettyPrint();
+
+		});
+
+    </script>
+
+</body></html>

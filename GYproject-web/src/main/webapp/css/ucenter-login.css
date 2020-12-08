@@ -1,0 +1,71 @@
+@CHARSET "UTF-8";
+*{
+    font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+}
+.bg-white {
+	background: url(../images/layout/ucenter-login-bg.jpg) no-repeat center bottom !important;
+	background-size: cover !important;
+}
+.login{
+	margin: 0;
+}
+#page-container{
+	position: relative;
+}
+.login .login-content h3{
+	text-align: center;
+	text-shadow: #fff 0 1px 0;
+	margin: 150px 0 50px;
+}
+.text-inverse {
+    color: #52595F!important;
+}
+.btn.btn-success {
+    color: #fff;
+    background: rgba(0, 172, 172, 0.9);
+	-webkit-transition: all .2s; 
+	-moz-transition: all .2s; 
+	transition: all .2s;
+	border: #fff 1px solid;
+}
+.btn.btn-success:hover {
+    color: #fff;
+    background: rgba(0, 172, 172, 1);
+	border: #fff 1px solid;
+}
+.btn.btn-success.btn-warning{
+	background: rgba(196, 125, 21, 0.9);
+}
+.btn.btn-success.btn-warning.active, 
+.btn.btn-success.btn-warning:active, 
+.btn.btn-success.btn-warning:focus, 
+.btn.btn-success.btn-warning:hover{
+    background: rgba(196, 125, 21, 1);
+}
+.btn.btn-success.btn-danger{
+    background: rgb(204, 73, 70, 0.9);
+}
+.btn.btn-success.btn-danger.active, 
+.btn.btn-success.btn-danger:active, 
+.btn.btn-success.btn-danger:focus, 
+.btn.btn-success.btn-danger:hover{
+    background: rgb(204, 73, 70, 1);
+}
+.copyright{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -50px;
+	margin:auto;
+}
+.form-control,
+.login-buttons .btn{
+	border: #fff 1px solid;
+	box-shadow: rgba(0, 0, 0, 0.36) 0 10px 10px -8px;
+}
+.form-control:focus{
+	box-shadow: rgba(0, 0, 0, 0.45) 0 8px 10px -9px;
+}

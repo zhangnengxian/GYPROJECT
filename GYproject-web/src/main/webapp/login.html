@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="cn" manifest="staticFileCache.appcache">
+<head>
+	<meta charset="utf-8" />
+	<title>请登入 - 工程施工管理系统</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="assets/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/style.min.css" rel="stylesheet" />
+	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/pace/pace.min.js"></script>
+	<!-- ================== END BASE JS ================== -->
+	<!-- ================== 开始 云服务框架更新样式 ================== -->
+	<link href="css/login.css" rel="stylesheet" type="text/css"/>
+	<!-- ================== 结束 云服务框架更新样式 ================== -->
+</head>
+<body class="pace-top bg-white">
+<!-- begin #page-loader -->
+<div id="page-loader" class="fade in"><span class="spinner"></span></div>
+<!-- end #page-loader -->
+
+<!-- begin #page-container -->
+<div id="page-container" class="fade">
+	<!-- begin login -->
+	<div class="login">
+		<h3 class="mobile-title">工程项目管理系统</h3>
+		<!-- begin login-content -->
+		<div class="login-content">
+			<div class="row">
+				<form action="index.html" method="POST" id="loginForm">
+					<input type="hidden" id="device" name="device"/>
+					<div class="form-group col-sm-12">
+						<input type="text" class="form-control" id="loginAccount" name="loginAccount" placeholder="账号" />
+					</div>
+					<div class="form-group col-sm-12 m-b-15">
+						<input type="password" class="form-control" id="password" name="password" placeholder="密码" />
+					</div>
+					<div class="checkbox col-md-12 col-sm-5 m-b-30">
+						<label>
+							<input type="checkbox" id="rememberPsw"> 记住账号
+						</label>
+					</div>
+					<div class="login-buttons col-md-12 col-sm-7">
+						<button type="button" class="btn btn-success btn-block">立即登入</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- end login-content -->
+	</div>
+	<!-- end login -->
+	<p class="text-center text-inverse copyright">
+		&copy; 工程管理系统  版权所有 2016
+	</p>
+</div>
+<!-- end page container -->
+
+<!-- ================== BEGIN BASE JS ================== -->
+
+<script include-on-mobile="false" src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+<script>
+    var target = location.search ? "#" + location.search.replace("?target=","") : '';
+    if(target === "#projectConstructList/main") $("body").addClass("isConstruct");
+    if(target === "#projectInspectList/main") $("body").addClass("isInspect");
+</script>
+<script include-on-mobile="false" src="assets/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+<script include-on-mobile="false" src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script include-on-mobile="false" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+<script include-on-mobile="false" src="assets/crossbrowserjs/html5shiv.js"></script>
+<script include-on-mobile="false" src="assets/crossbrowserjs/respond.min.js"></script>
+<script include-on-mobile="false" src="assets/crossbrowserjs/excanvas.min.js"></script>
+<![endif]-->
+<script include-on-mobile="false" src="assets/plugins/jquery-hashchange/jquery.hashchange.min.js"></script>
+<script include-on-mobile="false" src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script include-on-mobile="false" src="assets/plugins/jquery-cookie/jquery.cookie.js"></script>
+<!-- ================== END BASE JS ================== -->
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script include-on-mobile="true" src="assets/js/apps.js"></script>
+<script include-on-mobile="true" src="js/ecloud.js"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+
+<script>
+    $(document).ready(function() {
+        App.init();
+        $("body").addClass(_isMobile ? "isMobile" : "isPC");
+    });
+
+    var firstEnter = 1,
+        sysContextPath = location.pathname.split("/")[1],
+        url = '';
+    if(window.localStorage){
+        var requestUrl = localStorage.getItem("firstUrl");
+    }
+    //url = requestUrl ? requestUrl : location.protocol + "//" + location.host + "/"+sysContextPath + "/";
+    url = requestUrl ? requestUrl : location.protocol + "//" + location.host + "/index.jsp" + target;
+    //url = requestUrl ? requestUrl : baseUrl + "index.jsp";
+    if(window.localStorage){
+        localStorage.setItem("firstUrl",'');
+    }
+
+    var btn = $(".login-buttons .btn");
+
+    $("body").on("keyup",function(){
+        if (event.keyCode == '13') {
+            btn.click();
+        }
+    });
+
+    $("#loginAccount, #password").keyup(function(){
+        btn.removeClass("btn-warning btn-danger").text("立即登入");
+    });
+    btn.on("click",function(){
+
+        var t = $(this);
+        t.text("登录中...");
+
+        if(_isMobile){
+            $("#device").val("1");
+        }else if(_inApk){
+            $("#device").val("2");
+        }else{
+            $("#device").val("3");
+        };
+
+        var login_data = $("#loginForm").serialize();
+        if ($("#loginAccount").val() === "") {
+            t.text('请输入用户名!').addClass("btn-warning");
+            $("#loginAccount").focus();
+            return;
+        }
+        if ($("#password").val() === "") {
+            if(firstEnter){
+                $("#password").focus();
+                firstEnter = 0;
+                setTimeout(function(){t.click();},50);
+            }else{
+                t.text('请输入密码!').addClass("btn-warning");
+                $("#password").focus();
+            }
+            return;
+        }
+        var param="";
+        if(_inApk){
+            if(window.localStorage){
+                position = window.localStorage.getItem("position");
+                //极光推送 获取 设备ID
+                var registrationID = window.localStorage.getItem("registrationID") || "";
+                if(window.currentPosition){
+                    var position = window.currentPosition.coords;
+                    param= "?longitude=" + position.longitude + "&latitude=" + position.latitude+"&registrationID="+registrationID;
+                    loginAjax(login_data, param);
+                }else if(position){
+                    position = position.split(",");
+                    param= "?longitude=" + position[0] + "&latitude=" + position[1]+"&registrationID="+registrationID;
+                    loginAjax(login_data, param);
+                }else{
+                    /* cgetLocation(function(position) {
+                        if(position){
+                            param= "?longitude=" + position.longitude + "&latitude=" + position.latitude;
+                        }else{
+                            param = "";
+                        } */
+
+                    param = "?registrationID="+registrationID;
+                    loginAjax(login_data, param);
+                    /* }); */
+
+                }
+            }
+
+        }else{
+            loginAjax(login_data, param);
+        }
+    });
+    var loginAjax=function(login_data, param){
+        $.ajax({
+            url: "login/login" + param,
+            type: "post",
+            data: login_data,
+            dataType: 'json',
+            success: function(data) {
+                if(data.resultCode == "0000"){
+                    $("#password").blur();
+                    btn.text('登录成功, 页面跳转中...').addClass("btn-success");
+                    if(window.localStorage){
+                        localStorage.setItem("csrInfo", JSON.stringify(data.result));
+                        localStorage.setItem("curProjectConstructSet", '');
+                        localStorage.setItem("curProjectInspectSet", '');
+                        localStorage.setItem("login",JSON.stringify(data));
+                    }
+                    rememberPsw();
+                    setTimeout(function(){
+                        window.location.href = url;
+                    },300);
+
+                    //更新设备id；
+                    regetRegistrationId && regetRegistrationId(getRegistrationIdCallback);
+                }else{
+                    btn.text(data.resultMsg).addClass("btn-warning");
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.info(jqXHR);
+                console.info(textStatus);
+                console.info(errorThrown);
+                btn.text('登录失败, 请重试!').addClass("btn-danger");
+            }
+        });
+    }
+
+    if ($.cookie("rmbUser") == "true") {
+        $("#rememberPsw").prop("checked", true);
+        $("#loginAccount").val($.cookie("username"));
+        $("#password").val($.cookie("password"));
+    }
+
+    function rememberPsw() {
+        if ($("#rememberPsw").prop("checked")) {
+            var username = $("#loginAccount").val();
+            var password = $("#password").val();
+            $.cookie("rmbUser", "true", { expires: 365 });
+            $.cookie("username", username, { expires: 365 });
+            $.cookie("password", password, { expires: 365 });
+        }else{
+            $.cookie("rmbUser", "false", { expire: -1 });
+            $.cookie("username", "", { expires: -1 });
+            $.cookie("password", "", { expires: -1 });
+        }
+    };
+
+    //登录后更新设备id，因为登录的时候app插件未启动，改为设备登录后获得
+    var updateLoginReId=function(registrationID){
+		$.ajax({
+            type:'post',
+            url:'login/updateLoginReId',
+            contentType: "application/json;charset=UTF-8",
+            data: registrationID,
+
+			success:function(data){
+				console.info('设备id:'+registrationID+",返回结果:"+data);
+			},
+			error: function (jqXHR, textStatus, errorThrown) {
+				console.warn("数据保存失败！");
+			}
+		})
+    }
+
+
+    var getRegistrationIdCallback=function(rId){
+        updateLoginReId(rId);
+    };
+</script>
+</body>
+</html>

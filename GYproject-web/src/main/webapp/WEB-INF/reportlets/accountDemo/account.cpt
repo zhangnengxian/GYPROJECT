@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="namespace" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="addrStatus" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select * from address a where a.addr_status='${addrStatus}']]></Query>
+</TableData>
+</TableDataMap>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[53,19,19,19,19,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[117,224,57,56,195,72,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="5" s="0"><O><![CDATA[地址统计表测试]]></O>
+</C>
+<C c="0" r="1" cs="5" s="1"><O><![CDATA[制表人：管理员     制表时间：2016-05-30  ]]></O>
+</C>
+<C c="0" r="2" s="2"><O><![CDATA[地址编号]]></O>
+</C>
+<C c="1" r="2" s="3"><O><![CDATA[地址描述]]></O>
+</C>
+<C c="2" r="2" s="3"><O><![CDATA[地址状态]]></O>
+</C>
+<C c="3" r="2" s="3"><O><![CDATA[地址类型]]></O>
+</C>
+<C c="4" r="2" s="3"><O><![CDATA[地址编码描述]]></O>
+</C>
+<C c="0" r="3" s="4"><O t="DSColumn"><Attributes dsName="namespace" columnName="addr_id" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" s="5"><O t="DSColumn"><Attributes dsName="namespace" columnName="addr_des" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="3" s="5"><O t="DSColumn"><Attributes dsName="namespace" columnName="addr_status" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="5"><O t="DSColumn"><Attributes dsName="namespace" columnName="addr_type" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" s="5"><O t="DSColumn"><Attributes dsName="namespace" columnName="addr_des" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="24" />
+<Background name="NullBackground" />
+<Border><Top style="2" /><Bottom style="2" /><Left style="2" /><Right style="2" /></Border>
+</Style>
+<Style horizontal_alignment="4">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="2" /><Bottom style="2" /><Left style="2" /><Right style="2" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="1" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

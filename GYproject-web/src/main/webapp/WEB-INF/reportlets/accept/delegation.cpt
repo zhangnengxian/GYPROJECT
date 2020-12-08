@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	P .PROJ_NAME 工程名称,
+	P .DU_NAME 设计单位,
+	P .CUST_NAME 用户单位名称,
+	P .PROJ_SCALE_DES ||'）' 工程规模,
+	P .PROJ_LTYPE_ID 工程大类,
+	TO_CHAR(P .ACCEPT_DATE,'yyyy-mm-dd') 受理日期,
+	P .REMARK 备注
+FROM
+	PROJECT P
+WHERE
+	P .PROJ_ID = '${projId}']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.3937007874015748" left="0.7086614173228347" bottom="0.8661417322834646" right="0.8661417322834646" />
+</ReportSettings>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[38,180,46,40,73,75,19,19,50,19,19,30,19,19,19,33,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[43,34,72,81,79,72,9,150,30,20,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="10" s="0"><O><![CDATA[委托书]]></O>
+</C>
+<C c="0" r="1" cs="10" s="1"><O><![CDATA[    （前言：《中华人民共和国建筑法》第四章第三十条 国家推行建筑工程监理制度。我公司根据此法律法规对具有燃资质监理公司进行公开招标，经招标后选定三家监理公司负责今年的天然气工程监理工作，分别为金石、昆仑、建科监理公司）。\\n新疆燃气（集团）有限公司：]]></O>
+</C>
+<C c="0" r="2" cs="2" s="2"><O><![CDATA[    现有]]></O>
+</C>
+<C c="2" r="2" cs="4" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="用户单位名称" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="6" r="2" cs="3" s="2"><O><![CDATA[用户单位（工程名称为]]></O>
+</C>
+<C c="9" r="2" s="4"></C>
+<C c="0" r="3" cs="5" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程名称" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="5" r="3" cs="2" s="2"><O><![CDATA[工程类型]]></O>
+</C>
+<C c="7" r="3" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程大类" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<HighlightList><Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[12]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[公用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[车用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11,13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用，车用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[12,13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[公用，车用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11,12]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用，公用]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Condition class="com.fr.data.condition.ObjectCondition"><Compare op="0">
+<O><![CDATA[11,12,13]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ValueHighlightAction">
+<O><![CDATA[民用，公用，车用]]></O>
+</HighlightAction>
+</Highlight>
+</HighlightList><Expand dir="0" />
+</C>
+<C c="8" r="3" cs="2" s="2"><O><![CDATA[工程]]></O>
+</C>
+<C c="0" r="4" s="5"><O><![CDATA[规模]]></O>
+</C>
+<C c="1" r="4" cs="9" s="6"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程规模" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="5" cs="10" s="1"><O><![CDATA[已在你单位办理完天然气工程立项手续。我单位根据上述三家中标监理单位。为我单位工程安排相应监理公司负责此项工程的监理工作。]]></O>
+</C>
+<C c="0" r="6" s="7"></C>
+<C c="1" r="6" s="7"></C>
+<C c="2" r="6" s="7"></C>
+<C c="3" r="6" s="7"></C>
+<C c="4" r="6" s="7"></C>
+<C c="5" r="6" s="7"></C>
+<C c="6" r="6" s="7"></C>
+<C c="7" r="6" s="7"></C>
+<C c="8" r="6" s="7"></C>
+<C c="9" r="6" s="7"></C>
+<C c="0" r="7" s="7"></C>
+<C c="1" r="7" s="7"></C>
+<C c="2" r="7" s="7"></C>
+<C c="3" r="7" s="7"></C>
+<C c="4" r="7" s="7"></C>
+<C c="5" r="7" s="7"></C>
+<C c="6" r="7" s="7"></C>
+<C c="7" r="7" s="7"></C>
+<C c="8" r="7" s="7"></C>
+<C c="9" r="7" s="7"></C>
+<C c="0" r="8" s="7"></C>
+<C c="1" r="8" s="7"></C>
+<C c="2" r="8" s="7"></C>
+<C c="3" r="8" s="7"></C>
+<C c="4" r="8" s="7"></C>
+<C c="5" r="8" cs="4" s="7"><O><![CDATA[用户单位负责人 （签字）]]></O>
+</C>
+<C c="9" r="8" s="7"></C>
+<C c="0" r="9" s="7"></C>
+<C c="1" r="9" s="7"></C>
+<C c="2" r="9" s="7"></C>
+<C c="3" r="9" s="7"></C>
+<C c="4" r="9" s="7"></C>
+<C c="5" r="9" s="7"></C>
+<C c="6" r="9" s="7"></C>
+<C c="7" r="9" s="7"></C>
+<C c="8" r="9" s="7"></C>
+<C c="9" r="9" s="7"></C>
+<C c="0" r="10" s="7"></C>
+<C c="1" r="10" s="7"></C>
+<C c="2" r="10" s="7"></C>
+<C c="3" r="10" s="7"></C>
+<C c="4" r="10" s="7"></C>
+<C c="5" r="10" s="7"></C>
+<C c="6" r="10" s="7"></C>
+<C c="7" r="10" s="7"></C>
+<C c="8" r="10" s="7"></C>
+<C c="9" r="10" s="7"></C>
+<C c="0" r="11" s="7"></C>
+<C c="1" r="11" s="7"></C>
+<C c="2" r="11" s="7"></C>
+<C c="3" r="11" s="7"></C>
+<C c="4" r="11" s="7"></C>
+<C c="5" r="11" cs="4" s="7"><O><![CDATA[用户单位  （盖章）]]></O>
+</C>
+<C c="9" r="11" s="7"></C>
+<C c="0" r="12" s="7"></C>
+<C c="1" r="12" s="7"></C>
+<C c="2" r="12" s="7"></C>
+<C c="3" r="12" s="7"></C>
+<C c="4" r="12" s="7"></C>
+<C c="5" r="12" s="7"></C>
+<C c="6" r="12" s="7"></C>
+<C c="7" r="12" s="7"></C>
+<C c="8" r="12" s="7"></C>
+<C c="9" r="12" s="7"></C>
+<C c="0" r="13" s="7"></C>
+<C c="1" r="13" s="7"></C>
+<C c="2" r="13" s="7"></C>
+<C c="3" r="13" s="7"></C>
+<C c="4" r="13" s="7"></C>
+<C c="5" r="13" s="7"></C>
+<C c="6" r="13" s="7"></C>
+<C c="7" r="13" s="7"></C>
+<C c="8" r="13" s="7"></C>
+<C c="9" r="13" s="7"></C>
+<C c="0" r="14" s="7"></C>
+<C c="1" r="14" s="7"></C>
+<C c="2" r="14" s="7"></C>
+<C c="3" r="14" s="7"></C>
+<C c="4" r="14" s="7"></C>
+<C c="5" r="14" s="7"></C>
+<C c="6" r="14" s="7"></C>
+<C c="7" r="14" s="7"></C>
+<C c="8" r="14" s="7"></C>
+<C c="9" r="14" s="7"></C>
+<C c="0" r="15" s="7"></C>
+<C c="1" r="15" s="7"></C>
+<C c="2" r="15" s="7"></C>
+<C c="3" r="15" s="7"></C>
+<C c="4" r="15" s="7"></C>
+<C c="5" r="15" s="7"><O><![CDATA[日期 ：]]></O>
+</C>
+<C c="6" r="15" cs="2" s="7"></C>
+<C c="8" r="15" s="7"></C>
+<C c="9" r="15" s="7"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0" vertical_alignment="3">
+<FRFont name="SimSun" style="1" size="24" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3" spacingBefore="4" spacingAfter="4" lineSpacing="12">
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style vertical_alignment="1" spacingBefore="9" lineSpacing="9">
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="1" spacingBefore="9" lineSpacing="12">
+<FRFont name="SimSun" style="0" size="17" underline="1" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="17" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

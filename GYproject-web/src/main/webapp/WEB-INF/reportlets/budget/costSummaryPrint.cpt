@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT
+	P .proj_name 工程名称,
+	P .proj_addr 工程地点,
+	p.cust_name 客户名称,
+	c.con_no 合同编号,
+	c.contract_amount 合同价,
+	ch.cm_date 变更日期,
+	ch.cu_reason 变更原因,
+	round(su.sc_amount,2) 协议价款
+FROM
+	PROJECT p
+LEFT JOIN
+ CONTRACT c ON p.PROJ_ID = c.PROJ_ID
+LEFT JOIN
+SUPPLEMENTAL_CONTRACT su ON c.proj_id = su.proj_id 
+LEFT JOIN
+ CHANGE_MANAGEMENT ch ON ch.cm_id = su.cm_id
+where p.proj_id = '${projId}']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.984251968503937" left="0.8661417322834646" bottom="0.8661417322834646" right="0.8661417322834646" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[44,26,26,26,26,32,26,26,26,26,50,50,50,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[98,18,22,16,34,61,87,113,72,28,67,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="11" s="0"><O><![CDATA[工程造价汇总表]]></O>
+</C>
+<C c="0" r="1" s="1"><O><![CDATA[工程名称：]]></O>
+</C>
+<C c="1" r="1" cs="10" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程名称" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="3"><O><![CDATA[工程地点：]]></O>
+</C>
+<C c="1" r="2" cs="10" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程地点" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="3" s="3"><O><![CDATA[合同编号：]]></O>
+</C>
+<C c="1" r="3" cs="10" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="合同编号" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="4" cs="11" s="5"><O><![CDATA[由于复检，依据原合同要求，对原合同造价进行调整，具体情况如下：]]></O>
+</C>
+<C c="0" r="5" cs="4" s="3"><O><![CDATA[1、原合同造价为：]]></O>
+</C>
+<C c="4" r="5" cs="3" s="6"><O t="DSColumn"><Attributes dsName="ds1" columnName="合同价" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="7" r="5" cs="2" s="7"><O><![CDATA[元（包干）]]></O>
+</C>
+<C c="9" r="5" s="7"></C>
+<C c="10" r="5" s="4"></C>
+<C c="0" r="6" cs="3" s="3"><O><![CDATA[2、变更造价为：]]></O>
+</C>
+<C c="3" r="6" cs="4" s="6"><O t="Formula" class="Formula"><Attributes><![CDATA[=SUM(I10)]]></Attributes></O>
+</C>
+<C c="7" r="6" cs="2" s="7"><O><![CDATA[元（包干）]]></O>
+</C>
+<C c="9" r="6" s="7"></C>
+<C c="10" r="6" s="4"></C>
+<C c="0" r="7" cs="5" s="3"><O><![CDATA[3、工程总造价合计为：]]></O>
+</C>
+<C c="5" r="7" cs="2" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=E6 + D7]]></Attributes></O>
+</C>
+<C c="7" r="7" cs="2" s="7"><O><![CDATA[元]]></O>
+</C>
+<C c="9" r="7" s="7"></C>
+<C c="10" r="7" s="4"></C>
+<C c="0" r="8" cs="5" s="8"><O><![CDATA[变更日期]]></O>
+</C>
+<C c="5" r="8" cs="3" s="8"><O><![CDATA[变更原因]]></O>
+</C>
+<C c="8" r="8" cs="3" s="8"><O><![CDATA[协议价款]]></O>
+</C>
+<C c="0" r="9" cs="5" s="9"><O t="DSColumn"><Attributes dsName="ds1" columnName="变更日期" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="5" r="9" cs="3" s="9"><O t="DSColumn"><Attributes dsName="ds1" columnName="变更原因" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="9" cs="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="协议价款" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="10" s="3"><O><![CDATA[编制单位：]]></O>
+</C>
+<C c="1" r="10" cs="6" s="7"><Expand dir="0" />
+</C>
+<C c="7" r="10" s="7"><O><![CDATA[建设单位：]]></O>
+</C>
+<C c="8" r="10" cs="3" s="4"></C>
+<C c="0" r="11" cs="2" s="3"><O><![CDATA[负责人签章：]]></O>
+</C>
+<C c="2" r="11" cs="5" s="7"></C>
+<C c="7" r="11" s="7"><O><![CDATA[负责人签字：]]></O>
+</C>
+<C c="8" r="11" cs="3" s="4"></C>
+<C c="0" r="12" s="11"><O><![CDATA[日    期：]]></O>
+</C>
+<C c="1" r="12" cs="6" s="12"></C>
+<C c="7" r="12" s="12"><O><![CDATA[日    期：]]></O>
+</C>
+<C c="8" r="12" cs="3" s="13"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Left style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

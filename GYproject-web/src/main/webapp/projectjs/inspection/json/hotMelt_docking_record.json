@@ -1,0 +1,18 @@
+{
+    "data": [
+        {
+        	"jointNo":"2017001",
+            "appearanceInspect":"1",
+            "bendTest":"1",
+            "cuDate":"2014-6-25",
+            "inpectionDate":"2014-6-26"
+        },
+         {
+         	"jointNo":"2017002",
+            "appearanceInspect":"0",
+            "bendTest":"0",
+            "cuDate":"2014-6-25",
+            "inpectionDate":"2014-6-26" 
+        }
+    ]
+}

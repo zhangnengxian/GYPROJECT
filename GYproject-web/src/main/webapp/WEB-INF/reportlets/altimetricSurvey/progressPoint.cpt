@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select * from (
+select rownum rn,p.proj_id projId,p.proj_name projName,p.proj_scale_des projScaleDes,p.proj_no projNo,p.qu_id quId,p.progress_id progressId,p.nuit_project nuitProject,p.sq_unit sqUnit,p.all_progress_num allProgressNum,p.heap_progress_num heapProgressNum,p.this_progress_num thisProgressNum,nvl2(p.this_progress_num,'','')
+thisProgressNumNvl, p.finish_progress finishProgress from progress p,
+(select b.nuit_project nuitProject,max(b.register_date) registerDate from PROGRESS b  where 1=1
+group by b.nuit_project) t
+where p.nuit_project = t.nuitProject and p.register_date=t.registerDate
+and  p.proj_id='${projId}'
+
+) total
+where (1=1)]]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.7874015748031497" left="0.5905511811023623" bottom="0.5905511811023623" right="0.5905511811023623" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36,30,36,24,19,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[278,64,113,127,96,72,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="5" s="0"><O><![CDATA[工程施工进度报表]]></O>
+</C>
+<C c="0" r="1" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="工程总进度：  "+$to]]></Attributes></O>
+</C>
+<C c="1" r="1" cs="2"></C>
+<C c="4" r="1"></C>
+<C c="0" r="2" s="2"><O><![CDATA[分部分项工程]]></O>
+</C>
+<C c="1" r="2" s="2"><O><![CDATA[单位]]></O>
+</C>
+<C c="2" r="2" s="2"><O><![CDATA[预计总工程量]]></O>
+</C>
+<C c="3" r="2" s="2"><O><![CDATA[累计完成工程量]]></O>
+</C>
+<C c="4" r="2" s="2"><O><![CDATA[完成百分比]]></O>
+</C>
+<C c="0" r="3" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="NUITPROJECT" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1" /></RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" s="3"><O t="DSColumn"><Attributes dsName="ds1" columnName="SQUNIT" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1" /></RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="ALLPROGRESSNUM" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1" /></RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="HEAPPROGRESSNUM" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1" /></RG>
+<Result><![CDATA[$$$]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" s="4"><O t="DSColumn"><Attributes dsName="ds1" columnName="FINISHPROGRESS" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="3" r="4"><O><![CDATA[ ]]></O>
+</C>
+<C c="4" r="4"><O><![CDATA[ ]]></O>
+</C>
+<C c="0" r="5"></C>
+<C c="4" r="5"><O><![CDATA[ ]]></O>
+</C>
+<C c="0" r="6"></C>
+<C c="4" r="6"><O><![CDATA[ ]]></O>
+</C>
+<C c="4" r="7"><O><![CDATA[  ]]></O>
+</C>
+<C c="4" r="8"><O><![CDATA[ ]]></O>
+</C>
+<C c="1" r="22"><O><![CDATA[ ]]></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

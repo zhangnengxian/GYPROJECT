@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select il.total 扣分合计,c.cu_name 分包单位,ir.unquality_point_id 检查类型,c.cu_legal_represent 负责人,c.cu_phone 联系方式,c.management_office 施工管理处,c.proj_no 工程编号,c.proj_name 工程名称,st.staff_name 项目经理 from inspection_list il,inspection_record ir,construction_plan c,staff st where il.il_id=ir.il_id and il.proj_id = c.proj_id and c.management_id = st.dept_id and st.post = '14'${condition} ]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select concat('制表时间：',CONVERT(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s'),char)) as 制表时间]]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	c.proj_id,
+	c.cu_name 分包单位,
+	c.cu_legal_represent 负责人,
+	c.cu_phone 联系电话,
+	c.proj_no 工程编号,
+	c.proj_name 工程名称,
+	st.staff_name 项目经理,
+	ir.unquality_point_id 检查类型,
+	p.project_type_des 工程类型,
+	p.contribution_mode_des 出资方式,
+	SUM(ir.FRACTION) 扣分合计
+FROM
+	inspection_record ir
+LEFT JOIN construction_plan c ON ir.proj_id = c.proj_id
+LEFT JOIN staff st ON c.CU_PM_ID = st.dept_id
+LEFT JOIN project p on c.proj_id=p.proj_id
+WHERE
+	1=1 ${condition} 
+GROUP BY
+	IR.UNQUALITY_POINT_ID,
+	c.proj_id,
+	c.cu_name,
+	c.cu_legal_represent,
+	c.cu_phone,
+	c.proj_no,
+	c.proj_name,
+	st.staff_name]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	c.cu_name 分包单位,
+	SUM(total.tot) 总计
+FROM
+	(
+		SELECT
+			ir.unquality_point_id,
+			SUM(ir.FRACTION) tot,
+			IR.PROJ_ID
+		FROM
+			inspection_record ir
+		GROUP BY
+			IR.UNQUALITY_POINT_ID,
+			IR.PROJ_ID
+	) total
+LEFT JOIN construction_plan c ON total.proj_id = c.proj_id
+LEFT JOIN staff st ON c.CU_PM_ID = st.dept_id
+WHERE
+	1=1 ${condition} 
+GROUP BY
+	c.cu_name
+ORDER BY
+总计 ]]></Query>
+</TableData>
+<TableData name="ds5" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	IR.proj_id,
+	SUM(ir.FRACTION) 扣分合计
+FROM
+	inspection_record ir
+GROUP BY
+	IR.proj_id
+	]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="2"/>
+<FR F="5" T="5"/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1371600,914400,1371600,864000,864000,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,2743200,7620000,5715000,3810000,3810000,5715000,6477000,13335000,3600000,3600000,3810000,5715000,3810000,876300,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="13" s="0">
+<O>
+<![CDATA[安全质量检查排行榜]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" cs="2" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="制表人：" + $staffName]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="1" cs="3" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="制表时间"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="2" s="3">
+<O>
+<![CDATA[序号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" cs="2" s="4">
+<O>
+<![CDATA[分包单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="4">
+<O>
+<![CDATA[负责人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="4">
+<O>
+<![CDATA[联系电话]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="4">
+<O>
+<![CDATA[ 分包单位总扣分]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="4">
+<O>
+<![CDATA[工程编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="4">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="4">
+<O>
+<![CDATA[工程类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" s="4">
+<O>
+<![CDATA[出资方式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" s="4">
+<O>
+<![CDATA[项目经理]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" s="4">
+<O>
+<![CDATA[检查类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="2" s="4">
+<O>
+<![CDATA[扣分合计]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="2" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" rs="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=&C4]]></Attributes>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.PageHighlightAction">
+<P i="1"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="3" rs="2" s="6">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(len(C4) = 0, "", seq())]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="C4"/>
+</C>
+<C c="2" r="3" cs="2" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="分包单位"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[分包单位]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds4" columnName="分包单位"/>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<SortFormula>
+<![CDATA[SUM(扣分合计)]]></SortFormula>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" multiNumber="15"/>
+</C>
+<C c="4" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="负责人"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="联系电话"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" rs="2" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="总计"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[总计]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds4" columnName="总计"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="工程编号"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="工程名称"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="工程类型"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="出资方式"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3" rs="2" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="项目经理"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="检查类型"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="3" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="扣分合计"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="3" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="4" s="7">
+<O>
+<![CDATA[工程总扣分：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="4" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=SUM(N4)]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="4" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="36000000" height="79201440"/>
+<Margin top="1438560" left="1438560" bottom="1438560" right="1438560"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="124"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="5" color="-8355712"/>
+<Left style="5" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="5" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="5" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Left style="5" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1" paddingLeft="6" paddingRight="6">
+<Format class="com.fr.base.CoreDecimalFormat">
+<![CDATA[#0]]></Format>
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="5" color="-8355712"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20170720" releaseVersion="9.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	date(now()) date,
+	a.PROJ_NAME,
+	b.CON_NO,
+	a.APPLY_DEPT_NAME,
+	a.REQUEST_FOUNDS_UNIT,
+	a.FEE_TYPE,
+	a.PROJECT_TYPE_DES,
+	a.SD_TYPE
+FROM
+	payment_apply a,
+	contract b
+WHERE
+	a.PROJ_ID = b.PROJ_ID
+AND a.PROJ_ID ='${projId}']]></Query>
+</TableData>
+</TableDataMap>
+<ElementCaseMobileAttr>
+<ElementCaseMobileAttrProvider horizontal="1" vertical="1" zoom="true" refresh="false" isUseHTML="false" isMobileCanvasSize="false"/>
+</ElementCaseMobileAttr>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[2171700,990600,1333500,1295400,1447800,1371600,1333500,1295400,1104900,1714500,1409700,1295400,1485900,1447800,2628900,2324100,2171700,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[4610100,5486400,2286000,7200900,2324100,4419600,2743200,2743200,2743200,2743200,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="6" s="0">
+<O>
+<![CDATA[贵州燃气集团安顺市燃气有限责任公司出资类工程项目资金支出申请表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="1" s="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="1" s="2">
+<O>
+<![CDATA[日期:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="1" s="3">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="date"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="1" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="5">
+<O>
+<![CDATA[ 项目名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="2" s="7">
+<O>
+<![CDATA[施工合同号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="2" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="5">
+<O>
+<![CDATA[申请部门]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="APPLY_DEPT_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="3" s="5">
+<O>
+<![CDATA[请款单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="3" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="REQUEST_FOUNDS_UNIT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="5">
+<O>
+<![CDATA[请款类别]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="3" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="FEE_TYPE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" s="5">
+<O>
+<![CDATA[项目类别]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" cs="2" s="5">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJECT_TYPE_DES"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="4" s="5">
+<O>
+<![CDATA[结算方式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="4" cs="2" s="6">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SD_TYPE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="5" s="5">
+<O>
+<![CDATA[审定结算金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="5" cs="2" s="6">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="3" r="5" s="5">
+<O>
+<![CDATA[已付工程款金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="5" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" s="8">
+<O>
+<![CDATA[本次申请支付金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="6" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="6" s="8">
+<O>
+<![CDATA[本次批准支付金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="6" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="6" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="7" s="8">
+<O>
+<![CDATA[本次支付后应付金额]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" s="5">
+<O>
+<![CDATA[发票号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="8" s="5">
+<O>
+<![CDATA[备注]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="8" cs="5" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="8" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" cs="6" s="5">
+<O>
+<![CDATA[审批程序]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="9" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="10" s="6">
+<O>
+<![CDATA[1、经办人(签字)]]></O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="10" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" s="5">
+<O>
+<![CDATA[2、预决算员(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="10" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="10" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="11" s="6">
+<O>
+<![CDATA[3、部门经理(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="11" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="11" s="5">
+<O>
+<![CDATA[3、分管领导(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="11" cs="2" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="11" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="12" s="6">
+<O>
+<![CDATA[5、财务审核员(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="12" cs="2" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="12" s="5">
+<O>
+<![CDATA[6、财务经理(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="12" cs="2" s="9">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="12" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="13" s="6">
+<O>
+<![CDATA[7、总经理(签字)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="13" cs="2" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="13" s="11">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="13" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="13" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting>
+<PaperSize width="36000000" height="42768000"/>
+<Margin top="986400" left="2743200" bottom="986400" right="2743200"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0" useParamsTemplate="true"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="80"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="96"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1"/>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Left style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+<Right style="1"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="JAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID TemplateID="216b4dd5-5b3d-4ed6-9778-23b44bb70309"/>
+<TemplateIdAttMark class="com.fr.base.iofileattr.TemplateIdAttrMark">
+<TemplateIdAttMark TemplateId="9e648b9b-a7d4-4c89-b433-3ccc07adf0ad"/>
+</TemplateIdAttMark>
+</WorkBook>

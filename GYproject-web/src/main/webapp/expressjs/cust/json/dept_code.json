@@ -1,0 +1,5 @@
+{"data":[
+{"deptId":"1","deptInnerCode":"0101","deptOuterCode":"0300","deptName":"桥西营业厅","deptType":"营业厅","principal":"张芳","phone":"13130334528"},
+{"deptId":"2","deptInnerCode":"0102","deptOuterCode":"0301","deptName":"桥东营业厅","deptType":"营业厅","principal":"李云","phone":"13130334529"},
+{"deptId":"3","deptInnerCode":"0103","deptOuterCode":"0302","deptName":"裕华营业厅","deptType":"营业厅","principal":"贺龙","phone":"13130334527"}
+]}

@@ -1,0 +1,129 @@
+@CHARSET "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	/*font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif;*/
+	 font-family: 'Microsoft Yahei',Arial,'\5b8b\4f53';
+	font-size: 12px;
+	background: #EAF1F7;
+}
+/* 菜单区 */
+div#menu {
+	background-color: transparent;
+	height: 696px;
+	width: 0;
+	float: left;
+}
+
+p {
+	color: #ccc;
+	line-height: 1.5;
+}
+/* 页面 -最外层容器*/
+div#mycontainer {
+	margin: 0 auto;
+	width: 1348px;
+	height: 900px;
+}
+/* 顶部导航条*/
+div#header {
+	background-color: #99bbbb;
+	height: 72px;
+}
+/* 内容区*/
+div#content {
+	height: 696px;
+	width: 1348px;
+	float: left;
+}
+/* 底部区域 */
+div#footer {
+	height: 132px;
+	background-color: #99bbbb;
+	clear: both;
+	text-align: center;
+}
+/*页面内部分割块*/
+div.HBlockContainer,div.VBlockContainer{
+	margin:2px 2px 6px 2px;
+	padding:3px;  
+	border: 1px solid #D2D9DF;
+	-moz-border-radius: 8px; /*Firefox*/
+	-webkit-border-radius: 8px; /*Safari和Chrome*/
+	border-radius: 8px; /*IE9+*/
+}
+
+/*页面元素*/
+lable{
+	vertical-align:middle;
+}
+
+ 
+/*按钮样式 1*/
+.btn-blue {
+	margin:4px;
+  background-color: #d7e5f5;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d7e5f5), color-stop(100%, #cbe0f5));
+  background-image: -webkit-linear-gradient(top, #d7e5f5, #cbe0f5);
+  background-image: -moz-linear-gradient(top, #d7e5f5, #cbe0f5);
+  background-image: -ms-linear-gradient(top, #d7e5f5, #cbe0f5);
+  background-image: -o-linear-gradient(top, #d7e5f5, #cbe0f5);
+  background-image: linear-gradient(top, #d7e5f5, #cbe0f5);
+  border-top: 1px solid #abbbcc;
+  border-left: 1px solid #a7b6c7;
+  border-bottom: 1px solid #a1afbf;
+  border-right: 1px solid #a7b6c7;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 1px 0 0 white;
+  box-shadow: inset 0 1px 0 0 white;
+  color: #1a3e66;
+  font: normal 11px/1 "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+  padding: 5px 0 6px 0;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+  width: 60px; }
+.btn-blue:hover {
+    background-color: #ccd9e8;
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ccd9e8), color-stop(100%, #c1d4e8));
+    background-image: -webkit-linear-gradient(top, #ccd9e8, #c1d4e8);
+    background-image: -moz-linear-gradient(top, #ccd9e8, #c1d4e8);
+    background-image: -ms-linear-gradient(top, #ccd9e8, #c1d4e8);
+    background-image: -o-linear-gradient(top, #ccd9e8, #c1d4e8);
+    background-image: linear-gradient(top, #ccd9e8, #c1d4e8);
+    border-top: 1px solid #a1afbf;
+    border-left: 1px solid #9caaba;
+    border-bottom: 1px solid #96a3b3;
+    border-right: 1px solid #9caaba;
+    -webkit-box-shadow: inset 0 1px 0 0 #f2f2f2;
+    box-shadow: inset 0 1px 0 0 #f2f2f2;
+    color: #163659;
+    cursor: pointer; }
+.btn-blue:active {
+    border: 1px solid #8c98a7;
+    -webkit-box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eeeeee;
+    box-shadow: inset 0 0 4px 2px #abbccf, 0 0 1px 0 #eeeeee; }
+/*按钮样式 2*/
+/*按钮样式 3*/
+
+/*标题样式*/
+.titleStyle{
+  background-image: url("../images/module_title_blue2.gif");
+  -moz-border-radius: 5px; /*Firefox*/
+  -webkit-border-radius: 5px; /*Safari和Chrome*/
+  border-radius: 5px; /*IE9+*/
+  height: 30px;
+  line-height: 30px;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 5px;
+  color: #FFFFFF;
+}
+/*放置自己元素内容的外层分割块*/
+.contentStyle{
+padding:2px;
+}

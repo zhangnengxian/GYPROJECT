@@ -1,0 +1,1862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds01" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '1' and flag ='1' and pc_flag = '1'
+GROUP BY
+	proj_no
+]]></Query>
+</TableData>
+<TableData name="ds0" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	p.PROJ_ID,
+	p.PROJ_NO AS 工程编号,
+	p.PROJ_NAME AS 工程名称,
+  	p.PROJECT_TYPE_DES 工程类型,
+	p.CU_NAME AS 施工单位,
+	p.SU_NAME 监理单位,
+	cp.BUILDER 现场代表,
+	cp.SU_JGJ 现场监理,
+  cp.SU_DIRECTOR 监理负责人,
+  cp.CU_LEGAL_REPRESENT 施工单位负责人,
+	cp.CU_PM 施工项目经理,
+      cp.CP_ARRIVE_DATE 施工任务日期,
+	wr.PLANNED_START_DATE 开工日期,
+	cr.REAl_END_DATE 实际竣工日期,
+	datediff(now(),wr.PLANNED_START_DATE) 天数,
+  	ps.DES 工程状态,
+p.TO_DOER 待办人
+FROM
+	project p
+LEFT JOIN work_report wr ON p.proj_id = wr.PROJ_ID
+left join proj_status ps on p.PROJ_STATUS_ID = ps.ID
+LEFT JOIN construction_plan cp on cp.PROJ_ID = p.PROJ_ID 
+LEFT JOIN complete_report cr on (cr.PROJ_ID = p.PROJ_ID and cr.CR_FLAG='1')
+WHERE 1=1  ${condition} ]]></Query>
+</TableData>
+<TableData name="ds02" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '2' and flag ='1'  and  pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds03" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '3' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds04" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '4' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds05" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '5' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds06" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '6' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds07" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '7' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds08" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '8' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds09" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '9' and flag ='1' and pc_flag = '1'
+GROUP BY
+	proj_no  ]]></Query>
+</TableData>
+<TableData name="ds10" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '10' and flag ='1' and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds11" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '11' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds12" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE 
+	pc_des_id = '12' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds15" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '15' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds17" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '17' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds18" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '18' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds19" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '19' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds20" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '20' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds21" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '21' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds22" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '22' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="ds23" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	nr.proj_id,
+	count(nr_id)
+FROM
+	nde_record nr  LEFT JOIN business_communication bc ON nr.BC_ID = bc.BC_ID  where bc.BC_TYPE_DETAIL='2011' 
+GROUP BY
+	nr.PROJ_ID]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select PROJ_ID,proj_no,max(DELIVERY_TIME) 交付日期 from ignite  GROUP BY PROJ_ID ]]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select PROJ_ID,proj_no,max(DELIVERY_TIME) 交付日期 from ignite  GROUP BY PROJ_ID ]]></Query>
+</TableData>
+<TableData name="ds4" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select PROJ_ID,proj_no, MAX(ja_Date) 联合验收日期 from joint_acceptance   GROUP BY PROJ_ID ]]></Query>
+</TableData>
+<TableData name="ds24" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	count(pc_id)
+FROM
+	project_checklist
+WHERE
+	pc_des_id = '24' and flag ='1'  and pc_flag = '1'
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+<TableData name="现场代表施工日志" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT res.`工程编号`,CONCAT(res.`人员`,'(',res.`数量`,')') 计数 from (
+SELECT
+	PROJ_NO 工程编号,
+  DL_RECORDER 人员,
+	count(DL_ID) 数量,
+  DL_RECORDER_POST 职务
+FROM
+	daily_log where DL_RECORDER_POST LIKE '%54%' 
+GROUP BY
+	PROJ_NO,DL_RECORDER
+) res]]></Query>
+</TableData>
+<TableData name="施工员施工日志" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT res.`工程编号`,CONCAT(res.`人员`,'(',res.`数量`,')') 计数 from (
+SELECT
+	PROJ_NO 工程编号,
+  DL_RECORDER 人员,
+	count(DL_ID) 数量,
+  DL_RECORDER_POST 职务
+FROM
+	daily_log where DL_RECORDER_POST LIKE '%61%' 
+GROUP BY
+	PROJ_NO,DL_RECORDER
+) res]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[select concat('制表时间：',CONVERT(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s'),char)) as 制表时间]]></Query>
+</TableData>
+<TableData name="交底日期" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	proj_no,
+	GROUP_CONCAT(STR_TO_DATE(CW_DATE,'%Y-%m-%d') ORDER BY CW_DATE DESC SEPARATOR ';')
+FROM
+	construction_work
+WHERE
+	delFlag='0' 
+GROUP BY
+	proj_no]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR F="0" T="2"/>
+<FR F="4" T="4"/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[1371600,914400,1828800,1728000,723900,723900,723900,723900,723900,723900,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[0,2743200,5334000,9220200,3467100,3467100,3467100,8420100,8382000,3888000,3888000,3888000,3429000,3888000,3888000,2133600,3733800,3695700,3886200,1600200,1714500,1714500,1600200,1714500,1714500,1790700,1714500,1676400,1638300,1714500,1790700,1676400,1485900,1752600,1714500,1676400,2880000,2880000,1714500,1638300,2628900,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="0">
+<PrivilegeControl/>
+<CellGUIAttr previewContent="false"/>
+<CellInsertPolicy/>
+<Expand/>
+</C>
+<C c="3" r="0" cs="37" s="0">
+<O>
+<![CDATA[工程竣工资料统计]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" cs="2" s="1">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="制表人：" + $staffName]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="1" cs="2" s="2">
+<O t="DSColumn">
+<Attributes dsName="ds2" columnName="制表时间"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="15" r="1">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="19" r="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" s="3">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="2" s="4">
+<O>
+<![CDATA[序号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="2" s="5">
+<O>
+<![CDATA[工程编号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="2" s="5">
+<O>
+<![CDATA[工程名称]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="2" s="6">
+<O>
+<![CDATA[工程类型]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="2" s="6">
+<O>
+<![CDATA[工程状态]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="2" s="6">
+<O>
+<![CDATA[待办人]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="2" s="5">
+<O>
+<![CDATA[施工单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="2" s="5">
+<O>
+<![CDATA[监理单位]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="2" s="5">
+<O>
+<![CDATA[现场代表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="2" s="5">
+<O>
+<![CDATA[现场监理]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="2" s="5">
+<O>
+<![CDATA[项目经理]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="2" s="6">
+<O>
+<![CDATA[施工任务单日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="2" s="5">
+<O>
+<![CDATA[交底日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="2" s="5">
+<O>
+<![CDATA[实际开工日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="2" s="5">
+<O>
+<![CDATA[至今（天）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="2" s="6">
+<O>
+<![CDATA[实际竣工日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="2" s="6">
+<O>
+<![CDATA[联合验收日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="2" s="6">
+<O>
+<![CDATA[交付日期]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="2" s="5">
+<O>
+<![CDATA[焊条领用]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="2" s="5">
+<O>
+<![CDATA[焊条烘烤]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="2" s="5">
+<O>
+<![CDATA[管沟开挖]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="2" s="5">
+<O>
+<![CDATA[管道安装]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="2" s="5">
+<O>
+<![CDATA[钢管焊接]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="2" s="5">
+<O>
+<![CDATA[PE管焊接]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="25" r="2" s="5">
+<O>
+<![CDATA[防腐记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="26" r="2" s="5">
+<O>
+<![CDATA[防腐检查]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="27" r="2" s="5">
+<O>
+<![CDATA[隐蔽工程]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="28" r="2" s="5">
+<O>
+<![CDATA[埋地检查]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="29" r="2" s="5">
+<O>
+<![CDATA[吹扫记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="30" r="2" s="5">
+<O>
+<![CDATA[沟槽回填]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="31" r="2" s="5">
+<O>
+<![CDATA[通球记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="32" r="2" s="5">
+<O>
+<![CDATA[户内挂表]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="33" r="2" s="5">
+<O>
+<![CDATA[设备安装]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="34" r="2" s="5">
+<O>
+<![CDATA[热熔对接]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="35" r="2" s="5">
+<O>
+<![CDATA[阳极安装]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="36" r="2" s="5">
+<O>
+<![CDATA[管道焊缝检查]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="37" r="2" s="5">
+<O>
+<![CDATA[PE管焊缝检查]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="38" r="2" s="6">
+<O>
+<![CDATA[焊口记录]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="39" r="2" s="5">
+<O>
+<![CDATA[无损检测]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="40" r="2" s="6">
+<O>
+<![CDATA[现场代表施工日志]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="41" r="2" s="7">
+<O>
+<![CDATA[施工员施工日志]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" s="8">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=&C4]]></Attributes>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[A4 % 12 = 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.PageHighlightAction">
+<P i="1"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand leftParentDefault="false" left="C4"/>
+</C>
+<C c="1" r="3" s="9">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=if(len(C4) = 0, "", seq())]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand leftParentDefault="false" left="C4"/>
+</C>
+<C c="2" r="3" s="10">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="工程编号"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0" multiNumber="12"/>
+</C>
+<C c="3" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="工程名称"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="4" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="工程类型"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="5" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="工程状态"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="6" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="待办人"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="7" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="施工单位"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="8" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="监理单位"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="现场代表"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="10" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="现场监理"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="11" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="施工项目经理"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="12" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="施工任务日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="13" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="交底日期" columnName="GROUP_CONCAT(STR_TO_DATE(CW_DATE,&apos;%Y-%m-%d&apos;) ORDER BY CW_DATE DESC SEPARATOR &apos;;&apos;)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="14" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="开工日期"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="15" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="天数"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds0" columnName="实际竣工日期"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="17" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds4" columnName="联合验收日期"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[PROJ_ID]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="PROJ_ID"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="18" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds3" columnName="交付日期"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[PROJ_ID]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="PROJ_ID"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="19" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds01" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="20" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds02" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="21" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds03" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="22" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds04" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="23" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds05" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="24" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds06" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="25" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds07" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="26" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds08" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="27" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds09" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="28" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds11" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="29" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds10" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="30" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds12" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="31" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds15" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="32" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds17" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="33" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds18" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="34" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds19" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="35" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds20" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="36" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds21" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="37" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds22" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="38" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds24" columnName="count(pc_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_no]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="39" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="ds23" columnName="count(nr_id)"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[proj_id]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="PROJ_ID"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="40" r="3" s="11">
+<O t="DSColumn">
+<Attributes dsName="现场代表施工日志" columnName="计数"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[工程编号]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="41" r="3" s="12">
+<O t="DSColumn">
+<Attributes dsName="施工员施工日志" columnName="计数"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNUMBER>
+<![CDATA[0]]></CNUMBER>
+<CNAME>
+<![CDATA[工程编号]]></CNAME>
+<Compare op="0">
+<SimpleDSColumn dsName="ds0" columnName="工程编号"/>
+</Compare>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="25" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="26" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="27" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="28" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="29" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="30" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="31" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="32" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="33" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="34" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="35" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="36" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="37" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="39" r="4" s="13">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting orientation="1">
+<PaperSize width="36000000" height="131040000"/>
+<Margin top="1440000" left="1440000" bottom="1440000" right="1440000"/>
+</PaperSetting>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="124"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="84"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="5" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="5" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="2" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="84"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="2" color="-8355712"/>
+<Bottom style="1" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="2" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="5" color="-8355712"/>
+<Left style="5" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="2" color="-8355712"/>
+<Left style="2" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1" paddingLeft="6" paddingRight="6">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="2" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="2" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="1" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-8355712"/>
+<Bottom style="2" color="-8355712"/>
+<Left style="1" color="-8355712"/>
+<Right style="2" color="-8355712"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="5" color="-8355712"/>
+</Border>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

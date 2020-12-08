@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608031034274930302271305938]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from  Altimetric_Survey r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0 order by pc_station  asc]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}' AND s.field_name='suJgj']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.2755905511811024" left="0.7480314960629921" bottom="0.27" right="0.7480314960629921" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[70,50,30,30,24,24,19,38,13,35,12,35,13,24,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[139,131,129,135,110,72,72,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="2" s="0"><O><![CDATA[乌市管道天然气工程]]></O>
+</C>
+<C c="3" r="0"><CellGUIAttr previewContent="false" ></CellGUIAttr><CellInsertPolicy></CellInsertPolicy></C>
+<C c="4" r="0"><O><![CDATA[     ]]></O>
+</C>
+<C c="0" r="1" cs="5" s="1"><O><![CDATA[ 高程测量记录]]></O>
+</C>
+<C c="0" r="2" cs="5" s="2"><O t="Formula" class="Formula"><Attributes><![CDATA[="工程名称：" + ($projName)]]></Attributes></O>
+</C>
+<C c="0" r="3" cs="5" s="2"><O t="Formula" class="Formula"><Attributes><![CDATA[="测量基准点：" + ($asPoint)]]></Attributes></O>
+</C>
+<C c="0" r="4" s="3"><O><![CDATA[桩号]]></O>
+</C>
+<C c="1" r="4" s="3"><O><![CDATA[原地面标高]]></O>
+</C>
+<C c="2" r="4" s="3"><O><![CDATA[现地面标高]]></O>
+</C>
+<C c="3" r="4" s="3"><O><![CDATA[沟底标高]]></O>
+</C>
+<C c="4" r="4" s="3"><O><![CDATA[埋深]]></O>
+</C>
+<C c="0" r="5" s="3"><O t="DSColumn"><Attributes dsName="ds2" columnName="PC_STATION" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="1" r="5" s="3"><O t="DSColumn"><Attributes dsName="ds2" columnName="PC_OLD_ELEVATION" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="5" s="3"><O t="DSColumn"><Attributes dsName="ds2" columnName="PC_NEW_ELEVATION" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="3" r="5" s="4"><O t="DSColumn"><Attributes dsName="ds2" columnName="PC_FOOT_ELEVATION" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="5" s="4"><O t="DSColumn"><Attributes dsName="ds2" columnName="PC_DEPTH" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="6" s="2"></C>
+<C c="1" r="6" s="2"></C>
+<C c="2" r="6" s="2"></C>
+<C c="3" r="6" s="2"></C>
+<C c="4" r="6" s="2"></C>
+<C c="0" r="7" s="2"><O><![CDATA[测量人(施工员)：]]></O>
+</C>
+<C c="1" r="7" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="签字路径" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[字段名称]]></CNAME><Compare op="0">
+<O><![CDATA[asPerson]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE($imgUrl + 签字路径)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="7" s="2"><O><![CDATA[监理工程师：]]></O>
+</C>
+<C c="3" r="7" s="5"><O t="DSColumn"><Attributes dsName="ds3" columnName="签字路径" />
+<Condition class="com.fr.data.condition.ListCondition"></Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE($imgUrl + 签字路径)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="0" r="8" s="2"></C>
+<C c="1" r="8" s="2"></C>
+<C c="2" r="8" s="2"></C>
+<C c="3" r="8" s="2"></C>
+<C c="4" r="8" s="2"></C>
+<C c="0" r="9" s="2"><O><![CDATA[质检员：]]></O>
+</C>
+<C c="1" r="9" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="签字路径" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[字段名称]]></CNAME><Compare op="0">
+<O><![CDATA[constructionQc]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE($imgUrl + 签字路径)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="2" r="9" s="2"><O><![CDATA[日期：]]></O>
+</C>
+<C c="3" r="9" s="2"><O t="Formula" class="Formula"><Attributes><![CDATA[=($checkDate)]]></Attributes></O>
+</C>
+<C c="4" r="9" s="2"></C>
+<C c="0" r="10" s="2"></C>
+<C c="1" r="10" s="2"></C>
+<C c="2" r="10" s="2"></C>
+<C c="3" r="10" s="2"><O><![CDATA[]]></O>
+</C>
+<C c="4" r="10" s="2"></C>
+<C c="0" r="11" s="2"><O><![CDATA[项目经理：]]></O>
+</C>
+<C c="1" r="11" s="2"><O t="DSColumn"><Attributes dsName="ds1" columnName="签字路径" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[字段名称]]></CNAME><Compare op="0">
+<O><![CDATA[constructionPrincipal]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE($imgUrl + 签字路径)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="4" r="11" s="2"></C>
+<C c="0" r="12" s="2"></C>
+<C c="1" r="12" s="2"></C>
+<C c="2" r="12" s="2"></C>
+<C c="3" r="12" s="2"></C>
+<C c="4" r="12" s="2"></C>
+<C c="0" r="13" s="2"><O><![CDATA[日期：]]></O>
+</C>
+<C c="1" r="13" s="2"><O t="Formula" class="Formula"><Attributes><![CDATA[=($inspectionDate)]]></Attributes></O>
+</C>
+<C c="2" r="13" s="2"></C>
+<C c="3" r="13" s="2"></C>
+<C c="4" r="13" s="2"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="宋体" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,217 @@
+@charset "utf-8";
+/* CSS Document */ 
+/*  idTabs ~ Sean Catchpole  */ 
+/* Style for Usual tabs */
+.usual {
+  background: #EAF1F7;
+  color: #111;
+  /*padding: 15px 20px;
+  width: 500px;
+  border: 1px solid #D2D9DF;*/
+  margin: 1px auto;
+} 
+.usual li { list-style:none; float:left; }
+.usual ul a {
+  display:block;
+  color:#000; 
+  background:#d7e5f5;
+  padding:6px 10px;
+  text-decoration:none!important; 
+  text-align:center;
+  width:80px;
+  /*font:10px Verdana;*/
+  cursor:default; 
+  border-right: 1px solid #D2D9DF;
+}
+.usual ul a:hover {
+  color:#FFF;
+  background:#ABCCE2;  
+  }
+.usual ul a.selected { 
+  color:#000;
+  background-color:transparent;
+  /*font:10px Verdana;*/
+  position: relative;
+  bottom: -1px;
+  border-bottom: 1px solid #EAF1F7;
+  cursor:default;
+  }
+.usual div {
+	padding: 2px; 
+	*padding-top:3px;
+    *margin-top:-15px;
+	padding-top: 3px;
+	clear: left;
+	/*background:snow;
+	font: 10pt Georgia;*/
+	border: 1px solid #D2D9DF;
+}
+.usual div a { color:#000; font-weight:bold; }
+
+#usual2 { background:#0A0A0A; border:1px solid #1A1A1A; }
+#usual2 a { background:#222; }
+#usual2 a:hover { background:#000; }
+#usual2 a.selected { background:snow; }
+#tabs3 { background:#FF9; }
+
+/* Style for various uses of tabs */
+
+#freedom {
+  float:left;
+  width:90px;
+  color:#68D;
+  font:1.3em Cambria, Times New Roman, serif;
+  font-style:italic;
+}
+#freedom li a {
+
+  text-align:left;
+  padding:2px 6px 4px;
+  background:#6fA9CF;
+  margin:1px;
+  *margin:0px;
+  display:block;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:0.7em;
+  font-style:normal;
+}
+#freedom li a:hover {
+  background:#D2DCF3; 
+}
+#freedom li a.selected {
+  background:#FFF;
+  color:#000; 
+  cursor:default;
+}
+
+.tabContainer {
+  width:400px;
+  margin:20px auto;
+  float:left;
+  padding-top:2px;
+  background:transparent;
+  border:1px solid #222;
+}
+.tabContainer h3 {
+  padding-bottom:4px;
+  color:#F60;
+}
+.tabContainer p {
+  padding:2px 12px 10px;
+  text-align:left;
+}
+
+#three {
+	/*position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 1px solid #444; */
+}
+
+#four {
+  color: #D66;
+  font: 2em Cambria, Times New Roman, serif;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+}
+
+.imagebox {
+  background:#040404;
+  border:1px solid #1A1A1A;
+  width:100px;
+  height:90px;
+  margin:10px auto;
+}
+.imagebox a {
+  display:block;
+  width:25px;
+  height:25px;
+  line-height:23px;
+  float:left;
+  text-decoration:none;
+  background:#111;
+}
+.imagebox a:hover { background:#000; }
+.imagebox a.selected {
+  background:snow;
+  color:#222;
+  font-weight:bold;
+}
+.imagebox img { margin-top:6px; clear:both; }
+
+
+/* Styles for Advanced Section */
+
+#adv2 {
+  width:500px;
+  margin:6px auto;
+  background:#181818;
+}
+#adv2 ul {
+ display:block;
+ width:50px;
+ height:50px;
+ float:left;
+}
+#adv2 li { float:left; }
+#adv2 li.split { clear:both; }
+#adv2 li a {
+  display:block;
+  height:25px;
+  width:25px;
+  line-height:22px;
+  text-decoration:none;
+  background:#222;
+}
+#adv2 li a:hover {
+  background:#0A0A0A;
+}
+#adv2 li a.selected {
+  background:snow;
+  color:#111;
+  font-weight:bold;
+}
+
+#adv2 span {
+  height:50px;
+  display:block;
+  line-height:45px;
+  width:450px;
+  float:right;
+  background:#181818;
+}
+
+#adv3 a {
+  color: #6fA9CF;
+  font-size: 2em;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 6px;
+}
+#adv3 a:hover { color:#68D; }
+#adv3 p {
+  color:#888;
+  margin:5px;
+  font-style:italic; 
+}
+#adv3 p a {
+  margin:0;
+  color:#CCC;
+  font-size:1em;
+  font-weight:bold;
+  text-decoration:underline;
+}
+#adv3 p a:hover { color:#FFF; }
+
+#message {
+  margin: 10px;
+  border: 1px solid #222;
+  width: 240px;
+  height: 40px;
+  background: #6fA9CF;
+  font-size: 1.3em;
+  line-height: 2em;
+  color: #222;
+}

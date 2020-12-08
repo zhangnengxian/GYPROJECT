@@ -1,0 +1,7 @@
+{"data":[
+{"fenbu":"一部","hadbuild1":"12","hadbuild2":"30","hadbuild3":"5","sum1":"47","building1":"5","building2":"2","building3":"3","sum2":"10","waitbuild1":"1","waitbuild2":"1","waitbuild3":"1","sum3":"3"},
+{"fenbu":"二部","hadbuild1":"22","hadbuild2":"8","hadbuild3":"2","sum1":"32","building1":"8","building2":"2","building3":"2","sum2":"12","waitbuild1":"3","waitbuild2":"1","waitbuild3":"1","sum3":"5"},
+{"fenbu":"三部","hadbuild1":"10","hadbuild2":"10","hadbuild3":"25","sum1":"45","building1":"3","building2":"2","building3":"8","sum2":"13","waitbuild1":"1","waitbuild2":"3","waitbuild3":"4","sum3":"8"},
+{"fenbu":"四部","hadbuild1":"12","hadbuild2":"12","hadbuild3":"11","sum1":"35","building1":"3","building2":"3","building3":"3","sum2":"9","waitbuild1":"2","waitbuild2":"2","waitbuild3":"3","sum3":"7"},
+{"fenbu":"五部","hadbuild1":"25","hadbuild2":"8","hadbuild3":"3","sum1":"36","building1":"8","building2":"2","building3":"3","sum2":"13","waitbuild1":"1","waitbuild2":"1","waitbuild3":"2","sum3":"4"}
+]}

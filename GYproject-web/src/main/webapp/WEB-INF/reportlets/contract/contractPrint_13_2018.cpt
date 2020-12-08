@@ -1,0 +1,1943 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20151125" releaseVersion="8.0.0">
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="conId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	DATE_FORMAT(c.sign_date, '%Y') 'sign_year',
+	c.*
+FROM
+	contract c
+WHERE
+	CON_ID = '${conId}']]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="projId"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[reportcon]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT
+	p.PROJ_ADDR,p.proj_name,case p.DEPT_ID  when  '110102' then  1 else 0 end  客服中心标记
+FROM
+	project p
+WHERE
+	PROJ_ID = '${projId}']]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.worksheet.WorkSheet" name="sheet1">
+<ReportPageAttr>
+<HR/>
+<FR/>
+<HC/>
+<FC/>
+</ReportPageAttr>
+<ColumnPrivilegeControl/>
+<RowPrivilegeControl/>
+<RowHeight defaultValue="723900">
+<![CDATA[2064774,943896,4218038,9674941,914400,1858296,1091380,1769806,1150374,1710812,1209367,6931741,1327354,1474838,1150374,737419,1445341,2064774,1676400,324464,914400,353961,1238864,383458,1002890,1504335,1209367,1268361,1445341,1769806,796412,1474838,1533832,855406,1828800,1327354,1356851,1710812,884903,324464,796412,442451,1651819,943896,1504335,1061883,1474838,1445341,1091380,723900,723900,723900,723900,723900,973393,1858296,762000,471948,796412,471948,884903,147483,1238864,1238864,1268361,1150374,1622322,723900,1386348,1524000,1179870,1120877,1651819,1061883,1504335,1120877,1524000,1179870,1297858,1592825,943896,1386348,1209367,1828800,1061883,1268361,1268361,1120877,973393,1858296,707922,1681316,1297858,1150374,723900,1143000,838200,914400,762000,1257300,1143000,1181100,1181100,1333500,1104900,1219200,990600,1066800,723900]]></RowHeight>
+<ColumnWidth defaultValue="2743200">
+<![CDATA[152400,825909,678425,825909,678425,825909,678425,678425,530941,737419,678425,648929,589935,766916,1681316,589935,1209367,1415845,1209367,685800,1209367,1681316,1651819,1828800,2064774,381000,2743200]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="1">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="1" s="0">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="1" cs="16" s="1">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="18" r="1" cs="7" s="2">
+<O>
+<![CDATA[项目燃气管线迁改工程]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="2" cs="25" s="3">
+<O>
+<![CDATA[    施工合同]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="3" cs="25" s="4">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="4" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="4" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="4" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="4" cs="9" s="6">
+<O>
+<![CDATA[燃 气 用 户：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="4" cs="13" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="5" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="5" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="6" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="6" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="6" cs="9" s="6">
+<O>
+<![CDATA[燃气经营企业：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="6" cs="13" s="8">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="7" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="7" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="7" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="7" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="7" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="8" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="8" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="8" cs="9" s="6">
+<O>
+<![CDATA[合 同 编 号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="8" cs="11" s="7">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_NO"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="23" r="8">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="8" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="9" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="9" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="9" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="9" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="9" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="10" s="6">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="10" s="2">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="10" cs="9" s="6">
+<O>
+<![CDATA[签 约 地 点：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="10" cs="11" s="7">
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="23" r="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="10" s="5">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="0" r="12" cs="25" s="9">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="0" r="14" cs="25" s="9">
+<O>
+<![CDATA[燃气管线迁改合同]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="17" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="17">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="18" cs="7" s="11">
+<O>
+<![CDATA[燃 气 用 户：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="18" cs="12" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="20" r="18" cs="5" s="10">
+<O>
+<![CDATA[（以下简称：甲方）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="20" cs="7" s="11">
+<O>
+<![CDATA[燃气经营企业：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="20" cs="11" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="19" r="20" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="20" cs="5" s="10">
+<O>
+<![CDATA[（以下简称：乙方）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="22" cs="3" s="11">
+<O>
+<![CDATA[由于]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="22" cs="14" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PROJ_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="19" r="22" cs="6" s="10">
+<O>
+<![CDATA[需要，甲方委托乙方对项]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="23" s="10">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="24" cs="24" s="10">
+<O>
+<![CDATA[目范围内燃气管道进行拆迁、改移。并自愿、自主向乙方提出申请，并遵]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="25" cs="24" s="10">
+<O>
+<![CDATA[循自愿、公平、诚信为本的原则，将此工程委托给乙方施工，乙方依据]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="26" cs="24" s="10">
+<O>
+<![CDATA[《贵州省燃气管理条例》及《贵阳市城市管道燃气特许经营协议》等相关]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="27" cs="24" s="10">
+<O>
+<![CDATA[法规的规定，同意接受甲方的委托，为保证本工程顺利进行，经甲、乙双]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="28" cs="24" s="10">
+<O>
+<![CDATA[方共同协商，达成如下条款：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="29" cs="22" s="13">
+<O>
+<![CDATA[  一、迁改内容]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="30" cs="7" s="14">
+<O>
+<![CDATA[1.乙方负责施工]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="30" cs="15" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_SCOPE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="1" r="31" cs="24" s="14">
+<O>
+<![CDATA[项目范围内的燃气管道进行拆迁、改移。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="32">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="32">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="32" cs="22" s="14">
+<O>
+<![CDATA[2.甲、乙双方根据现场情况，共同确定管线迁改方案及迁改路径，由乙方出]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="33" cs="9" s="14">
+<O>
+<![CDATA[具迁改图，图号为：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="33" cs="7" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="33" cs="2" s="14">
+<O>
+<![CDATA[单位:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="33" cs="5" s="15">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="33" s="16">
+<O>
+<![CDATA[审批]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="34" cs="22" s="16">
+<O>
+<![CDATA[3.迁改管线设计和施工监理由乙方委托有资质的单位承担，并签订委托合同。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="35" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="35">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="35" cs="22" s="13">
+<O>
+<![CDATA[二、迁改费用]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="36" cs="22" s="16">
+<O>
+<![CDATA[本土建和安装工程执行预结算制，土建工程执行《贵州省市政工程计价定额》]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="37" cs="24" s="16">
+<O>
+<![CDATA[（2016版），安装工程执行《贵州省安装工程计价定额》（2016版），缺项部分参]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="38" cs="19" s="16">
+<O>
+<![CDATA[考其他相关的定额，本迁改工程项目暂定合同总价为：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="38" cs="5" s="12">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalAmount]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="40" cs="3" s="17">
+<O>
+<![CDATA[(小写:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="40" cs="5" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CONTRACT_AMOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="9" r="40" s="18">
+<O>
+<![CDATA[)]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="40" cs="15" s="14">
+<O>
+<![CDATA[，最终结算金额以贵阳市审计评审中心审定的金额为准。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="42" cs="24" s="14">
+<O>
+<![CDATA[设计费以贵阳市审计评审中心审定的土建和安装结算金额为基数，按国家《工程]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="43" cs="24" s="14">
+<O>
+<![CDATA[勘察设计收费标准》（2002版）下浮40%，监理费以贵阳市审计评审中心审定的土]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="44" cs="24" s="14">
+<O>
+<![CDATA[建和安装结算金额为基数，按照《工程监理收费标准》（发改价格【2007】670号]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="45" cs="24" s="14">
+<O>
+<![CDATA[）下浮20%。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="46" cs="22" s="13">
+<O>
+<![CDATA[三、变更]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="47" cs="22" s="14">
+<O>
+<![CDATA[如遇特殊情况必须进行设计变更，所造成工程造价变化，乙方根据实际情]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="48" cs="24" s="14">
+<O>
+<![CDATA[况，经甲方认可后按实结算。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="54" cs="22" s="13">
+<O>
+<![CDATA[四、支付]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="55" cs="22" s="14">
+<O>
+<![CDATA[1. 甲方支付工程预付款或工程款给乙方（含审定后设计和监理费用）前，乙]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="56" cs="10" s="14">
+<O>
+<![CDATA[方需向甲方开具增值税]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="56" cs="4" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="INVOICE_TYPE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<HighlightList>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性1]]></Name>
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="0">
+<O>
+<![CDATA[2]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.ValueHighlightAction">
+<O>
+<![CDATA[普通发票]]></O>
+</HighlightAction>
+</Highlight>
+<Highlight class="com.fr.report.cell.cellattr.highlight.DefaultHighlight">
+<Name>
+<![CDATA[条件属性2]]></Name>
+<Condition class="com.fr.data.condition.ObjectCondition">
+<Compare op="0">
+<O>
+<![CDATA[1]]></O>
+</Compare>
+</Condition>
+<HighlightAction class="com.fr.report.cell.cellattr.highlight.ValueHighlightAction">
+<O>
+<![CDATA[专用发票]]></O>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="15" r="56" cs="4" s="14">
+<O>
+<![CDATA[发票，税率]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="56" cs="3" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="INCREMENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="22" r="56" cs="3" s="14">
+<O>
+<![CDATA[%。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="58" cs="15" s="14">
+<O>
+<![CDATA[2.工程合同签订后，甲方支付暂定总价的]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="58" cs="2" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="PAYMENT_RATIO1"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="20" r="58" cs="5" s="14">
+<O>
+<![CDATA[%作为工程预付款，金额为：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="60" s="19">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="60" cs="12" s="12">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=$legalFirstPayment]]></Attributes>
+</O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="60" cs="2" s="14">
+<O>
+<![CDATA[(小写:]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="60" cs="4" s="12">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="FIRST_PAYMENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="20" r="60" s="19">
+<O>
+<![CDATA[）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="60" cs="4" s="14">
+<O>
+<![CDATA[。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="62" cs="22" s="14">
+<O>
+<![CDATA[3.工程结束并通过产权单位（贵州燃气集团股份有限公司）验收后，乙方按]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="63" cs="24" s="14">
+<O>
+<![CDATA[关要求编制工程结算资料和完整的竣工技术资料报送给甲方，甲方报送贵阳市审计]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="64" cs="24" s="14">
+<O>
+<![CDATA[评审中心评审。余款待阳市审计评审中心将安装、设计、监理费用均审定后30日内]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="65" cs="24" s="14">
+<O>
+<![CDATA[，由甲方扣除前期已支付的预付款及土建工程费用和应缴纳的相关费用后将剩余工]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="66" cs="24" s="14">
+<O>
+<![CDATA[程款支付给乙方，当预付款超过最终审计的结算金额，乙方需在30日内将施工多余]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="67" cs="24" s="14">
+<O>
+<![CDATA[款项退还给甲方。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="68" cs="22" s="13">
+<O>
+<![CDATA[五、施工工期和开、竣工日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="69" cs="22" s="14">
+<O>
+<![CDATA[1.开工日期：双方签订合同生效后，具备施工条件时乙方3日内进场施工，暂]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="70" cs="24" s="14">
+<O>
+<![CDATA[时不能规定工期的特殊工程，由双方协商确定。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="71" cs="22" s="14">
+<O>
+<![CDATA[2.竣工日期：根据现在施工条件积极并配合完成。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="72" cs="22" s="14">
+<O>
+<![CDATA[六、该工程在施工期和建成后的使用中，因乙方原因造成的工程质量问题、]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="73" cs="24" s="14">
+<O>
+<![CDATA[返工、安全事故等情况的，由乙方承担相应的责任及费用。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="74" cs="22" s="14">
+<O>
+<![CDATA[七、甲方应向乙方提供标高控制点、提供符合施工要求的现场条件，施工过]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="75" cs="24" s="14">
+<O>
+<![CDATA[程中，甲方配合对燃气设施采取有效的保护措施，杜绝违章施工，如因乙方原因导]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="76" cs="24" s="14">
+<O>
+<![CDATA[致安全事故的，由乙方承担责任和费用；如因甲方原因导致的安全事故，由甲方承]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="77" cs="24" s="14">
+<O>
+<![CDATA[担责任和费用。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="78" cs="22" s="14">
+<O>
+<![CDATA[八、工程竣工验收后，乙方负责对管线进行安全管理和维护，及时完善管网]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="79" cs="24" s="14">
+<O>
+<![CDATA[数据资料。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="80" cs="22" s="13">
+<O>
+<![CDATA[九、违约责任：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="81" cs="22" s="14">
+<O>
+<![CDATA[（1）甲方如违反上述约定，对所产生的安全事故责任及损失，由甲方承担。 ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="82" cs="22" s="14">
+<O>
+<![CDATA[（2）乙方如违反上述约定，对所产生的安全事故责任及损失，由乙方承担。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="83" cs="22" s="13">
+<O>
+<![CDATA[十、争议解决：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="84" cs="22" s="14">
+<O>
+<![CDATA[因签订、履行本合同发生的一切争议，先协商解决，协商无效，双方约定向]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="85" cs="22" s="14">
+<O>
+<![CDATA[阳市仲裁委员会申请仲裁。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="86" cs="22" s="14">
+<O>
+<![CDATA[十一、本合同经双方共同签字盖章后生效。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="87" cs="22" s="14">
+<O>
+<![CDATA[十二、本合同未尽事宜由双方共同协商解决，可签订补充协议，补充协议与]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="88" cs="24" s="14">
+<O>
+<![CDATA[本合同具有同等法律效力。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="89" cs="22" s="13">
+<O>
+<![CDATA[十三、办理破路手续及协调、费用由甲方负责。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="90" cs="8" s="14">
+<O>
+<![CDATA[十四、本合同一式]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="90" cs="2" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="90" s="14">
+<O>
+<![CDATA[份]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="90" cs="2" s="14">
+<O>
+<![CDATA[，甲方]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="90" s="12">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="90" cs="8" s="14">
+<O>
+<![CDATA[份，乙方肆份。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="91" cs="22" s="14">
+<O>
+<![CDATA[★甲方已详细阅读并确认本合同涉及到甲方享有的权利、承担义务的全部条]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="1" r="92" cs="24" s="14">
+<O>
+<![CDATA[款与内容，乙方(特别对加黑部分条款)已向甲方履行了必要的提示及说明义务。]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="93" cs="22" s="14">
+<O>
+<![CDATA[（以下无正文）]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="95" cs="5" s="19">
+<O>
+<![CDATA[燃气用户：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="95" cs="9" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_NAME"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="95" cs="5" s="14">
+<O>
+<![CDATA[ 燃气经营企业：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="95" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="96" cs="9" rs="3" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="96" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="97" cs="5" s="19">
+<O>
+<![CDATA[ 单位公章：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="97" cs="5" s="14">
+<O>
+<![CDATA[单位公章：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="97" cs="4" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="22" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="23" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="24" r="98" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="99" cs="6" s="14">
+<O>
+<![CDATA[单位负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="99" cs="8" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="99" cs="5" s="14">
+<O>
+<![CDATA[单位负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="99" cs="4" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="100" cs="6" s="14">
+<O>
+<![CDATA[部门负责人： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="100" cs="8" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="100" cs="5" s="14">
+<O>
+<![CDATA[部门负责人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="100" cs="4" s="20">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="101" cs="6" s="14">
+<O>
+<![CDATA[经办人：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="101" cs="8" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_ENTRUST_REPRESENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="101" cs="5" s="14">
+<O>
+<![CDATA[经办人： ]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="101" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CON_AGENT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="102" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="102" cs="5" s="14">
+<O>
+<![CDATA[开户行：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="102" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="OPEN_BANK"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="103" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="103" cs="5" s="14">
+<O>
+<![CDATA[开户行帐号：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="103" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="ACCOUNT"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="104" cs="6" s="14">
+<O>
+<![CDATA[电  话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="104" cs="8" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="CUST_PHONE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="104" cs="5" s="14">
+<O>
+<![CDATA[电  话：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="104" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_COMP_PHONE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="105" cs="6" s="14">
+<O>
+<![CDATA[地  址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="105" cs="8" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="UNIT_ADDRESS"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="16" r="105" cs="5" s="14">
+<O>
+<![CDATA[地  址：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="105" cs="4" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="GAS_CORP_ADDR"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="2" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="14" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="15" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="16" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="18" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="19" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="20" r="106" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="21" r="106" cs="4" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="2" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="3" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="4" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="5" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="6" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="7" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="8" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="9" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="10" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="11" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="12" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="13" r="107" cs="4" s="19">
+<O>
+<![CDATA[签订日期：]]></O>
+<PrivilegeControl/>
+<Expand/>
+</C>
+<C c="17" r="107" cs="7" s="20">
+<O t="DSColumn">
+<Attributes dsName="ds1" columnName="SIGN_DATE"/>
+<Complex/>
+<RG class="com.fr.report.cell.cellattr.core.group.FunctionGrouper"/>
+<Parameters/>
+</O>
+<PrivilegeControl/>
+<Expand dir="0"/>
+</C>
+<C c="24" r="107" s="14">
+<PrivilegeControl/>
+<Expand/>
+</C>
+</CellElementList>
+<ReportAttrSet>
+<ReportSettings headerHeight="0" footerHeight="0">
+<PaperSetting/>
+</ReportSettings>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+</ReportAttrSet>
+<PrivilegeControl/>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<StyleList>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="200"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="72"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1" color="-16777216"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="1" size="128"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="112"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="1" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="100"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="100"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0" imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border>
+<Bottom style="1"/>
+</Border>
+</Style>
+<Style horizontal_alignment="4" imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="2" imageLayout="1">
+<FRFont name="SimSun" style="0" size="104"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+<DesignerVersion DesignerVersion="IAA"/>
+<PreviewType PreviewType="0"/>
+<TemplateID/>
+</WorkBook>

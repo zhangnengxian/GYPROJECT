@@ -1,0 +1,37 @@
+{
+    "data": [
+        {
+            "pipelineNo": "84-1-1",
+            "weldlineNo": "F1-3",
+            "pipeMaterial": "PE100",
+            "bakingNo": "0068",
+            "weldingMethod": "电容",
+            "weldingMaterialNo": "E4303",
+            "weldingMaterialSize": "D400",
+            "weldingLayer": "2",
+            "powerStage": "12",
+            "weldingCurrent": "20",
+            "arVoltage": "220",
+            "weldingSpeed": "18",
+            "wedingTime": "2017-01-01"
+        },
+        {
+            "pipelineNo": "84-1-1",
+            "weldlineNo": "F1-3",
+            "pipeMaterial": "Q235",
+            "bakingNo": "0068",
+            "weldingMethod": "手工电弧焊",
+            "weldingMaterialNo": "E4303",
+            "weldingMaterialSize": "D400",
+            "weldingLayer": "2",
+            "powerStage": "12",
+            "weldingCurrent": "20",
+            "arVoltage": "220",
+            "weldingSpeed": "18",
+            "wedingTime": "2017-01-01"
+        }
+        
+       
+        
+    ]
+}

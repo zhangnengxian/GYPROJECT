@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608031034274930302271305938]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from  Altimetric_Survey r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0 order by pc_station  asc]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+<TableData name="ds3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201609121759299210302891693843]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url 签字路径,s.field_name 字段名称 from signature s where s.business_order_id='${pcId}' AND s.field_name='suJgj']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.2755905511811024" left="0.7480314960629921" bottom="0.27" right="0.7480314960629921" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[59,50,32,25,25,25,25,75,70,35,35,35,35,35,110,21,84,22,13,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[145,23,114,119,82,105,54,72,72,72,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="4" s="0"><O><![CDATA[乌市管道天然气工程]]></O>
+</C>
+<C c="4" r="0"><CellGUIAttr previewContent="false" ></CellGUIAttr><CellInsertPolicy></CellInsertPolicy></C>
+<C c="5" r="0"><O><![CDATA[     ]]></O>
+</C>
+<C c="0" r="1" cs="6" s="1"><O><![CDATA[调压柜、箱安装检查记录]]></O>
+</C>
+<C c="0" r="2" s="2"><O><![CDATA[工程名称]]></O>
+</C>
+<C c="1" r="2" cs="2" s="3"><O><![CDATA[乌鲁木齐恒大绿洲小区]]></O>
+</C>
+<C c="3" r="2" s="4"><O><![CDATA[工程地址]]></O>
+</C>
+<C c="4" r="2" cs="2" s="2"><O><![CDATA[迎宾北路]]></O>
+</C>
+<C c="0" r="3" s="2"><O><![CDATA[施工单位]]></O>
+<Expand dir="0" />
+</C>
+<C c="1" r="3" cs="2" s="3"><O><![CDATA[施工管理一处]]></O>
+</C>
+<C c="3" r="3" s="4"><O><![CDATA[施工图号]]></O>
+</C>
+<C c="4" r="3" cs="2" s="4"><O><![CDATA[T-1]]></O>
+</C>
+<C c="6" r="3" rs="2"></C>
+<C c="0" r="4" s="4"><O><![CDATA[安装设备名称]]></O>
+</C>
+<C c="1" r="4" cs="2" s="4"><O><![CDATA[调压箱]]></O>
+</C>
+<C c="3" r="4" s="4"><O><![CDATA[安装日期]]></O>
+</C>
+<C c="4" r="4" cs="2" s="4"><O><![CDATA[2016-11-23]]></O>
+</C>
+<C c="0" r="5" s="4"><O><![CDATA[设备型号]]></O>
+</C>
+<C c="1" r="5" cs="5" s="4"><O><![CDATA[AAS-323]]></O>
+</C>
+<C c="0" r="6" cs="3" s="4"><O><![CDATA[检查项目]]></O>
+</C>
+<C c="3" r="6" s="4"><O><![CDATA[要求]]></O>
+</C>
+<C c="4" r="6" cs="2" s="4"><O><![CDATA[结果]]></O>
+</C>
+<C c="0" r="7" rs="2" s="4"><O><![CDATA[安装基础]]></O>
+</C>
+<C c="1" r="7" s="4"><O><![CDATA[调压柜]]></O>
+</C>
+<C c="2" r="7" s="4"><O><![CDATA[水泥基础尺寸及外观检查]]></O>
+</C>
+<C c="3" r="7" s="4"><O><![CDATA[长X宽X高符合图纸]]></O>
+</C>
+<C c="4" r="7" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="1" r="8" s="4"><O><![CDATA[调压箱]]></O>
+</C>
+<C c="2" r="8" s="4"><O><![CDATA[支架尺寸、牢固性]]></O>
+</C>
+<C c="3" r="8" s="4"><O><![CDATA[符合图纸及规范要求]]></O>
+</C>
+<C c="4" r="8" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="9" cs="3" s="4"><O><![CDATA[安装位置]]></O>
+</C>
+<C c="3" r="9" s="4"><O><![CDATA[符合图纸规范]]></O>
+</C>
+<C c="4" r="9" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="10" cs="3" s="4"><O><![CDATA[进出口法兰平度及调压箱、柜的连接]]></O>
+</C>
+<C c="3" r="10" s="4"><O><![CDATA[要求水平连接、牢靠]]></O>
+</C>
+<C c="4" r="10" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="11" cs="3" s="4"><O><![CDATA[箱、柜安装水平、表面无损伤]]></O>
+</C>
+<C c="3" r="11" s="4"><O><![CDATA[用水平尺检查]]></O>
+</C>
+<C c="4" r="11" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="12" cs="3" s="4"><O><![CDATA[箱、柜内表、件、放散管等安装]]></O>
+</C>
+<C c="3" r="12" s="4"><O><![CDATA[要求完整齐全]]></O>
+</C>
+<C c="4" r="12" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="13" cs="3" s="4"><O><![CDATA[气密性试验、防腐检查]]></O>
+</C>
+<C c="3" r="13" s="4"><O><![CDATA[无渗漏，防腐合格]]></O>
+</C>
+<C c="4" r="13" cs="2" s="4"><O><![CDATA[合格]]></O>
+</C>
+<C c="0" r="14" cs="6" s="5"><O><![CDATA[检查意见：]]></O>
+</C>
+<C c="0" r="15" cs="2" rs="3" s="6"><O><![CDATA[施工单位质检员： 　                          项目负责人（签字）： 　                             年  月  日]]></O>
+</C>
+<C c="2" r="15" cs="2" rs="3" s="7"><O><![CDATA[监理单位负责人（签字）：                                                                                                                          年  月  日]]></O>
+</C>
+<C c="4" r="15" cs="2" rs="3" s="6"><O><![CDATA[ 建设单位负责人（签字）：                                                                              年  月  日]]></O>
+</C>
+<C c="6" r="17"></C>
+<C c="0" r="18" s="8"></C>
+<C c="3" r="18" s="8"></C>
+<C c="4" r="18" s="8"></C>
+<C c="5" r="18" s="8"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="宋体" style="1" size="21" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style vertical_alignment="1">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</WorkBook>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+
+        .lean-grid {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+        }
+
+        .lean-grid ul {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            width: 1061px;
+            height: 1061px;
+            overflow: hidden;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#03618b+0,14ffff+100 */
+            background: #03618b; /* Old browsers */
+            background: -moz-linear-gradient(45deg, #03618b 0%, #14ffff 100%); /* FF3.6-15 */
+            background: -webkit-linear-gradient(45deg, #03618b 0%, #14ffff 100%); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(45deg, #03618b 0%, #14ffff 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#03618b', endColorstr='#14ffff', GradientType=1); /* IE6-9 fallback on horizontal gradient */
+            z-index: 2;
+            -webkit-transform-origin: 0 0;
+            -moz-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+            transform-origin: 0 0;
+        }
+
+        .lean-grid li {
+            position: relative;
+            float: left;
+            width: 250px;
+            height: 250px;
+            margin: 51.7777px;
+            padding: 0;
+            overflow: visible;
+            -webkit-transform-origin: 50% 50%;
+            -moz-transform-origin: 50% 50%;
+            -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+            transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg); /* IE 9 */
+            -moz-transform: rotate(-45deg); /* Firefox */
+            -webkit-transform: rotate(-45deg); /* Safari 和 Chrome */
+        }
+
+        .lean-grid li:before {
+            content: " ";
+            position: absolute;
+            top: 40px;
+            left: 0px;
+            width: 50px;
+            height: 180px;
+            border-radius: 25px;
+            box-shadow: rgb(0, 0, 0) 0 0 50px 18px;
+            z-index: 1;
+
+        }
+
+        .lean-grid .grid-bg {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 30px;
+            box-sizing: border-box;
+            background: #0dffff url("images/monitor/grid-bg.png") no-repeat left top;
+            z-index: 2;
+        }
+
+        .lean-grid .grid-content {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            /*background: rgba(255,255,255,.4);*/
+            transform: rotate3d(1, 1, 0, 40deg);
+            -ms-transform: rotate3d(1, 1, 0, 40deg);
+            -moz-transform: rotate3d(1, 1, 0, 40deg);
+            -webkit-transform: rotate3d(1, 1, 0, 40deg);
+        }
+
+        .clear-left {
+            clear: left;
+        }
+	
+        .lean-grid .chart-box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding-left: 1061px;
+            background-color: #012841;
+            z-index: 1;
+        }
+        
+       .input-box{
+			float: left;
+			width: 50%;
+			height: 25px;
+			overflow: hidden;
+			box-sizing: border-box;
+			color: #000;
+		}
+		
+		.input-box label{
+			font-size: 19px; 
+			float:left;
+			margin-right: 0px;
+		}
+		.input-box .form-control{
+			font-size: 19px; 
+			float: left;
+			width: 100%;
+			border: none;
+			background: transparent;
+			outline: none !important; 
+			color: #000;
+			line-height: 19px;
+			text-align:right;
+			font-family: "黑体"; 
+		}
+    </style>
+</head>
+<body>
+<div class="lean-grid">
+    <ul class="grid">
+        <li class="grid-item">
+            <div class="grid-bg">
+                <div class="grid-content">
+                	<!-- <img src="images/monitor/list.png" align="left"/>
+                	<div class="input-box">
+				     	<label class="control-label" for="">去年工程项目</label>
+						<input class="form-control" value="150个" type="text" >
+				    </div>
+				    <div class="input-box">
+				     	<label class="control-label" for="">收入</label>
+						<input class="form-control" value="5000000元" type="text" >
+				    </div>
+				    <div class="input-box">
+				     	<label class="control-label" for="">今年新增工程项目</label>
+						<input class="form-control" value="100个" type="text" >
+				    </div>
+				     <div class="input-box">
+				     	<label class="control-label" for="">收入</label>
+						<input class="form-control" value="400000000元" type="text" >
+				    </div> -->
+				    <img src="../images/monitor/list.png" align="left"/>
+                	<div>
+                	<span>去年工程项目150个</span><br>
+				    <span>收入5000000元</span><br>
+				    <span>今年新增工程项目100个</span><br>
+				    <span>收入400000000元</span>
+				    </div>
+                </div>
+            </div>
+        </li>
+        <li class="grid-item">
+            <div class="grid-bg">
+                <div class="grid-content">
+                	<image src="images/monitor/statistics.png" align="left"/>
+                	
+                </div>
+            </div>
+        </li>
+        <li class="grid-item">
+            <div class="grid-bg">
+                <div class="grid-content">测试文字3
+                	<image src="images/monitor/distribute.png" align="left"/>
+                </div>
+            </div>
+        </li>
+        <li class="grid-item clear-left">
+            <div class="grid-bg">
+                <div class="grid-content">测试文字4
+                	<image src="images/monitor/sandGlass.png" align="left"/>
+                </div>
+            </div>
+        </li>
+        <li class="grid-item">
+            <div class="grid-bg">
+                <div class="grid-content">合同
+                	<image src="images/monitor/contract.png" align="left"/>
+                </div>
+            </div>
+        </li>
+        <li class="grid-item clear-left">
+            <div class="grid-bg">
+                <div class="grid-content">金额
+                	<image src="images/monitor/amount.png" align="left"/>
+                </div>
+            </div>
+        </li>
+    </ul>
+    <div class="chart-box">
+
+    </div>
+</div>
+<script include-on-mobile="false" src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+<script>
+    function gridScale() {
+        var height = $(window).innerHeight(),
+            ul = $(".lean-grid .grid"),
+            uheight = ul.height();
+        ul.css({
+            "-webkit-transform": "scale(" + height / uheight + ")",
+            "-moz-transform"   : "scale(" + height / uheight + ")",
+            "-ms-transform"    : "scale(" + height / uheight + ")",
+            "-o-transform"     : "scale(" + height / uheight + ")",
+            "transform"        : "scale(" + height / uheight + ")"
+        });
+        $(".chart-box").css({
+            "padding-left": height
+        });
+    }
+    gridScale();
+
+    var timer,
+        delay = function () {
+            clearTimeout(timer);
+            timer = setTimeout(gridScale, 50);
+        };
+
+    window.onresize = delay;
+</script>
+</body>
+</html>

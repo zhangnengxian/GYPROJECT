@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Report class="com.fr.report.WorkSheet">
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<ReportSettings orientation="1" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.3937007874015748" bottom="0.27" right="0.3937007874015748" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[40,59,62,62,62,62,62,62,62,62,62,50,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[145,72,72,58,139,167,82,88,41,32,72,67,7,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="11" s="0"><O><![CDATA[贵州鸿源燃气建设发展有限公司]]></O>
+</C>
+<C c="11" r="0"></C>
+<C c="12" r="0"></C>
+<C c="0" r="1" cs="11" s="1"><O><![CDATA[工程(结)算书]]></O>
+</C>
+<C c="11" r="1"></C>
+<C c="0" r="2" s="2"><O><![CDATA[工程名称:]]></O>
+</C>
+<C c="1" r="2" cs="4" s="3"><O><![CDATA[翰益房地产开发有限公司同城国际小区A区]]></O>
+</C>
+<C c="5" r="2" s="2"><O><![CDATA[工程造价:]]></O>
+</C>
+<C c="6" r="2" s="3"><O t="D">10536.5</O>
+</C>
+<C c="7" r="2" cs="3" s="2"><O><![CDATA[元  其中主材]]></O>
+</C>
+<C c="10" r="2" s="3"><O t="I">7000</O>
+</C>
+<C c="11" r="2" s="2"><O><![CDATA[元]]></O>
+</C>
+<C c="0" r="3" s="2"><O><![CDATA[工程编号:]]></O>
+</C>
+<C c="1" r="3" cs="4" s="3"><O><![CDATA[T-2016101914]]></O>
+</C>
+<C c="5" r="3" s="4"><O><![CDATA[审定工程造价:]]></O>
+</C>
+<C c="6" r="3" s="3"><O t="D">10000.0</O>
+</C>
+<C c="7" r="3" cs="3" s="2"><O><![CDATA[元  其中主材]]></O>
+</C>
+<C c="10" r="3" s="3"><O t="I">6800</O>
+</C>
+<C c="11" r="3" s="2"><O><![CDATA[元]]></O>
+</C>
+<C c="0" r="4" s="2"><O><![CDATA[协  议:]]></O>
+</C>
+<C c="1" r="4" cs="4" s="3"><O t="BigInteger">20320170116094</O>
+</C>
+<C c="5" r="4" s="5"><O><![CDATA[工程图号:]]></O>
+</C>
+<C c="6" r="4" cs="5" s="3"><O t="BigInteger">20170101010</O>
+</C>
+<C c="11" r="4" s="6"></C>
+<C c="0" r="5" s="2"><O><![CDATA[合同号:]]></O>
+</C>
+<C c="1" r="5" cs="4" s="3"><O><![CDATA[H5A12017010800001]]></O>
+</C>
+<C c="5" r="5" s="7"></C>
+<C c="6" r="5" s="2"></C>
+<C c="7" r="5" s="2"></C>
+<C c="8" r="5" s="2"></C>
+<C c="9" r="5" s="2"></C>
+<C c="10" r="5" s="2"></C>
+<C c="11" r="5" s="6"></C>
+<C c="0" r="6" s="2"><O><![CDATA[建设单位:]]></O>
+</C>
+<C c="1" r="6" cs="4" s="3"><O><![CDATA[贵州燃气集团股份有限公司]]></O>
+</C>
+<C c="5" r="6" s="2"><O><![CDATA[施工单位:]]></O>
+</C>
+<C c="6" r="6" cs="5" s="3"><O><![CDATA[贵州鸿源燃气建设发展有限公司]]></O>
+</C>
+<C c="11" r="6"></C>
+<C c="0" r="7" s="2"><O><![CDATA[现场代表:]]></O>
+</C>
+<C c="1" r="7" cs="4" s="3"><O><![CDATA[]]></O>
+</C>
+<C c="5" r="7" s="2"><O><![CDATA[编制人:]]></O>
+</C>
+<C c="6" r="7" cs="5" s="3"><O><![CDATA[]]></O>
+</C>
+<C c="11" r="7" s="6"></C>
+<C c="0" r="8" s="2"><O><![CDATA[审核人:]]></O>
+</C>
+<C c="1" r="8" cs="4" s="3"><O><![CDATA[]]></O>
+</C>
+<C c="5" r="8" s="2"><O><![CDATA[审核人:]]></O>
+</C>
+<C c="6" r="8" cs="5" s="3"><O><![CDATA[]]></O>
+</C>
+<C c="11" r="8" s="6"></C>
+<C c="0" r="9" cs="2" s="2"><O><![CDATA[预算结算组负责人:]]></O>
+</C>
+<C c="2" r="9" cs="3" s="8"></C>
+<C c="5" r="9" s="2"><O><![CDATA[负责人:]]></O>
+</C>
+<C c="6" r="9" cs="5" s="3"><O><![CDATA[]]></O>
+</C>
+<C c="11" r="9" s="6"></C>
+<C c="0" r="10" cs="2" s="2"><O><![CDATA[市场发展部负责人:]]></O>
+</C>
+<C c="2" r="10" cs="3" s="8"></C>
+<C c="5" r="10" s="6"></C>
+<C c="6" r="10" s="6"></C>
+<C c="7" r="10" s="6"></C>
+<C c="8" r="10" s="6"></C>
+<C c="9" r="10" s="6"></C>
+<C c="10" r="10" s="6"></C>
+<C c="11" r="10" s="6"></C>
+<C c="0" r="11" s="9"></C>
+<C c="1" r="11" s="9"></C>
+<C c="2" r="11" s="9"></C>
+<C c="3" r="11" s="9"></C>
+<C c="4" r="11" s="9"></C>
+<C c="5" r="11" s="9"></C>
+<C c="6" r="11" cs="5" s="10"><O><![CDATA[2017-05-13]]></O>
+</C>
+</CellElementList>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="24" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="34" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="22" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="22" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style vertical_alignment="3">
+<FRFont name="宋体" style="0" size="22" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="22" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" vertical_alignment="3">
+<FRFont name="SimSun" style="0" size="22" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="20" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+</StyleList>
+</Report>

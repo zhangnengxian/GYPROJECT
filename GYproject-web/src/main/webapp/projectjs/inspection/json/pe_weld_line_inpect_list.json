@@ -1,0 +1,20 @@
+{
+    "data": [
+        {
+            "peWeldLineNo": "F4",
+            "isLeakageWeld": "1",
+            "isCurlDefect": "1",
+            "curlCheck": "1",
+            "weldRingWidthB": "20",
+            "weldRingHeightH": "10",
+            "weldRingSeamH": "10",
+            "wrongEdge": "2",
+            "hotCuDate": "2017-01-01",
+            "weldFormat": "焊条规格",
+            "welder": "张某",
+            "pipeManufactor": "贵阳建材厂",
+            "meltConnectType": "0"
+            
+        }
+    ]
+}

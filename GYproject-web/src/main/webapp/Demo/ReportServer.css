@@ -1,0 +1,1452 @@
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow : hidden;
+	border : 0pt none;
+}
+
+.parameter-container {
+	border-bottom:0px solid rgb(223,223,223);
+	margin:0;
+	padding:0;
+}
+
+.contentDIV {
+	overflow:hidden;
+	position:relative;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:10px;
+	margin-bottom:10px;
+	border-style:solid;
+	border-color:rgb(188,188,188);
+	border-width:1px 3px 3px 1px;
+	background-color:rgb(255,255,255);
+}	
+
+.x-table {
+	overflow:hidden;
+	table-layout:fixed;
+	border-collapse:collapse;
+}
+
+.x-table-wrapper {
+
+}
+
+.fx {
+	overflow:hidden;
+}
+
+.frozen-row {
+	border-bottom : 0px solid transparent;
+	overflow : hidden;
+}
+
+.frozen-column {
+	border-right : 0px solid transparent;
+	overflow:hidden;
+}
+
+.frozen-north {
+	margin-left : -3px;
+}
+
+.frozen-west {
+	margin-top : -3px;
+}
+
+.frozen-center {
+	margin-left : -3px;
+	margin-top : -3px;
+}
+
+.fx table {
+    border-collapse:collapse;
+    table-layout:fixed;
+	border-spacing:0;
+}
+.wrap {
+	overflow : auto;
+}
+.nw {
+    white-space:nowrap;
+}
+.bw {
+    word-wrap:break-word;
+}
+    
+.fh {overflow:hidden;padding:2px;vertical-align:middle;text-align:left;font-size:12px;font-family:SimSun;}
+.fh-nopadding {overflow:hidden;padding:0px 0px 0px 0px;vertical-align:middle;text-align:left;font-size:12px;font-family:SimSun;}
+
+.f8 {font-size: 8px;}
+.f9 {font-size: 9px;}
+.f10 {font-size: 10px;}
+.f11 {font-size: 11px;}
+.f12 {font-size: 12px;}
+.f13 {font-size: 13px;}
+.f14 {font-size: 14px;}
+.f15 {font-size: 15px;}
+.f16 {font-size: 16px;}
+.f17 {font-size: 17px;}
+.f18 {font-size: 18px;}
+.f19 {font-size: 19px;}
+.f20 {font-size: 20px;}
+.f21 {font-size: 21px;}
+.f22 {font-size: 22px;}
+.f23 {font-size: 23px;}
+.f24 {font-size: 24px;}
+.f25 {font-size: 25px;}
+.f26 {font-size: 26px;}
+
+.fnab {font-family: Arial Black;}
+.fnbs {font-family: Basic Sans SF;}
+.fnba {font-family: Book Antiqua;}
+.fnci {font-family: Calibri;}
+.fncs {font-family: Comic Sans MS;}
+.fncn {font-family: Courier New;}
+.fnes {font-family: Elementary SF;}
+.fngd {font-family: Garamond;}
+.fnga {font-family: Georgia;}
+.fnlg {font-family: Letter Gothic;}
+.fnlc {font-family: Lucida Console;}
+.fnmd {font-family: Marigold;}
+.fnms {font-family: MS Sans Serif;}
+.fnmg {font-family: MS Gothic;}
+.fnmpg {font-family: MS PGothic;}
+.fnmm {font-family: MS Mincho;}
+.fnmpm {font-family: MS P Mincho;}
+.fnml {font-family: MingLiU;}
+.fnsh {font-family: SimHei;}
+.fnsm {font-family: System;}
+.fnta {font-family: Tahoma;}
+.fntn {font-family: Times New Roman;}
+.fntms {font-family: Trebuchet MS;}
+.fnva {font-family: Verdana;}
+
+.fnss {font-family: SimSun;}
+.fnar {font-family: Arial;}
+
+.fwb {font-weight:bold;}
+.fsi {font-style: italic;}
+.tdu {text-decoration: underline;}
+.tdst {text-decoration: line-through;}
+.fvsc {font-variant:small-caps;}
+
+.tac {text-align: center;}
+.tar {text-align: right;}
+
+.vab {vertical-align:bottom;}
+.vat {vertical-align:top;}
+
+.pl0 {padding-left:0}
+.pr0 {padding-right:0}
+.pl1 {padding-left:1px}
+.pr1 {padding-right:1px}
+
+.b0 {border:0px;}
+.b1 {border:1px solid #000;}
+
+.bt0 {border-top:0px;}
+.bb0 {border-bottom:0px;}
+.bl0 {border-left:0px;}
+.br0 {border-right:0px;}
+
+.bt1 {border-top:1px solid #000;}
+.bb1 {border-bottom:1px solid #000;}
+.bl1 {border-left:1px solid #000;}
+.br1 {border-right:1px solid #000;}
+
+.btcb {border-top-color:#000}
+.bbcb {border-bottom-color:#000}
+.blcb {border-left-color:#000}
+.brcb {border-right-color:#000}
+
+.btw1 {border-top-width:1px}
+.bbw1 {border-bottom-width:1px}
+.blw1 {border-left-width:1px}
+.brw1 {border-right-width:1px}
+.btw2 {border-top-width:2px}
+.bbw2 {border-bottom-width:2px}
+.blw2 {border-left-width:2px}
+.brw2 {border-right-width:2px}
+.btw3 {border-top-width:3px}
+.bbw3 {border-bottom-width:3px}
+.blw3 {border-left-width:3px}
+.brw3 {border-right-width:3px}
+
+.btss {border-top-style:solid}
+.bbss {border-bottom-style:solid}
+.blss {border-left-style:solid}
+.brss {border-right-style:solid}
+.btsd {border-top-style:double}
+.bbsd {border-bottom-style:double}
+.blsd {border-left-style:double}
+.brsd {border-right-style:double}
+.btsda {border-top-style:dashed}
+.bbsda {border-bottom-style:dashed}
+.blsda {border-left-style:dashed}
+.brsda {border-right-style:dashed}
+.btsdo {border-top-style:dotted}
+.bbsdo {border-bottom-style:dotted}
+.blsdo {border-left-style:dotted}
+.brsdo {border-right-style:dotted}
+
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { position: absolute; left: -99999999px; }
+.ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; }
+.ui-helper-clearfix:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+.ui-helper-clearfix { display: inline-block; }
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix { height:1%; }
+.ui-helper-clearfix { display:block; }
+/* end clearfix */
+.ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled { cursor: default !important; }
+
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { display: block; text-indent: -99999px; overflow: hidden; background-repeat: no-repeat; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Overlays */
+.ui-widget-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+
+/*
+* jQuery UI CSS Framework
+* Copyright (c) 2010 AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT (MIT-LICENSE.txt) and GPL (GPL-LICENSE.txt) licenses.
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Lucida%20Grande,%20Lucida%20Sans,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=5px&bgColorHeader=5c9ccc&bgTextureHeader=12_gloss_wave.png&bgImgOpacityHeader=55&borderColorHeader=4297d7&fcHeader=ffffff&iconColorHeader=d8e7f3&bgColorContent=fcfdfd&bgTextureContent=06_inset_hard.png&bgImgOpacityContent=100&borderColorContent=a6c9e2&fcContent=222222&iconColorContent=469bdd&bgColorDefault=dfeffc&bgTextureDefault=02_glass.png&bgImgOpacityDefault=85&borderColorDefault=c5dbec&fcDefault=2e6e9e&iconColorDefault=6da8d5&bgColorHover=d0e5f5&bgTextureHover=02_glass.png&bgImgOpacityHover=75&borderColorHover=79b7e7&fcHover=1d5987&iconColorHover=217bc0&bgColorActive=f5f8f9&bgTextureActive=06_inset_hard.png&bgImgOpacityActive=100&borderColorActive=79b7e7&fcActive=e17009&iconColorActive=f9bd01&bgColorHighlight=fbec88&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=fad42e&fcHighlight=363636&iconColorHighlight=2e83ff&bgColorError=fef1ec&bgTextureError=02_glass.png&bgImgOpacityError=95&borderColorError=cd0a0a&fcError=cd0a0a&iconColorError=cd0a0a&bgColorOverlay=aaaaaa&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=30&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=30&thicknessShadow=8px&offsetTopShadow=-8px&offsetLeftShadow=-8px&cornerRadiusShadow=8px
+*/
+
+
+/* Component containers
+----------------------------------*/
+.ui-widget { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1.1em; }
+.ui-widget .ui-widget { font-size: 1em; }
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Lucida Grande, Lucida Sans, Arial, sans-serif; font-size: 1em; }
+.ui-widget-content { border: 1px solid #a6c9e2; background: #fcfdfd url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_inset-hard_100_fcfdfd_1x100.png) 50% bottom repeat-x; color: #222222; }
+.ui-widget-content a { color: #222222; }
+.ui-widget-header { border: 1px solid #4297d7; 
+	background: #5c9ccc url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_gloss-wave_55_5c9ccc_500x100.png) 50% 50% repeat-x; 
+	color: #ffffff;
+	font-weight: bold; }
+.ui-widget-header a { color: #ffffff; }
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { border: 1px solid #c5dbec; background: #dfeffc url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_glass_85_dfeffc_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #2e6e9e; }
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #2e6e9e; text-decoration: none; }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #79b7e7; background: #d0e5f5 url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_glass_75_d0e5f5_1x400.png) 50% 50% repeat-x; font-weight: bold; color: #1d5987; }
+.ui-state-hover a, .ui-state-hover a:hover { color: #1d5987; text-decoration: none; }
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #79b7e7; background: #f5f8f9 url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_inset-hard_100_f5f8f9_1x100.png) 50% 50% repeat-x; font-weight: bold; color: #e17009; }
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #e17009; text-decoration: none; }
+.ui-widget :active { outline: none; }
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight  {border: 1px solid #fad42e; background: #fbec88 url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_flat_55_fbec88_40x100.png) 50% 50% repeat-x; color: #363636; }
+.ui-state-highlight a, .ui-widget-content .ui-state-highlight a,.ui-widget-header .ui-state-highlight a { color: #363636; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border: 1px solid #cd0a0a; background: #fef1ec url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_glass_95_fef1ec_1x400.png) 50% 50% repeat-x; color: #cd0a0a; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #cd0a0a; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #cd0a0a; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { opacity: .7; filter:Alpha(Opacity=70); font-weight: normal; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { opacity: .85; filter:Alpha(Opacity=70); background-image: none; }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+.ui-icon { width: 16px; height: 16px; background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_469bdd_256x240.png); }
+.ui-widget-content .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_469bdd_256x240.png); }
+.ui-widget-header .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_d8e7f3_256x240.png); }
+.ui-state-default .ui-icon { background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_6da8d5_256x240.png); }
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_217bc0_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_f9bd01_256x240.png); }
+.ui-state-highlight .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_2e83ff_256x240.png); }
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-icons_cd0a0a_256x240.png); }
+
+/* positioning */
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-cancel { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-off { background-position: -96px -144px; }
+.ui-icon-radio-on { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-tl { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; }
+.ui-corner-tr { -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; border-top-right-radius: 5px; }
+.ui-corner-bl { -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; border-bottom-left-radius: 5px; }
+.ui-corner-br { -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; border-bottom-right-radius: 5px; }
+.ui-corner-top { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; border-top-right-radius: 5px; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; border-bottom-left-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; border-bottom-right-radius: 5px; }
+.ui-corner-right {  -moz-border-radius-topright: 5px; -webkit-border-top-right-radius: 5px; border-top-right-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px; border-bottom-right-radius: 5px; }
+.ui-corner-left { -moz-border-radius-topleft: 5px; -webkit-border-top-left-radius: 5px; border-top-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px; border-bottom-left-radius: 5px; }
+.ui-corner-all { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; }
+
+/* Overlays */
+.ui-widget-overlay { background: #aaaaaa url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); }
+.ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: #aaaaaa url(/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; }/* Resizable
+----------------------------------*/
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 7px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}/* Accordion
+----------------------------------*/
+.ui-accordion .ui-accordion-header { cursor: pointer; position: relative; margin-top: 1px; zoom: 1; }
+.ui-accordion .ui-accordion-li-fix { display: inline; }
+.ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.ui-accordion .ui-accordion-header a { display: block; font-size: 1em; padding: .5em .5em .5em .7em; }
+/* IE7-/Win - Fix extra vertical space in lists */
+.ui-accordion a { zoom: 1; }
+.ui-accordion-icons .ui-accordion-header a { padding-left: 2.2em; }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; left: .5em; top: 50%; margin-top: -8px; }
+.ui-accordion .ui-accordion-content { padding: 1em 2.2em; border-top: 0; margin-top: -2px; position: relative; top: 1px; margin-bottom: 2px; overflow: auto; display: none; zoom: 1; }
+.ui-accordion .ui-accordion-content-active { display: block; }/* Autocomplete
+----------------------------------*/
+.ui-autocomplete { position: absolute; cursor: default; }	
+.ui-autocomplete-loading { background: white url('/project-web/ReportServer?op=resource&resource=/com/fr/web/core/css/redmond/images/ui-anim_basic_16x16.gif') right center no-repeat; }
+
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+/* Menu
+----------------------------------*/
+.ui-menu {
+	list-style:none;
+	padding: 2px;
+	margin: 0;
+	display:block;
+}
+.ui-menu .ui-menu {
+	margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+	margin:0;
+	padding: 0;
+	zoom: 1;
+	float: left;
+	clear: left;
+	width: 100%;
+}
+.ui-menu .ui-menu-item a {
+	text-decoration:none;
+	display:block;
+	padding:.2em .4em;
+	line-height:1.5;
+	zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active {
+	font-weight: normal;
+	margin: -1px;
+}
+/* Button
+----------------------------------*/
+
+.ui-button { display: inline-block; position: relative; padding: 0; margin-right: .1em; text-decoration: none !important; cursor: pointer; text-align: center; zoom: 1; overflow: visible; } /* the overflow property removes extra width in IE */
+.ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
+button.ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
+.ui-button-icons-only { width: 3.4em; } 
+button.ui-button-icons-only { width: 3.7em; } 
+
+/*button text element */
+.ui-button .ui-button-text { display: block; line-height: 1.4;  }
+.ui-button-text-only .ui-button-text { padding: .1em 1em; }
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
+.ui-button-text-icon .ui-button-text, .ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; }
+.ui-button-text-icons .ui-button-text { padding-left: 2.1em; padding-right: 2.1em; }
+/* no icon support for input elements, provide padding by default */
+input.ui-button { padding: .4em 1em; }
+
+/*button icon element(s) */
+.ui-button-icon-only .ui-icon, .ui-button-text-icon .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon { position: absolute; top: 50%; margin-top: -8px; }
+.ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
+.ui-button-text-icon .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
+.ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+
+/*button sets*/
+.ui-buttonset { margin-right: 7px; }
+.ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
+
+/* workarounds */
+button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra padding in Firefox */
+
+
+
+
+
+/* Dialog
+----------------------------------*/
+.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
+.ui-dialog .ui-dialog-titlebar { /*padding: .5em 1em .3em; */position: relative;  }
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .2em 0; } 
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.ui-dialog .ui-dialog-content { border: 0; padding: .5em 1em; background: none; overflow: auto; zoom: 1; }
+.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.ui-dialog .ui-dialog-buttonpane button { float: right; /*margin: .5em .4em .5em 0*/; cursor: pointer; /*padding: .2em .6em .3em .6em*/; line-height: 1.4em; width:auto; overflow:visible; }
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+/* Slider
+----------------------------------*/
+.ui-slider { position: relative; text-align: left; }
+.ui-slider .ui-slider-handle { position: absolute; z-index: 2; width: 1.2em; height: 1.2em; cursor: default; }
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { top: -.3em; margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }/* Tabs
+----------------------------------*/
+.ui-tabs { position: relative; padding: .2em; zoom: 1; } /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav { margin: 0;/* padding: .2em .2em 0; */}
+.ui-tabs .ui-tabs-nav li { list-style: none; float: left; position: relative; top: 1px; margin: 0 .2em 1px 0; border-bottom: 0 !important; padding: 0; white-space: nowrap; }
+.ui-tabs .ui-tabs-nav li a { float: left; padding: .1em 1em; text-decoration: none; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { margin-bottom: 0; padding-bottom: 1px; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel { display: block; border-width: 0; padding: .1em .2em; background: none; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+/* Datepicker
+----------------------------------*/
+.ui-datepicker { width: 17em; padding: .2em .2em 0; }
+.ui-datepicker .ui-datepicker-header { position:relative; padding:.2em 0; }
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next { position:absolute; top: 2px; width: 1.8em; height: 1.8em; }
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover { top: 1px; }
+.ui-datepicker .ui-datepicker-prev { left:2px; }
+.ui-datepicker .ui-datepicker-next { right:2px; }
+.ui-datepicker .ui-datepicker-prev-hover { left:1px; }
+.ui-datepicker .ui-datepicker-next-hover { right:1px; }
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 50%; margin-top: -8px;  }
+.ui-datepicker .ui-datepicker-title { margin: 0 2.3em; line-height: 1.8em; text-align: center; }
+.ui-datepicker .ui-datepicker-title select { font-size:1em; margin:1px 0; }
+.ui-datepicker select.ui-datepicker-month-year {width: 100%;}
+.ui-datepicker select.ui-datepicker-month, 
+.ui-datepicker select.ui-datepicker-year { width: 49%;}
+.ui-datepicker table {width: 100%; font-size: .9em; border-collapse: collapse; margin:0 0 .4em; }
+.ui-datepicker th { padding: .7em .3em; text-align: center; font-weight: bold; border: 0;  }
+.ui-datepicker td { border: 0; padding: 1px; }
+.ui-datepicker td span, .ui-datepicker td a { display: block; padding: .2em; text-align: right; text-decoration: none; }
+.ui-datepicker .ui-datepicker-buttonpane { background-image: none; margin: .7em 0 0 0; padding:0 .2em; border-left: 0; border-right: 0; border-bottom: 0; }
+.ui-datepicker .ui-datepicker-buttonpane button { float: right; margin: .5em .2em .4em; cursor: pointer; padding: .2em .6em .3em .6em; width:auto; overflow:visible; }
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current { float:left; }
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi { width:auto; }
+.ui-datepicker-multi .ui-datepicker-group { float:left; }
+.ui-datepicker-multi .ui-datepicker-group table { width:95%; margin:0 auto .4em; }
+.ui-datepicker-multi-2 .ui-datepicker-group { width:50%; }
+.ui-datepicker-multi-3 .ui-datepicker-group { width:33.3%; }
+.ui-datepicker-multi-4 .ui-datepicker-group { width:25%; }
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header { border-left-width:0; }
+.ui-datepicker-multi .ui-datepicker-buttonpane { clear:left; }
+.ui-datepicker-row-break { clear:both; width:100%; }
+
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl; }
+.ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}/* Progressbar
+----------------------------------*/
+.ui-progressbar { height:2em; text-align: left; }
+.ui-progressbar .ui-progressbar-value {margin: -1px; height:100%; }
+.menu{
+	position:absolute;
+	background:#f0f0f0 url('/project-web/ReportServer?op=resource&resource=com/fr/web/core/images/menu/menu.gif') repeat-y;
+	margin:0;
+	padding:2px;
+	border:1px solid #ccc;
+	overflow:hidden;
+}
+.menu-item{
+	position:relative;
+	margin:0;
+	padding:0;
+	height:22px;
+	line-height:20px;
+	overflow:hidden;
+	font-size:12px;
+	cursor:pointer;
+	border:1px solid transparent;
+}
+.menu-text{
+	position:absolute;
+	left:28px;
+	top:0px;
+}
+.menu-icon{
+	position:absolute;
+	width:16px;
+	height:16px;
+	top:3px;
+	left:2px;
+}
+.menu-rightarrow{
+	position: absolute;
+	width:4px;
+	height:7px;
+	top:7px;
+	right:5px;
+	background:url('/project-web/ReportServer?op=resource&resource=com/fr/web/images/menu/menu_rightarrow.png') no-repeat;
+}
+.menu-sep{
+	margin:3px 0px 3px 24px;
+	line-height:2px;
+	font-size:2px;
+	background:url('/project-web/ReportServer?op=resource&resource=com/fr/web/images/menu/menu_sep.png') repeat-x;
+}
+.menu-active{
+	border:1px solid #7eabcd;
+	background:#fafafa;
+	-moz-border-radius:3px;
+	-webkit-border-radius: 3px;
+}
+.menu-shadow{
+	position:absolute;
+	background:#ddd;
+	-moz-border-radius:5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+	filter: progid:DXImageTransform.Microsoft.Blur(pixelRadius=2,MakeShadow=false,ShadowOpacity=0.2);
+}
+
+/*FR.TabPane.css start*/
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .tabs-hide {
+        display: none;
+    }
+}
+
+/* Skin */
+.tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 4px;
+}
+.tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.tabs-nav li {
+    float: left;
+    margin: 0 0 0 1px;
+    min-width: 84px; /* be nice to Opera */
+}
+.tabs-nav a, .tabs-nav a span {
+    display: block;
+    padding: 0 10px;
+    background: url("/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tab.png") no-repeat;
+}
+.tabs-nav a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    padding-left: 0;
+    color: #27537a;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap; /* required in IE 6 */
+}
+.tabs-nav .tabs-selected a {
+    color: #000;
+}
+.tabs-nav .tabs-selected a, .tabs-nav a:hover, .tabs-nav a:focus, .tabs-nav a:active {
+    background-position: 100% -150px;
+    outline: 0; /* prevent dotted border in Firefox */
+}
+.tabs-nav a, .tabs-nav .tabs-disabled a:hover, .tabs-nav .tabs-disabled a:focus, .tabs-nav .tabs-disabled a:active {
+    background-position: 100% -100px;
+}
+.tabs-nav a span {
+    width: 64px; /* IE 6 treats width as min-width */
+    min-width: 64px;
+    height: 18px; /* IE 6 treats height as min-height */
+    min-height: 18px;
+    padding-top: 6px;
+    padding-right: 0;
+}
+*>.tabs-nav a span { /* hide from IE 6 */
+    width: auto;
+    height: auto;
+}
+.tabs-nav .tabs-selected a span {
+    padding-top: 7px;
+}
+.tabs-nav .tabs-selected a span, .tabs-nav a:hover span, .tabs-nav a:focus span, .tabs-nav a:active span {
+    background-position: 0 -50px;
+}
+.tabs-nav a span, .tabs-nav .tabs-disabled a:hover span, .tabs-nav .tabs-disabled a:focus span, .tabs-nav .tabs-disabled a:active span {
+    background-position: 0 0;
+}
+.tabs-nav .tabs-selected a:link, .tabs-nav .tabs-selected a:visited, .tabs-nav .tabs-disabled a:link, .tabs-nav .tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.tabs-nav a:hover, .tabs-nav a:focus, .tabs-nav a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.tabs-nav .tabs-disabled {
+    opacity: .4;
+}
+.tabs-container {
+    border-top: 1px solid #97a5b0;
+    overflow: auto;/*james:auto overflow*/
+    background: #fff; /* declare background color for container to avoid distorted fonts in IE while fading */
+}
+/*tooltip.css*/
+#tooltip{
+	position:absolute;
+	border:1px solid #333;
+	background:#f7f5d1;
+	padding:2px 5px;
+	color:#333;
+	display:none;
+}
+
+/*FR.TabPane.css end*/
+
+.x-text {
+	color: #555555;
+	border: 0 none #d3d3d3;
+	line-height: 18px;
+	cursor: pointer;
+	font-family:tahoma,verdana,helvetica;
+	font-size:12px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	margin:0;
+	outline-color:invert;
+	outline-style:none;
+	outline-width:0;
+	overflow:visible;
+	width:auto;	
+}
+
+/**
+ * loading-indicator
+ */
+.loading-indicator{
+	font-size:11px;
+	background-color:#F3F3F3;
+	background-image:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/loading.gif);
+	background-repeat:no-repeat;
+	background-position:left;
+	padding:5px 5px 5px 20px;
+	line-height:16px;
+	margin:3px;
+	border:1px solid #BCBCBC;
+}
+
+/*FRTextEditor css start*/
+.x-form-text {
+	padding-top:2px;padding-bottom:0;
+	height:18px;
+	line-height:18px;
+	vertical-align:middle;
+	padding:1px 3px;
+	border:1px solid #B5B8C8;
+}
+.x-form-text-focus {
+	padding-top:2px;padding-bottom:0;
+	height:18px;
+	line-height:18px;
+	vertical-align:middle;
+	padding:1px 3px;
+	border:1px solid #7EADD9;
+}
+.x-form-field {
+	margin:0;
+	font:normal 12px tahoma,arial,helvetica,sans-serif;
+}
+.x-form-invalid {
+	background:#FFFFFF url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/invalid_line.gif) repeat-x scroll center bottom;
+	border:1px solid #DD7870;
+}
+/*FRTextEditor css end*/
+
+/*FRComboBoxEditor css start*/
+.view-container {
+	position : absolute;
+	left : 0;
+	top : 0;
+	width : 0;
+	height : 0;
+	z-index : 1010; 
+}
+.x-combo-list {
+	background:#DDECFE none repeat scroll 0 0;
+	border:1px solid #98C0F4;
+	overflow:hidden;
+}
+.x-combo-list-inner {
+	background:white none repeat scroll 0 0;
+	overflow-x:hidden;
+	overflow-y:auto;
+	position:relative;
+}
+
+.x-combo-list-item {
+	-x-system-font:none;
+	font-family:tahoma,arial,helvetica,sans-serif;
+	font-size:12px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	overflow:hidden;
+	border:1px solid #FFFFFF;
+	/**padding:2px;**/
+	white-space:nowrap;
+}
+.x-combo-selected {
+	background:#DFE8F6 none repeat scroll 0 0;
+	border:1px dotted #A3BAE9 !important;
+	cursor:pointer;
+}
+.x-checkbox-control {
+	background:#58B3C9 none repeat scroll 0 0;
+	padding:0px 10px 1px 0px;
+	border:1px solid #DFE8F6;
+}
+
+/*FRComboBoxEditor css end*/
+
+/*FR.CheckBox start*/
+.x-checkbox-checkon {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/checkon.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+.x-checkbox-checkoff {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/checkoff.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+.x-checkbox-checkon-disable {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/checkon_disable.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+.x-checkbox-checkoff-disable {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/checkoff_disable.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+.x-fileupload {
+   background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/file/newFile.gif) no-repeat scroll left center;
+   border : 1px solid #000;
+}
+.x-treenode-expand {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/treenode-expand.gif) no-repeat scroll left center;
+  padding-left: 18px;
+}
+.x-treenode-unexpand {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/treenode-unexpand.gif) no-repeat scroll left center;
+  padding-left: 18px;
+}
+/*FR.CheckBox end*/
+
+/*FR.Radio start*/
+.x-radio-radioon {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/radioon.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+.x-radio-radiooff {
+	background: transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/radiooff.gif) no-repeat scroll left center;
+    padding-left: 18px;
+}
+/*FR.Radio end*/
+
+/* FR.ToolBar start */
+.x-toolbar {
+	background:#999999 url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/toolbar_bg.gif) scroll left top;
+	border-color:#D0D0D0;
+	/*
+	 * alex:在ie7里面,会因为x-toolbar的overflow-x是auto而导致横向滚动条的出现,在放大时尤其明显
+	 * 另外,overflow-y不能设置为hidden,因为toolbar里面的内容需要自适应高度
+	 */
+	overflow-x:hidden;
+}
+
+.x-toolbar td {
+	vertical-align : middle;
+}
+
+/* FR.Button start */
+/* !important alex://for ie, the button will be wider than the normal width*/
+* html body .x-btn-center button{width:1px;}
+
+.x-btn {
+	background: transparent;
+	color: #555555;
+	border: 0 none #d3d3d3;
+	cursor: pointer;
+	line-height: 18px;
+	font-family:tahoma,verdana,helvetica;
+	font-size:12px;
+	font-size-adjust:none;
+	font-stretch:normal;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+	margin:0;
+	outline-color:invert;
+	outline-style:none;
+	outline-width:0;
+	overflow:visible;
+	padding-left:0px;
+	padding-right:0px;
+	width:auto;	
+}
+
+.x-lab {
+	cursor : default;
+	margin-left : 2px;
+}
+
+.x-btn-text {
+	height:16px;
+	padding-top:2px;
+	padding-left:3px;
+	font-size:12px;
+	font-family:tahoma,verdana,helvetica;
+	white-space:nowrap;
+}
+
+.x-btn-image {
+	height:16px;
+	width:16px;
+}
+
+.x-btn-left {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/btn-sprite.gif) no-repeat 0 0;
+	height : 21px;
+	width : 3px;
+}
+.x-btn-right {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/btn-sprite.gif) no-repeat 0 -21px;
+	height : 21px;
+	width : 3px;
+}
+.x-btn-left, .x-btn-right {
+	font-size : 1px;
+	line-height : 1px;
+}
+.x-btn-center {
+	vertical-align : middle;
+	background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/btn-sprite.gif) repeat-x scroll 0 -42px;
+	cursor : pointer;
+	text-align : center;
+	vertical-align : middle;
+	white-space : nowrap;
+}
+.x-toolbar .x-btn-center {
+	vertical-align : middle;
+	background : none;
+	cursor : pointer;
+	text-align : center;
+	vertical-align : middle;
+	white-space : nowrap;
+}
+
+.x-toolbar .FR-Button-disabled .x-btn-center {
+	cursor : default;
+}
+
+.x-toolbar .x-btn-left {
+	background : transparent none repeat scroll 0 50%;
+}
+.x-toolbar .x-btn-right {
+	background : transparent none repeat scroll 0;
+}
+.x-toolbar .x-btn-over .x-btn-left {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) no-repeat scroll 0 0;
+}
+.x-btn-over .x-btn-left {
+	background-position : 0 -63px;
+}
+.x-toolbar .x-btn-over .x-btn-center {
+}
+.x-toolbar .x-btn-over .x-btn-center {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) repeat-x scroll 0 -42px;
+}
+.x-btn-over .x-btn-center {
+	background-position : 0 -105px;
+}
+.x-toolbar .x-btn-over .x-btn-right {
+}
+.x-toolbar .x-btn-over .x-btn-right {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) no-repeat scroll 0 -21px;
+}
+.x-btn-over .x-btn-right {
+background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/btn-sprite.gif) no-repeat;
+	background-position : 0 -84px;
+}
+.x-toolbar .x-btn-click .x-btn-left, .x-btn-click .x-btn-left {
+	background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) no-repeat scroll 0 -63px;
+}
+.x-toolbar .x-btn-click .x-btn-center, .x-btn-click .x-btn-center {
+	background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) repeat-x scroll 0 -105px;
+}
+.x-toolbar .x-btn-click .x-btn-right, .x-btn-click .x-btn-right {
+	background : transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/tb-btn-sprite.gif) no-repeat scroll 0 -84px;
+}
+
+.x-btn-icon {
+	background-position : center;
+	background-repeat : no-repeat;
+	height : 16px;
+	width : 16px;
+	white-space : nowrap;
+	padding : 0;
+}
+
+.FR-Button-disabled {
+}
+
+.FR-Button-disabled .x-btn {
+	cursor : default !important;
+}
+
+.FR-Button-disabled .x-btn-text {
+	color : gray !important;
+}
+
+.FR-MenuButton-disabled {
+}
+
+.FR-MenuButton-disabled .x-btn {
+	cursor : default !important;
+}
+
+.FR-MenuButton-disabled .x-btn-text {
+	color : gray !important;
+}
+
+/* FR.Button end */
+
+/* FR.ToolBar.sep start */
+.x-toolbar .sep {
+	background-image:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/toolbar_split.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+	display:block;
+	font-size:1px;
+	height:16px;
+	width:4px;
+	overflow:hidden;
+	cursor:default;
+	margin:0 2px 0;
+	border:0;
+}
+/* FR.ToolBar.sep end */
+
+/* Trigger start*/
+.x-trigger {
+	width:17px;
+	height:21px;
+	border:0;
+	background:transparent url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/trigger.gif) no-repeat 0 0;
+	cursor:pointer;
+	border-bottom:1px solid #B5B8C8;
+	position:absolute;
+	top:0;
+}
+.x-trigger-over {
+	background-position : -17px 0;
+}
+.x-trigger-click {
+	background-position : -34px 0;
+}
+/* Trigger end*/
+
+.x-group-box {
+/*		background-color : white;*/
+		overflow-x : auto;
+		overflow-y : auto;
+}
+
+.x-group-span {
+		margin-top : 1px;
+		margin-bottom : 1px;
+		margin-left : 5px;
+		display : inline-block;
+}
+
+.x-chart-img {
+	position:absolute;
+	z-index:5;
+	opacity:0.0;
+	background:#ffffff;
+	border:0;
+}
+
+.x-chart-topmenu{
+	position : absolute;
+	z-index : 20;
+	overflow : hidden;
+}
+
+.x-chart-topmenuitem{
+	background:#0078AE url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-menu1.png) repeat-x scroll 50% 50%;
+	color: #FFFFFF;
+	border:1px solid #79C9EC;
+	padding-left:10px;
+	padding-right:10px;
+	font-size:12px;
+	font-family:微软雅黑,tahoma,verdana,helvetica;
+	cursor:pointer;
+}
+
+.x-chart-menuitem-hover{
+	background:#79C9EC url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-menu2.png) repeat-x scroll 50% 50%;
+	border:1px solid #448DAE !important;
+	color:#026890 !important;
+}
+
+.x-chart-menuitem-visited{
+	background:#6EAC2C url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-menu3.png) repeat-x scroll 50% 50%;
+	border:1px solid #ACDD4A;
+	color:#FFFFFF;
+}
+
+.x-chart-menuitem-current{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/Spell.png) no-repeat scroll 2% 50%;
+}
+
+.x-chart-menuitem-current-msie6{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/Spell-ie6.png) no-repeat scroll 2% 50%;
+}
+
+.x-chart-topmenuitem-a {
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-drop-white.png) no-repeat scroll 100% 50%;
+	display:block;
+	text-decoration:none;
+}
+
+.x-chart-topmenuitem-a-hover {
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-drop-blue.png) no-repeat scroll 100% 50%;
+}
+
+.x-chart-topmenuitem-a-visited {
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-drop-yellow.png) no-repeat scroll 100% 50%;
+}
+
+.x-chart-topmenuitem-a-msie6 {
+	width:80px;
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/images/jquery/chart-drop.gif) no-repeat scroll 100% 50%;
+}
+
+.x-chart-menu {
+position:absolute;
+color:#00c;
+border:1px solid #A6C9E2;
+background-color:#fff;
+cursor:default;
+margin:0;
+padding:4px 0;
+outline:none;
+z-index:100
+}
+
+.x-chart-menuitem {
+border:1px solid white;
+margin:0px 5px;
+list-style:none;
+font-size:12px;
+font-family:微软雅黑,tahoma,verdana,helvetica;
+color:#000000;
+}
+
+.x-chart-menuitem-text{}
+
+.x-chart-table {
+  border-collapse:collapse;
+  table-layout:fixed;
+	border-spacing:0;
+}
+
+/* MessageBox start */
+
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 150px; /* Dialog will be no smaller than this */
+	max-width: 400px; /* Dialog will wrap after this width */
+	background: #F3F7FB;
+	border: solid 5px #CDDFEF;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 1.75em;
+	color: #666;
+	background: #E4ECF6 url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/title2.gif) top repeat-x;
+	cursor: default;
+	padding: 0 4px;
+	margin: 0em;
+}
+
+#popup_content {
+	background: 16px 16px no-repeat url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/info2.gif);
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.alert {
+	background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/info2.gif);
+}
+
+#popup_content.confirm {
+	background-image: url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/important2.gif);
+}
+
+#popup_content.prompt {
+	background-image: url(resources/help2.gif);
+}
+
+#popup_message {
+	padding-left: 38px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_panel input {
+	width:80px;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+
+/* MessageBox end */
+
+/* Borderlayout start*/
+.fr-split-ns{
+	background:#DFE8F6;
+	height:5px;
+	width:100%
+}
+
+.fr-split-ew{
+	background:#DFE8F6;
+	height:100%;
+	width:5px;
+}
+
+.fr-right{
+	float:right;
+}
+
+.fr-left{
+	float:left;
+}
+
+.fr-minimode-ns{
+	height:5px;
+	width:35px;
+	cursor:pointer;
+	position:absolute;
+	left:48%;
+	z-index:999999
+}
+
+.fr-minimode-ew{
+	height:35px;
+	width:5px;
+	cursor:pointer;
+	position:absolute;
+	top:48%;
+	z-index:999999
+}
+
+.fr-minimode-ns-bg-1{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/mini-bottom.gif) no-repeat;
+}
+
+.fr-minimode-ns-bg-2{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/mini-top.gif) no-repeat;
+}
+
+.fr-minimode-ew-bg-1{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/mini-left.gif) no-repeat;
+}
+
+.fr-minimode-ew-bg-2{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/mini-right.gif) no-repeat;
+}
+
+.collapseLabel{
+	background:#51B9CF;
+	border:1px solid #aaaaaa;
+	line-height:15px;
+	overflow:hidden;
+	padding:5px 3px 4px 5px
+}
+
+.collapseLabel-img{
+	float:right;
+	height:15px;
+	width:15px;
+	margin-left:2px;
+	cursor:pointer
+}
+
+.ns-img-1{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/tool-sprites.gif) no-repeat 0 -195px;
+}
+
+.ns-img-2{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/tool-sprites.gif) no-repeat 0 -210px;
+}
+
+.ew-img-1{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/tool-sprites.gif) no-repeat 0 -180px;
+}
+
+.ew-img-2{
+	background:url(/project-web/ReportServer?op=resource&resource=/com/fr/web/bmp/css/resources/tool-sprites.gif) no-repeat 0 -165px;
+}
+/* Borderlayout end*/

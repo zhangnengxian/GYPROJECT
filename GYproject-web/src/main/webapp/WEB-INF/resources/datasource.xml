@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DatasourceManager>
+<ConnectionMap>
+
+ <!--使用jndi方式访问数据库-->
+ <Connection name="reportcon" class="com.fr.data.impl.JNDIDatabaseConnection">
+<JNDIDatabaseAttr jndiName="jdbc/dbpool"></JNDIDatabaseAttr>
+</Connection>
+
+<!-- 通过jdbc方式访问数据库 -->
+<!--<Connection name="reportcon" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr />
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@192.168.10.15:1521:orcl" driver="oracle.jdbc.driver.OracleDriver" user="cqky100112" password="___0070003f00610076005500e5001b00260022007c"
+ encryptPassword="true" />
+</Connection>
+-->
+</ConnectionMap>
+
+
+</DatasourceManager>

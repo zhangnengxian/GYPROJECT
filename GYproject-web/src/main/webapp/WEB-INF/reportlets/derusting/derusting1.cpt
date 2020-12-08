@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='01']]></Query>
+</TableData>
+<TableData name="2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='02']]></Query>
+</TableData>
+<TableData name="3" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[00004201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='03']]></Query>
+</TableData>
+<TableData name="4" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='04']]></Query>
+</TableData>
+<TableData name="5" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='05']]></Query>
+</TableData>
+<TableData name="6" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select case when dp_method='1' then '逐根观察检查' when dp_method='2' then '尺量'  when dp_method='3' then '用弹簧秤测试' end,
+case when dp_result='1' then '合格' when dp_result='2' then '不合格' end from DERUSTING_PRESERVATIVE d where d.pc_id='${pcId}' and d.dp_Check_Item='06']]></Query>
+</TableData>
+<TableData name="7" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[201608132216040550101848277745]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from ANTISEPSIS_SPEC r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0]]></Query>
+</TableData>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url,s.field_name from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings orientation="1" isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.5905511811023623" left="0.5511811023622047" bottom="0.8661417322834646" right="0.8661417322834646" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,50,27,26,51,51,30,30,30,77,30,30,26,26,26,26,31,6,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[49,91,103,120,88,160,88,88,88,88,4,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="0" r="0" cs="3"><O><![CDATA[乌市管道天然气工程]]></O>
+</C>
+<C c="0" r="1" cs="10" s="0"><O><![CDATA[燃气管道除锈防腐质量检验评定表]]></O>
+</C>
+<C c="0" r="2" cs="7" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="工程名称：" + ($projName)]]></Attributes></O>
+</C>
+<C c="7" r="2" cs="3" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="报验日期：" + ($inspectionDate)]]></Attributes></O>
+</C>
+<C c="0" r="3" s="2"><O><![CDATA[序号]]></O>
+</C>
+<C c="1" r="3" cs="5" s="3"><O><![CDATA[检查项目及要求]]></O>
+</C>
+<C c="6" r="3" cs="2" s="3"><O><![CDATA[检查方法]]></O>
+</C>
+<C c="8" r="3" cs="2" s="4"><O><![CDATA[结果]]></O>
+</C>
+<C c="10" r="3" rs="14"></C>
+<C c="0" r="4" rs="2" s="5"><O t="I">1</O>
+</C>
+<C c="1" r="4" rs="2" s="6"><O><![CDATA[除锈]]></O>
+</C>
+<C c="2" r="4" s="6"><O><![CDATA[喷射]]></O>
+</C>
+<C c="3" r="4" cs="3" s="6"><O><![CDATA[表面无油脂、污垢、铁锈、等附着物、残留点状痕迹或条纹轻微色斑，要求达到Sa2.5级]]></O>
+</C>
+<C c="6" r="4" cs="2" s="6"><O t="DSColumn"><Attributes dsName="1" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="4" cs="2" s="7"><O t="DSColumn"><Attributes dsName="1" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="5" s="6"><O><![CDATA[人工]]></O>
+</C>
+<C c="3" r="5" cs="3" s="6"><O><![CDATA[表面无油脂、污垢、铁锈、氧化皮等附着物、残留点状轻微痕迹，要求达到St3级]]></O>
+</C>
+<C c="6" r="5" cs="2" s="6"><O t="DSColumn"><Attributes dsName="2" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="5" cs="2" s="7"><O t="DSColumn"><Attributes dsName="2" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="6" s="5"><O t="I">2</O>
+</C>
+<C c="1" r="6" s="6"><O><![CDATA[黑夹克]]></O>
+</C>
+<C c="2" r="6" cs="4" s="6"><O><![CDATA[防腐涂层表面平整、光滑、无皱褶和鼓泡、无破裂点]]></O>
+</C>
+<C c="6" r="6" cs="2" s="6"><O t="DSColumn"><Attributes dsName="3" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="6" cs="2" s="7"><O t="DSColumn"><Attributes dsName="3" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="7" rs="3" s="5"><O t="I">3</O>
+</C>
+<C c="1" r="7" rs="3" s="8"><O><![CDATA[聚乙烯胶带（应符合SY/T0414-2007的要求）]]></O>
+</C>
+<C c="2" r="7" cs="4" s="6"><O><![CDATA[缠带各卷间应平行，不得扭曲皱褶，带端压贴不得翘起]]></O>
+</C>
+<C c="6" r="7" cs="2" s="6"><O t="DSColumn"><Attributes dsName="4" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="7" cs="2" s="7"><O t="DSColumn"><Attributes dsName="4" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="8" cs="4" s="6"><O><![CDATA[搭接宽度符合设计要求，不得低于25mm]]></O>
+</C>
+<C c="6" r="8" cs="2" s="6"><O t="DSColumn"><Attributes dsName="5" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="8" cs="2" s="7"><O t="DSColumn"><Attributes dsName="5" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="9" cs="4" s="6"><O><![CDATA[剥离强度测试：将胶带用刀环向划开10 mm宽、长度大于100mm的胶粘带层，直至管体。然后用弹簧秤与管壁成90º角拉开，拉开速度应不大于300mm/min。剥离强度值应不低于20N/cm。]]></O>
+</C>
+<C c="6" r="9" cs="2" s="6"><O t="DSColumn"><Attributes dsName="6" columnName="CASEWHENDP_METHOD=&apos;1&apos;THEN&apos;逐根观察检查&apos;WHENDP_METHOD=&apos;2&apos;THEN&apos;尺量&apos;WHENDP_METHOD=&apos;3&apos;THEN&apos;用弹簧秤测试&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="9" cs="2" s="7"><O t="DSColumn"><Attributes dsName="6" columnName="CASEWHENDP_RESULT=&apos;1&apos;THEN&apos;合格&apos;WHENDP_RESULT=&apos;2&apos;THEN&apos;不合格&apos;END" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="10" s="5"><O t="I">4</O>
+</C>
+<C c="1" r="10" cs="2" s="6"><O><![CDATA[管道规格]]></O>
+</C>
+<C c="3" r="10" cs="7" rs="2" s="9"><O t="SubReport"><SubReportAttr extendOwnerParameter="true" />
+<packee class="com.fr.report.LinkReportTemplate"><Path><![CDATA[derusting/derusting1_son.cpt]]></Path>
+</packee><KVS>
+</KVS>
+</O>
+<Expand dir="1" />
+</C>
+<C c="0" r="11" s="5"><O t="I">5</O>
+</C>
+<C c="1" r="11" cs="2" s="6"><O><![CDATA[防腐数量]]></O>
+</C>
+<C c="0" r="12" s="5"><O t="I">6</O>
+</C>
+<C c="1" r="12" cs="2" s="6"><O><![CDATA[补口方法、数量]]></O>
+</C>
+<C c="3" r="12" cs="7" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[="人工补口 " + ($dpReplayNum) + " 道"]]></Attributes></O>
+</C>
+<C c="0" r="13" s="10"><O t="I">7</O>
+</C>
+<C c="1" r="13" cs="2" s="11"><O><![CDATA[检测电压及检测结果]]></O>
+</C>
+<C c="3" r="13" cs="7" s="12"><O t="Formula" class="Formula"><Attributes><![CDATA[=$dpKv]]></Attributes></O>
+</C>
+<C c="0" r="14" cs="5" s="5"><O t="Formula" class="Formula"><Attributes><![CDATA[="施工单位：" + ($constructionUnit)]]></Attributes></O>
+</C>
+<C c="5" r="14" cs="5" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[="监理单位：" + ($suName)]]></Attributes></O>
+</C>
+<C c="0" r="15" cs="2" s="13"><O><![CDATA[除锈负责人：]]></O>
+</C>
+<C c="2" r="15" s="14"><O t="DSColumn"><Attributes dsName="ds1" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[dpPrincipal]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[toimage($imgUrl + IMG_URL)]]></Result></O>
+</C>
+<C c="3" r="15" s="15"><O><![CDATA[质检员：]]></O>
+</C>
+<C c="4" r="15" s="14"><O t="DSColumn"><Attributes dsName="ds1" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[constructionQc]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[toimage($imgUrl + IMG_URL)]]></Result></O>
+</C>
+<C c="5" r="15" rs="2" s="16"><O><![CDATA[监理工程师：]]></O>
+</C>
+<C c="6" r="15" cs="4" rs="2" s="17"><O t="DSColumn"><Attributes dsName="ds1" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[suJgj]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[toimage($imgUrl + IMG_URL)]]></Result></O>
+</C>
+<C c="0" r="16" cs="2" s="18"><O><![CDATA[防腐负责人：]]></O>
+</C>
+<C c="2" r="16" s="19"><O t="DSColumn"><Attributes dsName="ds1" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[pPrincipal]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[toimage($imgUrl + IMG_URL)]]></Result></O>
+</C>
+<C c="3" r="16" s="20"><O><![CDATA[项目经理 ：]]></O>
+</C>
+<C c="4" r="16" s="19"><O t="DSColumn"><Attributes dsName="ds1" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[constructionPrincipal]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[toimage($imgUrl + IMG_URL)]]></Result></O>
+</C>
+<C c="0" r="17" cs="10"><O><![CDATA[       ]]></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0" paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="2" /><Bottom style="1" /><Left style="2" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="2" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="2" /><Bottom style="1" /><Left style="1" /><Right style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="2" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /><Right style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="2" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="2" /><Right style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="2" /><Left style="2" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="2" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8" spacingBefore="2" spacingAfter="4" lineSpacing="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="2" /><Left style="1" /></Border>
+</Style>
+</StyleList>
+</WorkBook>

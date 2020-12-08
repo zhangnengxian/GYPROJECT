@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<web-app version="2.5"  
+    xmlns="http://java.sun.com/xml/ns/javaee"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">  
+	<display-name>uexpress-web</display-name>
+	<!-- 指定业务层Spring容器的配置文件，多个用逗号隔开 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:config/spring-*.xml</param-value>
+	</context-param>
+	<!-- <context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>SmartMeter-web</param-value>
+	</context-param>
+	 -->
+	<!-- 通过contextConfigLocation指定的配置文件启动业务层的Spring容器 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- logback配置 -->
+	<context-param>
+		<param-name>logbackConfigLocation</param-name>
+		<param-value>classpath:/logback.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+	</listener>
+	<!-- 配置名为spring的DispatcherServlet，默认自动加载/WEB-INF/spring-servlet.xml的配置文件，启动Web层的Spring容器。 
+		一个web.xml可以配置多个DispatcherServlet -->
+	<!-- 这里，WEB层Spring容器将作为业务层Spring容器的子容器，即WEB层容器可以引用业务层容器的Bean，而业务层却不能访问WEB层容器的Bean -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- 指定使用类路径下的WEB层spring容器配置文件 -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:config/spring-mvc.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<!-- 指定DispatcherServlet处理所有URL以.html为后缀的HTTP请求 -->
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+	<!-- 配置cxfservlet -->    
+    <servlet>  
+           <servlet-name>CXFServlet</servlet-name>  
+           <display-name>CXFServlet</display-name>  
+           <servlet-class>  
+                  org.apache.cxf.transport.servlet.CXFServlet  
+           </servlet-class>  
+           <load-on-startup>1</load-on-startup>  
+     </servlet>  
+
+     <servlet-mapping>  
+            <servlet-name>CXFServlet</servlet-name>  
+            <url-pattern>/services/*</url-pattern>  
+     </servlet-mapping>   
+	<!-- Logback-classic带了一个叫ViewStatusMessagesServlet的Servlet， 它以HTML表格的格式打印与当前LoggerContext关联的StatusManager的内容 -->
+	<servlet>
+		<servlet-name>ViewStatusMessages</servlet-name>
+		<servlet-class>ch.qos.logback.classic.ViewStatusMessagesServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewStatusMessages</servlet-name>
+		<url-pattern>/showlog</url-pattern>
+	</servlet-mapping>
+	
+    <!-- 集成帆软 -->
+	<servlet>
+		<servlet-name>ReportServer</servlet-name>
+		<servlet-class>com.fr.web.ReportServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ReportServer</servlet-name>
+		<url-pattern>/ReportServer</url-pattern>
+	</servlet-mapping>
+	
+	
+	<!-- 集成帆软 -->
+	 
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>SpringOpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SpringOpenSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+	
+	<resource-ref>
+		<res-ref-name>jdbc/dbpool</res-ref-name>
+		<res-type>javax.sql.DataSource</res-type>
+		<res-auth>Container</res-auth>
+	</resource-ref>
+	
+</web-app>

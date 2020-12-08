@@ -1,0 +1,9 @@
+{"data":[
+{"date":"2016-4-3","mtype":"阀门","designquantities":"200个","receive":"50个","inpection":"","use":"","thistime":"50个"},
+{"date":"2016-4-7","mtype":"φ50mm钢管","designquantities":"2000m","receive":"","inpection":"100m","use":"","thistime":"100m"},
+{"date":"2016-4-9","mtype":"弯头","designquantities":"200个","receive":"","inpection":"","use":"50个","thistime":"50个"},
+{"date":"2016-5-3","mtype":"三通","designquantities":"100个","receive":"","inpection":"","use":"40个","thistime":"40个"},
+{"date":"2016-5-6","mtype":"三通","designquantities":"100个","receive":"","inpection":"","use":"50个","thistime":"50个"},
+{"date":"2016-6-3","mtype":"弯头","designquantities":"200个","receive":"","inpection":"50个","use":"","thistime":"50个"},
+{"date":"2016-6-7","mtype":"阀门","designquantities":"200个","receive":"","inpection":"60个","use":"","thistime":"60个"}
+]}

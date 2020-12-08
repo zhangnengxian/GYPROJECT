@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+	<title>工程系统运行管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<link href="assets/css/animate.min.css" rel="stylesheet" />
+	<link href="assets/css/style.min.css" rel="stylesheet" />
+	<link href="assets/css/style-responsive.min.css" rel="stylesheet" />
+	<link href="assets/css/theme/default.css" rel="stylesheet" id="theme" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<script src="assets/plugins/jquery/jquery-1.9.1.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("body").addClass(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Mobile Safari|Opera Mini/i.test(navigator.userAgent) ? "isMobile" : "isPC");
+		});
+	</script>
+	
+	<!-- ================== 开始 云服务框架更新样式 ================== -->
+    <link href="css/login.css" rel="stylesheet" type="text/css"/>
+    <!-- ================== 结束 云服务框架更新样式 ================== -->
+</head>
+<body class="bg-white">
+	<!-- begin #page-container -->
+	<div id="page-container" class="ucenter">
+	    <!-- begin login -->
+        <div class="login">
+            <!-- begin login-content -->
+            <div class="login-content">
+<!--             	<h3>控制面板登入 - 工程管理系统</h3> -->
+                <form action="index.html" method="POST" id="loginForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="loginAccount" name="loginAccount" placeholder="管理员账号" />
+                    </div>
+                    <div class="form-group m-b-15">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="管理员密码" />
+                    </div>
+                    <div class="login-buttons">
+                        <button type="button" class="btn btn-success btn-block">立即登入</button>
+                    </div>
+                </form>
+            </div>
+            <!-- end login-content -->
+        </div>
+        <!-- end login -->
+        <p class="text-center text-inverse copyright">
+            &copy; 工程管理系统  版权所有 2016
+        </p>
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+	<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+	<!--[if lt IE 9]>
+		<script src="assets/crossbrowserjs/html5shiv.js"></script>
+		<script src="assets/crossbrowserjs/respond.min.js"></script>
+		<script src="assets/crossbrowserjs/excanvas.min.js"></script>
+	<![endif]-->
+	<!-- ================== END BASE JS ================== -->
+
+	<script>
+		
+		var firstEnter = 1,
+		btn = $(".login-buttons .btn"),
+		url = window.location.href.replace("admin-login.html","");
+		
+		$("body").on("keyup",function(){
+			if (event.keyCode == '13') {
+				btn.click();
+			}
+		});
+		
+		$("#loginAccount, #password").keyup(function(){
+			btn.removeClass("btn-warning btn-danger").text("立即登入");
+		});
+		btn.on("click",function(){
+			
+			var t = $(this);
+			t.text("登录中...");
+			var login_data = $("#loginForm").serialize();
+			if ($("#loginAccount").val() === "") {
+				t.text('请输入管理员账号!').addClass("btn-warning");
+				$("#loginAccount").focus();
+				return;
+			}
+			if ($("#password").val() === "") {
+				if(firstEnter){
+					$("#password").focus();
+					firstEnter = 0;
+					setTimeout(function(){t.click();},50);
+				}else{
+					t.text('请输入管理员密码!').addClass("btn-warning");
+					$("#password").focus();
+				}
+				return;
+			}
+			
+			$.ajax({
+				url: "login/login",
+				type: "post",
+	            data: login_data,
+	            dataType: 'json',
+	            success: function(data) {
+	            	//console.info(data);
+	            	if(data.resultCode == "0000"){
+	    				$("#password").blur();
+	    				t.text('登录成功, 页面跳转中...').addClass("btn-success");
+	            		setTimeout(function(){
+	                		window.location.href = url + "admin-index.jsp";
+	                	},1000);
+	            	}else{
+	            		t.text(data.resultMsg).addClass("btn-warning");
+	            	}
+	            },
+	            error: function(jqXHR, textStatus, errorThrown) {
+	            	console.info(jqXHR);
+	            	console.info(textStatus);
+	            	console.info(errorThrown);
+	            	t.text('登录失败, 请重试!').addClass("btn-danger");
+	            }
+			});
+		});
+	</script>
+</body>
+</html>

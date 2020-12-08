@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="condition" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select c.MANAGEMENT_OFFICE 施工部门,count(s.proj_id) 工程数量,max(c.CONTRACT_AMOUNT) 合同值,
+sum(case when s.PROJ_LTYPE_ID = '11' then s.HOUSE_NUM end) 民用户数,
+sum(case when s.PROJ_STYPE_ID = '1201' then s.SEAR_NUM end) 餐厅座数,
+sum(case when s.PROJ_STYPE_ID = '1201' then s.GAS_CONSUMPTION end) 餐厅用气量,
+sum(case when s.PROJ_STYPE_DES like '%锅炉(座)' then s.SEAR_NUM end) 锅炉座数,
+sum(case when s.PROJ_STYPE_DES like '%锅炉(座)' then s.GAS_CONSUMPTION end) 锅炉用气量
+from CONSTRUCTION_PLAN c left join SCALE_DETAIL s on c.proj_id=s.proj_id
+where c.MANAGEMENT_OFFICE is not null ${condition}
+group by c.MANAGEMENT_OFFICE 
+order by c.MANAGEMENT_OFFICE]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select concat('制表时间：',CONVERT(STR_TO_DATE(now(),'%Y-%m-%d %H:%i:%s'),char)) as 制表时间]]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings orientation="1" isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.3937007874015748" left="0.8661417322834646" bottom="0.3937007874015748" right="0.8661417322834646" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[36,24,36,24,24,19,19,19,19,19,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[3,40,117,173,97,82,84,129,81,131,3,70,155,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="9" s="0"><O><![CDATA[各施工分部工程安排情况]]></O>
+</C>
+<C c="1" r="1" cs="2" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="制表人：" + $staffName]]></Attributes></O>
+</C>
+<C c="3" r="1" cs="7" s="2"><O t="DSColumn"><Attributes dsName="ds2" columnName="制表时间" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="0" r="2" s="3"></C>
+<C c="1" r="2" s="4"><O><![CDATA[序号]]></O>
+</C>
+<C c="2" r="2" s="5"><O><![CDATA[施工部门]]></O>
+</C>
+<C c="3" r="2" s="5"><O><![CDATA[安排施工计划数量（项）]]></O>
+</C>
+<C c="4" r="2" s="5"><O><![CDATA[合同值(元)]]></O>
+</C>
+<C c="5" r="2" s="5"><O><![CDATA[民用户数]]></O>
+</C>
+<C c="6" r="2" s="5"><O><![CDATA[餐厅（座）]]></O>
+</C>
+<C c="7" r="2" s="5"><O><![CDATA[餐厅用气量Nm3/h]]></O>
+</C>
+<C c="8" r="2" s="5"><O><![CDATA[锅炉(台)]]></O>
+</C>
+<C c="9" r="2" s="6"><O><![CDATA[锅炉用气量Nm3/h]]></O>
+</C>
+<C c="10" r="2" s="7"></C>
+<C c="0" r="3" s="3"></C>
+<C c="1" r="3" s="8"><O t="Formula" class="Formula"><Attributes><![CDATA[=IF(len(C4) == 0, "", seq())]]></Attributes></O>
+<Expand dir="0" leftParentDefault="false" left="C4" />
+</C>
+<C c="2" r="3" s="9"><O t="DSColumn"><Attributes dsName="ds1" columnName="施工部门" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="3" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="工程数量" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="3" s="11"><O t="DSColumn"><Attributes dsName="ds1" columnName="合同值" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="5" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="民用户数" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="6" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="餐厅座数" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="7" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="餐厅用气量" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="3" s="10"><O t="DSColumn"><Attributes dsName="ds1" columnName="锅炉座数" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="9" r="3" s="12"><O t="DSColumn"><Attributes dsName="ds1" columnName="锅炉用气量" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="10" r="3" s="7"></C>
+<C c="1" r="4" cs="9" s="13"><O><![CDATA[]]></O>
+</C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Left style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="5" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<Format class="java.text.DecimalFormat"><![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="1" color="-8355712"
+ /></Border>
+</Style>
+<Style horizontal_alignment="4" paddingLeft="8" paddingRight="8">
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-8355712"
+ /><Bottom style="1" color="-8355712"
+ /><Left style="1" color="-8355712"
+ /><Right style="5" color="-8355712"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="5" color="-8355712"
+ /></Border>
+</Style>
+</StyleList>
+</WorkBook>

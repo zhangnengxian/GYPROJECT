@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkBook>
+<Version>6.5</Version>
+<XMLVersion>20091127</XMLVersion>
+<TableDataMap>
+<TableData name="ds1" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[SELECT * FROM (select ROWNUM rn,r.* from control_Debugging r where  r.pc_id = '${pcId}' and ROWNUM>0) WHERE RN>0]]></Query>
+</TableData>
+<TableData name="ds2" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="pcId" />
+<O><![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1" />
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName><![CDATA[reportcon]]></DatabaseName>
+</Connection><Query><![CDATA[select s.img_url,s.field_name from signature s where s.business_order_id='${pcId}']]></Query>
+</TableData>
+</TableDataMap>
+<ReportSettings isHorizontalCenterOnPage="true" headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.7499999999999999" bottom="0.27" right="0.7499999999999999" />
+</ReportSettings>
+<ReportParameterAttr>
+<Attributes showWindow="false" delayPlaying="true" windowPosition="1" align="1" />
+<PWTitle><![CDATA[参数]]></PWTitle>
+</ReportParameterAttr>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75" />
+</ReportSettings>
+<ReportPageAttr>
+</ReportPageAttr>
+<ReportWebAttr>
+<WebPageContent>
+<ToolBars>
+<ToolBarManager><Location>
+<Embed position="1"/>
+</Location>
+<ToolBar><Widget class="com.fr.report.web.ui.impl.page.First">
+<WidgetAttr disabled="true"/>
+<Text>首页</Text><IconName>first</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Previous">
+<WidgetAttr disabled="true"/>
+<Text>上一页</Text><IconName>previous</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.PageNavi">
+<WidgetAttr/>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Next">
+<WidgetAttr disabled="true"/>
+<Text>下一页</Text><IconName>next</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.page.Last">
+<WidgetAttr disabled="true"/>
+<Text>末页</Text><IconName>last</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.PageSetup">
+<WidgetAttr disabled="true"/>
+<Text>页面设置</Text><IconName>pagesetup</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.FlashPrint">
+<WidgetAttr disabled="true"/>
+<Text>打印[客户端]A</Text><IconName>flashprint</IconName>
+</Widget>
+<Widget class="com.fr.report.web.ui.impl.Export">
+</Widget>
+</ToolBar>
+</ToolBarManager></ToolBars>
+<WebPage isPage="true"/>
+<WebMargin margins="0,auto,0,auto" />
+</WebPageContent>
+<Background name="NullBackground" />
+</ReportWebAttr>
+<Header reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground" />
+<LeftList>
+</LeftList>
+<CenterList>
+</CenterList>
+<RightList>
+</RightList>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,37,35,40,40,40,40,40,40,40,29,161,143,70,40,39,5,19]]>
+</RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[3,55,33,95,84,87,87,117,75,8,72]]>
+</ColumnWidth>
+<CellElementList>
+<C c="1" r="0" cs="5"><O><![CDATA[乌市管道天然气工程]]></O>
+</C>
+<C c="6" r="0" cs="3"><O><![CDATA[]]></O>
+<CellGUIAttr previewContent="false" ></CellGUIAttr><CellInsertPolicy></CellInsertPolicy></C>
+<C c="1" r="1" cs="8" s="0"><O><![CDATA[可燃气体报警控制系统调试记录]]></O>
+</C>
+<C c="1" r="2" cs="8" s="1"><O t="Formula" class="Formula"><Attributes><![CDATA[="调试日期：" + $debugDate]]></Attributes></O>
+</C>
+<C c="1" r="3" cs="2" s="2"><O><![CDATA[工程名称]]></O>
+</C>
+<C c="3" r="3" cs="2" s="3"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projName]]></Attributes></O>
+</C>
+<C c="5" r="3" s="4"><O><![CDATA[工程地址]]></O>
+</C>
+<C c="6" r="3" cs="3" s="5"><O t="Formula" class="Formula"><Attributes><![CDATA[=$projAddr]]></Attributes></O>
+</C>
+<C c="9" r="3" rs="2"></C>
+<C c="1" r="4" cs="2" s="6"><O><![CDATA[调试单位]]></O>
+</C>
+<C c="3" r="4" cs="2" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=$constructionUnit]]></Attributes></O>
+<Expand dir="0" />
+</C>
+<C c="5" r="4" s="8"><O><![CDATA[建设单位]]></O>
+</C>
+<C c="6" r="4" cs="3" s="9"><O t="Formula" class="Formula"><Attributes><![CDATA[=$custName]]></Attributes></O>
+</C>
+<C c="1" r="5" cs="2" s="10"><O><![CDATA[施工单位]]></O>
+</C>
+<C c="3" r="5" cs="2" s="7"><O t="Formula" class="Formula"><Attributes><![CDATA[=$constructionUnit]]></Attributes></O>
+</C>
+<C c="5" r="5" s="8"><O><![CDATA[设计单位]]></O>
+</C>
+<C c="6" r="5" cs="3" s="9"><O t="Formula" class="Formula"><Attributes><![CDATA[=$designUnit]]></Attributes></O>
+</C>
+<C c="1" r="6" s="10"><O><![CDATA[层段]]></O>
+</C>
+<C c="2" r="6" cs="2" s="8"><O><![CDATA[设备名称型号]]></O>
+</C>
+<C c="4" r="6" s="8"><O><![CDATA[数量]]></O>
+</C>
+<C c="5" r="6" s="8"><O><![CDATA[编号]]></O>
+</C>
+<C c="6" r="6" s="8"><O><![CDATA[出厂年月]]></O>
+</C>
+<C c="7" r="6" s="8"><O><![CDATA[生产厂家]]></O>
+</C>
+<C c="8" r="6" s="11"><O><![CDATA[备注]]></O>
+</C>
+<C c="1" r="7" rs="3" s="12"><O><![CDATA[工程主要设备]]></O>
+</C>
+<C c="2" r="7" cs="2" s="13"><O t="DSColumn"><Attributes dsName="ds1" columnName="EQUIPMENT_NAME_TYPE" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="4" r="7" s="13"><O t="DSColumn"><Attributes dsName="ds1" columnName="CD_NUM" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="5" r="7" s="13"><O t="DSColumn"><Attributes dsName="ds1" columnName="CD_NO" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="6" r="7" s="13"><O t="DSColumn"><Attributes dsName="ds1" columnName="LEAVE_FACTORY_DATE" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="7" r="7" s="13"><O t="DSColumn"><Attributes dsName="ds1" columnName="MANUFACTURE_FACTORY" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="8" r="7" s="14"><O t="DSColumn"><Attributes dsName="ds1" columnName="NOTE" />
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+</O>
+<Expand dir="0" />
+</C>
+<C c="2" r="8" cs="2" s="15"></C>
+<C c="4" r="8" s="15"></C>
+<C c="5" r="8" s="15"></C>
+<C c="6" r="8" s="15"></C>
+<C c="7" r="8" s="15"></C>
+<C c="8" r="8" s="16"></C>
+<C c="2" r="9" cs="2" s="15"></C>
+<C c="4" r="9" s="15"></C>
+<C c="5" r="9" s="15"></C>
+<C c="6" r="9" s="15"></C>
+<C c="7" r="9" s="15"></C>
+<C c="8" r="9" s="16"></C>
+<C c="1" r="10" cs="8" s="17"><O><![CDATA[测试结果施工有无遗留问题：]]></O>
+</C>
+<C c="1" r="11" cs="8" s="18"><O t="Formula" class="Formula"><Attributes><![CDATA[=$remainingProblems]]></Attributes></O>
+</C>
+<C c="1" r="12" s="19"><O><![CDATA[系统调试情况]]></O>
+</C>
+<C c="2" r="12" cs="7" s="20"><O t="Formula" class="Formula"><Attributes><![CDATA[=$debugDes]]></Attributes></O>
+</C>
+<C c="1" r="13" cs="2" s="21"><O><![CDATA[调试人员]]></O>
+</C>
+<C c="3" r="13" cs="3" s="22"><O t="DSColumn"><Attributes dsName="ds2" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[debugger]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE(imgUrl + IMG_URL)]]></Result></O>
+<Expand dir="0" />
+</C>
+<C c="6" r="13" cs="3" s="23"><O t="Formula" class="Formula"><Attributes><![CDATA[="监理单位:" + $suName]]></Attributes></O>
+</C>
+<C c="1" r="14" cs="2" s="24"><O><![CDATA[技术员]]></O>
+</C>
+<C c="3" r="14" cs="3" s="25"><O t="DSColumn"><Attributes dsName="ds2" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[technician]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE(imgUrl + IMG_URL)]]></Result></O>
+<Expand extendable="3" />
+</C>
+<C c="6" r="14" s="26"><O><![CDATA[监理工程师]]></O>
+</C>
+<C c="7" r="14" cs="2" s="27"><O t="DSColumn"><Attributes dsName="ds2" columnName="FIELD_NAME" />
+<Condition class="com.fr.data.condition.CommonCondition"><CNAME><![CDATA[FIELD_NAME]]></CNAME><Compare op="0">
+<O><![CDATA[suJgj]]></O>
+</Compare>
+</Condition>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+</RG>
+<Result><![CDATA[TOIMAGE(imgUrl + IMG_URL)]]></Result></O>
+<Expand extendable="3" />
+</C>
+<C c="1" r="15" cs="8" s="28"><O><![CDATA[备注：检查设备的规格、数量、型号、布线、接线、接地、绝缘、电源等，具备调试条件，可进行调试]]></O>
+</C>
+<C c="1" r="16" cs="8"></C>
+</CellElementList>
+</Report>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="21" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style horizontal_alignment="4" paddingRight="4">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="2" color="-16777216"
+ /><Bottom style="1" color="-16777216"
+ /><Left style="2" color="-16777216"
+ /><Right style="1" color="-16777216"
+ /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="2" color="-16777216"
+ /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="2" color="-16777216"
+ /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="2" color="-16777216"
+ /><Bottom style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" color="-16777216"
+ /><Bottom style="1" color="-16777216"
+ /><Left style="2" color="-16777216"
+ /><Right style="1" color="-16777216"
+ /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" color="-16777216"
+ /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="15" paddingRight="15">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="2" color="-16777216"
+ /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="12" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Bottom style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="2" color="-16777216"
+ /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="2" color="-16777216"
+ /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style horizontal_alignment="0" paddingLeft="15" paddingRight="15">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="2" color="-16777216"
+ /><Right style="1" /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style vertical_alignment="1" paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style vertical_alignment="1">
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Right style="1" /></Border>
+</Style>
+<Style vertical_alignment="1">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Top style="1" /><Left style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style paddingLeft="8">
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Left style="1" /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="14" />
+<Background name="NullBackground" />
+<Border><Bottom style="1" /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+<Style>
+<FRFont name="SimSun" style="0" size="16" />
+<Background name="NullBackground" />
+<Border><Bottom style="2" color="-16777216"
+ /><Left style="2" color="-16777216"
+ /><Right style="2" color="-16777216"
+ /></Border>
+</Style>
+</StyleList>
+</WorkBook>

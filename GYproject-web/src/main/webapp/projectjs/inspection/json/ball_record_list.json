@@ -1,0 +1,15 @@
+{
+    "data": [
+        {
+        	"ballNumber": "1",
+            "riserReducing": "1",
+            "segmentLen": "10",
+            "ballDiameter": "100"
+        } ,{
+            "ballNumber": "2",
+            "riserReducing": "1",
+            "segmentLen": "10",
+            "ballDiameter": "100"
+        }     
+    ]
+}

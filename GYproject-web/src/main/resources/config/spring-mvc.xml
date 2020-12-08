@@ -1,0 +1,162 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:tool="http://www.springframework.org/schema/tool"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/tx
+		http://www.springframework.org/schema/tx/spring-tx.xsd
+		http://www.springframework.org/schema/tool
+		http://www.springframework.org/schema/tool/spring-tool.xsd">
+		
+	<!-- 自动扫描的包名 -->
+	<context:component-scan base-package="
+					cc.dfsoft.uexpress.biz.sys.dept.controller,
+					cc.dfsoft.uexpress.biz.sys.auth.controller,
+					cc.dfsoft.project.biz.base.*.controller,
+					cc.dfsoft.project.biz.ifs.finance.service.impl" />
+					
+
+	<!-- 默认的注解映射的支持 -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<!-- 国际化信息所在的文件名 -->
+		<property name="basename" value="locale.messages" />
+		<!-- 如果在国际化资源文件中找不到对应代码的信息，就用这个代码作为名称 -->
+		<property name="useCodeAsDefaultMessage" value="true" />
+	</bean>
+   
+	<!-- 视图控制类 -->
+	<!-- mvc:view-controller path="/" view-name="index"/ -->
+
+	<!-- 视图解释类 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<!-- <property name="prefix" value="/WEB-INF/pages/" />  -->
+		<property name="suffix" value=".jsp" /><!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+	</bean>
+
+
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/login/getKey"/>
+		    <mvc:exclude-mapping path="/login/login"/>
+		    <mvc:exclude-mapping path="/login.html"/>
+		    <mvc:exclude-mapping path="/admin-login.html"/>  
+		    <mvc:exclude-mapping path="/css/**"/>
+		    <mvc:exclude-mapping path="/projectjs/**"/>
+		    <mvc:exclude-mapping path="/images/**"/>
+		    <mvc:exclude-mapping path="/js/**"/>
+		    <mvc:exclude-mapping path="/assets/**"/>
+		    <mvc:exclude-mapping path="/font/**"/>
+		    <mvc:exclude-mapping path="/projectTotalStatistics/**"/>
+		    <mvc:exclude-mapping path="/completionDataScanning/**"/>
+		     <mvc:exclude-mapping path="/accessoryCollect/**"/>
+			<mvc:exclude-mapping path="/oAWebService/**"/>
+			<bean class="cc.dfsoft.uexpress.biz.sys.auth.AuthInterceptor" />
+		</mvc:interceptor>
+		<!-- 更新请求是否重复拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<mvc:exclude-mapping path="/login/getKey"/>
+			<mvc:exclude-mapping path="/login/login"/>
+			<mvc:exclude-mapping path="/login.html"/>
+			<mvc:exclude-mapping path="/admin-login.html"/>
+			<mvc:exclude-mapping path="/css/**"/>
+			<mvc:exclude-mapping path="/projectjs/**"/>
+			<mvc:exclude-mapping path="/images/**"/>
+			<mvc:exclude-mapping path="/js/**"/>
+			<mvc:exclude-mapping path="/assets/**"/>
+			<mvc:exclude-mapping path="/font/**"/>
+			<mvc:exclude-mapping path="/projectTotalStatistics/**"/>
+			<mvc:exclude-mapping path="/completionDataScanning/**"/>
+			<mvc:exclude-mapping path="/accessoryCollect/**"/>
+			<mvc:exclude-mapping path="/notice/**"/>
+			<bean class="cc.dfsoft.uexpress.biz.sys.auth.updateCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+
+	<!-- 对静态资源文件的访问 方案一 （二选一） 一般Web应用服务器默认的Servlet名称是"default"，因此DefaultServletHttpRequestHandler可以找到它。 
+		如果你所有的Web应用服务器的默认Servlet名称不是"default"，则需要通过default-servlet-name属性显示指定： -->
+	<!-- mvc:default-servlet-handler default-servlet-name="所使用的Web服务器默认使用的Servlet名称" 
+		/ -->
+	<!-- 对静态资源文件的访问 方案二 （二选一） -->
+	<mvc:resources mapping="/*" location="/" cache-period="31556926" />
+	<mvc:resources mapping="/resources/**" location="/resources/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/ext/**" location="/ext/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/font/**" location="/font/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/js/**" location="/js/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/css/**" location="/css/"
+		cache-period="31556926" />
+	<mvc:resources mapping="/images/**" location="/images/"
+		cache-period="31556926" />
+
+	<!-- 全局异常处理-->
+	<bean id="handlerExceptionResolver" class="cc.dfsoft.uexpress.common.exception.ExpressExceptionResolver"></bean>
+	<!-- <bean id="exceptionResolver"
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView">
+			<value>error</value>
+		</property>
+		<property name="defaultStatusCode">
+			<value>500</value>
+		</property>
+		<property name="warnLogCategory">
+			<value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver
+			</value>
+		</property>
+	</bean> -->
+	 <bean id="multipartResolver" class="cc.dfsoft.uexpress.common.controller.MyMultipartResolver">
+		<property name="excludeUrls">
+		  <list>
+                <value>/accessoryCollect/uploadPhoto</value>            
+           </list>
+		</property>
+		<!-- url中带有example的http请求就不会被multipartResolver先解析-->
+	 </bean>
+
+	<!--配置注解驱动-->
+	<mvc:annotation-driven/>
+	<!-- 开启AOP代理模式-->
+	<aop:aspectj-autoproxy expose-proxy="true"  proxy-target-class="true"/>
+</beans>
